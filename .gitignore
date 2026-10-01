@@ -1,0 +1,9 @@
+# Raw downloads (6.4 GB) — re-create with scripts/download.py
+data/raw/*
+!data/raw/sources.csv
+!data/raw/financials/
+*.part
+
+__pycache__/
+.DS_Store
+~$*
