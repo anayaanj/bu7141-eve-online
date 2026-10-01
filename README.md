@@ -26,6 +26,23 @@ cd bu7141-eve-online
 export CONTACT_EMAIL=you@tcd.ie   # CCP asks API users to include a contact
 ```
 
+## How to make changes
+
+`main` is protected: nobody can push to it directly, admins included. Every change goes through a pull request that **one other teammate** approves.
+
+```bash
+git checkout main && git pull
+git checkout -b your-name/short-description   # e.g. maria/erd-draft
+# ...make your changes...
+git add <files> && git commit -m "Describe the change"
+git push -u origin HEAD
+gh pr create --fill                            # or open the PR on github.com
+```
+
+- You can't approve your own pull request. Ask a teammate to review it.
+- If you push new commits after an approval, the approval resets and the PR needs a fresh review.
+- Resolve every review comment before merging.
+
 ## Get the raw data
 
 Run each command from the repo root. Each one skips files you already have, so if one stops, run it again.
