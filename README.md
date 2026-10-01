@@ -12,6 +12,7 @@ data/raw/sources.csv      log of every downloaded file: URL, date, size, sha256
 data/raw/financials/      CCP and Pearl Abyss reports (committed: hard to re-fetch)
 data/raw/<everything else> not in git (6.4 GB): re-create with the script
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
+docs/eve-online-brief.pdf one-page team brief: sources, KPI coverage, caveats
 data-sourcing-guide.docx  the assignment's data sourcing guide
 ```
 
