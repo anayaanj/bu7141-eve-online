@@ -1,0 +1,23 @@
+# Local PostgreSQL for the project. Start: docker compose up -d
+# On first start (empty volume) it creates every table from db/schema.sql.
+name: bu7141-eve
+
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: eve
+      POSTGRES_USER: eve
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-eve}
+    ports:
+      - "127.0.0.1:5433:5432"   # localhost only; 5433 avoids clashing with a local PostgreSQL
+    volumes:
+      - pgdata:/var/lib/postgresql
+      - ./db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U eve -d eve"]
+      interval: 5s
+      retries: 10
+
+volumes:
+  pgdata:
