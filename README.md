@@ -45,16 +45,15 @@ gh pr create --fill                            # or open the PR on github.com
 
 ## ERD
 
-- **View:** https://dbdiagram.io/d/6abf9f99abcc87fb7ad472c6
-- **Source:** `docs/erd.dbml`. The repo is linked to the diagram in `.dbdiagram/settings.json`.
-- **Setup once:** `npm install -g dbdiagram`, then `dbdiagram auth login`.
+- **View (read-only):** https://dbdiagram.io/d/6abf9f99abcc87fb7ad472c6
+- **Source of truth:** `docs/erd.dbml`. The diagram is updated **only** from `main`: when a pull request that changes the ERD is merged, GitHub Actions pushes it to dbdiagram (`.github/workflows/erd.yml`).
 
-| You changed… | Run | Then |
-|---|---|---|
-| the diagram on dbdiagram.io | `dbdiagram pull` | Commit `docs/erd.dbml` on a branch and open a pull request |
-| `docs/erd.dbml` locally | `dbdiagram validate`, then `dbdiagram push` | Open a pull request |
+To change the ERD:
+1. Edit `docs/erd.dbml` on a branch. To preview, paste it into a new diagram on dbdiagram.io (not the shared one).
+2. Open a pull request. The ERD check validates the DBML.
+3. Once it's approved and merged, the shared diagram updates automatically.
 
-Pull before you edit, so you don't overwrite someone else's changes on the diagram.
+Don't edit the shared diagram on dbdiagram.io or run `dbdiagram push` yourself: the next merge overwrites those changes.
 
 ## Get the raw data
 
