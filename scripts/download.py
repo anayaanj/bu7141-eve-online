@@ -1,6 +1,6 @@
 """Download raw EVE Online data sources into data/raw/ and log each file in sources.csv.
 
-Usage: python scripts/download.py {killmails|characters|market|mer|steam|pricing|news|esi_characters|pearl_abyss|financials}
+Usage: python scripts/download.py {killmails|characters|market|mer|steam|pricing|news|esi_characters|pearl_abyss|financials|sde}
 """
 import csv
 import hashlib
@@ -237,6 +237,13 @@ def esi_characters():
                results, "real, official public API")
 
 
+def sde():
+    """CCP's static game data (item types, groups, categories, map), JSONL edition."""
+    name = "eve-online-static-data-latest-jsonl.zip"
+    download(f"https://data.everef.net/ccp/sde/{name}", RAW / "sde" / name, "EVE Online static data export (SDE)",
+             "CCP Games (mirrored by EVE Ref)", "real, official reference data")
+
+
 def pearl_abyss():
     """Pearl Abyss IR: earnings releases (from 1Q23), IR letters (from 2024) and the Financial Info page."""
     base = "https://www.pearlabyss.com"
@@ -281,4 +288,4 @@ def financials():
 if __name__ == "__main__":
     {"killmails": killmails, "characters": characters, "market": market, "mer": mer, "steam": steam,
      "pricing": pricing, "news": news, "esi_characters": esi_characters,
-     "financials": financials, "pearl_abyss": pearl_abyss}[sys.argv[1]]()
+     "financials": financials, "pearl_abyss": pearl_abyss, "sde": sde}[sys.argv[1]]()
