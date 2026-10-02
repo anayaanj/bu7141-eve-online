@@ -66,7 +66,7 @@ Table corporation {
   Note: 'From character dump corporations.json.'
 }
 
-Table character {
+Table player_character {
   character_id bigint [pk, note: 'Customer. One account can own several characters.']
   character_name varchar
   signup_date date [note: 'birthday. Dump if real (>= 2003), else ESI, else null']
@@ -96,7 +96,7 @@ Table killmail_participant {
   killmail_id bigint [ref: > killmail.killmail_id]
   participant_no int [note: '0 = victim, 1..n = attackers']
   role varchar [note: 'victim / attacker']
-  character_id bigint [ref: >? character.character_id, note: 'null for NPCs and structures']
+  character_id bigint [ref: >? player_character.character_id, note: 'null for NPCs and structures']
   corporation_id int [ref: >? corporation.corporation_id, note: 'at the time of the kill']
   alliance_id int [ref: >? alliance.alliance_id, note: 'at the time of the kill']
   ship_type_id int [ref: >? item_type.type_id]
@@ -111,7 +111,7 @@ Table killmail_participant {
 }
 
 Table character_month_activity {
-  character_id bigint [ref: > character.character_id]
+  character_id bigint [ref: > player_character.character_id]
   month date
   kills int
   losses int
@@ -220,7 +220,7 @@ TableGroup shared_dimensions {
   item_type
 }
 TableGroup customer_acquisition {
-  character
+  player_character
   corporation
   alliance
 }

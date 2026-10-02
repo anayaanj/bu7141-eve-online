@@ -1,13 +1,14 @@
-# Keeps the dbdiagram ERD in sync with the repo.
-# Pull requests: validate docs/erd.dbml. Merges to main: push it to the diagram.
+# Keeps the ERD, the database schema and the dbdiagram diagram in sync.
+# Pull requests: validate docs/erd.dbml, check db/schema.sql matches it and loads into PostgreSQL.
+# Merges to main: also push the ERD to the diagram.
 name: ERD
 
 on:
   pull_request:
-    paths: [docs/erd.dbml, .dbdiagram/**]
+    paths: [docs/erd.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
   push:
     branches: [main]
-    paths: [docs/erd.dbml, .dbdiagram/**]
+    paths: [docs/erd.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
   workflow_dispatch:
 
 concurrency:
@@ -17,14 +18,31 @@ concurrency:
 jobs:
   erd:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_DB: eve
+          POSTGRES_USER: eve
+          POSTGRES_PASSWORD: eve
+        ports: ["5432:5432"]
+        options: --health-cmd "pg_isready -U eve -d eve" --health-interval 5s --health-retries 10
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
           node-version: 22
       - run: npm install -g dbdiagram
-      - name: Validate
+      - name: Validate ERD
         run: dbdiagram validate
+      - name: Check db/schema.sql matches the ERD
+        run: |
+          ./scripts/gen_schema.sh
+          git diff --exit-code db/schema.sql || { echo "Run ./scripts/gen_schema.sh and commit db/schema.sql"; exit 1; }
+      - name: Load schema into PostgreSQL
+        run: psql -v ON_ERROR_STOP=1 -h localhost -U eve -d eve -f db/schema.sql
+        env:
+          PGPASSWORD: eve
       - name: Push to dbdiagram
         if: github.event_name != 'pull_request'
         run: dbdiagram push
