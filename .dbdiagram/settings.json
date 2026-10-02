@@ -1,0 +1,14 @@
+{
+  "dbml": {
+    "entry": "docs/erd.dbml"
+  },
+  "diagram": {
+    "id": "6abf9f99abcc87fb7ad472c6",
+    "workspaceId": ""
+  },
+  "document": {
+    "source": "file",
+    "workspaceUrlName": "",
+    "projectUrlName": ""
+  }
+}

@@ -43,6 +43,18 @@ gh pr create --fill                            # or open the PR on github.com
 - If you push new commits after an approval, the approval resets and the PR needs a fresh review.
 - Resolve every review comment before merging.
 
+## ERD
+
+- **View (read-only):** https://dbdiagram.io/d/6abf9f99abcc87fb7ad472c6
+- **Source of truth:** `docs/erd.dbml`. The diagram is updated **only** from `main`: when a pull request that changes the ERD is merged, GitHub Actions pushes it to dbdiagram (`.github/workflows/erd.yml`).
+
+To change the ERD:
+1. Edit `docs/erd.dbml` on a branch. To preview, paste it into a new diagram on dbdiagram.io (not the shared one).
+2. Open a pull request. The ERD check validates the DBML.
+3. Once it's approved and merged, the shared diagram updates automatically.
+
+Don't edit the shared diagram on dbdiagram.io or run `dbdiagram push` yourself: the next merge overwrites those changes.
+
 ## Get the raw data
 
 Run each command from the repo root. Each one skips files you already have, so if one stops, run it again.

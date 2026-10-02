@@ -1,0 +1,249 @@
+// BU7141 — EVE Online subscription KPIs: ERD v0 (clean / transformed model)
+// Paste into https://dbdiagram.io to view. Source of truth lives in the repo; change it via pull request.
+// Every table notes which raw source it is built from (see docs/raw_inventory.md).
+
+Project bu7141_eve_online {
+  database_type: 'PostgreSQL'
+  Note: '''
+  v0 draft. Per-player tables (Customer, Engagement, Retention) are real per-character data.
+  Monetization is company level only: no public per-player Subscription or Payment records exist.
+  Per-player and company-level data meet only on calendar_date.
+  '''
+}
+
+// ───────────────────────── Shared dimensions ─────────────────────────
+
+Table calendar_date {
+  date date [pk]
+  month date [note: 'first day of month, for cohorts and MAU']
+  quarter varchar [note: 'e.g. 2025Q3, joins Pearl Abyss quarters']
+  year int
+  Note: 'Generated. The glue between per-player and company-level data.'
+}
+
+Table region {
+  region_id int [pk]
+  region_name varchar
+  Note: 'From MER static_solarsystems.'
+}
+
+Table solar_system {
+  solar_system_id int [pk]
+  solar_system_name varchar
+  region_id int [not null, ref: > region.region_id]
+  security_band varchar [note: 'High Sec / Low Sec / Null Sec / Wormhole (MER solarsystem_metagroup)']
+  Note: 'From MER static_solarsystems.'
+}
+
+Table item_type {
+  type_id int [pk]
+  type_name varchar
+  group_name varchar [note: 'e.g. Frigate, Battleship']
+  category_name varchar [note: 'e.g. Ship, Module, PLEX']
+  mean_isk_value decimal [note: 'MER static_type_values']
+  Note: 'Names, groups and categories need CCP static data (SDE via EVE Ref reference-data): NOT DOWNLOADED YET.'
+}
+
+// ───────────────────────── Customer & Acquisition ─────────────────────────
+
+Table alliance {
+  alliance_id int [pk]
+  alliance_name varchar
+  ticker varchar
+  date_founded timestamp
+  executor_corporation_id int
+  Note: 'From character dump alliances.json.'
+}
+
+Table corporation {
+  corporation_id int [pk]
+  corporation_name varchar
+  ticker varchar
+  alliance_id int [ref: >? alliance.alliance_id]
+  date_founded timestamp
+  member_count int
+  is_npc boolean [note: 'corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)']
+  Note: 'From character dump corporations.json.'
+}
+
+Table character {
+  character_id bigint [pk, note: 'Customer. One account can own several characters.']
+  character_name varchar
+  signup_date date [note: 'birthday. Dump if real (>= 2003), else ESI, else null']
+  signup_date_source varchar [note: 'dump / esi / unknown']
+  gender varchar
+  race_id int
+  bloodline_id int
+  corporation_id int [not null, ref: > corporation.corporation_id, note: 'current, at snapshot']
+  security_status decimal
+  is_deleted boolean [note: 'dump deleted flag, ESI 404, or corporation = Doomheim (1000001)']
+  Note: 'Customer. Built from character dump + esi_characters. Scope: characters that appear in killmails (838,881).'
+}
+
+// ───────────────────────── Engagement & Retention ─────────────────────────
+
+Table killmail {
+  killmail_id bigint [pk]
+  killmail_time timestamp
+  kill_date date [not null, ref: > calendar_date.date]
+  solar_system_id int [not null, ref: > solar_system.solar_system_id]
+  war_id int [null]
+  attacker_count int
+  Note: 'UsageEvent. One ship destroyed. From EVE Ref killmails.'
+}
+
+Table killmail_participant {
+  killmail_id bigint [ref: > killmail.killmail_id]
+  participant_no int [note: '0 = victim, 1..n = attackers']
+  role varchar [note: 'victim / attacker']
+  character_id bigint [ref: >? character.character_id, note: 'null for NPCs and structures']
+  corporation_id int [ref: >? corporation.corporation_id, note: 'at the time of the kill']
+  alliance_id int [ref: >? alliance.alliance_id, note: 'at the time of the kill']
+  ship_type_id int [ref: >? item_type.type_id]
+  weapon_type_id int [ref: >? item_type.type_id]
+  damage int [note: 'damage_taken for victim, damage_done for attacker']
+  final_blow boolean
+  indexes {
+    (killmail_id, participant_no) [pk]
+    (character_id, killmail_id)
+  }
+  Note: 'Victim and attackers in one table, so "was this character active?" is one lookup.'
+}
+
+Table character_month_activity {
+  character_id bigint [ref: > character.character_id]
+  month date
+  kills int
+  losses int
+  active_days int
+  indexes {
+    (character_id, month) [pk]
+  }
+  Note: 'Derived from killmail_participant. Feeds DAU/MAU, cohort retention and churn.'
+}
+
+// ───────────────────────── Plan & Monetization (company level) ─────────────────────────
+
+Table source_document {
+  source_id int [pk]
+  source_name varchar
+  publisher varchar
+  url varchar
+  retrieved_at timestamp
+  sha256 varchar
+  data_nature varchar [note: 'real / anonymised / synthetic']
+  Note: 'From data/raw/sources.csv. Provenance for every figure below.'
+}
+
+Table plan {
+  plan_id int [pk]
+  plan_name varchar [note: 'e.g. Omega 1 month, Omega 12 months, PLEX 500']
+  product_type varchar [note: 'subscription / in-game currency']
+  billing_cycle_months int [null, note: '1, 3, 6, 12, 24 (CCP accounting policy)']
+  Note: 'Plan. Omega periods from CCP annual accounts; packs from store pages and news.'
+}
+
+Table plan_price {
+  plan_id int [ref: > plan.plan_id]
+  effective_date date [ref: > calendar_date.date]
+  currency varchar
+  list_price decimal
+  sale_price decimal [null, note: 'when a sale was running']
+  source_id int [not null, ref: > source_document.source_id]
+  indexes {
+    (plan_id, effective_date, currency) [pk]
+  }
+  Note: 'Price history. From Wayback store snapshots and CCP news articles.'
+}
+
+Table market_history_daily {
+  date date [ref: > calendar_date.date]
+  region_id int [ref: > region.region_id]
+  type_id int [ref: > item_type.type_id]
+  average_price decimal [note: 'ISK']
+  highest_price decimal
+  lowest_price decimal
+  volume bigint
+  order_count int
+  indexes {
+    (date, region_id, type_id) [pk]
+  }
+  Note: 'From EVE Ref market history. Keep PLEX (type_id 44992) at minimum: the monetization signal for 2026.'
+}
+
+Table financial_metric {
+  metric_id int [pk, increment]
+  period_start date [not null, ref: > calendar_date.date]
+  period_end date
+  granularity varchar [note: 'quarter / year']
+  entity varchar [note: 'CCP ehf. / Pearl Abyss (EVE IP)']
+  metric varchar [note: 'total_revenue, subscription_and_ingame_revenue, marketing_expense, deferred_subscriptions, ...']
+  geography varchar [null, note: 'North America / Europe / Asia / Other, when reported']
+  amount decimal
+  currency varchar [note: 'USD (CCP) / KRW (Pearl Abyss)']
+  source_id int [not null, ref: > source_document.source_id]
+  Note: 'Long format: one reported figure per row. From CCP annual accounts and Pearl Abyss reports.'
+}
+
+Table economy_daily {
+  date date [ref: > calendar_date.date]
+  metric varchar [note: 'total_isk, character_isk, isk_velocity, sink:<entry>, faucet:<entry>']
+  value decimal
+  indexes {
+    (date, metric) [pk]
+  }
+  Note: 'From MER money_supply and sinks_and_faucets_history (latest MER only: each MER holds full history).'
+}
+
+// ───────────────────────── Satisfaction ─────────────────────────
+
+Table steam_review {
+  recommendation_id bigint [pk]
+  steam_author_id bigint [note: 'Steam account, NOT linkable to a character']
+  created_date date [not null, ref: > calendar_date.date]
+  language varchar
+  voted_up boolean [note: 'recommend yes / no: the NPS proxy']
+  playtime_at_review_hours decimal
+  steam_purchase boolean
+  received_for_free boolean
+  votes_up int
+  review_text text
+  Note: 'SurveyResponse proxy. From Steam appreviews API (app 8500).'
+}
+
+// ───────────────────────── Groups (KPI areas) ─────────────────────────
+
+TableGroup shared_dimensions {
+  calendar_date
+  region
+  solar_system
+  item_type
+}
+TableGroup customer_acquisition {
+  character
+  corporation
+  alliance
+}
+TableGroup engagement_retention {
+  killmail
+  killmail_participant
+  character_month_activity
+}
+TableGroup monetization {
+  plan
+  plan_price
+  market_history_daily
+  financial_metric
+  economy_daily
+  source_document
+}
+TableGroup satisfaction {
+  steam_review
+}
+
+Note erd_boundary {
+'''
+**Outside the ERD (no public data):** Subscription, Payment, Session, SupportTicket, AcquisitionChannel, Lead.
+Monetization KPIs (MRR, ARPU, LTV, CAC) are estimates: company-level financial_metric ÷ per-player counts.
+'''
+}

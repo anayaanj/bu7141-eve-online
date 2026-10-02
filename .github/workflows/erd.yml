@@ -1,0 +1,32 @@
+# Keeps the dbdiagram ERD in sync with the repo.
+# Pull requests: validate docs/erd.dbml. Merges to main: push it to the diagram.
+name: ERD
+
+on:
+  pull_request:
+    paths: [docs/erd.dbml, .dbdiagram/**]
+  push:
+    branches: [main]
+    paths: [docs/erd.dbml, .dbdiagram/**]
+  workflow_dispatch:
+
+concurrency:
+  group: erd-sync
+  cancel-in-progress: false
+
+jobs:
+  erd:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install -g dbdiagram
+      - name: Validate
+        run: dbdiagram validate
+      - name: Push to dbdiagram
+        if: github.event_name != 'pull_request'
+        run: dbdiagram push
+        env:
+          DBDIAGRAM_TOKEN: ${{ secrets.DBDIAGRAM_TOKEN }}
