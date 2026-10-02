@@ -30,7 +30,7 @@ Table region {
 Table solar_system {
   solar_system_id int [pk]
   solar_system_name varchar
-  region_id int [ref: > region.region_id]
+  region_id int [not null, ref: > region.region_id]
   security_band varchar [note: 'High Sec / Low Sec / Null Sec / Wormhole (MER solarsystem_metagroup)']
   Note: 'From MER static_solarsystems.'
 }
@@ -59,7 +59,7 @@ Table corporation {
   corporation_id int [pk]
   corporation_name varchar
   ticker varchar
-  alliance_id int [ref: > alliance.alliance_id, null]
+  alliance_id int [ref: >? alliance.alliance_id]
   date_founded timestamp
   member_count int
   is_npc boolean [note: 'corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)']
@@ -74,7 +74,7 @@ Table character {
   gender varchar
   race_id int
   bloodline_id int
-  corporation_id int [ref: > corporation.corporation_id, note: 'current, at snapshot']
+  corporation_id int [not null, ref: > corporation.corporation_id, note: 'current, at snapshot']
   security_status decimal
   is_deleted boolean [note: 'dump deleted flag, ESI 404, or corporation = Doomheim (1000001)']
   Note: 'Customer. Built from character dump + esi_characters. Scope: characters that appear in killmails (838,881).'
@@ -85,8 +85,8 @@ Table character {
 Table killmail {
   killmail_id bigint [pk]
   killmail_time timestamp
-  kill_date date [ref: > calendar_date.date]
-  solar_system_id int [ref: > solar_system.solar_system_id]
+  kill_date date [not null, ref: > calendar_date.date]
+  solar_system_id int [not null, ref: > solar_system.solar_system_id]
   war_id int [null]
   attacker_count int
   Note: 'UsageEvent. One ship destroyed. From EVE Ref killmails.'
@@ -96,11 +96,11 @@ Table killmail_participant {
   killmail_id bigint [ref: > killmail.killmail_id]
   participant_no int [note: '0 = victim, 1..n = attackers']
   role varchar [note: 'victim / attacker']
-  character_id bigint [ref: > character.character_id, null, note: 'null for NPCs and structures']
-  corporation_id int [ref: > corporation.corporation_id, null, note: 'at the time of the kill']
-  alliance_id int [ref: > alliance.alliance_id, null, note: 'at the time of the kill']
-  ship_type_id int [ref: > item_type.type_id, null]
-  weapon_type_id int [ref: > item_type.type_id, null]
+  character_id bigint [ref: >? character.character_id, note: 'null for NPCs and structures']
+  corporation_id int [ref: >? corporation.corporation_id, note: 'at the time of the kill']
+  alliance_id int [ref: >? alliance.alliance_id, note: 'at the time of the kill']
+  ship_type_id int [ref: >? item_type.type_id]
+  weapon_type_id int [ref: >? item_type.type_id]
   damage int [note: 'damage_taken for victim, damage_done for attacker']
   final_blow boolean
   indexes {
@@ -149,7 +149,7 @@ Table plan_price {
   currency varchar
   list_price decimal
   sale_price decimal [null, note: 'when a sale was running']
-  source_id int [ref: > source_document.source_id]
+  source_id int [not null, ref: > source_document.source_id]
   indexes {
     (plan_id, effective_date, currency) [pk]
   }
@@ -173,7 +173,7 @@ Table market_history_daily {
 
 Table financial_metric {
   metric_id int [pk, increment]
-  period_start date [ref: > calendar_date.date]
+  period_start date [not null, ref: > calendar_date.date]
   period_end date
   granularity varchar [note: 'quarter / year']
   entity varchar [note: 'CCP ehf. / Pearl Abyss (EVE IP)']
@@ -181,7 +181,7 @@ Table financial_metric {
   geography varchar [null, note: 'North America / Europe / Asia / Other, when reported']
   amount decimal
   currency varchar [note: 'USD (CCP) / KRW (Pearl Abyss)']
-  source_id int [ref: > source_document.source_id]
+  source_id int [not null, ref: > source_document.source_id]
   Note: 'Long format: one reported figure per row. From CCP annual accounts and Pearl Abyss reports.'
 }
 
@@ -200,7 +200,7 @@ Table economy_daily {
 Table steam_review {
   recommendation_id bigint [pk]
   steam_author_id bigint [note: 'Steam account, NOT linkable to a character']
-  created_date date [ref: > calendar_date.date]
+  created_date date [not null, ref: > calendar_date.date]
   language varchar
   voted_up boolean [note: 'recommend yes / no: the NPS proxy']
   playtime_at_review_hours decimal

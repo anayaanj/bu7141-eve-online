@@ -43,6 +43,19 @@ gh pr create --fill                            # or open the PR on github.com
 - If you push new commits after an approval, the approval resets and the PR needs a fresh review.
 - Resolve every review comment before merging.
 
+## ERD
+
+- **View:** https://dbdiagram.io/d/6abf9f99abcc87fb7ad472c6
+- **Source:** `docs/erd.dbml`. The repo is linked to the diagram in `.dbdiagram/settings.json`.
+- **Setup once:** `npm install -g dbdiagram`, then `dbdiagram auth login`.
+
+| You changed… | Run | Then |
+|---|---|---|
+| the diagram on dbdiagram.io | `dbdiagram pull` | Commit `docs/erd.dbml` on a branch and open a pull request |
+| `docs/erd.dbml` locally | `dbdiagram validate`, then `dbdiagram push` | Open a pull request |
+
+Pull before you edit, so you don't overwrite someone else's changes on the diagram.
+
 ## Get the raw data
 
 Run each command from the repo root. Each one skips files you already have, so if one stops, run it again.
