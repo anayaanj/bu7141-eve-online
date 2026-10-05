@@ -1,6 +1,6 @@
 """Download raw EVE Online data sources into data/raw/ and log each file in sources.csv.
 
-Usage: python scripts/download.py {killmails|characters|market|mer|steam|pricing|news|esi_characters|pearl_abyss|financials|sde|contracts}
+Usage: python scripts/download.py {killmails|characters|market|mer|steam|pricing|news|esi_characters|pearl_abyss|financials|sde|contracts|character_id_boundaries|players_online}
 """
 import csv
 import hashlib
@@ -35,9 +35,10 @@ def fetch(url, retries=5):
         try:
             return urlopen(Request(url, headers={"User-Agent": USER_AGENT}), timeout=120)
         except HTTPError as e:
-            if e.code != 429 or attempt == retries - 1:
+            if (e.code not in (420, 429) and e.code < 500) or attempt == retries - 1:
                 raise
-            time.sleep(60 * (attempt + 1))
+            reset = e.headers.get("X-ESI-Error-Limit-Reset")  # 420: ESI error limit hit
+            time.sleep(int(reset) + 1 if reset else 60 * (attempt + 1))
         except URLError:
             if attempt == retries - 1:
                 raise
@@ -69,11 +70,18 @@ def download(url, path, source, publisher, nature):
         return
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(path.suffix + ".part")
-    with fetch(url) as r, open(tmp, "wb") as f:
-        expected_size = r.headers.get("Content-Length")
-        expected_size = int(expected_size) if expected_size else None
-        for chunk in iter(lambda: r.read(1 << 20), b""):
-            f.write(chunk)
+    for attempt in range(5):
+        try:
+            with fetch(url) as r, open(tmp, "wb") as f:
+                expected_size = r.headers.get("Content-Length")
+                expected_size = int(expected_size) if expected_size else None
+                for chunk in iter(lambda: r.read(1 << 20), b""):
+                    f.write(chunk)
+            break
+        except (URLError, OSError):  # dropped mid-file: start the file again
+            if attempt == 4:
+                raise
+            time.sleep(30 * (attempt + 1))
     if expected_size is not None and tmp.stat().st_size != expected_size:
         raise RuntimeError(f"Size mismatch for {url}: {tmp.stat().st_size} != {expected_size}")
     tmp.rename(path)
@@ -256,6 +264,98 @@ def contracts():
         day = date.fromordinal(day.toordinal() + 1)
 
 
+def character_id_boundaries():
+    """First character ID created in each month, found by binary search on ESI birthdays.
+    Character IDs are allocated in order, so signups in a month = next month's first ID - this month's first ID."""
+    out = RAW / "character_id_boundaries"
+    out.mkdir(parents=True, exist_ok=True)
+    probes_path = out / "probes.jsonl"
+    cache = {}
+    if probes_path.exists():
+        for line in probes_path.open():
+            r = json.loads(line)
+            cache[r["character_id"]] = r["birthday"]
+
+    def probe(cid):
+        for attempt in range(5):
+            try:
+                return probe_once(cid)
+            except (URLError, OSError):  # includes read timeouts mid-response
+                if attempt == 4:
+                    raise
+                time.sleep(30)
+
+    def probe_once(cid):
+        if cid not in cache:
+            url = f"https://esi.evetech.net/latest/characters/{cid}/?datasource=tranquility"
+            try:
+                with fetch(url) as r:
+                    cache[cid] = json.load(r)["birthday"]
+                    headers = r.headers
+            except HTTPError as e:
+                if e.code not in (404, 410):
+                    raise
+                cache[cid] = None
+                headers = e.headers
+            # 404s count against ESI's error limit: pause before it runs out
+            if int(headers.get("X-ESI-Error-Limit-Remain") or 100) < 20:
+                time.sleep(int(headers.get("X-ESI-Error-Limit-Reset") or 60) + 1)
+            with probes_path.open("a") as f:
+                f.write(json.dumps({"character_id": cid, "birthday": cache[cid],
+                                    "retrieved_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}) + "\n")
+        return cache[cid]
+
+    def next_existing(cid):
+        """First existing character at or after cid; (None, None) past the newest character."""
+        for k in range(30):
+            if probe(cid + k):
+                return cid + k, cache[cid + k]
+        return None, None
+
+    lo, hi = 2121000000, 2124730666  # created before 2024 / a character created 2026-09-23, after END
+    rows = []
+    month = date(START.year, START.month, 1)
+    while month <= date(END.year, END.month, 1).replace(month=END.month % 12 + 1, year=END.year + END.month // 12):
+        when = f"{month}T00:00:00Z"
+        a, b = lo, hi  # every character below a was created before `when`; every one from b on, on or after
+        while b - a > 1:
+            mid = (a + b) // 2
+            cid, birthday = next_existing(mid)
+            if birthday is None or birthday >= when:
+                b = mid
+            else:
+                a = cid
+        first_id, first_birthday = next_existing(b)
+        rows.append((month.isoformat(), first_id, first_birthday))
+        print(month, first_id, first_birthday)
+        lo = a
+        month = month.replace(month=month.month % 12 + 1, year=month.year + month.month // 12)
+
+    boundaries = out / "boundaries.csv"
+    with boundaries.open("w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["month_start", "first_character_id", "first_character_birthday"])
+        w.writerows(rows)
+    for path in (boundaries, probes_path):
+        log_source("Character ID month boundaries (ESI binary search)", "CCP Games (ESI API)",
+                   "https://esi.evetech.net/latest/characters/{id}/", path, "real, official public API")
+
+
+def players_online():
+    """Concurrent players on Tranquility from EVE-Offline, one request per month (~1.5 h resolution)."""
+    month = date(START.year, START.month, 1)
+    while month <= END:
+        nxt = month.replace(month=month.month % 12 + 1, year=month.year + month.month // 12)
+        start_ms = int(datetime(month.year, month.month, 1, tzinfo=timezone.utc).timestamp() * 1000)
+        end_ms = int(datetime(nxt.year, nxt.month, 1, tzinfo=timezone.utc).timestamp() * 1000)
+        download(f"https://eve-offline.net/data/?server=tranquility&start={start_ms}&end={end_ms}",
+                 RAW / "players_online" / f"tranquility_{month:%Y-%m}.jsonp",
+                 "Concurrent players online (EVE-Offline)", "EVE-Offline (eve-offline.net), polling CCP server status",
+                 "real, third-party tracker")
+        time.sleep(2)
+        month = nxt
+
+
 def sde():
     """CCP's static game data (item types, groups, categories, map), JSONL edition."""
     name = "eve-online-static-data-latest-jsonl.zip"
@@ -308,4 +408,5 @@ if __name__ == "__main__":
     {"killmails": killmails, "characters": characters, "market": market, "mer": mer, "steam": steam,
      "pricing": pricing, "news": news, "esi_characters": esi_characters,
      "financials": financials, "pearl_abyss": pearl_abyss, "sde": sde,
-     "contracts": contracts}[sys.argv[1]]()
+     "contracts": contracts, "character_id_boundaries": character_id_boundaries,
+     "players_online": players_online}[sys.argv[1]]()

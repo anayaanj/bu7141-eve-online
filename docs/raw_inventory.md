@@ -91,8 +91,37 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Note 17, deferred revenue (31 Dec 2025 / 2024):** subscriptions $5.31M / $3.47M; in-game purchases not yet consumed $6.57M / $5.44M.
 - **Accounting policy:** Omega subscriptions are sold as 1, 3, 6, 12 or 24 months, paid upfront and recognised straight-line over the period. PLEX (in-game currency) revenue is recognised when used. These rules can define the Plan and Subscription entities.
 
+## 9. Static game data (SDE) — `data/raw/sde/eve-online-static-data-latest-jsonl.zip`
+- **Publisher:** CCP Games, mirrored by EVE Ref. Real, official reference data. Build 3569502, released 2026-10-02.
+- **Files used:** `types.jsonl` (`_key` = type_id, `name` per language, `groupID`), `groups.jsonl` (`_key`, `name`, `categoryID`), `categories.jsonl` (`_key`, `name`), `mapRegions.jsonl`, `mapConstellations.jsonl`, `mapSolarSystems.jsonl`.
+- **Example:** type 587 = Rifter → group 25 (Frigate) → category Ship. Type 44992 = PLEX.
+
+## 10. Public contracts — `data/raw/public_contracts/YYYY/public-contracts-YYYY-MM-DD_00-00-*.v2.tar.bz2`
+- **Publisher:** CCP ESI, archived by EVE Ref every 30 min. We keep the first snapshot of each day. Real, public.
+- **Volume:** 971 daily snapshots, 5.5 GB. No snapshot exists for 2024-11-22, 2024-11-23 and 2025-05-19.
+- **Grain:** each snapshot lists every open public contract. One snapshot ≈ 45,600 contracts from ≈ 8,400 issuers (97% item exchange, then auction and courier).
+- **Files per snapshot:** `contracts.csv` (`contract_id`, `issuer_id`, `issuer_corporation_id`, `date_issued`, `date_expired`, `type`, `price`, `reward`, `collateral`, `volume`, `region_id`, `system_id`, `station_id`, …), `contract_items.csv`, `contract_bids.csv`.
+- **Use:** `issuer_id` + `date_issued` = non-combat activity (traders, haulers). The same contract appears in many snapshots: deduplicate on `contract_id`.
+- **Gap:** a contract issued and accepted between two snapshots (under a day) is never seen.
+
+## 11. Character ID month boundaries — `data/raw/character_id_boundaries/`
+- **Publisher:** CCP Games, ESI API. Real, official. Built by binary search: `download.py character_id_boundaries`.
+- **Method:** character IDs are allocated in order (no backwards dates among 90,594 IDs ≥ 2.1B), and every ID is a character (13% of sampled IDs return 404, the same as the deleted-character rate in the killmails). So **signups in a month = next month's first ID − this month's first ID**, including characters nobody has seen and characters deleted since.
+- **Files:** `boundaries.csv` (`month_start`, `first_character_id`, `first_character_birthday`), `probes.jsonl` (every ESI lookup the search made: `character_id`, `birthday` or null, `retrieved_at`).
+- **Caveat:** counts characters, not accounts (one account can hold up to three characters).
+
+## 12. Players online — `data/raw/players_online/tranquility_YYYY-MM.jsonp`
+- **Publisher:** EVE-Offline (eve-offline.net), a long-running third-party tracker that polls CCP's server status. Real.
+- **Volume:** 32 monthly files, Jan 2024 → Aug 2026, one point every 30 minutes (~1,488 per month).
+- **Format:** JSONP: `([[unix_ms, players], ...]);`. Strip the wrapper, then parse as JSON.
+- **Meaning:** concurrent players logged in at that moment, all activities (miners and market traders included). Not unique players.
+- **Examples:** monthly average ≈ 21,600–26,800, peak ≈ 31,000–38,800.
+- **Use:** the all-player benchmark for engagement: compare it with the characters active in killmails and contracts.
+
 ## How the sources join
 - `killmail.victim/attackers.character_id` → `characters.character_id` (Customer)
+- `contracts.issuer_id` → `characters.character_id` (non-combat activity)
+- `killmail` / `contract_items` type ids → SDE `types._key` (item names, ship classes)
 - `killmail.solar_system_id` → MER `static_solarsystems`
 - `killmail` ship/item type ids ↔ `market_history.type_id` ↔ MER `static_type_values`
 - MER daily CSVs ↔ market history (PLEX) ↔ killmail counts on **date**
@@ -101,5 +130,5 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## Known gaps (the ERD boundary)
 - No per-player payment or subscription records exist publicly. Monetization is company-level (MER, PLEX market, financials).
-- Killmails capture only players who fight, so retention measured from them is a lower bound.
+- Killmails capture only players who fight, and contracts only those who trade or haul by contract, so retention measured from them is a lower bound (miners and market-only traders stay invisible).
 - Customer creation date is missing for ~77% of character records in the dump. For the 838,881 characters in the killmails, the dump plus ESI cover 97.8%; 18,187 (deleted characters) remain unknown.
