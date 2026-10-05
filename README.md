@@ -69,7 +69,7 @@ A local PostgreSQL 18 in Docker. The tables come from the ERD (`db/schema.sql`).
    ```bash
    docker compose up -d --wait
    ```
-   The first start creates all 17 tables.
+   The first start creates all 32 tables.
 
 **Connect** with any SQL client ([DBeaver](https://dbeaver.io) is free), or with `psql`:
 
