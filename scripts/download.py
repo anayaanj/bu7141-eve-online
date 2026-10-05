@@ -1,6 +1,6 @@
 """Download raw EVE Online data sources into data/raw/ and log each file in sources.csv.
 
-Usage: python scripts/download.py {killmails|characters|market|mer|steam|pricing|news|esi_characters|pearl_abyss|financials|sde|contracts|character_id_boundaries|players_online}
+Usage: python scripts/download.py {killmails|characters|market|mer|steam|pricing|news|esi_characters|pearl_abyss|financials|sde|contracts|character_id_boundaries|players_online|fx|steam_players|news_all|wars|sovereignty_campaigns|forums|benchmarks|google_trends|twitch|patch_history|transcript}
 """
 import csv
 import hashlib
@@ -30,16 +30,16 @@ YEARS = range(START.year, END.year + 1)
 EVEREF = "EVE Ref (data.everef.net)"
 
 
-def fetch(url, retries=5):
+def fetch(url, retries=5, user_agent=USER_AGENT):
     for attempt in range(retries):
         try:
-            return urlopen(Request(url, headers={"User-Agent": USER_AGENT}), timeout=120)
+            return urlopen(Request(url, headers={"User-Agent": user_agent}), timeout=120)
         except HTTPError as e:
             if (e.code not in (420, 429) and e.code < 500) or attempt == retries - 1:
                 raise
             reset = e.headers.get("X-ESI-Error-Limit-Reset")  # 420: ESI error limit hit
             time.sleep(int(reset) + 1 if reset else 60 * (attempt + 1))
-        except URLError:
+        except (URLError, OSError):  # includes dropped connections
             if attempt == retries - 1:
                 raise
             time.sleep(30 * (attempt + 1))
@@ -64,7 +64,7 @@ def log_source(source, publisher, url, path, nature):
                     path.stat().st_size, sha.hexdigest(), nature])
 
 
-def download(url, path, source, publisher, nature):
+def download(url, path, source, publisher, nature, user_agent=USER_AGENT):
     """Skip files already saved; .part files are renamed only after a complete download."""
     if path.exists():
         return
@@ -72,7 +72,7 @@ def download(url, path, source, publisher, nature):
     tmp = path.with_suffix(path.suffix + ".part")
     for attempt in range(5):
         try:
-            with fetch(url) as r, open(tmp, "wb") as f:
+            with fetch(url, user_agent=user_agent) as r, open(tmp, "wb") as f:
                 expected_size = r.headers.get("Content-Length")
                 expected_size = int(expected_size) if expected_size else None
                 for chunk in iter(lambda: r.read(1 << 20), b""):
@@ -341,6 +341,187 @@ def character_id_boundaries():
                    "https://esi.evetech.net/latest/characters/{id}/", path, "real, official public API")
 
 
+def fx():
+    """Daily exchange rates from FRED: KRW per USD and USD per EUR."""
+    for series in ["DEXKOUS", "DEXUSEU"]:
+        download(f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series}", RAW / "fx" / f"{series}.csv",
+                 f"Exchange rate {series}", "Federal Reserve Bank of St. Louis (FRED)", "real, official statistics",
+                 user_agent="python-urllib/3.12")  # FRED drops requests with custom User-Agents
+
+
+def steam_players():
+    """SteamCharts page for EVE Online: monthly average and peak concurrent Steam players."""
+    download("https://steamcharts.com/app/8500", RAW / "steam_players" / "steamcharts_8500.html",
+             "Steam concurrent players (SteamCharts)", "SteamCharts, from the Steam Web API", "real, third-party tracker")
+
+
+def news_all():
+    """Every CCP news article since 2023 (any category), for the game-event timeline."""
+    space, token = "7lhcm73ukv5p", "BSl3tP6oZ_X_T7kAwXhGF_UB30oG4Hvt03lxol2ENB4"
+    skip, page = 0, 1
+    while True:
+        url = (f"https://cdn.contentful.com/spaces/{space}/environments/master/entries?access_token={token}"
+               f"&content_type=article&fields.publishingDate[gte]=2023-01-01"
+               f"&order=fields.publishingDate&limit=100&skip={skip}")
+        path = RAW / "news_all" / f"page_{page:03d}.json"
+        download(url, path, "EVE Online news articles (all)", "CCP Games (Contentful CMS)", "real, official announcements")
+        skip, page = skip + 100, page + 1
+        if skip >= json.loads(path.read_text())["total"]:
+            break
+
+
+def wars():
+    """EVE Ref daily wars snapshots (aggressor, defender, declared/started/finished, kills)."""
+    for year in YEARS:
+        for f in fetch_json(f"https://data.everef.net/wars/history/{year}/index.json")["files"]:
+            if START <= date.fromisoformat(f["name"][5:15]) <= END:
+                download(f["url"], RAW / "wars" / str(year) / f["name"], "Wars (CCP ESI via EVE Ref)", EVEREF,
+                         "real, public game data")
+
+
+def sovereignty_campaigns():
+    """EVE Ref hourly sovereignty campaign snapshots (territory fights)."""
+    day = START
+    while day <= END:
+        try:
+            files = fetch_json(f"https://data.everef.net/sovereignty-campaigns/history/{day.year}/{day}/index.json")["files"]
+        except HTTPError as e:
+            if e.code != 404:
+                raise
+            files = []
+        for f in files:
+            download(f["url"], RAW / "sovereignty_campaigns" / str(day.year) / f["name"],
+                     "Sovereignty campaigns (CCP ESI via EVE Ref)", EVEREF, "real, public game data")
+        day = date.fromordinal(day.toordinal() + 1)
+
+
+BENCHMARKS = [  # (file name, url, publisher)
+    ("lee2011_wowah_dataset.pdf", "http://web.cs.wpi.edu/~claypool/mmsys-dataset/2011/wow/p123.pdf",
+     "Lee et al., ACM MMSys 2011"),
+    ("khan2020_churn_in_wow.pdf", "https://arxiv.org/pdf/2006.15735", "Khan, arXiv 2020"),
+    ("borbora2011_churn_mmorpg_motivation.pdf", "https://dmitriwilliams.com/wp-content/uploads/2020/06/ChurnPrediction.pdf",
+     "Borbora et al., 2011 (EverQuest II)"),
+    ("lee2019_aion_promotion_events.pdf", "https://arxiv.org/pdf/1909.10851", "Lee et al., arXiv 2019 (AION)"),
+    ("wowah_full.parquet", "https://github.com/koaning/wow-avatar-datasets/raw/main/wow-full.parquet",
+     "WoWAH dataset (Lee et al. 2011), Parquet copy by V. Warmerdam (calmcode.io)"),
+]
+
+
+def benchmarks():
+    """Published MMO churn and retention studies, plus the WoWAH dataset, for sanity checks."""
+    for name, url, publisher in BENCHMARKS:
+        download(url, RAW / "benchmarks" / name, "MMO churn and retention benchmark", publisher,
+                 "real, published research")
+
+
+def twitch():
+    """SullyGnome 365-day Twitch summary for EVE Online (daily viewers, hours watched, streamers).
+    The monthly archive pages sit behind a Cloudflare browser check, so only the rolling 365-day page is scripted."""
+    download("https://sullygnome.com/game/eve_online/365/summary",
+             RAW / "twitch" / f"sullygnome_365d_to_{date.today()}.html", "Twitch viewership, last 365 days (SullyGnome)",
+             "SullyGnome, from the Twitch API", "real, third-party tracker")
+    # Monthly pages (sullygnome_YYYY-MM.html) are saved by hand in a browser: log any not logged yet
+    logged = {row["file"] for row in csv.DictReader(SOURCES_CSV.open())}
+    for path in sorted((RAW / "twitch").glob("sullygnome_20??-??.html")):
+        if str(path.relative_to(RAW)) not in logged:
+            month = path.stem.split("_")[1]
+            log_source("Twitch viewership by month (SullyGnome, saved manually)", "SullyGnome, from the Twitch API",
+                       f"https://sullygnome.com/game/eve_online/{date.fromisoformat(month + '-01'):%Y%B}".lower(),
+                       path, "real, third-party tracker")
+            print("logged", path.relative_to(ROOT))
+
+
+def patch_history():
+    """Release timeline: CCP major patch notes (all time), EVE Ref SDE build indexes, EVE University expansion list."""
+    out = RAW / "patch_history"
+    space, token = "7lhcm73ukv5p", "BSl3tP6oZ_X_T7kAwXhGF_UB30oG4Hvt03lxol2ENB4"
+    skip, page = 0, 1
+    while True:
+        url = (f"https://cdn.contentful.com/spaces/{space}/environments/master/entries?access_token={token}"
+               f"&content_type=article&fields.category=patch-notes&order=fields.publishingDate&limit=100&skip={skip}")
+        path = out / f"patch_notes_page_{page:02d}.json"
+        download(url, path, "EVE Online patch notes (major versions)", "CCP Games (Contentful CMS)",
+                 "real, official release notes")
+        skip, page = skip + 100, page + 1
+        if skip >= json.loads(path.read_text())["total"]:
+            break
+    for f in fetch_json("https://data.everef.net/ccp/sde/index.json")["directories"]:
+        if f["name"].isdigit():  # one index per year; each SDE build ~ one game deployment
+            download(f["index_url"], out / f"sde_builds_{f['name']}.json", "SDE build history (index)",
+                     "CCP Games (mirrored by EVE Ref)", "real, official release metadata")
+    download("https://wiki.eveuniversity.org/Expansions", out / "eveuni_expansions.html",
+             "EVE Online expansions list", "EVE University wiki (CC BY-SA)", "real, community-maintained reference")
+
+
+def transcript():
+    """Transcript of 'EVE Online | Down the Rabbit Hole' (Fredrik Knudsen) for lore events.
+    Needs: pip install youtube-transcript-api. Kept out of git (data/raw is ignored): cite, don't redistribute."""
+    from youtube_transcript_api import YouTubeTranscriptApi
+    video_id = "BCSeISYcoyI"
+    path = RAW / "qualitative" / f"down_the_rabbit_hole_{video_id}.json"
+    if path.exists():
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    snippets = [{"start": s.start, "duration": s.duration, "text": s.text}
+                for s in YouTubeTranscriptApi().fetch(video_id)]
+    path.write_text(json.dumps(snippets, ensure_ascii=False, indent=0))
+    log_source("EVE Online | Down the Rabbit Hole (video transcript)", "Fredrik Knudsen (YouTube)",
+               f"https://www.youtube.com/watch?v={video_id}", path, "real, secondary source (player documentary)")
+    print("saved", path.relative_to(ROOT), len(snippets), "lines")
+
+
+def google_trends():
+    """Log manually exported Google Trends CSVs in data/raw/google_trends/ (Google blocks scripted downloads)."""
+    logged = {row["file"] for row in csv.DictReader(SOURCES_CSV.open())}
+    for path in sorted((RAW / "google_trends").glob("*.csv")):
+        if str(path.relative_to(RAW)) not in logged:
+            log_source("Google Trends interest over time (manual export)", "Google",
+                       "https://trends.google.com/trends/explore", path, "real, normalised index (0-100)")
+            print("logged", path.relative_to(ROOT))
+
+
+# Only threads whose title is on topic: searches also match off-topic threads (e.g. forum games) through one post
+FORUM_TITLE_FILTER = re.compile(r"omega|plex|price|pric|subscri|pearl|fenris|new player|newbie|new bro|unsub|quit|leav"
+                                r"|monetiz|alpha", re.I)
+FORUM_QUERIES = ["omega price", "plex price", "subscription", "pearl abyss", "fenris", "new player", "unsubscribed"]
+
+
+def forums():
+    """EVE Online official forum topics (Discourse JSON) matching FORUM_QUERIES, created in the window."""
+    base = "https://forums.eveonline.com"
+    out = RAW / "forums"
+    topic_ids = set()
+    for query in FORUM_QUERIES:
+        page = 1
+        while True:
+            q = quote(f"{query} after:{START} before:{END}")
+            path = out / "search" / f"{query.replace(' ', '_')}_page_{page:02d}.json"
+            try:
+                download(f"{base}/search.json?q={q}&page={page}", path, "EVE Online forums search",
+                         "CCP Games (forums.eveonline.com)", "real, public user posts")
+            except HTTPError as e:
+                if e.code != 400:  # Discourse returns 400 past its last search page (10)
+                    raise
+                break
+            data = json.loads(path.read_text())
+            topic_ids |= {t["id"] for t in data.get("topics", []) if FORUM_TITLE_FILTER.search(t["title"])}
+            if not data.get("grouped_search_result", {}).get("more_full_page_results"):
+                break
+            page += 1
+            time.sleep(2)
+    for tid in sorted(topic_ids):
+        page = 1
+        while True:  # 20 posts per page
+            path = out / "topics" / f"{tid}_page_{page:03d}.json"
+            download(f"{base}/t/{tid}.json?page={page}", path, "EVE Online forums topic",
+                     "CCP Games (forums.eveonline.com)", "real, public user posts")
+            topic = json.loads(path.read_text())
+            time.sleep(2)
+            if page * 20 >= topic.get("posts_count", 0):
+                break
+            page += 1
+
+
 def players_online():
     """Concurrent players on Tranquility from EVE-Offline, one request per month (~1.5 h resolution)."""
     month = date(START.year, START.month, 1)
@@ -409,4 +590,7 @@ if __name__ == "__main__":
      "pricing": pricing, "news": news, "esi_characters": esi_characters,
      "financials": financials, "pearl_abyss": pearl_abyss, "sde": sde,
      "contracts": contracts, "character_id_boundaries": character_id_boundaries,
-     "players_online": players_online}[sys.argv[1]]()
+     "players_online": players_online, "fx": fx, "steam_players": steam_players, "news_all": news_all,
+     "wars": wars, "sovereignty_campaigns": sovereignty_campaigns, "forums": forums,
+     "benchmarks": benchmarks, "google_trends": google_trends,
+     "twitch": twitch, "patch_history": patch_history, "transcript": transcript}[sys.argv[1]]()
