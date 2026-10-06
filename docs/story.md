@@ -41,8 +41,9 @@ One shared universe where everything is made, traded, fought over and destroyed 
   - **67%** were killed by another player, 11% by the computer.
   - **34%** were killed within **a week of creating their character**.
   - They are safe at home: only **0.15%** were killed by a player in a starter system. They die after heading out alone, mostly in low-sec (35%) and high-sec (24%). **37%** were still in the starter corporation.
+  - **About 1 in 6 died in just five systems** out of 5,485: Ahbazon (8,407), Tama (5,315), Jita, the main trade hub (4,478), Uitra and Ami (`casual_deaths_by_system.csv`).
 - **The game prepares them for something else.** The official tutorial and career missions are solo and teach fighting the computer, with little training for fighting players (EVE University wiki, *Getting Started in EVE Online*).
-- Views: what happened on the one day (bar), where they died (map of casual deaths).
+- Views: what happened on the one day (bar), where they died (map of casual deaths, `casual_deaths_by_system.csv`).
 
 ### 3. The few who come back
 Casual newcomers seen again 3 months later, side by side (`casual_first_day.csv`):
@@ -75,6 +76,7 @@ Estimates from CCP's audited accounts; shade them as estimates (`unit_economics.
 - **Launches bring people, not stayers:** expansion-month newcomers stay no longer than others (14% vs 15% at month 3), though expansions do bring old players back: Catalyst (November 2025) brought back **23,311** (`funnel_monthly.csv`, `returners_monthly.csv`).
 
 ### 5. Recommendation
+- View: what-if slider, "% of newcomers moved into a group" → extra first-year revenue (`whatif_inputs.csv`).
 - **Protect and group newcomers in their first week.** Move them from the starter corporation into a mid-sized player corporation, and give them a first fight they can win. The game already has a corporation finder and teaching corporations such as EVE University; the tutorial could end there instead of in solo missions.
 - **Spend on keeping, not only on buying:** a newcomer who joins a group pays back their acquisition cost in the first year; one who plays alone covers about 60%.
 - **Test it before rolling it out:** an A/B test on placing new players in corporations would turn our strongest lead into proof, and measure its revenue directly.

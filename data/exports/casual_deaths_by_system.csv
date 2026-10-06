@@ -1,0 +1,4593 @@
+solar_system_id,security_band,is_starter_system,casual_newcomers_killed
+30005196,Low Sec,f,8407
+30002813,Low Sec,f,5315
+30000142,High Sec,f,4478
+30030141,High Sec,f,3077
+30005035,Low Sec,f,1741
+30001361,Low Sec,f,1691
+30001446,Low Sec,f,1317
+30002537,Low Sec,f,1275
+30002719,Low Sec,f,1236
+30001398,Low Sec,f,1115
+30002050,Low Sec,f,1108
+30011392,High Sec,f,1069
+30002647,Low Sec,f,1001
+30002718,Low Sec,f,970
+30005320,Low Sec,f,920
+30000037,Low Sec,f,919
+30001356,Low Sec,f,897
+30002780,High Sec,f,876
+30002635,Low Sec,f,863
+30005195,Low Sec,f,778
+30004979,Low Sec,f,725
+30002691,Low Sec,f,722
+30001681,Low Sec,f,657
+30002187,High Sec,f,652
+30005000,Low Sec,f,632
+30002767,Low Sec,f,627
+30002809,Low Sec,f,613
+30002539,Low Sec,f,608
+30001719,Low Sec,f,601
+30003277,Null Sec (NPC),f,576
+30003276,Null Sec (NPC),f,570
+30001388,Low Sec,f,570
+30002440,Null Sec (Sov),f,558
+30000186,Low Sec,f,514
+30045314,Low Sec,f,513
+30002812,Low Sec,f,512
+30000240,Null Sec (Sov),f,489
+30002057,Low Sec,f,456
+30003068,Low Sec,f,456
+30003833,Low Sec,f,455
+30003067,Low Sec,f,448
+30000156,High Sec,f,447
+30000140,High Sec,f,443
+30005020,Low Sec,f,443
+30000144,High Sec,f,442
+30000863,Null Sec (Sov),f,434
+30002693,Low Sec,f,430
+30002555,Low Sec,f,429
+30002056,Low Sec,f,429
+30005008,Low Sec,f,424
+30000846,Null Sec (Sov),f,394
+30005133,Null Sec (Sov),f,388
+30003563,Low Sec,f,387
+30002542,Low Sec,f,380
+30004984,Low Sec,f,379
+30003836,Low Sec,f,372
+30002811,Low Sec,f,364
+30001363,High Sec,f,363
+30001390,Low Sec,f,361
+30002723,Low Sec,f,361
+30000250,Null Sec (Sov),f,358
+30000848,Null Sec (Sov),f,355
+30002659,High Sec,f,351
+30005297,Low Sec,f,346
+30002048,High Sec,f,334
+30002054,High Sec,f,325
+30002768,High Sec,f,324
+30003837,Low Sec,f,324
+30002507,High Sec,f,312
+30001389,High Sec,f,312
+30045338,Low Sec,f,310
+30045347,Low Sec,f,310
+30002538,Low Sec,f,307
+30003475,Low Sec,f,304
+30002355,Null Sec (Sov),f,299
+30002765,High Sec,f,295
+30002634,High Sec,f,291
+30045346,Low Sec,f,289
+30003827,Low Sec,f,288
+30000772,Null Sec (Sov),f,281
+30004980,Low Sec,f,275
+30003467,Low Sec,f,271
+30002686,Low Sec,f,269
+30004985,Low Sec,f,265
+30000197,Low Sec,f,258
+30003069,Low Sec,f,257
+30002084,Low Sec,f,257
+30002807,Low Sec,f,252
+30045353,Low Sec,f,248
+30001400,High Sec,f,244
+30002370,Null Sec (Sov),f,242
+30040141,Pochven,f,242
+30003843,Low Sec,f,233
+30000169,Low Sec,f,232
+30001984,Null Sec (Sov),f,229
+30002058,Low Sec,f,228
+30004807,Null Sec (Sov),f,225
+30002666,Low Sec,f,223
+30001385,Low Sec,f,222
+30000119,High Sec,f,220
+30045344,Low Sec,f,219
+30005022,Low Sec,f,214
+30005233,Low Sec,f,214
+30011407,High Sec,f,212
+30002053,High Sec,f,210
+30000205,Low Sec,f,208
+30000867,Null Sec (Sov),f,207
+30010141,Pochven,f,206
+30004977,Low Sec,f,205
+30001154,Null Sec (Sov),f,205
+30001985,Null Sec (Sov),f,202
+30002362,Null Sec (Sov),f,197
+30002769,Low Sec,f,194
+30004242,Low Sec,f,192
+30002541,Low Sec,f,191
+30003829,Low Sec,f,189
+30001161,Null Sec (Sov),f,189
+30002645,Low Sec,f,188
+30002089,Low Sec,f,186
+30004046,Null Sec (Sov),f,182
+30000241,Null Sec (Sov),f,181
+30000141,High Sec,t,181
+30000157,Pochven,f,181
+30002641,High Sec,f,178
+30002095,Low Sec,f,178
+30004711,Null Sec (NPC),f,175
+30001158,Null Sec (Sov),f,174
+30023410,High Sec,f,167
+30001402,Low Sec,f,167
+30020141,Pochven,f,166
+30002060,Low Sec,f,164
+30003070,Low Sec,f,164
+30012505,High Sec,f,163
+30003841,Low Sec,f,161
+30004040,Null Sec (Sov),f,158
+30001047,Null Sec (NPC),f,157
+30003792,Low Sec,f,156
+30002638,Low Sec,f,154
+30001445,Pochven,f,154
+30003826,Low Sec,f,153
+30000872,Null Sec (Sov),f,151
+30002387,Low Sec,f,150
+30002087,Low Sec,f,149
+30000129,High Sec,f,148
+30002049,High Sec,f,148
+30001381,Pochven,f,148
+30001448,Low Sec,f,147
+30005003,Low Sec,f,147
+30042715,High Sec,f,147
+30002770,Pochven,f,147
+30004710,Null Sec (NPC),f,147
+30000162,Low Sec,f,146
+30000139,High Sec,f,145
+30003530,Low Sec,f,143
+30003729,Null Sec (Sov),f,141
+30003726,Null Sec (Sov),f,140
+30002082,Low Sec,f,139
+30000180,High Sec,f,138
+30004600,Null Sec (Sov),f,137
+30002756,Low Sec,f,137
+30000163,Low Sec,f,137
+30000861,Null Sec (Sov),f,137
+30000145,High Sec,f,132
+30001956,Null Sec (NPC),f,131
+30031392,Pochven,f,131
+30001159,Null Sec (Sov),f,130
+30002086,Low Sec,f,129
+30001413,Pochven,f,128
+30005132,Null Sec (Sov),f,127
+30004759,Null Sec (Sov),f,127
+30001951,Null Sec (NPC),f,127
+30002517,Low Sec,f,126
+30002737,Pochven,f,124
+30004718,Null Sec (NPC),f,124
+30002301,Null Sec (Sov),f,123
+30045352,Low Sec,f,121
+30002506,High Sec,f,119
+30002731,High Sec,f,116
+30003279,Null Sec (NPC),f,116
+30000021,Pochven,f,116
+30002681,High Sec,f,116
+30002090,Low Sec,f,116
+30002742,Low Sec,f,116
+30001671,High Sec,f,114
+30002514,Low Sec,f,113
+30000206,Pochven,f,113
+30005005,Pochven,f,113
+30002390,Low Sec,f,111
+30003268,Null Sec (NPC),f,111
+30003787,Low Sec,f,109
+30002079,Pochven,f,108
+30002225,Pochven,f,108
+30003838,Low Sec,f,108
+30000943,Null Sec (NPC),f,108
+30000017,Low Sec,f,108
+30004972,High Sec,f,106
+30000143,High Sec,f,106
+30001372,Pochven,f,106
+30000118,Low Sec,f,106
+30000192,Pochven,f,106
+30004240,Low Sec,f,105
+30000120,High Sec,f,105
+30045354,Low Sec,f,103
+30002682,High Sec,f,103
+30002216,Low Sec,f,103
+30005268,Low Sec,f,102
+30000125,High Sec,f,102
+30005099,Null Sec (Sov),f,102
+30000783,Null Sec (Sov),f,101
+30001391,High Sec,f,101
+30003856,Low Sec,f,101
+30002099,Low Sec,f,100
+30005074,Low Sec,f,100
+30003559,Low Sec,f,100
+30005029,Pochven,f,99
+30003280,Null Sec (NPC),f,98
+30045324,High Sec,f,98
+30003950,Null Sec (Sov),f,98
+30003044,Low Sec,f,98
+30003731,Null Sec (Sov),f,97
+30003089,Low Sec,f,97
+30000670,Null Sec (Sov),f,97
+30000999,Null Sec (NPC),f,96
+30003495,Pochven,f,95
+30002489,Null Sec (Sov),f,95
+30002796,Low Sec,f,95
+30001045,Null Sec (NPC),f,95
+30005072,Low Sec,f,95
+30002062,Low Sec,f,94
+30001281,Null Sec (NPC),f,94
+30002858,Null Sec (Sov),f,94
+30000195,Low Sec,f,94
+30003853,Low Sec,f,93
+30003707,Null Sec (Sov),f,93
+30003042,Low Sec,f,93
+30003046,Pochven,f,93
+30002797,Pochven,f,92
+30005089,Null Sec (Sov),f,92
+30002661,High Sec,f,90
+30002806,Low Sec,f,90
+30000773,Null Sec (Sov),f,90
+30000252,Null Sec (Sov),f,90
+30002962,Low Sec,f,90
+30003284,Null Sec (NPC),f,89
+30004982,Low Sec,f,88
+30003805,Low Sec,f,88
+30003444,Low Sec,f,88
+30004589,Null Sec (Sov),f,87
+30003474,Low Sec,f,87
+30001048,Null Sec (NPC),f,87
+30003022,Low Sec,f,87
+30005295,Low Sec,f,86
+30002066,Low Sec,f,86
+30003850,Low Sec,f,85
+30001368,High Sec,f,85
+30000896,Null Sec (Sov),f,85
+30005285,Low Sec,f,84
+30003851,Low Sec,f,84
+30003460,Low Sec,f,84
+30004244,Low Sec,f,84
+30005034,Low Sec,f,84
+30002246,Low Sec,f,83
+30000198,Low Sec,f,83
+30002750,High Sec,f,83
+30000153,High Sec,f,83
+30002764,High Sec,f,83
+30045328,Pochven,f,83
+30001682,Low Sec,f,83
+30003504,Pochven,f,82
+30002411,Pochven,f,82
+30001010,Null Sec (NPC),f,82
+30001273,Null Sec (NPC),f,82
+30000770,Null Sec (Sov),f,81
+30001957,Null Sec (NPC),f,81
+30002652,Pochven,f,81
+30001280,Null Sec (NPC),f,80
+30004719,Null Sec (NPC),f,80
+30000164,Low Sec,f,80
+30002510,High Sec,f,80
+30003886,Low Sec,f,79
+30005030,Low Sec,f,79
+30003270,Null Sec (NPC),f,79
+30002540,Low Sec,f,78
+30002389,Low Sec,f,77
+30001443,High Sec,f,76
+30001924,Null Sec (NPC),f,76
+30001026,Null Sec (NPC),f,76
+30045309,Low Sec,f,76
+30000196,Low Sec,f,76
+30002851,Null Sec (Sov),f,76
+30003825,Low Sec,f,75
+30003835,Low Sec,f,75
+30003795,Low Sec,f,75
+30002236,Low Sec,f,75
+30045319,Low Sec,f,75
+30001160,Null Sec (Sov),f,74
+30002938,Null Sec (Sov),f,74
+30045318,Low Sec,f,74
+30005296,Low Sec,f,74
+30004019,Null Sec (Sov),f,74
+30002702,Pochven,f,74
+30002083,Low Sec,f,73
+30004712,Null Sec (Sov),f,73
+30021672,High Sec,f,73
+30004725,Null Sec (Sov),f,73
+30001016,Null Sec (NPC),f,73
+30002354,Null Sec (Sov),f,72
+30001848,Null Sec (NPC),f,72
+30000204,Low Sec,f,72
+30003071,Low Sec,f,72
+30001269,Null Sec (NPC),f,72
+30045342,Low Sec,f,72
+30003424,Low Sec,f,71
+30002059,Low Sec,f,71
+30003057,Low Sec,f,71
+30045349,Low Sec,f,71
+30003307,Null Sec (NPC),f,70
+30001954,Null Sec (NPC),f,68
+30000895,Null Sec (Sov),f,68
+30003839,Low Sec,f,68
+30002803,High Sec,f,68
+30002866,Null Sec (Sov),f,67
+30003086,Low Sec,f,67
+30003088,Low Sec,f,66
+30002757,Low Sec,f,66
+30004026,Null Sec (Sov),f,66
+30000998,Null Sec (NPC),f,65
+30002085,Low Sec,f,65
+30000207,Low Sec,f,65
+30002448,Null Sec (Sov),f,65
+30002972,High Sec,f,65
+30002781,High Sec,f,64
+30001721,Low Sec,f,64
+30001155,Null Sec (Sov),f,64
+30002651,Low Sec,f,64
+30004044,Null Sec (Sov),f,64
+30004730,Null Sec (Sov),f,64
+30004798,Null Sec (Sov),f,64
+30045345,Low Sec,f,63
+30045330,Low Sec,f,63
+30002960,Low Sec,f,63
+30004996,Low Sec,f,63
+30045337,Low Sec,f,63
+30003525,High Sec,f,62
+30004808,Null Sec (Sov),f,62
+30002556,Low Sec,f,62
+30004998,Low Sec,f,62
+30004988,Low Sec,f,62
+30002439,Null Sec (Sov),f,62
+30003790,Low Sec,f,61
+30003570,Low Sec,f,61
+30000253,Null Sec (Sov),f,61
+30002068,High Sec,f,61
+30045329,Pochven,f,61
+30002298,Null Sec (Sov),f,61
+30000242,Null Sec (Sov),f,61
+30001020,Null Sec (NPC),f,60
+30004722,Null Sec (NPC),f,60
+30003840,Low Sec,f,60
+30001156,Null Sec (Sov),f,60
+30000117,Low Sec,f,60
+30000997,Null Sec (NPC),f,60
+30003301,Null Sec (NPC),f,60
+30002475,Null Sec (Sov),f,60
+30002472,Null Sec (Sov),f,60
+30000194,Low Sec,f,59
+30001162,Null Sec (Sov),f,59
+30002536,Low Sec,f,59
+30001346,Null Sec (NPC),f,58
+30001348,Null Sec (NPC),f,58
+30045332,Low Sec,f,58
+30004708,Null Sec (NPC),f,58
+30001926,Null Sec (NPC),f,58
+30003857,Low Sec,f,57
+30000036,Low Sec,f,57
+30045316,Low Sec,f,57
+30002969,High Sec,f,57
+30002098,Low Sec,f,57
+30003830,High Sec,f,57
+30002005,Null Sec (NPC),f,57
+30003612,Null Sec (Sov),f,57
+30045339,Low Sec,f,57
+30004230,Low Sec,f,57
+30002515,Low Sec,f,57
+30003953,Null Sec (Sov),f,56
+30002051,High Sec,f,56
+30001197,Null Sec (Sov),f,55
+30002363,Null Sec (Sov),f,55
+30003828,Low Sec,f,55
+30001447,Low Sec,f,55
+30002808,Low Sec,f,55
+30012547,High Sec,f,55
+30003278,Null Sec (NPC),f,55
+30004245,Low Sec,f,55
+30003573,Low Sec,f,55
+30002097,Low Sec,f,54
+30003151,Null Sec (Sov),f,54
+30000871,Null Sec (Sov),f,54
+30001000,Null Sec (NPC),f,54
+30002509,High Sec,f,54
+30002428,Null Sec (Sov),f,54
+30002192,High Sec,f,54
+30001409,High Sec,f,53
+30003063,Low Sec,f,53
+30005073,Low Sec,f,52
+30000107,High Sec,f,52
+30004642,Null Sec (Sov),f,52
+30002346,Null Sec (Sov),f,52
+30000187,High Sec,f,52
+30001858,Null Sec (NPC),f,52
+30002360,Null Sec (Sov),f,52
+30002754,High Sec,f,51
+30001157,Null Sec (Sov),f,51
+30005224,Low Sec,f,51
+30000138,High Sec,f,51
+30000181,High Sec,f,51
+30004027,Null Sec (Sov),f,51
+30003794,High Sec,f,51
+30003556,Low Sec,f,51
+30003442,High Sec,f,51
+30003077,Low Sec,f,51
+30001663,Low Sec,f,51
+30005261,Low Sec,f,50
+30003470,Low Sec,f,50
+30002064,Low Sec,f,50
+30045305,High Sec,f,50
+30002063,Low Sec,f,49
+30002074,High Sec,f,49
+30002067,Low Sec,f,49
+30002698,Low Sec,f,49
+30000864,Null Sec (Sov),f,49
+30004691,Null Sec (Sov),f,49
+30001420,Low Sec,f,49
+30005208,Low Sec,f,49
+30003769,Null Sec (Sov),f,48
+30002697,Low Sec,f,48
+30002665,High Sec,f,48
+30002096,Low Sec,f,48
+30005321,Low Sec,f,48
+30003978,Null Sec (Sov),f,48
+30001661,Low Sec,f,47
+30004042,Null Sec (Sov),f,47
+30005160,Null Sec (Sov),f,47
+30014971,High Sec,f,47
+30000209,Null Sec (Sov),f,46
+30000015,Low Sec,f,46
+30003789,Low Sec,f,46
+30005299,Low Sec,f,46
+30005079,Low Sec,f,46
+30001324,Null Sec (NPC),f,45
+30001668,Low Sec,f,45
+30000208,Null Sec (Sov),f,45
+30002388,Low Sec,f,45
+30001011,Null Sec (NPC),f,45
+30004717,Null Sec (Sov),f,45
+30005234,Low Sec,f,45
+30004590,Null Sec (Sov),f,45
+30001252,Null Sec (Sov),f,45
+30005300,Low Sec,f,45
+30003072,Low Sec,f,45
+30003852,Low Sec,f,45
+30001041,Null Sec (NPC),f,45
+30004777,Null Sec (Sov),f,44
+30004707,Null Sec (NPC),f,44
+30002029,Null Sec (Sov),f,44
+30001028,Null Sec (NPC),f,44
+30003796,Low Sec,f,44
+30002725,Low Sec,f,43
+30003561,Low Sec,f,43
+30001444,High Sec,f,43
+30004617,Null Sec (NPC),f,43
+30005203,High Sec,f,43
+30001392,High Sec,t,42
+30004800,Null Sec (Sov),f,42
+30001686,Low Sec,f,42
+30000225,Null Sec (Sov),f,42
+30001986,Null Sec (Sov),f,42
+30005262,Low Sec,f,42
+30001437,Low Sec,f,42
+30004751,Null Sec (Sov),f,42
+30001399,High Sec,f,41
+30002270,Low Sec,f,41
+30003269,Null Sec (NPC),f,41
+30001405,High Sec,f,41
+30003541,Low Sec,f,41
+30000116,Low Sec,f,41
+30002423,Null Sec (NPC),f,41
+30003620,Null Sec (Sov),f,41
+30003465,Low Sec,f,41
+30004999,Low Sec,f,41
+30005077,Low Sec,f,40
+30001044,Null Sec (NPC),f,40
+30003920,Low Sec,f,40
+30004696,Null Sec (Sov),f,40
+30002271,High Sec,f,40
+30000221,Null Sec (Sov),f,40
+30005328,Low Sec,f,40
+30002982,Low Sec,f,40
+30003724,Null Sec (Sov),f,40
+30002782,High Sec,f,40
+30005298,Low Sec,f,40
+30002076,Low Sec,f,39
+30002088,Low Sec,f,39
+30002345,Null Sec (Sov),f,39
+30002957,Low Sec,f,39
+30001248,Null Sec (Sov),f,39
+30003892,Low Sec,f,39
+30003241,Null Sec (Sov),f,39
+30002560,Low Sec,f,38
+30003091,Low Sec,f,38
+30001019,Null Sec (NPC),f,38
+30002979,Low Sec,f,37
+30002810,Low Sec,f,37
+30000483,Null Sec (Sov),f,37
+30000865,Null Sec (Sov),f,37
+30000019,Low Sec,f,37
+30005134,Null Sec (Sov),f,37
+30003819,Low Sec,f,37
+30004724,Null Sec (Sov),f,37
+30002758,Low Sec,f,37
+30002055,High Sec,f,37
+30000262,Null Sec (Sov),f,37
+30000200,Low Sec,f,37
+30004043,Null Sec (Sov),f,37
+30000492,Null Sec (Sov),f,37
+30000185,High Sec,f,36
+30003499,Low Sec,f,36
+30001831,Null Sec (NPC),f,36
+30001404,High Sec,f,36
+30004715,Null Sec (Sov),f,36
+30002667,High Sec,f,36
+30005315,High Sec,f,36
+30002551,Low Sec,f,36
+30001978,Null Sec (NPC),f,36
+30003486,Low Sec,f,36
+30002848,Null Sec (Sov),f,36
+30001367,High Sec,f,36
+30000046,Low Sec,f,36
+30002720,Low Sec,f,36
+30001277,Null Sec (NPC),f,36
+30002093,Low Sec,f,36
+30004333,Null Sec (Sov),f,36
+30001274,Null Sec (NPC),f,36
+30000238,Null Sec (Sov),f,36
+30001403,High Sec,f,35
+30001384,High Sec,f,35
+30002349,Null Sec (Sov),f,35
+30045306,Low Sec,f,35
+30003854,Low Sec,f,35
+30045341,Low Sec,f,35
+30003285,Null Sec (NPC),f,35
+30000123,High Sec,f,35
+30002471,Null Sec (Sov),f,35
+30002157,Null Sec (Sov),f,35
+30002761,High Sec,f,35
+30000903,Null Sec (NPC),f,35
+30002759,Low Sec,f,35
+30003797,Low Sec,f,35
+30004620,Null Sec (NPC),f,35
+30004055,Null Sec (Sov),f,35
+30005091,Null Sec (Sov),f,35
+30001380,High Sec,f,35
+30002741,Low Sec,f,35
+30000249,Null Sec (Sov),f,35
+30000224,Null Sec (Sov),f,34
+30001369,High Sec,f,34
+30003730,Null Sec (Sov),f,34
+30001407,High Sec,t,34
+30003942,Null Sec (Sov),f,34
+30002974,High Sec,f,34
+30001925,Null Sec (NPC),f,34
+30004012,Null Sec (Sov),f,34
+30002046,Null Sec (Sov),f,34
+30005095,Null Sec (Sov),f,34
+30002805,High Sec,f,34
+30002133,Null Sec (Sov),f,34
+30002548,High Sec,f,34
+30004990,Low Sec,f,34
+30002393,Low Sec,f,34
+30002457,Null Sec (Sov),f,34
+30004740,Null Sec (Sov),f,34
+30002543,High Sec,f,34
+30004623,Null Sec (NPC),f,33
+30003055,High Sec,f,33
+30001927,Null Sec (NPC),f,33
+30003110,Null Sec (Sov),f,33
+30001847,Null Sec (NPC),f,33
+30004750,Null Sec (Sov),f,33
+30002959,Low Sec,f,33
+30002699,High Sec,f,33
+30000265,Null Sec (Sov),f,33
+30005001,High Sec,f,33
+30004246,Low Sec,f,33
+30002424,Null Sec (NPC),f,33
+30000858,Null Sec (Sov),f,33
+30003052,High Sec,f,32
+30005329,Low Sec,f,32
+30002396,Low Sec,f,32
+30005106,Null Sec (Sov),f,32
+30000303,Null Sec (Sov),f,32
+30003966,Null Sec (Sov),f,32
+30000126,High Sec,f,32
+30004593,Null Sec (Sov),f,32
+30004766,Null Sec (Sov),f,32
+30004665,Null Sec (Sov),f,32
+30045308,Low Sec,f,32
+30002156,Null Sec (Sov),f,31
+30000552,Null Sec (Sov),f,31
+30003897,Low Sec,f,31
+30002975,Low Sec,f,31
+30002854,Null Sec (Sov),f,31
+30004106,Low Sec,f,31
+30004297,Low Sec,f,31
+30002642,High Sec,f,31
+30004720,Null Sec (NPC),f,31
+30004738,Null Sec (Sov),f,31
+30004809,Null Sec (Sov),f,31
+30002385,High Sec,f,31
+30000247,Null Sec (Sov),f,31
+30005061,Low Sec,f,31
+30000168,High Sec,f,31
+30002016,Null Sec (Sov),f,31
+30000114,Low Sec,f,31
+30001408,High Sec,f,31
+30045333,Low Sec,f,31
+30001275,Null Sec (NPC),f,31
+30000905,Null Sec (NPC),f,30
+30000263,Null Sec (Sov),f,30
+30001440,Low Sec,f,30
+30002840,Null Sec (Sov),f,30
+30000191,Low Sec,f,30
+30001025,Null Sec (NPC),f,30
+30004621,Null Sec (NPC),f,30
+30000626,Null Sec (Sov),f,30
+30002065,Low Sec,f,30
+30001406,High Sec,f,30
+30003723,Null Sec (Sov),f,30
+30003522,High Sec,f,30
+30003446,Low Sec,f,30
+30045350,Low Sec,f,30
+30004586,Null Sec (Sov),f,29
+30002351,Null Sec (Sov),f,29
+30004997,Low Sec,f,29
+30000155,High Sec,f,29
+30001948,Null Sec (NPC),f,29
+30000784,Null Sec (Sov),f,29
+30001977,Null Sec (NPC),f,29
+30000455,Null Sec (Sov),f,29
+30002820,Null Sec (Sov),f,29
+30002643,High Sec,f,29
+30002071,High Sec,f,29
+30002853,Null Sec (Sov),f,29
+30004937,Null Sec (Sov),f,29
+30000135,High Sec,f,29
+30002846,Null Sec (Sov),f,29
+30001378,High Sec,f,29
+30001379,High Sec,f,29
+30002077,Low Sec,f,29
+30005267,High Sec,f,29
+30003030,High Sec,f,29
+30005211,Low Sec,f,28
+30002512,High Sec,f,28
+30002980,Low Sec,f,28
+30000044,Low Sec,f,28
+30005129,Null Sec (Sov),f,28
+30045313,Low Sec,f,28
+30004596,Null Sec (Sov),f,28
+30000122,High Sec,f,28
+30004013,Null Sec (Sov),f,28
+30002882,Null Sec (Sov),f,27
+30000544,Null Sec (Sov),f,27
+30001980,Null Sec (NPC),f,27
+30001720,Low Sec,f,27
+30045340,Low Sec,f,27
+30000775,Null Sec (Sov),f,27
+30001366,High Sec,f,27
+30004299,Low Sec,f,27
+30005198,High Sec,f,27
+30004009,Null Sec (Sov),f,27
+30045334,Low Sec,f,27
+30003023,Low Sec,f,27
+30002904,Null Sec (Sov),f,27
+30001393,High Sec,f,27
+30001396,High Sec,f,27
+30002402,Low Sec,f,27
+30004601,Null Sec (Sov),f,27
+30004787,Null Sec (Sov),f,27
+30000650,Null Sec (Sov),f,27
+30000113,Low Sec,f,26
+30003571,Low Sec,f,26
+30001009,Null Sec (NPC),f,26
+30000158,High Sec,f,26
+30002478,Null Sec (Sov),f,26
+30045322,High Sec,f,26
+30004817,Null Sec (Sov),f,26
+30045310,Low Sec,f,26
+30000774,Null Sec (Sov),f,26
+30002633,High Sec,f,26
+30001376,High Sec,f,26
+30000849,Null Sec (Sov),f,26
+30004975,High Sec,f,26
+30004735,Null Sec (Sov),f,26
+30003534,Low Sec,f,26
+30000243,Null Sec (Sov),f,26
+30000239,Null Sec (Sov),f,26
+30004765,Null Sec (Sov),f,26
+30000893,Null Sec (Sov),f,26
+30003919,Low Sec,f,26
+30001290,Null Sec (NPC),f,26
+30003484,Low Sec,f,26
+30001301,Null Sec (NPC),f,26
+30000669,Null Sec (Sov),f,26
+30004122,High Sec,f,26
+30002800,High Sec,f,26
+30000942,Null Sec (NPC),f,26
+30004051,Null Sec (Sov),f,26
+30005216,High Sec,f,26
+30004024,Null Sec (Sov),f,25
+30001260,Null Sec (Sov),f,25
+30045042,High Sec,f,25
+30002978,Low Sec,f,25
+30004962,Null Sec (Sov),f,25
+30001364,High Sec,f,25
+30045343,Low Sec,f,25
+30000678,Null Sec (Sov),f,25
+30003286,Null Sec (NPC),f,25
+30003651,Null Sec (Sov),f,25
+30002110,Null Sec (Sov),f,25
+30002662,High Sec,f,25
+30002930,Null Sec (Sov),f,25
+30000890,Null Sec (Sov),f,25
+30000133,High Sec,f,25
+30004970,High Sec,f,25
+30004504,Null Sec (NPC),f,25
+30003977,Null Sec (Sov),f,25
+30005269,High Sec,f,25
+30002350,Null Sec (Sov),f,25
+30000179,High Sec,f,25
+30001017,Null Sec (NPC),f,25
+30000901,Null Sec (NPC),f,25
+30001869,Null Sec (NPC),f,25
+30000825,Null Sec (Sov),f,24
+30004356,Null Sec (Sov),f,24
+30004576,Null Sec (Sov),f,24
+30002727,Low Sec,f,24
+30004723,Null Sec (NPC),f,24
+30005036,High Sec,f,24
+30002369,Null Sec (Sov),f,24
+30000264,Null Sec (Sov),f,24
+30001868,Null Sec (NPC),f,24
+30002860,Null Sec (Sov),f,24
+30000199,Low Sec,f,24
+30003706,Null Sec (Sov),f,24
+30004966,Null Sec (Sov),f,24
+30004104,Low Sec,f,24
+30001911,Null Sec (NPC),f,24
+30001325,Null Sec (NPC),f,24
+30100000,Zarzakh,f,24
+30001923,Null Sec (NPC),f,24
+30002880,Null Sec (Sov),f,24
+30002964,High Sec,f,24
+30000160,High Sec,f,24
+30002282,High Sec,f,24
+30001329,Null Sec (NPC),f,24
+30002760,Low Sec,f,24
+30002052,Low Sec,f,23
+30002531,High Sec,f,23
+30002516,Low Sec,f,23
+30004806,Null Sec (Sov),f,23
+30004941,Null Sec (Sov),f,23
+30004584,Null Sec (Sov),f,23
+30002722,Low Sec,f,23
+30002352,Null Sec (Sov),f,23
+30004573,Null Sec (Sov),f,23
+30002255,Low Sec,f,23
+30002249,Low Sec,f,23
+30000232,Null Sec (Sov),f,23
+30004367,Null Sec (Sov),f,23
+30000902,Null Sec (NPC),f,23
+30004267,Low Sec,f,23
+30000203,Low Sec,f,23
+30000788,Null Sec (Sov),f,23
+30001987,Null Sec (Sov),f,23
+30001967,Null Sec (Sov),f,23
+30001683,Low Sec,f,23
+30003954,Null Sec (Sov),f,23
+30003029,High Sec,f,23
+30003847,Low Sec,f,23
+30003842,Low Sec,f,23
+30003271,Null Sec (NPC),f,23
+30003274,Null Sec (NPC),f,23
+30001386,High Sec,f,23
+30001163,Null Sec (Sov),f,23
+30003535,High Sec,f,23
+30004716,Null Sec (Sov),f,23
+30004706,Null Sec (NPC),f,23
+30005135,Null Sec (Sov),f,22
+30005109,Null Sec (Sov),f,22
+30005219,High Sec,f,22
+30002845,Null Sec (Sov),f,22
+30000713,Null Sec (Sov),f,22
+30002971,High Sec,f,22
+30002801,High Sec,f,22
+30002799,High Sec,f,22
+30000130,High Sec,f,22
+30002976,Low Sec,f,22
+30003018,High Sec,f,22
+30003027,High Sec,f,22
+30002102,Low Sec,f,22
+30004342,Null Sec (Sov),f,22
+30000230,Null Sec (Sov),f,22
+30004555,Null Sec (Sov),f,22
+30003557,Low Sec,f,22
+30004991,Low Sec,f,22
+30003169,Null Sec (Sov),f,22
+30004713,Null Sec (Sov),f,22
+30000261,Null Sec (Sov),f,22
+30000294,Null Sec (Sov),f,22
+30000268,Null Sec (Sov),f,22
+30003320,Null Sec (NPC),f,22
+30002427,Null Sec (NPC),f,22
+30003681,Null Sec (Sov),f,22
+30002473,Null Sec (Sov),f,22
+30002545,High Sec,f,22
+30002657,High Sec,f,22
+30003636,Null Sec (Sov),f,22
+30001005,Null Sec (NPC),f,22
+30005210,Low Sec,f,22
+30002855,Null Sec (Sov),f,22
+30002421,Null Sec (NPC),f,21
+30004614,Null Sec (Sov),f,21
+30003834,Low Sec,f,21
+30002332,Null Sec (Sov),f,21
+30003982,Null Sec (Sov),f,21
+30002847,Null Sec (Sov),f,21
+30002438,Null Sec (Sov),f,21
+30000823,Null Sec (Sov),f,21
+30004419,Null Sec (Sov),f,21
+30005088,Null Sec (Sov),f,21
+30004778,Null Sec (Sov),f,21
+30002655,High Sec,f,21
+30003823,Low Sec,f,21
+30003156,Null Sec (Sov),f,21
+30002658,High Sec,f,21
+30003801,Low Sec,f,21
+30001198,Null Sec (Sov),f,21
+30000210,Null Sec (Sov),f,21
+30000256,Null Sec (Sov),f,21
+30001001,Null Sec (NPC),f,21
+30002554,Low Sec,f,21
+30000214,Null Sec (Sov),f,21
+30000127,High Sec,f,21
+30004273,Low Sec,f,21
+30003466,Low Sec,f,21
+30000628,Null Sec (Sov),f,21
+30002721,Low Sec,f,21
+30004431,Null Sec (Sov),f,21
+30002585,Null Sec (Sov),f,21
+30005060,High Sec,f,21
+30002100,Low Sec,f,21
+30000267,Null Sec (Sov),f,21
+30005207,Low Sec,f,21
+30002019,Null Sec (Sov),f,21
+30004598,Null Sec (Sov),f,21
+30005212,Low Sec,f,21
+30003322,Null Sec (NPC),f,21
+30002420,Low Sec,f,21
+30002574,Low Sec,f,20
+30045348,Low Sec,f,20
+30001107,Null Sec (Sov),f,20
+30004392,Null Sec (Sov),f,20
+30002660,High Sec,f,20
+30000894,Null Sec (Sov),f,20
+30003905,Low Sec,f,20
+30004649,Null Sec (Sov),f,20
+30001422,Low Sec,f,20
+30002513,High Sec,f,20
+30004577,Null Sec (Sov),f,20
+30003135,Null Sec (Sov),f,20
+30003149,Null Sec (Sov),f,20
+30004583,Null Sec (Sov),f,20
+30005199,High Sec,f,20
+30000150,High Sec,f,20
+30002061,Low Sec,f,20
+30004731,Null Sec (Sov),f,20
+30004070,Null Sec (Sov),f,20
+30004811,Null Sec (Sov),f,20
+30003471,Low Sec,f,20
+30045320,Low Sec,f,20
+30004198,Null Sec (Sov),f,20
+30000131,High Sec,f,20
+30002466,Null Sec (Sov),f,20
+30002874,Null Sec (Sov),f,20
+30001825,Null Sec (Sov),f,20
+30000128,High Sec,f,20
+30000215,Null Sec (Sov),f,20
+30003584,Low Sec,f,20
+30005158,Null Sec (Sov),f,20
+30004790,Null Sec (Sov),f,20
+30003028,High Sec,f,20
+30001664,Low Sec,f,20
+30000760,Null Sec (Sov),f,19
+30000188,High Sec,f,19
+30000213,Null Sec (Sov),f,19
+30000302,Null Sec (Sov),f,19
+30000745,Null Sec (Sov),f,19
+30000747,Null Sec (Sov),f,19
+30000751,Null Sec (Sov),f,19
+30001258,Null Sec (Sov),f,19
+30001286,Null Sec (NPC),f,19
+30001425,High Sec,f,19
+30001429,High Sec,f,19
+30001439,Low Sec,f,19
+30002219,Low Sec,f,19
+30002412,Low Sec,f,19
+30002463,Null Sec (Sov),f,19
+30002839,Null Sec (Sov),f,19
+30003818,Low Sec,f,19
+30003855,Low Sec,f,19
+30003884,Low Sec,f,19
+30003943,Null Sec (Sov),f,19
+30003957,Null Sec (Sov),f,19
+30004023,Null Sec (Sov),f,19
+30004025,Null Sec (Sov),f,19
+30004050,Null Sec (Sov),f,19
+30004228,Null Sec (Sov),f,19
+30004346,Null Sec (Sov),f,19
+30004472,Null Sec (Sov),f,19
+30004599,Null Sec (Sov),f,19
+30004637,Null Sec (Sov),f,19
+30004780,Null Sec (Sov),f,19
+30004782,Null Sec (Sov),f,19
+30004810,Null Sec (Sov),f,19
+30005131,Null Sec (Sov),f,19
+30005188,Null Sec (Sov),f,19
+30013489,High Sec,f,19
+30045307,Low Sec,f,19
+30002580,Low Sec,f,18
+30003567,Low Sec,f,18
+30002833,Null Sec (Sov),f,18
+30001540,Null Sec (Sov),f,18
+30004298,Low Sec,f,18
+30002676,High Sec,f,18
+30002561,Low Sec,f,18
+30001094,Null Sec (Sov),f,18
+30004354,Null Sec (Sov),f,18
+30003802,Low Sec,f,18
+30002728,Low Sec,f,18
+30004232,Low Sec,f,18
+30002825,Null Sec (Sov),f,18
+30002726,Low Sec,f,18
+30002529,High Sec,f,18
+30004785,Null Sec (Sov),f,18
+30004774,Null Sec (Sov),f,18
+30000530,Null Sec (Sov),f,18
+30004762,Null Sec (Sov),f,18
+30002970,High Sec,f,18
+30003229,Null Sec (Sov),f,18
+30000154,High Sec,f,18
+30004029,Null Sec (Sov),f,18
+30004752,Null Sec (Sov),f,18
+30001086,Null Sec (Sov),f,18
+30001653,High Sec,f,18
+30002958,Low Sec,f,18
+30005225,Low Sec,f,18
+30000251,Null Sec (Sov),f,18
+30001394,High Sec,f,18
+30004978,High Sec,f,18
+30004239,Low Sec,f,18
+30005205,High Sec,f,18
+30000233,Null Sec (Sov),f,18
+30003062,Low Sec,f,17
+30002575,Low Sec,f,17
+30003691,Null Sec (Sov),f,17
+30004993,High Sec,f,17
+30002856,Null Sec (Sov),f,17
+30001375,High Sec,f,17
+30005010,Low Sec,f,17
+30003048,High Sec,f,17
+30003791,Low Sec,f,17
+30005031,Low Sec,f,17
+30001764,Null Sec (Sov),f,17
+30004140,Low Sec,f,17
+30004553,Null Sec (Sov),f,17
+30001826,Null Sec (Sov),f,17
+30004554,Null Sec (Sov),f,17
+30004557,Null Sec (Sov),f,17
+30004097,High Sec,f,17
+30003705,Null Sec (Sov),f,17
+30003935,Low Sec,f,17
+30000132,High Sec,f,17
+30045326,High Sec,f,17
+30002916,Null Sec (Sov),f,17
+30000778,Null Sec (Sov),f,17
+30003883,High Sec,f,17
+30000897,Null Sec (Sov),f,17
+30003425,Low Sec,f,17
+30004709,Null Sec (NPC),f,17
+30000305,Null Sec (Sov),f,17
+30000124,High Sec,f,17
+30002919,Null Sec (Sov),f,17
+30000301,Null Sec (Sov),f,17
+30003607,Low Sec,f,17
+30045311,Low Sec,f,17
+30001272,Null Sec (NPC),f,17
+30004758,Null Sec (Sov),f,17
+30003188,Null Sec (Sov),f,17
+30004775,Null Sec (Sov),f,17
+30005165,Null Sec (Sov),f,17
+30002886,Null Sec (Sov),f,17
+30003832,High Sec,f,17
+30005164,Null Sec (Sov),f,17
+30002586,Null Sec (Sov),f,17
+30000668,Null Sec (Sov),f,17
+30004839,Null Sec (Sov),f,17
+30001837,Null Sec (NPC),f,17
+30002729,Low Sec,f,17
+30005204,High Sec,f,17
+30002870,Null Sec (Sov),f,17
+30001303,Null Sec (NPC),f,17
+30002730,Low Sec,f,17
+30001435,Low Sec,f,17
+30004935,Null Sec (Sov),f,17
+30000649,Null Sec (Sov),f,16
+30003657,Null Sec (Sov),f,16
+30004754,Null Sec (Sov),f,16
+30004139,Low Sec,f,16
+30004703,Null Sec (Sov),f,16
+30002889,Null Sec (Sov),f,16
+30002092,Low Sec,f,16
+30004889,Null Sec (Sov),f,16
+30000648,Null Sec (Sov),f,16
+30003800,Low Sec,f,16
+30004779,Null Sec (Sov),f,16
+30001032,Null Sec (NPC),f,16
+30002775,High Sec,f,16
+30001315,Null Sec (NPC),f,16
+30000523,Null Sec (Sov),f,16
+30004644,Null Sec (Sov),f,16
+30001548,Null Sec (Sov),f,16
+30004606,Null Sec (Sov),f,16
+30000182,High Sec,f,16
+30004378,Null Sec (Sov),f,16
+30000868,Null Sec (Sov),f,16
+30005159,Null Sec (Sov),f,16
+30004793,Null Sec (Sov),f,16
+30005305,High Sec,t,16
+30003896,Low Sec,f,16
+30002425,Null Sec (NPC),f,16
+30003775,Null Sec (Sov),f,16
+30001234,Null Sec (Sov),f,16
+30004552,Null Sec (Sov),f,16
+30004953,Null Sec (Sov),f,16
+30005308,High Sec,f,16
+30003624,Null Sec (Sov),f,16
+30003948,Null Sec (Sov),f,16
+30002447,Null Sec (Sov),f,16
+30005137,Null Sec (Sov),f,16
+30000228,Null Sec (Sov),f,16
+30000266,Null Sec (Sov),f,16
+30000869,Null Sec (Sov),f,16
+30005280,Low Sec,f,16
+30001438,Low Sec,f,16
+30002534,High Sec,f,16
+30000304,Null Sec (Sov),f,16
+30000581,Null Sec (Sov),f,16
+30003973,Null Sec (Sov),f,16
+30000212,Null Sec (Sov),f,16
+30005316,High Sec,f,16
+30003988,Null Sec (Sov),f,16
+30003987,Null Sec (Sov),f,16
+30000299,Null Sec (Sov),f,16
+30003967,Null Sec (Sov),f,16
+30000651,Null Sec (Sov),f,16
+30004981,High Sec,f,16
+30004737,Null Sec (Sov),f,16
+30001597,Null Sec (Sov),f,16
+30002787,High Sec,f,16
+30003000,Low Sec,f,16
+30000306,Null Sec (Sov),f,16
+30000075,Low Sec,f,16
+30003266,Null Sec (Sov),f,16
+30004324,Null Sec (Sov),f,16
+30002732,High Sec,f,16
+30003112,Null Sec (Sov),f,16
+30005273,Low Sec,f,16
+30002247,High Sec,f,15
+30004233,Low Sec,f,15
+30002700,High Sec,f,15
+30003949,Null Sec (Sov),f,15
+30002656,High Sec,f,15
+30002936,Null Sec (Sov),f,15
+30003962,Null Sec (Sov),f,15
+30004053,Null Sec (Sov),f,15
+30003615,Null Sec (Sov),f,15
+30004030,Null Sec (Sov),f,15
+30004011,Null Sec (Sov),f,15
+30002716,High Sec,f,15
+30003059,Low Sec,f,15
+30005138,Null Sec (Sov),f,15
+30045321,High Sec,f,15
+30003767,Null Sec (Sov),f,15
+30001322,Null Sec (NPC),f,15
+30001344,Null Sec (NPC),f,15
+30000217,Null Sec (Sov),f,15
+30001362,High Sec,f,15
+30002748,High Sec,f,15
+30005007,Low Sec,f,15
+30000234,Null Sec (Sov),f,15
+30000235,Null Sec (Sov),f,15
+30001382,High Sec,f,15
+30000269,Null Sec (Sov),f,15
+30000558,Null Sec (Sov),f,15
+30003799,Low Sec,f,15
+30004907,Null Sec (Sov),f,15
+30001989,Null Sec (Sov),f,15
+30001436,Low Sec,f,15
+30001442,Low Sec,f,15
+30001982,Null Sec (NPC),f,15
+30004818,Null Sec (Sov),f,15
+30003831,High Sec,f,15
+30002091,Low Sec,f,15
+30004776,Null Sec (Sov),f,15
+30003704,Null Sec (Sov),f,15
+30004757,Null Sec (Sov),f,15
+30004745,Null Sec (Sov),f,15
+30002802,High Sec,f,15
+30002470,Null Sec (Sov),f,15
+30001685,Low Sec,f,15
+30004663,Null Sec (Sov),f,15
+30003848,Low Sec,f,15
+30000013,Low Sec,f,15
+30003076,High Sec,f,15
+30004616,Null Sec (Sov),f,15
+30004613,Null Sec (Sov),f,15
+30002481,Null Sec (Sov),f,15
+30004605,Null Sec (Sov),f,15
+30002675,High Sec,f,15
+30003392,High Sec,f,15
+30000146,High Sec,f,15
+30004518,Null Sec (NPC),f,15
+30004503,Null Sec (NPC),f,15
+30004452,Null Sec (Sov),f,15
+30004396,Null Sec (Sov),f,15
+30004390,Null Sec (Sov),f,15
+30004379,Null Sec (Sov),f,15
+30003363,Null Sec (NPC),f,15
+30004353,Null Sec (Sov),f,15
+30000695,Null Sec (Sov),f,15
+30001214,Null Sec (Sov),f,15
+30021392,High Sec,f,14
+30001958,Null Sec (NPC),f,14
+30002365,Null Sec (Sov),f,14
+30005217,High Sec,f,14
+30002036,Null Sec (Sov),f,14
+30001196,Null Sec (Sov),f,14
+30001959,Null Sec (NPC),f,14
+30005114,Null Sec (Sov),f,14
+30004947,Null Sec (Sov),f,14
+30002865,Null Sec (Sov),f,14
+30002952,Null Sec (Sov),f,14
+30000248,Null Sec (Sov),f,14
+30000173,High Sec,f,14
+30003844,Low Sec,f,14
+30001170,Null Sec (Sov),f,14
+30004763,Null Sec (Sov),f,14
+30000715,Null Sec (Sov),f,14
+30002094,Low Sec,f,14
+30000289,Null Sec (Sov),f,14
+30000748,Null Sec (Sov),f,14
+30004938,Null Sec (Sov),f,14
+30004393,Null Sec (Sov),f,14
+30003061,Low Sec,f,14
+30001046,Null Sec (NPC),f,14
+30000310,Null Sec (Sov),f,14
+30000509,Null Sec (Sov),f,14
+30004844,Null Sec (Sov),f,14
+30004300,Low Sec,f,14
+30001963,Null Sec (Sov),f,14
+30003930,Low Sec,f,14
+30002592,Null Sec (Sov),f,14
+30003599,Low Sec,f,14
+30002844,Null Sec (Sov),f,14
+30002644,High Sec,f,14
+30003672,Null Sec (Sov),f,14
+30003478,Low Sec,f,14
+30002272,Low Sec,f,14
+30000246,Null Sec (Sov),f,14
+30000244,Null Sec (Sov),f,14
+30000870,Null Sec (Sov),f,14
+30004428,Null Sec (Sov),f,14
+30000231,Null Sec (Sov),f,14
+30002842,Null Sec (Sov),f,14
+30002553,Low Sec,f,14
+30004323,Null Sec (Sov),f,14
+30000018,Low Sec,f,14
+30002544,High Sec,f,14
+30001397,High Sec,f,14
+30004491,Null Sec (Sov),f,14
+30000710,Null Sec (Sov),f,14
+30002887,Null Sec (Sov),f,14
+30002170,Null Sec (Sov),f,14
+30002117,Null Sec (Sov),f,14
+30000272,Null Sec (Sov),f,14
+30001330,Null Sec (NPC),f,14
+30005271,Low Sec,f,14
+30000282,Null Sec (Sov),f,14
+30000743,Null Sec (Sov),f,14
+30001209,Null Sec (Sov),f,14
+30004206,Null Sec (Sov),f,14
+30000684,Null Sec (Sov),f,14
+30002977,Low Sec,f,14
+30002908,Null Sec (Sov),f,14
+30002450,Null Sec (Sov),f,14
+30005256,Low Sec,f,14
+30000820,Null Sec (Sov),f,14
+30001863,Null Sec (NPC),f,14
+30002734,High Sec,f,14
+30004341,Null Sec (Sov),f,14
+30001171,Null Sec (Sov),f,14
+30001953,Null Sec (NPC),f,14
+30004965,Null Sec (Sov),f,13
+30005093,Null Sec (Sov),f,13
+30005096,Null Sec (Sov),f,13
+30004949,Null Sec (Sov),f,13
+30000073,Low Sec,f,13
+30003774,Null Sec (Sov),f,13
+30004904,Null Sec (Sov),f,13
+30005108,Null Sec (Sov),f,13
+30003760,Null Sec (Sov),f,13
+30005286,Low Sec,f,13
+30001441,Low Sec,f,13
+30003537,High Sec,f,13
+30005189,Null Sec (Sov),f,13
+30004312,Null Sec (Sov),f,13
+30003694,Null Sec (Sov),f,13
+30004814,Null Sec (Sov),f,13
+30001268,Null Sec (NPC),f,13
+30004799,Null Sec (Sov),f,13
+30000904,Null Sec (NPC),f,13
+30002985,Low Sec,f,13
+30004789,Null Sec (Sov),f,13
+30003166,Null Sec (Sov),f,13
+30002153,Null Sec (Sov),f,13
+30003176,Null Sec (Sov),f,13
+30002044,Null Sec (Sov),f,13
+30002348,Null Sec (Sov),f,13
+30000105,Low Sec,f,13
+30005166,Null Sec (Sov),f,13
+30004768,Null Sec (Sov),f,13
+30000821,Null Sec (Sov),f,13
+30002023,Null Sec (Sov),f,13
+30000121,High Sec,f,13
+30004756,Null Sec (Sov),f,13
+30003200,Null Sec (Sov),f,13
+30003845,Low Sec,f,13
+30000898,Null Sec (Sov),f,13
+30000857,Null Sec (Sov),f,13
+30002792,High Sec,f,13
+30003971,Null Sec (Sov),f,13
+30004028,Null Sec (Sov),f,13
+30000683,Null Sec (Sov),f,13
+30004032,Null Sec (Sov),f,13
+30003327,Null Sec (NPC),f,13
+30003461,High Sec,f,13
+30004692,Null Sec (Sov),f,13
+30000318,Null Sec (Sov),f,13
+30001839,Null Sec (NPC),f,13
+30001820,Null Sec (Sov),f,13
+30003447,High Sec,f,13
+30004653,Null Sec (Sov),f,13
+30002212,High Sec,f,13
+30005231,High Sec,f,13
+30004640,Null Sec (Sov),f,13
+30002951,Null Sec (Sov),f,13
+30004631,Null Sec (Sov),f,13
+30003423,High Sec,f,13
+30000484,Null Sec (Sov),f,13
+30004627,Null Sec (Sov),f,13
+30004624,Null Sec (Sov),f,13
+30004345,Null Sec (Sov),f,13
+30000134,High Sec,f,13
+30001805,Null Sec (Sov),f,13
+30004334,Null Sec (Sov),f,13
+30001861,Null Sec (NPC),f,13
+30004560,Null Sec (Sov),f,13
+30000092,Low Sec,f,13
+30004124,High Sec,f,13
+30004125,High Sec,f,13
+30003907,Low Sec,f,13
+30005318,High Sec,f,13
+30003945,Null Sec (Sov),f,13
+30001365,High Sec,f,13
+30002002,Null Sec (Sov),f,13
+30000216,Null Sec (Sov),f,13
+30001773,Null Sec (Sov),f,13
+30003020,High Sec,f,13
+30001374,High Sec,f,13
+30003793,Low Sec,f,13
+30002961,Low Sec,f,13
+30002442,Null Sec (Sov),f,13
+30000202,High Sec,f,13
+30001336,Null Sec (NPC),f,13
+30005085,Low Sec,f,13
+30000072,Low Sec,f,13
+30000787,Null Sec (Sov),f,13
+30003630,Null Sec (Sov),f,13
+30002850,Null Sec (Sov),f,13
+30005068,Low Sec,f,12
+30003090,Low Sec,f,12
+30004619,Null Sec (NPC),f,12
+30002872,Null Sec (Sov),f,12
+30005264,Low Sec,f,12
+30003488,High Sec,f,12
+30000877,Null Sec (Sov),f,12
+30002458,Null Sec (Sov),f,12
+30002743,High Sec,f,12
+30000149,High Sec,f,12
+30002902,Null Sec (Sov),f,12
+30002915,Null Sec (Sov),f,12
+30004836,Null Sec (Sov),f,12
+30001233,Null Sec (Sov),f,12
+30002843,Null Sec (Sov),f,12
+30002285,Null Sec (Sov),f,12
+30003618,Null Sec (Sov),f,12
+30005274,Low Sec,f,12
+30003158,Null Sec (Sov),f,12
+30000211,Null Sec (Sov),f,12
+30003922,Low Sec,f,12
+30000271,Null Sec (Sov),f,12
+30003138,Null Sec (Sov),f,12
+30004556,Null Sec (Sov),f,12
+30000682,Null Sec (Sov),f,12
+30012715,High Sec,f,12
+30003741,Null Sec (Sov),f,12
+30000274,Null Sec (Sov),f,12
+30000995,Null Sec (NPC),f,12
+30001833,Null Sec (NPC),f,12
+30003503,High Sec,f,12
+30004502,Null Sec (NPC),f,12
+30001387,High Sec,f,12
+30001845,Null Sec (NPC),f,12
+30004812,Null Sec (Sov),f,12
+30004728,Null Sec (Sov),f,12
+30002791,High Sec,f,12
+30003477,Low Sec,f,12
+30003985,Null Sec (Sov),f,12
+30003690,Null Sec (Sov),f,12
+30000300,Null Sec (Sov),f,12
+30003746,Null Sec (Sov),f,12
+30003975,Null Sec (Sov),f,12
+30002320,Null Sec (Sov),f,12
+30001660,High Sec,f,12
+30000498,Null Sec (Sov),f,12
+30004743,Null Sec (Sov),f,12
+30000275,Null Sec (Sov),f,12
+30000780,Null Sec (Sov),f,12
+30002740,High Sec,f,12
+30000308,Null Sec (Sov),f,12
+30002467,Null Sec (Sov),f,12
+30000625,Null Sec (Sov),f,12
+30005319,High Sec,f,12
+30001134,Null Sec (Sov),f,12
+30004383,Null Sec (Sov),f,12
+30003131,Null Sec (Sov),f,12
+30004705,Null Sec (Sov),f,12
+30003788,High Sec,f,12
+30004702,Null Sec (Sov),f,12
+30003709,Null Sec (Sov),f,12
+30005270,Low Sec,f,12
+30005026,High Sec,f,12
+30000220,Null Sec (Sov),f,12
+30002814,High Sec,f,12
+30003179,Null Sec (Sov),f,12
+30002154,Null Sec (Sov),f,12
+30004969,High Sec,f,12
+30004781,Null Sec (Sov),f,12
+30000797,Null Sec (Sov),f,12
+30004352,Null Sec (Sov),f,12
+30005292,High Sec,f,12
+30000813,Null Sec (Sov),f,12
+30003629,Null Sec (Sov),f,12
+30004035,Null Sec (Sov),f,12
+30002073,High Sec,f,12
+30003060,Low Sec,f,12
+30004048,Null Sec (Sov),f,12
+30003803,Low Sec,f,12
+30005087,Low Sec,f,12
+30000827,Null Sec (Sov),f,12
+30001373,High Sec,f,12
+30045351,Low Sec,f,12
+30004954,Null Sec (Sov),f,12
+30002078,Low Sec,f,12
+30003653,Null Sec (Sov),f,11
+30003600,Low Sec,f,11
+30003597,Low Sec,f,11
+30002070,High Sec,f,11
+30003545,High Sec,f,11
+30000593,Null Sec (Sov),f,11
+30000646,Null Sec (Sov),f,11
+30003439,High Sec,f,11
+30002194,High Sec,f,11
+30045315,Low Sec,f,11
+30003333,Null Sec (NPC),f,11
+30002120,Null Sec (Sov),f,11
+30002189,High Sec,f,11
+30003315,Null Sec (NPC),f,11
+30003095,High Sec,f,11
+30003109,Null Sec (Sov),f,11
+30003281,Null Sec (NPC),f,11
+30005176,Null Sec (Sov),f,11
+30003122,Null Sec (Sov),f,11
+30003133,Null Sec (Sov),f,11
+30003164,Null Sec (Sov),f,11
+30000756,Null Sec (Sov),f,11
+30001291,Null Sec (NPC),f,11
+30005116,Null Sec (Sov),f,11
+30005098,Null Sec (Sov),f,11
+30000866,Null Sec (Sov),f,11
+30000201,High Sec,f,11
+30005063,Low Sec,f,11
+30005062,Low Sec,f,11
+30002444,Null Sec (Sov),f,11
+30004974,High Sec,f,11
+30002361,Null Sec (Sov),f,11
+30001059,Null Sec (Sov),f,11
+30002532,High Sec,f,11
+30002530,High Sec,f,11
+30004833,Null Sec (Sov),f,11
+30004816,Null Sec (Sov),f,11
+30001536,Null Sec (Sov),f,11
+30000280,Null Sec (Sov),f,11
+30004783,Null Sec (Sov),f,11
+30001563,Null Sec (Sov),f,11
+30001570,Null Sec (Sov),f,11
+30004771,Null Sec (Sov),f,11
+30002776,High Sec,f,11
+30000295,Null Sec (Sov),f,11
+30002342,Null Sec (Sov),f,11
+30004727,Null Sec (Sov),f,11
+30000826,Null Sec (Sov),f,11
+30004714,Null Sec (Sov),f,11
+30004695,Null Sec (Sov),f,11
+30004694,Null Sec (Sov),f,11
+30004661,Null Sec (Sov),f,11
+30004650,Null Sec (Sov),f,11
+30004646,Null Sec (Sov),f,11
+30004643,Null Sec (Sov),f,11
+30001712,High Sec,f,11
+30000830,Null Sec (Sov),f,11
+30000851,Null Sec (Sov),f,11
+30002835,Null Sec (Sov),f,11
+30002836,Null Sec (Sov),f,11
+30004489,Null Sec (Sov),f,11
+30000111,Low Sec,f,11
+30000460,Null Sec (Sov),f,11
+30002881,Null Sec (Sov),f,11
+30002888,Null Sec (Sov),f,11
+30004183,Null Sec (Sov),f,11
+30001854,Null Sec (NPC),f,11
+30004062,Null Sec (Sov),f,11
+30002918,Null Sec (Sov),f,11
+30005228,Low Sec,f,11
+30001878,Null Sec (NPC),f,11
+30004017,Null Sec (Sov),f,11
+30002923,Null Sec (Sov),f,11
+30001132,Null Sec (Sov),f,11
+30003980,Null Sec (Sov),f,11
+30003968,Null Sec (Sov),f,11
+30002945,Null Sec (Sov),f,11
+30000512,Null Sec (Sov),f,11
+30002947,Null Sec (Sov),f,11
+30003806,Low Sec,f,11
+30000680,Null Sec (Sov),f,11
+30003770,Null Sec (Sov),f,11
+30001206,Null Sec (Sov),f,11
+30003728,Null Sec (Sov),f,11
+30003717,Null Sec (Sov),f,11
+30003703,Null Sec (Sov),f,11
+30002033,Null Sec (Sov),f,11
+30003702,Null Sec (Sov),f,11
+30003671,Null Sec (Sov),f,11
+30003031,High Sec,f,11
+30001270,Null Sec (NPC),f,11
+30005238,Low Sec,f,10
+30003553,High Sec,f,10
+30000102,Low Sec,f,10
+30000513,Null Sec (Sov),f,10
+30004235,Low Sec,f,10
+30002256,Low Sec,f,10
+30004283,Low Sec,f,10
+30002883,Null Sec (Sov),f,10
+30004318,Null Sec (Sov),f,10
+30003933,Low Sec,f,10
+30001806,Null Sec (Sov),f,10
+30004364,Null Sec (Sov),f,10
+30004380,Null Sec (Sov),f,10
+30004432,Null Sec (Sov),f,10
+30003917,Low Sec,f,10
+30001259,Null Sec (Sov),f,10
+30003909,High Sec,f,10
+30004499,Null Sec (NPC),f,10
+30004559,Null Sec (Sov),f,10
+30004563,Null Sec (Sov),f,10
+30003899,Low Sec,f,10
+30002479,Null Sec (Sov),f,10
+30003889,High Sec,f,10
+30000004,High Sec,f,10
+30002508,High Sec,f,10
+30002822,Null Sec (Sov),f,10
+30000762,Null Sec (Sov),f,10
+30004662,Null Sec (Sov),f,10
+30000147,High Sec,f,10
+30001232,Null Sec (Sov),f,10
+30002331,Null Sec (Sov),f,10
+30000718,Null Sec (Sov),f,10
+30002798,High Sec,f,10
+30004746,Null Sec (Sov),f,10
+30002786,High Sec,f,10
+30004767,Null Sec (Sov),f,10
+30000798,Null Sec (Sov),f,10
+30001560,Null Sec (Sov),f,10
+30000735,Null Sec (Sov),f,10
+30000108,Low Sec,f,10
+30001546,Null Sec (Sov),f,10
+30000781,Null Sec (Sov),f,10
+30003821,Low Sec,f,10
+30000098,Low Sec,f,10
+30000996,Null Sec (NPC),f,10
+30002755,High Sec,f,10
+30000277,Null Sec (Sov),f,10
+30000660,Null Sec (Sov),f,10
+30004821,Null Sec (Sov),f,10
+30004825,Null Sec (Sov),f,10
+30003562,Low Sec,f,10
+30003804,Low Sec,f,10
+30004831,Null Sec (Sov),f,10
+30000812,Null Sec (Sov),f,10
+30000782,Null Sec (Sov),f,10
+30004892,Null Sec (Sov),f,10
+30001205,Null Sec (Sov),f,10
+30004948,Null Sec (Sov),f,10
+30001992,Null Sec (Sov),f,10
+30001993,Null Sec (Sov),f,10
+30004960,Null Sec (Sov),f,10
+30001995,Null Sec (Sov),f,10
+30000786,Null Sec (Sov),f,10
+30001997,Null Sec (Sov),f,10
+30001401,High Sec,f,10
+30002749,High Sec,f,10
+30001097,Null Sec (Sov),f,10
+30000223,Null Sec (Sov),f,10
+30005038,High Sec,f,10
+30005084,Low Sec,f,10
+30001109,Null Sec (Sov),f,10
+30003601,Low Sec,f,10
+30002738,High Sec,f,10
+30005110,Null Sec (Sov),f,10
+30001305,Null Sec (NPC),f,10
+30000070,Low Sec,f,10
+30005136,Null Sec (Sov),f,10
+30003673,Null Sec (Sov),f,10
+30002577,Low Sec,f,10
+30002384,High Sec,f,10
+30002168,Null Sec (Sov),f,10
+30003136,Null Sec (Sov),f,10
+30000657,Null Sec (Sov),f,10
+30003725,Null Sec (Sov),f,10
+30003165,Null Sec (Sov),f,10
+30003632,Null Sec (Sov),f,10
+30003715,Null Sec (Sov),f,10
+30003130,Null Sec (Sov),f,10
+30003121,Null Sec (Sov),f,10
+30002025,Null Sec (Sov),f,10
+30002134,Null Sec (Sov),f,10
+30002414,Low Sec,f,10
+30003329,Null Sec (NPC),f,10
+30002118,Null Sec (Sov),f,10
+30000644,Null Sec (Sov),f,10
+30003483,Low Sec,f,10
+30001208,Null Sec (Sov),f,10
+30002274,Low Sec,f,10
+30003654,Null Sec (Sov),f,10
+30005283,Low Sec,f,10
+30003994,Null Sec (Sov),f,10
+30004014,Null Sec (Sov),f,10
+30005201,High Sec,f,10
+30000887,Null Sec (Sov),f,10
+30002608,Null Sec (Sov),f,10
+30004031,Null Sec (Sov),f,10
+30004063,Null Sec (Sov),f,10
+30002932,Null Sec (Sov),f,10
+30004080,High Sec,f,10
+30005304,High Sec,f,10
+30045317,Low Sec,f,10
+30003544,Low Sec,f,10
+30002906,Null Sec (Sov),f,10
+30002905,Null Sec (Sov),f,10
+30001057,Null Sec (Sov),f,9
+30001226,Null Sec (Sov),f,9
+30002616,Null Sec (Sov),f,9
+30002613,Null Sec (Sov),f,9
+30002432,Null Sec (Sov),f,9
+30002433,Null Sec (Sov),f,9
+30002558,High Sec,f,9
+30002443,Null Sec (Sov),f,9
+30045335,Low Sec,f,9
+30005272,Low Sec,f,9
+30005236,Low Sec,f,9
+30005226,Low Sec,f,9
+30000137,High Sec,f,9
+30000148,High Sec,f,9
+30005185,Null Sec (Sov),f,9
+30005182,Null Sec (Sov),f,9
+30000167,High Sec,f,9
+30005153,Null Sec (Sov),f,9
+30005144,Null Sec (Sov),f,9
+30005090,Null Sec (Sov),f,9
+30005083,Low Sec,f,9
+30005082,Low Sec,f,9
+30005037,High Sec,f,9
+30005015,High Sec,f,9
+30000236,Null Sec (Sov),f,9
+30001383,High Sec,f,9
+30000254,Null Sec (Sov),f,9
+30004967,High Sec,f,9
+30004964,Null Sec (Sov),f,9
+30004963,Null Sec (Sov),f,9
+30004932,Null Sec (Sov),f,9
+30004891,Null Sec (Sov),f,9
+30001427,High Sec,f,9
+30000074,Low Sec,f,9
+30004859,Null Sec (Sov),f,9
+30001061,Null Sec (Sov),f,9
+30002650,High Sec,f,9
+30001056,Null Sec (Sov),f,9
+30004832,Null Sec (Sov),f,9
+30001192,Null Sec (Sov),f,9
+30004791,Null Sec (Sov),f,9
+30001550,Null Sec (Sov),f,9
+30004788,Null Sec (Sov),f,9
+30004770,Null Sec (Sov),f,9
+30004764,Null Sec (Sov),f,9
+30004753,Null Sec (Sov),f,9
+30001589,Null Sec (Sov),f,9
+30004749,Null Sec (Sov),f,9
+30004726,Null Sec (Sov),f,9
+30000314,Null Sec (Sov),f,9
+30000319,Null Sec (Sov),f,9
+30004636,Null Sec (Sov),f,9
+30004630,Null Sec (Sov),f,9
+30001194,Null Sec (Sov),f,9
+30004608,Null Sec (Sov),f,9
+30004607,Null Sec (Sov),f,9
+30004602,Null Sec (Sov),f,9
+30004595,Null Sec (Sov),f,9
+30004594,Null Sec (Sov),f,9
+30000441,Null Sec (Sov),f,9
+30004579,Null Sec (Sov),f,9
+30001753,Null Sec (Sov),f,9
+30004465,Null Sec (Sov),f,9
+30004447,Null Sec (Sov),f,9
+30004409,Null Sec (Sov),f,9
+30004407,Null Sec (Sov),f,9
+30001794,Null Sec (Sov),f,9
+30004331,Null Sec (Sov),f,9
+30001836,Null Sec (NPC),f,9
+30004179,Null Sec (Sov),f,9
+30004168,Null Sec (Sov),f,9
+30004103,High Sec,f,9
+30004084,High Sec,f,9
+30004068,Null Sec (Sov),f,9
+30004037,Null Sec (Sov),f,9
+30004033,Null Sec (Sov),f,9
+30004020,Null Sec (Sov),f,9
+30003996,Null Sec (Sov),f,9
+30003993,Null Sec (Sov),f,9
+30003984,Null Sec (Sov),f,9
+30003964,Null Sec (Sov),f,9
+30001929,Null Sec (NPC),f,9
+30003940,Low Sec,f,9
+30003916,Low Sec,f,9
+30003902,Low Sec,f,9
+30003849,Low Sec,f,9
+30000529,Null Sec (Sov),f,9
+30001962,Null Sec (NPC),f,9
+30000541,Null Sec (Sov),f,9
+30000557,Null Sec (Sov),f,9
+30003745,Null Sec (Sov),f,9
+30003744,Null Sec (Sov),f,9
+30003732,Null Sec (Sov),f,9
+30002026,Null Sec (Sov),f,9
+30000577,Null Sec (Sov),f,9
+30003646,Null Sec (Sov),f,9
+30003598,Low Sec,f,9
+30003594,Low Sec,f,9
+30002080,Low Sec,f,9
+30000595,Null Sec (Sov),f,9
+30003523,High Sec,f,9
+30003482,High Sec,f,9
+30003364,Null Sec (NPC),f,9
+30003323,Null Sec (NPC),f,9
+30002129,Null Sec (Sov),f,9
+30003275,Null Sec (NPC),f,9
+30003246,Null Sec (Sov),f,9
+30003192,Null Sec (Sov),f,9
+30003174,Null Sec (Sov),f,9
+30003153,Null Sec (Sov),f,9
+30002162,Null Sec (Sov),f,9
+30003152,Null Sec (Sov),f,9
+30003148,Null Sec (Sov),f,9
+30003126,Null Sec (Sov),f,9
+30003125,Null Sec (Sov),f,9
+30003047,High Sec,f,9
+30003032,High Sec,f,9
+30000045,Low Sec,f,9
+30000664,Null Sec (Sov),f,9
+30002983,Low Sec,f,9
+30001216,Null Sec (Sov),f,9
+30002956,Null Sec (Sov),f,9
+30002937,Null Sec (Sov),f,9
+30002273,Low Sec,f,9
+30002878,Null Sec (Sov),f,9
+30002875,Null Sec (Sov),f,9
+30002867,Null Sec (Sov),f,9
+30000706,Null Sec (Sov),f,9
+30002827,Null Sec (Sov),f,9
+30002823,Null Sec (Sov),f,9
+30000711,Null Sec (Sov),f,9
+30002794,High Sec,f,9
+30002793,High Sec,f,9
+30002773,High Sec,f,9
+30002771,High Sec,f,9
+30002358,Null Sec (Sov),f,9
+30002753,High Sec,f,9
+30000862,Null Sec (Sov),f,9
+30002394,Low Sec,f,9
+30000764,Null Sec (Sov),f,9
+30000767,Null Sec (Sov),f,9
+30002404,Low Sec,f,9
+30000605,Null Sec (Sov),f,8
+30002201,High Sec,f,8
+30003481,Low Sec,f,8
+30003497,High Sec,f,8
+30003543,Low Sec,f,8
+30003565,Low Sec,f,8
+30000948,Null Sec (NPC),f,8
+30003623,Null Sec (Sov),f,8
+30003626,Null Sec (Sov),f,8
+30000005,High Sec,f,8
+30000970,Null Sec (NPC),f,8
+30003037,High Sec,f,8
+30003650,Null Sec (Sov),f,8
+30000002,High Sec,f,8
+30000161,High Sec,f,8
+30003659,Null Sec (Sov),f,8
+30002039,Null Sec (Sov),f,8
+30000159,High Sec,f,8
+30002037,Null Sec (Sov),f,8
+30000574,Null Sec (Sov),f,8
+30003713,Null Sec (Sov),f,8
+30002993,High Sec,f,8
+30003721,Null Sec (Sov),f,8
+30005215,High Sec,f,8
+30003734,Null Sec (Sov),f,8
+30003743,Null Sec (Sov),f,8
+30002237,Low Sec,f,8
+30002981,Low Sec,f,8
+30003798,High Sec,f,8
+30000555,Null Sec (Sov),f,8
+30002593,Null Sec (Sov),f,8
+30000681,Null Sec (Sov),f,8
+30001983,Null Sec (NPC),f,8
+30003820,Low Sec,f,8
+30002967,High Sec,f,8
+30000549,Null Sec (Sov),f,8
+30001003,Null Sec (NPC),f,8
+30005327,High Sec,f,8
+30002963,High Sec,f,8
+30003900,Low Sec,f,8
+30003921,Low Sec,f,8
+30003931,Low Sec,f,8
+30045327,High Sec,f,8
+30005330,High Sec,f,8
+30001015,Null Sec (NPC),f,8
+30001021,Null Sec (NPC),f,8
+30001022,Null Sec (NPC),f,8
+30003952,Null Sec (Sov),f,8
+30002944,Null Sec (Sov),f,8
+30005258,Low Sec,f,8
+30003961,Null Sec (Sov),f,8
+30003963,Null Sec (Sov),f,8
+30001024,Null Sec (NPC),f,8
+30002926,Null Sec (Sov),f,8
+30001903,Null Sec (NPC),f,8
+30000847,Null Sec (Sov),f,8
+30003991,Null Sec (Sov),f,8
+30003995,Null Sec (Sov),f,8
+30002921,Null Sec (Sov),f,8
+30004008,Null Sec (Sov),f,8
+30004034,Null Sec (Sov),f,8
+30004073,Null Sec (Sov),f,8
+30004090,High Sec,f,8
+30002911,Null Sec (Sov),f,8
+30001199,Null Sec (Sov),f,8
+30004092,High Sec,f,8
+30002286,Null Sec (Sov),f,8
+30004095,High Sec,f,8
+30004105,Low Sec,f,8
+30004137,Low Sec,f,8
+30002290,Null Sec (Sov),f,8
+30000692,Null Sec (Sov),f,8
+30004205,Null Sec (Sov),f,8
+30001835,Null Sec (NPC),f,8
+30001832,Null Sec (NPC),f,8
+30002295,Null Sec (Sov),f,8
+30004241,Low Sec,f,8
+30000469,Null Sec (Sov),f,8
+30004280,Low Sec,f,8
+30002885,Null Sec (Sov),f,8
+30004310,Null Sec (Sov),f,8
+30004325,Null Sec (Sov),f,8
+30002640,High Sec,f,8
+30000776,Null Sec (Sov),f,8
+30001808,Null Sec (Sov),f,8
+30004348,Null Sec (Sov),f,8
+30004351,Null Sec (Sov),f,8
+30001237,Null Sec (Sov),f,8
+30004355,Null Sec (Sov),f,8
+30004374,Null Sec (Sov),f,8
+30004397,Null Sec (Sov),f,8
+30000703,Null Sec (Sov),f,8
+30002852,Null Sec (Sov),f,8
+30001779,Null Sec (Sov),f,8
+30000832,Null Sec (Sov),f,8
+30000709,Null Sec (Sov),f,8
+30004421,Null Sec (Sov),f,8
+30004424,Null Sec (Sov),f,8
+30004435,Null Sec (Sov),f,8
+30004488,Null Sec (Sov),f,8
+30001761,Null Sec (Sov),f,8
+30001758,Null Sec (Sov),f,8
+30000448,Null Sec (Sov),f,8
+30004591,Null Sec (Sov),f,8
+30002673,High Sec,f,8
+30004629,Null Sec (Sov),f,8
+30002653,Low Sec,f,8
+30004647,Null Sec (Sov),f,8
+30002488,Null Sec (Sov),f,8
+30004680,Null Sec (Sov),f,8
+30004682,Null Sec (Sov),f,8
+30000313,Null Sec (Sov),f,8
+30002334,Null Sec (Sov),f,8
+30000307,Null Sec (Sov),f,8
+30002336,Null Sec (Sov),f,8
+30001050,Null Sec (NPC),f,8
+30001662,High Sec,f,8
+30001231,Null Sec (Sov),f,8
+30002459,Null Sec (Sov),f,8
+30001657,High Sec,f,8
+30001647,High Sec,f,8
+30004729,Null Sec (Sov),f,8
+30000293,Null Sec (Sov),f,8
+30000290,Null Sec (Sov),f,8
+30002779,High Sec,f,8
+30004760,Null Sec (Sov),f,8
+30001569,Null Sec (Sov),f,8
+30000012,Low Sec,f,8
+30002449,Null Sec (Sov),f,8
+30004784,Null Sec (Sov),f,8
+30002409,Low Sec,f,8
+30004786,Null Sec (Sov),f,8
+30004792,Null Sec (Sov),f,8
+30004797,Null Sec (Sov),f,8
+30000746,Null Sec (Sov),f,8
+30004805,Null Sec (Sov),f,8
+30000785,Null Sec (Sov),f,8
+30004848,Null Sec (Sov),f,8
+30004855,Null Sec (Sov),f,8
+30004956,Null Sec (Sov),f,8
+30000260,Null Sec (Sov),f,8
+30000808,Null Sec (Sov),f,8
+30000255,Null Sec (Sov),f,8
+30005002,High Sec,f,8
+30000229,Null Sec (Sov),f,8
+30000222,Null Sec (Sov),f,8
+30005086,Low Sec,f,8
+30000184,High Sec,f,8
+30001328,Null Sec (NPC),f,8
+30005100,Null Sec (Sov),f,8
+30002735,High Sec,f,8
+30000071,High Sec,f,8
+30002733,High Sec,f,8
+30005112,Null Sec (Sov),f,8
+30005117,Null Sec (Sov),f,8
+30001300,Null Sec (NPC),f,8
+30002380,Null Sec (Sov),f,8
+30005141,Null Sec (Sov),f,8
+30005142,Null Sec (Sov),f,8
+30005152,Null Sec (Sov),f,8
+30001227,Null Sec (Sov),f,8
+30000170,High Sec,f,8
+30002169,Null Sec (Sov),f,8
+30002167,Null Sec (Sov),f,8
+30003184,Null Sec (Sov),f,8
+30002173,Null Sec (Sov),f,8
+30005310,High Sec,f,8
+30002175,Null Sec (Sov),f,8
+30003194,Null Sec (Sov),f,8
+30003196,Null Sec (Sov),f,8
+30000758,Null Sec (Sov),f,8
+30000759,Null Sec (Sov),f,8
+30003210,Null Sec (Sov),f,8
+30003242,Null Sec (Sov),f,8
+30003120,Null Sec (Sov),f,8
+30002184,Null Sec (Sov),f,8
+30003119,Null Sec (Sov),f,8
+30002136,Null Sec (Sov),f,8
+30003294,Null Sec (NPC),f,8
+30003309,Null Sec (NPC),f,8
+30003324,Null Sec (NPC),f,8
+30003093,Low Sec,f,8
+30003330,Null Sec (NPC),f,8
+30003335,Null Sec (NPC),f,8
+30003087,Low Sec,f,8
+30003384,High Sec,f,8
+30002109,Null Sec (Sov),f,8
+30003413,High Sec,f,8
+30000611,Null Sec (Sov),f,8
+30000647,Null Sec (Sov),f,8
+30003463,High Sec,f,8
+30004924,Null Sec (Sov),f,7
+30001179,Null Sec (Sov),f,7
+30001191,Null Sec (Sov),f,7
+30001200,Null Sec (Sov),f,7
+30001213,Null Sec (Sov),f,7
+30001255,Null Sec (Sov),f,7
+30001256,Null Sec (Sov),f,7
+30001257,Null Sec (Sov),f,7
+30001266,Null Sec (NPC),f,7
+30001276,Null Sec (NPC),f,7
+30001278,Null Sec (NPC),f,7
+30001112,Null Sec (Sov),f,7
+30001302,Null Sec (NPC),f,7
+30001311,Null Sec (NPC),f,7
+30001083,Null Sec (Sov),f,7
+30001063,Null Sec (Sov),f,7
+30045331,Low Sec,f,7
+30001434,High Sec,f,7
+30000047,Low Sec,f,7
+30001542,Null Sec (Sov),f,7
+30001039,Null Sec (NPC),f,7
+30001038,Null Sec (NPC),f,7
+30001036,Null Sec (NPC),f,7
+30001840,Null Sec (NPC),f,7
+30001852,Null Sec (NPC),f,7
+30001855,Null Sec (NPC),f,7
+30001860,Null Sec (NPC),f,7
+30001901,Null Sec (NPC),f,7
+30001928,Null Sec (NPC),f,7
+30001961,Null Sec (NPC),f,7
+30001002,Null Sec (NPC),f,7
+30001990,Null Sec (Sov),f,7
+30002012,Null Sec (Sov),f,7
+30002024,Null Sec (Sov),f,7
+30000981,Null Sec (NPC),f,7
+30002072,High Sec,f,7
+30002111,Null Sec (Sov),f,7
+30002122,Null Sec (Sov),f,7
+30002146,Null Sec (Sov),f,7
+30002176,Null Sec (Sov),f,7
+30000899,Null Sec (Sov),f,7
+30000892,Null Sec (Sov),f,7
+30002241,Low Sec,f,7
+30000891,Null Sec (Sov),f,7
+30002284,Null Sec (Sov),f,7
+30002292,Null Sec (Sov),f,7
+30002309,Null Sec (Sov),f,7
+30000875,Null Sec (Sov),f,7
+30002391,Low Sec,f,7
+30002392,Low Sec,f,7
+30002413,Low Sec,f,7
+30002422,Null Sec (NPC),f,7
+30002437,Null Sec (Sov),f,7
+30002441,Null Sec (Sov),f,7
+30002460,Null Sec (Sov),f,7
+30000837,Null Sec (Sov),f,7
+30002468,Null Sec (Sov),f,7
+30000836,Null Sec (Sov),f,7
+30000831,Null Sec (Sov),f,7
+30002526,High Sec,f,7
+30002527,High Sec,f,7
+30002546,High Sec,f,7
+30002583,Null Sec (Sov),f,7
+30000795,Null Sec (Sov),f,7
+30002654,Low Sec,f,7
+30002680,High Sec,f,7
+30000763,Null Sec (Sov),f,7
+30002704,High Sec,f,7
+30002744,High Sec,f,7
+30002752,High Sec,f,7
+30000741,Null Sec (Sov),f,7
+30002783,High Sec,f,7
+30002837,Null Sec (Sov),f,7
+30002859,Null Sec (Sov),f,7
+30002863,Null Sec (Sov),f,7
+30002871,Null Sec (Sov),f,7
+30002907,Null Sec (Sov),f,7
+30002917,Null Sec (Sov),f,7
+30002927,Null Sec (Sov),f,7
+30002931,Null Sec (Sov),f,7
+30002999,High Sec,f,7
+30003026,High Sec,f,7
+30003034,High Sec,f,7
+30000656,Null Sec (Sov),f,7
+30000653,Null Sec (Sov),f,7
+30003104,Null Sec (Sov),f,7
+30003107,Null Sec (Sov),f,7
+30003113,Null Sec (Sov),f,7
+30000638,Null Sec (Sov),f,7
+30003163,Null Sec (Sov),f,7
+30003170,Null Sec (Sov),f,7
+30003205,Null Sec (Sov),f,7
+30003219,Null Sec (Sov),f,7
+30003260,Null Sec (Sov),f,7
+30000632,Null Sec (Sov),f,7
+30000618,Null Sec (Sov),f,7
+30000617,Null Sec (Sov),f,7
+30003311,Null Sec (NPC),f,7
+30003312,Null Sec (NPC),f,7
+30003325,Null Sec (NPC),f,7
+30003355,Null Sec (NPC),f,7
+30003479,Low Sec,f,7
+30003480,Low Sec,f,7
+30003491,High Sec,f,7
+30003521,High Sec,f,7
+30003560,Low Sec,f,7
+30003564,Low Sec,f,7
+30003610,Null Sec (Sov),f,7
+30003611,Null Sec (Sov),f,7
+30003619,Null Sec (Sov),f,7
+30003627,Null Sec (Sov),f,7
+30003640,Null Sec (Sov),f,7
+30003685,Null Sec (Sov),f,7
+30003687,Null Sec (Sov),f,7
+30003688,Null Sec (Sov),f,7
+30003699,Null Sec (Sov),f,7
+30003708,Null Sec (Sov),f,7
+30003710,Null Sec (Sov),f,7
+30003727,Null Sec (Sov),f,7
+30003738,Null Sec (Sov),f,7
+30003752,Null Sec (Sov),f,7
+30003776,Null Sec (Sov),f,7
+30003887,Low Sec,f,7
+30003904,High Sec,f,7
+30003932,Low Sec,f,7
+30003956,Null Sec (Sov),f,7
+30003960,Null Sec (Sov),f,7
+30003999,Null Sec (Sov),f,7
+30004003,Null Sec (Sov),f,7
+30004056,Null Sec (Sov),f,7
+30004059,Null Sec (Sov),f,7
+30004113,High Sec,f,7
+30004138,Low Sec,f,7
+30004141,Low Sec,f,7
+30004161,Null Sec (Sov),f,7
+30004225,Null Sec (Sov),f,7
+30000470,Null Sec (Sov),f,7
+30004311,Null Sec (Sov),f,7
+30004329,Null Sec (Sov),f,7
+30004360,Null Sec (Sov),f,7
+30004369,Null Sec (Sov),f,7
+30004398,Null Sec (Sov),f,7
+30004422,Null Sec (Sov),f,7
+30004426,Null Sec (Sov),f,7
+30004483,Null Sec (Sov),f,7
+30004501,Null Sec (NPC),f,7
+30004572,Null Sec (Sov),f,7
+30004575,Null Sec (Sov),f,7
+30004578,Null Sec (Sov),f,7
+30000014,Low Sec,f,7
+30004622,Null Sec (NPC),f,7
+30004626,Null Sec (Sov),f,7
+30004641,Null Sec (Sov),f,7
+30004648,Null Sec (Sov),f,7
+30004659,Null Sec (Sov),f,7
+30004667,Null Sec (Sov),f,7
+30004669,Null Sec (Sov),f,7
+30004704,Null Sec (Sov),f,7
+30000297,Null Sec (Sov),f,7
+30004732,Null Sec (Sov),f,7
+30004769,Null Sec (Sov),f,7
+30004820,Null Sec (Sov),f,7
+30004824,Null Sec (Sov),f,7
+30004842,Null Sec (Sov),f,7
+30004847,Null Sec (Sov),f,7
+30004882,Null Sec (Sov),f,7
+30004921,Null Sec (Sov),f,7
+30004936,Null Sec (Sov),f,7
+30004943,Null Sec (Sov),f,7
+30004944,Null Sec (Sov),f,7
+30004961,Null Sec (Sov),f,7
+30004973,High Sec,f,7
+30004992,Low Sec,f,7
+30005012,Low Sec,f,7
+30000219,Null Sec (Sov),f,7
+30000193,High Sec,f,7
+30000190,High Sec,f,7
+30005122,Null Sec (Sov),f,7
+30000171,High Sec,f,7
+30005151,Null Sec (Sov),f,7
+30005174,Null Sec (Sov),f,7
+30005202,High Sec,f,7
+30005237,Low Sec,f,7
+30005239,Low Sec,f,7
+30005255,Low Sec,f,7
+30000110,Low Sec,f,7
+30005279,Low Sec,f,7
+30000099,Low Sec,f,7
+30032715,High Sec,f,7
+30000067,Low Sec,f,7
+30045325,High Sec,f,7
+30001153,Null Sec (Sov),f,7
+30003698,Null Sec (Sov),f,6
+30001748,Null Sec (Sov),f,6
+30001999,Null Sec (Sov),f,6
+30004224,Null Sec (Sov),f,6
+30000633,Null Sec (Sov),f,6
+30004675,Null Sec (Sov),f,6
+30005163,Null Sec (Sov),f,6
+30005161,Null Sec (Sov),f,6
+30000624,Null Sec (Sov),f,6
+30000622,Null Sec (Sov),f,6
+30000621,Null Sec (Sov),f,6
+30004673,Null Sec (Sov),f,6
+30004910,Null Sec (Sov),f,6
+30004566,Null Sec (Sov),f,6
+30003965,Null Sec (Sov),f,6
+30003289,Null Sec (NPC),f,6
+30000049,Low Sec,f,6
+30002584,Null Sec (Sov),f,6
+30003298,Null Sec (NPC),f,6
+30004672,Null Sec (Sov),f,6
+30005143,Null Sec (Sov),f,6
+30000824,Null Sec (Sov),f,6
+30001684,Low Sec,f,6
+30000739,Null Sec (Sov),f,6
+30001178,Null Sec (Sov),f,6
+30000022,Low Sec,f,6
+30003321,Null Sec (NPC),f,6
+30000172,High Sec,f,6
+30002124,Null Sec (Sov),f,6
+30000097,Low Sec,f,6
+30001304,Null Sec (NPC),f,6
+30001768,Null Sec (Sov),f,6
+30003979,Null Sec (Sov),f,6
+30000889,Null Sec (Sov),f,6
+30003351,Null Sec (NPC),f,6
+30001193,Null Sec (Sov),f,6
+30002606,Null Sec (Sov),f,6
+30004477,Null Sec (Sov),f,6
+30003362,Null Sec (NPC),f,6
+30000311,Null Sec (Sov),f,6
+30002772,High Sec,f,6
+30001307,Null Sec (NPC),f,6
+30000852,Null Sec (Sov),f,6
+30003990,Null Sec (Sov),f,6
+30005107,Null Sec (Sov),f,6
+30004394,Null Sec (Sov),f,6
+30002873,Null Sec (Sov),f,6
+30000183,High Sec,f,6
+30001783,Null Sec (Sov),f,6
+30001895,Null Sec (NPC),f,6
+30004905,Null Sec (Sov),f,6
+30003409,High Sec,f,6
+30003997,Null Sec (Sov),f,6
+30005080,Low Sec,f,6
+30003807,Low Sec,f,6
+30000568,Null Sec (Sov),f,6
+30005065,Low Sec,f,6
+30002106,Null Sec (Sov),f,6
+30004927,Null Sec (Sov),f,6
+30001349,Null Sec (NPC),f,6
+30001219,Null Sec (Sov),f,6
+30002408,High Sec,f,6
+30001532,Null Sec (Sov),f,6
+30000731,Null Sec (Sov),f,6
+30000041,Low Sec,f,6
+30002303,Null Sec (Sov),f,6
+30002876,Null Sec (Sov),f,6
+30000554,Null Sec (Sov),f,6
+30000714,Null Sec (Sov),f,6
+30003462,High Sec,f,6
+30001780,Null Sec (Sov),f,6
+30001976,Null Sec (Sov),f,6
+30000607,Null Sec (Sov),f,6
+30001821,Null Sec (Sov),f,6
+30002877,Null Sec (Sov),f,6
+30001704,High Sec,f,6
+30004237,Low Sec,f,6
+30000465,Null Sec (Sov),f,6
+30001887,Null Sec (NPC),f,6
+30002243,High Sec,f,6
+30002344,Null Sec (Sov),f,6
+30003487,High Sec,f,6
+30002637,High Sec,f,6
+30003490,High Sec,f,6
+30000496,Null Sec (Sov),f,6
+30000768,Null Sec (Sov),f,6
+30000923,Null Sec (NPC),f,6
+30000278,Null Sec (Sov),f,6
+30001360,High Sec,f,6
+30005023,High Sec,f,6
+30004804,Null Sec (Sov),f,6
+30005017,High Sec,f,6
+30001371,High Sec,f,6
+30001091,Null Sec (Sov),f,6
+30000237,Null Sec (Sov),f,6
+30004036,Null Sec (Sov),f,6
+30000245,Null Sec (Sov),f,6
+30001873,Null Sec (NPC),f,6
+30002340,Null Sec (Sov),f,6
+30001713,High Sec,f,6
+30000779,Null Sec (Sov),f,6
+30001084,Null Sec (Sov),f,6
+30002547,High Sec,t,6
+30004041,Null Sec (Sov),f,6
+30004434,Null Sec (Sov),f,6
+30003735,Null Sec (Sov),f,6
+30003558,High Sec,f,6
+30000257,Null Sec (Sov),f,6
+30004045,Null Sec (Sov),f,6
+30000809,Null Sec (Sov),f,6
+30002338,Null Sec (Sov),f,6
+30004625,Null Sec (Sov),f,6
+30002075,High Sec,f,6
+30000666,Null Sec (Sov),f,6
+30002032,Null Sec (Sov),f,6
+30000844,Null Sec (Sov),f,6
+30000854,Null Sec (Sov),f,6
+30003580,High Sec,f,6
+30001871,Null Sec (NPC),f,6
+30004971,High Sec,t,6
+30003585,Low Sec,f,6
+30004755,Null Sec (Sov),f,6
+30003587,Low Sec,f,6
+30004736,Null Sec (Sov),f,6
+30004190,Null Sec (Sov),f,6
+30021407,High Sec,f,6
+30004449,Null Sec (Sov),f,6
+30003606,Low Sec,f,6
+30004254,Low Sec,f,6
+30002429,Null Sec (Sov),f,6
+30003614,Null Sec (Sov),f,6
+30000810,Null Sec (Sov),f,6
+30003025,High Sec,f,6
+30004060,Null Sec (Sov),f,6
+30000777,Null Sec (Sov),f,6
+30002573,High Sec,f,6
+30000968,Null Sec (NPC),f,6
+30001125,Null Sec (Sov),f,6
+30000969,Null Sec (NPC),f,6
+30001029,Null Sec (NPC),f,6
+30004065,Null Sec (Sov),f,6
+30002239,Low Sec,f,6
+30004926,Null Sec (Sov),f,6
+30004955,Null Sec (Sov),f,6
+30000480,Null Sec (Sov),f,6
+30003647,Null Sec (Sov),f,6
+30004950,Null Sec (Sov),f,6
+30000978,Null Sec (NPC),f,6
+30002047,Null Sec (Sov),f,6
+30003665,Null Sec (Sov),f,6
+30004946,Null Sec (Sov),f,6
+30002335,Null Sec (Sov),f,6
+30001426,High Sec,f,6
+30002043,Null Sec (Sov),f,6
+30003674,Null Sec (Sov),f,6
+30000288,Null Sec (Sov),f,6
+30003677,Null Sec (Sov),f,6
+30003678,Null Sec (Sov),f,6
+30002238,Low Sec,f,6
+30002617,Null Sec (Sov),f,6
+30004942,Null Sec (Sov),f,6
+30000531,Null Sec (Sov),f,6
+30004469,Null Sec (Sov),f,6
+30004264,Low Sec,f,6
+30002621,Null Sec (Sov),f,6
+30002943,Null Sec (Sov),f,6
+30004277,Low Sec,f,6
+30005307,High Sec,f,6
+30001556,Null Sec (Sov),f,6
+30002841,Null Sec (Sov),f,6
+30001145,Null Sec (Sov),f,6
+30004592,Null Sec (Sov),f,6
+30004108,Low Sec,f,6
+30003748,Null Sec (Sov),f,6
+30002318,Null Sec (Sov),f,6
+30001168,Null Sec (Sov),f,6
+30003750,Null Sec (Sov),f,6
+30000522,Null Sec (Sov),f,6
+30001743,Null Sec (Sov),f,6
+30001421,High Sec,f,6
+30002453,Null Sec (Sov),f,6
+30000087,High Sec,f,6
+30002287,Null Sec (Sov),f,6
+30003697,Null Sec (Sov),f,6
+30004147,High Sec,f,6
+30004884,Null Sec (Sov),f,6
+30001143,Null Sec (Sov),f,6
+30004772,Null Sec (Sov),f,6
+30002283,Null Sec (Sov),f,6
+30001215,Null Sec (Sov),f,6
+30002525,High Sec,f,6
+30002210,High Sec,f,6
+30004878,Null Sec (Sov),f,6
+30001236,Null Sec (Sov),f,6
+30000298,Null Sec (Sov),f,6
+30005263,Low Sec,f,6
+30005260,Low Sec,f,6
+30004319,Null Sec (Sov),f,6
+30004281,Low Sec,f,6
+30004484,Null Sec (Sov),f,6
+30002028,Null Sec (Sov),f,6
+30002190,High Sec,f,6
+30002824,Null Sec (Sov),f,6
+30003098,Null Sec (Sov),f,6
+30004865,Null Sec (Sov),f,6
+30002849,Null Sec (Sov),f,6
+30003764,Null Sec (Sov),f,6
+30004699,Null Sec (Sov),f,6
+30000296,Null Sec (Sov),f,6
+30001658,High Sec,f,6
+30004934,Null Sec (Sov),f,6
+30003108,Null Sec (Sov),f,6
+30002386,High Sec,f,6
+30001062,Null Sec (Sov),f,6
+30001810,Null Sec (Sov),f,6
+30001432,High Sec,f,6
+30000986,Null Sec (NPC),f,6
+30004330,Null Sec (Sov),f,6
+30002179,Null Sec (Sov),f,6
+30003129,Null Sec (Sov),f,6
+30002178,Null Sec (Sov),f,6
+30002174,Null Sec (Sov),f,6
+30000769,Null Sec (Sov),f,6
+30001249,Null Sec (Sov),f,6
+30000639,Null Sec (Sov),f,6
+30002171,Null Sec (Sov),f,6
+30002589,Null Sec (Sov),f,6
+30005227,High Sec,f,6
+30000136,High Sec,f,6
+30000792,Null Sec (Sov),f,6
+30004336,Null Sec (Sov),f,6
+30002004,Null Sec (NPC),f,6
+30004697,Null Sec (Sov),f,6
+30004917,Null Sec (Sov),f,6
+30002649,High Sec,f,6
+30001593,Null Sec (Sov),f,6
+30001261,Null Sec (NPC),f,6
+30002155,Null Sec (Sov),f,6
+30003923,Low Sec,f,6
+30002020,Null Sec (Sov),f,6
+30000151,High Sec,f,6
+30003175,Null Sec (Sov),f,6
+30004550,Null Sec (NPC),f,6
+30003779,Null Sec (Sov),f,6
+30002149,Null Sec (Sov),f,6
+30002857,Null Sec (Sov),f,6
+30002620,Null Sec (Sov),f,6
+30002587,Null Sec (Sov),f,6
+30003186,Null Sec (Sov),f,6
+30000152,High Sec,f,6
+30004181,Null Sec (Sov),f,6
+30005290,High Sec,f,6
+30002145,Null Sec (Sov),f,6
+30000822,Null Sec (Sov),f,6
+30002830,Null Sec (Sov),f,6
+30002501,Null Sec (Sov),f,6
+30000791,Null Sec (Sov),f,6
+30004222,Null Sec (Sov),f,6
+30001060,Null Sec (Sov),f,6
+30001765,Null Sec (Sov),f,6
+30002832,Null Sec (Sov),f,6
+30004931,Null Sec (Sov),f,6
+30003231,Null Sec (Sov),f,6
+30003944,Null Sec (Sov),f,6
+30002955,Null Sec (Sov),f,6
+30003236,Null Sec (Sov),f,6
+30004845,Null Sec (Sov),f,6
+30002864,Null Sec (Sov),f,6
+30004493,Null Sec (NPC),f,6
+30000309,Null Sec (Sov),f,6
+30002254,High Sec,f,6
+30000850,Null Sec (Sov),f,6
+30004686,Null Sec (Sov),f,6
+30000572,Null Sec (Sov),f,6
+30003951,Null Sec (Sov),f,6
+30000744,Null Sec (Sov),f,6
+30001148,Null Sec (Sov),f,5
+30003617,Null Sec (Sov),f,5
+30000515,Null Sec (Sov),f,5
+30004959,Null Sec (Sov),f,5
+30000038,Low Sec,f,5
+30004610,Null Sec (Sov),f,5
+30003718,Null Sec (Sov),f,5
+30002984,Low Sec,f,5
+30002031,Null Sec (Sov),f,5
+30002559,Low Sec,f,5
+30000165,High Sec,f,5
+30002684,High Sec,f,5
+30000461,Null Sec (Sov),f,5
+30004487,Null Sec (Sov),f,5
+30001217,Null Sec (Sov),f,5
+30002188,High Sec,f,5
+30003633,Null Sec (Sov),f,5
+30003634,Null Sec (Sov),f,5
+30000663,Null Sec (Sov),f,5
+30003258,Null Sec (Sov),f,5
+30004558,Null Sec (Sov),f,5
+30004570,Null Sec (Sov),f,5
+30000579,Null Sec (Sov),f,5
+30000807,Null Sec (Sov),f,5
+30001042,Null Sec (NPC),f,5
+30004794,Null Sec (Sov),f,5
+30001282,Null Sec (NPC),f,5
+30003267,Null Sec (Sov),f,5
+30002696,High Sec,f,5
+30000166,High Sec,f,5
+30004562,Null Sec (Sov),f,5
+30000630,Null Sec (Sov),f,5
+30003272,Null Sec (NPC),f,5
+30000673,Null Sec (Sov),f,5
+30000540,Null Sec (Sov),f,5
+30004569,Null Sec (Sov),f,5
+30002605,Null Sec (Sov),f,5
+30003167,Null Sec (Sov),f,5
+30004840,Null Sec (Sov),f,5
+30003645,Null Sec (Sov),f,5
+30004951,Null Sec (Sov),f,5
+30002128,Null Sec (Sov),f,5
+30001669,High Sec,f,5
+30001262,Null Sec (NPC),f,5
+30004838,Null Sec (Sov),f,5
+30004505,Null Sec (NPC),f,5
+30000882,Null Sec (Sov),f,5
+30003287,Null Sec (NPC),f,5
+30004192,Null Sec (Sov),f,5
+30003652,Null Sec (Sov),f,5
+30002868,Null Sec (Sov),f,5
+30003103,Null Sec (Sov),f,5
+30000793,Null Sec (Sov),f,5
+30002892,Null Sec (Sov),f,5
+30001111,Null Sec (Sov),f,5
+30001176,Null Sec (Sov),f,5
+30004603,Null Sec (Sov),f,5
+30002568,High Sec,f,5
+30002942,Null Sec (Sov),f,5
+30001994,Null Sec (Sov),f,5
+30000804,Null Sec (Sov),f,5
+30003658,Null Sec (Sov),f,5
+30005140,Null Sec (Sov),f,5
+30004830,Null Sec (Sov),f,5
+30041672,High Sec,f,5
+30003972,Null Sec (Sov),f,5
+30004828,Null Sec (Sov),f,5
+30002623,Null Sec (Sov),f,5
+30003974,Null Sec (Sov),f,5
+30004609,Null Sec (Sov),f,5
+30003663,Null Sec (Sov),f,5
+30002415,Low Sec,f,5
+30001110,Null Sec (Sov),f,5
+30003976,Null Sec (Sov),f,5
+30001177,Null Sec (Sov),f,5
+30000508,Null Sec (Sov),f,5
+30004169,Null Sec (Sov),f,5
+30003105,Null Sec (Sov),f,5
+30005177,Null Sec (Sov),f,5
+30002418,Low Sec,f,5
+30002766,High Sec,f,5
+30001146,Null Sec (Sov),f,5
+30003326,Null Sec (NPC),f,5
+30004288,Low Sec,f,5
+30004229,Null Sec (Sov),f,5
+30005130,Null Sec (Sov),f,5
+30000835,Null Sec (Sov),f,5
+30003331,Null Sec (NPC),f,5
+30003332,Null Sec (NPC),f,5
+30003670,Null Sec (Sov),f,5
+30003334,Null Sec (NPC),f,5
+30002114,Null Sec (Sov),f,5
+30000043,Low Sec,f,5
+30003338,Null Sec (NPC),f,5
+30005128,Null Sec (Sov),f,5
+30000736,Null Sec (Sov),f,5
+30002045,Null Sec (Sov),f,5
+30004822,Null Sec (Sov),f,5
+30005194,High Sec,f,5
+30002598,Null Sec (Sov),f,5
+30004741,Null Sec (Sov),f,5
+30005124,Null Sec (Sov),f,5
+30002030,Null Sec (Sov),f,5
+30005192,High Sec,f,5
+30005121,Null Sec (Sov),f,5
+30002965,High Sec,f,5
+30005120,Null Sec (Sov),f,5
+30003675,Null Sec (Sov),f,5
+30000734,Null Sec (Sov),f,5
+30002862,Null Sec (Sov),f,5
+30002186,Null Sec (Sov),f,5
+30004326,Null Sec (Sov),f,5
+30001902,Null Sec (NPC),f,5
+30003679,Null Sec (Sov),f,5
+30001306,Null Sec (NPC),f,5
+30003986,Null Sec (Sov),f,5
+30001900,Null Sec (NPC),f,5
+30004909,Null Sec (Sov),f,5
+30004079,High Sec,f,5
+30004473,Null Sec (Sov),f,5
+30000439,Null Sec (Sov),f,5
+30005113,Null Sec (Sov),f,5
+30002027,Null Sec (Sov),f,5
+30001312,Null Sec (NPC),f,5
+30000320,Null Sec (Sov),f,5
+30001187,Null Sec (Sov),f,5
+30002939,Null Sec (Sov),f,5
+30002022,Null Sec (Sov),f,5
+30003992,Null Sec (Sov),f,5
+30002898,Null Sec (Sov),f,5
+30003686,Null Sec (Sov),f,5
+30004612,Null Sec (Sov),f,5
+30005094,Null Sec (Sov),f,5
+30002774,High Sec,f,5
+30003398,High Sec,f,5
+30002703,High Sec,f,5
+30000716,Null Sec (Sov),f,5
+30002382,Null Sec (Sov),f,5
+30002041,Null Sec (Sov),f,5
+30000189,High Sec,f,5
+30002040,Null Sec (Sov),f,5
+30003780,Null Sec (Sov),f,5
+30003998,Null Sec (Sov),f,5
+30004286,Low Sec,f,5
+30003716,Null Sec (Sov),f,5
+30005066,Low Sec,f,5
+30000284,Null Sec (Sov),f,5
+30004819,Null Sec (Sov),f,5
+30003809,High Sec,f,5
+30001965,Null Sec (Sov),f,5
+30000613,Null Sec (Sov),f,5
+30001165,Null Sec (Sov),f,5
+30004004,Null Sec (Sov),f,5
+30003233,Null Sec (Sov),f,5
+30002590,Null Sec (Sov),f,5
+30003213,Null Sec (Sov),f,5
+30003430,High Sec,f,5
+30000464,Null Sec (Sov),f,5
+30003014,High Sec,f,5
+30001893,Null Sec (NPC),f,5
+30000880,Null Sec (Sov),f,5
+30000292,Null Sec (Sov),f,5
+30001555,Null Sec (Sov),f,5
+30004287,Low Sec,f,5
+30005059,High Sec,f,5
+30001857,Null Sec (NPC),f,5
+30003782,Null Sec (Sov),f,5
+30001533,Null Sec (Sov),f,5
+30003449,High Sec,f,5
+30000689,Null Sec (Sov),f,5
+30004693,Null Sec (Sov),f,5
+30004815,Null Sec (Sov),f,5
+30001781,Null Sec (Sov),f,5
+30000479,Null Sec (Sov),f,5
+30002903,Null Sec (Sov),f,5
+30000478,Null Sec (Sov),f,5
+30001828,Null Sec (Sov),f,5
+30001559,Null Sec (Sov),f,5
+30004359,Null Sec (Sov),f,5
+30004109,Low Sec,f,5
+30004236,Low Sec,f,5
+30003468,High Sec,f,5
+30001220,Null Sec (Sov),f,5
+30000604,Null Sec (Sov),f,5
+30001762,Null Sec (Sov),f,5
+30000527,Null Sec (Sov),f,5
+30000828,Null Sec (Sov),f,5
+30001433,High Sec,f,5
+30001058,Null Sec (Sov),f,5
+30000276,Null Sec (Sov),f,5
+30002817,High Sec,f,5
+30005331,High Sec,f,5
+30001561,Null Sec (Sov),f,5
+30003039,High Sec,f,5
+30003040,High Sec,f,5
+30001827,Null Sec (Sov),f,5
+30004309,Low Sec,f,5
+30002788,High Sec,f,5
+30002289,Null Sec (Sov),f,5
+30002446,Null Sec (Sov),f,5
+30000525,Null Sec (Sov),f,5
+30002395,Low Sec,f,5
+30004897,Null Sec (Sov),f,5
+30003749,Null Sec (Sov),f,5
+30001851,Null Sec (NPC),f,5
+30005033,Low Sec,f,5
+30000599,Null Sec (Sov),f,5
+30001537,Null Sec (Sov),f,5
+30004611,Null Sec (Sov),f,5
+30004126,High Sec,f,5
+30000279,Null Sec (Sov),f,5
+30003501,High Sec,f,5
+30004425,Null Sec (Sov),f,5
+30002371,Null Sec (Sov),f,5
+30002312,Null Sec (Sov),f,5
+30004739,Null Sec (Sov),f,5
+30003243,Null Sec (Sov),f,5
+30001228,Null Sec (Sov),f,5
+30000281,Null Sec (Sov),f,5
+30004427,Null Sec (Sov),f,5
+30004275,Low Sec,f,5
+30001585,Null Sec (Sov),f,5
+30003140,Null Sec (Sov),f,5
+30001711,High Sec,f,5
+30005004,High Sec,f,5
+30002021,Null Sec (Sov),f,5
+30001875,Null Sec (NPC),f,5
+30004430,Null Sec (Sov),f,5
+30000065,Low Sec,f,5
+30001581,Null Sec (Sov),f,5
+30005275,Low Sec,f,5
+30002401,Low Sec,f,5
+30001807,Null Sec (Sov),f,5
+30000468,Null Sec (Sov),f,5
+30005186,Null Sec (Sov),f,5
+30004994,High Sec,f,5
+30004038,Null Sec (Sov),f,5
+30001151,Null Sec (Sov),f,5
+30001113,Null Sec (Sov),f,5
+30001759,Null Sec (Sov),f,5
+30003193,Null Sec (Sov),f,5
+30005222,High Sec,f,5
+30002300,Null Sec (Sov),f,5
+30000440,Null Sec (Sov),f,5
+30000494,Null Sec (Sov),f,5
+30003150,Null Sec (Sov),f,5
+30004986,Low Sec,f,5
+30003878,High Sec,f,5
+30002405,Low Sec,f,5
+30001772,Null Sec (Sov),f,5
+30003054,High Sec,f,5
+30000588,Null Sec (Sov),f,5
+30000655,Null Sec (Sov),f,5
+30002884,Null Sec (Sov),f,5
+30001229,Null Sec (Sov),f,5
+30004687,Null Sec (Sov),f,5
+30002164,Null Sec (Sov),f,5
+30000945,Null Sec (NPC),f,5
+30002612,Null Sec (Sov),f,5
+30001254,Null Sec (Sov),f,5
+30004313,Null Sec (Sov),f,5
+30003569,Low Sec,f,5
+30001395,High Sec,f,5
+30000115,Low Sec,f,5
+30000884,Null Sec (Sov),f,5
+30002576,Low Sec,f,5
+30002366,Null Sec (Sov),f,5
+30045323,High Sec,f,5
+30000652,Null Sec (Sov),f,5
+30004315,Null Sec (Sov),f,5
+30004301,Low Sec,f,5
+30002314,Null Sec (Sov),f,5
+30002199,High Sec,f,5
+30000636,Null Sec (Sov),f,5
+30002924,Null Sec (Sov),f,5
+30001870,Null Sec (NPC),f,5
+30000749,Null Sec (Sov),f,5
+30003885,High Sec,f,5
+30002069,High Sec,f,5
+30000270,Null Sec (Sov),f,5
+30001183,Null Sec (Sov),f,5
+30004968,High Sec,f,5
+30004733,Null Sec (Sov),f,5
+30005259,Low Sec,f,5
+30002524,High Sec,f,5
+30004876,Null Sec (Sov),f,5
+30000957,Null Sec (NPC),f,5
+30003079,Low Sec,f,5
+30003081,High Sec,f,5
+30003740,Null Sec (Sov),f,5
+30004895,Null Sec (Sov),f,5
+30000802,Null Sec (Sov),f,5
+30004588,Null Sec (Sov),f,5
+30004922,Null Sec (Sov),f,5
+30004939,Null Sec (Sov),f,4
+30015305,High Sec,f,4
+30004171,Null Sec (Sov),f,4
+30004930,Null Sec (Sov),f,4
+30000466,Null Sec (Sov),f,4
+30003733,Null Sec (Sov),f,4
+30003736,Null Sec (Sov),f,4
+30003742,Null Sec (Sov),f,4
+30002819,High Sec,f,4
+30003747,Null Sec (Sov),f,4
+30004923,Null Sec (Sov),f,4
+30004482,Null Sec (Sov),f,4
+30004486,Null Sec (Sov),f,4
+30003765,Null Sec (Sov),f,4
+30003766,Null Sec (Sov),f,4
+30002006,Null Sec (NPC),f,4
+30001767,Null Sec (Sov),f,4
+30000840,Null Sec (Sov),f,4
+30002826,Null Sec (Sov),f,4
+30003773,Null Sec (Sov),f,4
+30000291,Null Sec (Sov),f,4
+30002325,Null Sec (Sov),f,4
+30004490,Null Sec (Sov),f,4
+30002829,Null Sec (Sov),f,4
+30004761,Null Sec (Sov),f,4
+30002000,Null Sec (Sov),f,4
+30000562,Null Sec (Sov),f,4
+30001991,Null Sec (Sov),f,4
+30002324,Null Sec (Sov),f,4
+30002602,Null Sec (Sov),f,4
+30004908,Null Sec (Sov),f,4
+30002834,Null Sec (Sov),f,4
+30003808,Low Sec,f,4
+30003810,High Sec,f,4
+30004597,Null Sec (Sov),f,4
+30000553,Null Sec (Sov),f,4
+30004896,Null Sec (Sov),f,4
+30000547,Null Sec (Sov),f,4
+30002670,High Sec,f,4
+30000543,Null Sec (Sov),f,4
+30004893,Null Sec (Sov),f,4
+30000542,Null Sec (Sov),f,4
+30001968,Null Sec (Sov),f,4
+30000538,Null Sec (Sov),f,4
+30004164,Null Sec (Sov),f,4
+30000534,Null Sec (Sov),f,4
+30002403,Low Sec,f,4
+30000528,Null Sec (Sov),f,4
+30001012,Null Sec (NPC),f,4
+30000040,Low Sec,f,4
+30002940,Null Sec (Sov),f,4
+30003865,High Sec,f,4
+30002674,High Sec,f,4
+30002504,Null Sec (Sov),f,4
+30003888,High Sec,f,4
+30004525,Null Sec (NPC),f,4
+30000705,Null Sec (Sov),f,4
+30004282,Low Sec,f,4
+30001656,High Sec,f,4
+30004284,Low Sec,f,4
+30004582,Null Sec (Sov),f,4
+30003898,Low Sec,f,4
+30004864,Null Sec (Sov),f,4
+30002445,Null Sec (Sov),f,4
+30004861,Null Sec (Sov),f,4
+30004860,Null Sec (Sov),f,4
+30000853,Null Sec (Sov),f,4
+30001941,Null Sec (NPC),f,4
+30001939,Null Sec (NPC),f,4
+30004852,Null Sec (Sov),f,4
+30000446,Null Sec (Sov),f,4
+30000702,Null Sec (Sov),f,4
+30000514,Null Sec (Sov),f,4
+30002707,High Sec,f,4
+30002994,High Sec,f,4
+30003927,Low Sec,f,4
+30004721,Null Sec (NPC),f,4
+30001757,Null Sec (Sov),f,4
+30045312,Low Sec,f,4
+30002861,Null Sec (Sov),f,4
+30001931,Null Sec (NPC),f,4
+30001051,Null Sec (Sov),f,4
+30003941,Low Sec,f,4
+30001018,Null Sec (NPC),f,4
+30003947,Null Sec (Sov),f,4
+30001140,Null Sec (Sov),f,4
+30001752,Null Sec (Sov),f,4
+30004561,Null Sec (Sov),f,4
+30003959,Null Sec (Sov),f,4
+30004834,Null Sec (Sov),f,4
+30002869,Null Sec (Sov),f,4
+30001505,"Non-Universe (Void, Abyssal, CCP)",f,4
+30004567,Null Sec (Sov),f,4
+30002499,Null Sec (Sov),f,4
+30001529,Null Sec (Sov),f,4
+30003983,Null Sec (Sov),f,4
+30000312,Null Sec (Sov),f,4
+30003989,Null Sec (Sov),f,4
+30002305,Null Sec (Sov),f,4
+30001896,Null Sec (NPC),f,4
+30004296,Low Sec,f,4
+30001180,Null Sec (Sov),f,4
+30002492,Null Sec (Sov),f,4
+30002304,Null Sec (Sov),f,4
+30003012,High Sec,f,4
+30000833,Null Sec (Sov),f,4
+30004015,Null Sec (Sov),f,4
+30003016,High Sec,f,4
+30001534,Null Sec (Sov),f,4
+30002922,Null Sec (Sov),f,4
+30002302,Null Sec (Sov),f,4
+30002595,Null Sec (Sov),f,4
+30002679,High Sec,f,4
+30001541,Null Sec (Sov),f,4
+30002485,Null Sec (Sov),f,4
+30001543,Null Sec (Sov),f,4
+30000839,Null Sec (Sov),f,4
+30002296,Null Sec (Sov),f,4
+30004302,Low Sec,f,4
+30004061,Null Sec (Sov),f,4
+30004795,Null Sec (Sov),f,4
+30000662,Null Sec (Sov),f,4
+30004069,Null Sec (Sov),f,4
+30004072,Null Sec (Sov),f,4
+30001552,Null Sec (Sov),f,4
+30000811,Null Sec (Sov),f,4
+30001673,High Sec,f,4
+30004078,High Sec,f,4
+30001865,Null Sec (NPC),f,4
+30002899,Null Sec (Sov),f,4
+30001864,Null Sec (NPC),f,4
+30004305,Low Sec,f,4
+30003033,High Sec,f,4
+30004203,Null Sec (Sov),f,4
+30002293,Null Sec (Sov),f,4
+30001856,Null Sec (NPC),f,4
+30004110,High Sec,f,4
+30004204,Null Sec (Sov),f,4
+30002715,High Sec,t,4
+30004120,Low Sec,f,4
+30000285,Null Sec (Sov),f,4
+30001850,Null Sec (NPC),f,4
+30000286,Null Sec (Sov),f,4
+30002288,Null Sec (Sov),f,4
+30001566,Null Sec (Sov),f,4
+30004136,Low Sec,f,4
+30002214,High Sec,f,4
+30002717,High Sec,f,4
+30001568,Null Sec (Sov),f,4
+30004773,Null Sec (Sov),f,4
+30001817,Null Sec (Sov),f,4
+30003051,High Sec,f,4
+30000800,Null Sec (Sov),f,4
+30000838,Null Sec (Sov),f,4
+30003064,High Sec,f,4
+30004701,Null Sec (Sov),f,4
+30002200,High Sec,f,4
+30002591,Null Sec (Sov),f,4
+30001814,Null Sec (Sov),f,4
+30000856,Null Sec (Sov),f,4
+30000859,Null Sec (Sov),f,4
+30004207,Null Sec (Sov),f,4
+30000643,Null Sec (Sov),f,4
+30004748,Null Sec (Sov),f,4
+30002191,High Sec,f,4
+30000860,Null Sec (Sov),f,4
+30002683,High Sec,f,4
+30005257,Low Sec,f,4
+30003099,Null Sec (Sov),f,4
+30001582,Null Sec (Sov),f,4
+30001127,Null Sec (Sov),f,4
+30005242,Low Sec,f,4
+30005241,Low Sec,f,4
+30005311,High Sec,f,4
+30002383,High Sec,f,4
+30004327,Null Sec (Sov),f,4
+30000755,Null Sec (Sov),f,4
+30004328,Null Sec (Sov),f,4
+30002379,Null Sec (Sov),f,4
+30001188,Null Sec (Sov),f,4
+30003123,Null Sec (Sov),f,4
+30005235,High Sec,f,4
+30005230,High Sec,f,4
+30001842,Null Sec (NPC),f,4
+30003141,Null Sec (Sov),f,4
+30002376,Null Sec (Sov),f,4
+30001123,Null Sec (Sov),f,4
+30000637,Null Sec (Sov),f,4
+30001592,Null Sec (Sov),f,4
+30002949,Null Sec (Sov),f,4
+30005218,High Sec,f,4
+30002739,High Sec,f,4
+30004344,Null Sec (Sov),f,4
+30002912,Null Sec (Sov),f,4
+30003171,Null Sec (Sov),f,4
+30003173,Null Sec (Sov),f,4
+30000317,Null Sec (Sov),f,4
+30003177,Null Sec (Sov),f,4
+30003178,Null Sec (Sov),f,4
+30004347,Null Sec (Sov),f,4
+30000766,Null Sec (Sov),f,4
+30004349,Null Sec (Sov),f,4
+30004690,Null Sec (Sov),f,4
+30003197,Null Sec (Sov),f,4
+30004742,Null Sec (Sov),f,4
+30004357,Null Sec (Sov),f,4
+30002746,High Sec,f,4
+30003212,Null Sec (Sov),f,4
+30003214,Null Sec (Sov),f,4
+30005191,Null Sec (Sov),f,4
+30001114,Null Sec (Sov),f,4
+30002434,Null Sec (Sov),f,4
+30002751,High Sec,f,4
+30000801,Null Sec (Sov),f,4
+30000765,Null Sec (Sov),f,4
+30002137,Null Sec (Sov),f,4
+30005178,Null Sec (Sov),f,4
+30001795,Null Sec (Sov),f,4
+30000873,Null Sec (Sov),f,4
+30004683,Null Sec (Sov),f,4
+30003255,Null Sec (Sov),f,4
+30003256,Null Sec (Sov),f,4
+30004223,Null Sec (Sov),f,4
+30000874,Null Sec (Sov),f,4
+30003262,Null Sec (Sov),f,4
+30000742,Null Sec (Sov),f,4
+30000631,Null Sec (Sov),f,4
+30000688,Null Sec (Sov),f,4
+30002131,Null Sec (Sov),f,4
+30002624,Null Sec (Sov),f,4
+30003282,Null Sec (NPC),f,4
+30000620,Null Sec (Sov),f,4
+30000619,Null Sec (Sov),f,4
+30000740,Null Sec (Sov),f,4
+30003288,Null Sec (NPC),f,4
+30003290,Null Sec (NPC),f,4
+30001288,Null Sec (NPC),f,4
+30003297,Null Sec (NPC),f,4
+30005147,Null Sec (Sov),f,4
+30003305,Null Sec (NPC),f,4
+30002511,High Sec,f,4
+30004668,Null Sec (Sov),f,4
+30001299,Null Sec (NPC),f,4
+30004227,Null Sec (Sov),f,4
+30002125,Null Sec (Sov),f,4
+30003317,Null Sec (NPC),f,4
+30002115,Null Sec (Sov),f,4
+30004384,Null Sec (Sov),f,4
+30003343,Null Sec (NPC),f,4
+30003347,Null Sec (NPC),f,4
+30003352,Null Sec (NPC),f,4
+30003361,Null Sec (NPC),f,4
+30005119,Null Sec (Sov),f,4
+30000876,Null Sec (Sov),f,4
+30003371,Null Sec (NPC),f,4
+30003372,Null Sec (NPC),f,4
+30003373,Null Sec (NPC),f,4
+30005115,Null Sec (Sov),f,4
+30005111,Null Sec (Sov),f,4
+30001784,Null Sec (Sov),f,4
+30001316,Null Sec (NPC),f,4
+30004395,Null Sec (Sov),f,4
+30000879,Null Sec (Sov),f,4
+30001576,Null Sec (Sov),f,4
+30001106,Null Sec (Sov),f,4
+30001185,Null Sec (Sov),f,4
+30004399,Null Sec (Sov),f,4
+30005070,High Sec,f,4
+30005069,High Sec,f,4
+30005064,Low Sec,f,4
+30001104,Null Sec (Sov),f,4
+30002410,Low Sec,f,4
+30003426,High Sec,f,4
+30003427,High Sec,f,4
+30002928,Null Sec (Sov),f,4
+30001182,Null Sec (Sov),f,4
+30004403,Null Sec (Sov),f,4
+30001350,Null Sec (NPC),f,4
+30005058,High Sec,f,4
+30002407,Low Sec,f,4
+30004639,Null Sec (Sov),f,4
+30002968,High Sec,f,4
+30003452,High Sec,f,4
+30000609,Null Sec (Sov),f,4
+30002101,Low Sec,f,4
+30005052,High Sec,f,4
+30000913,Null Sec (NPC),f,4
+30004638,Null Sec (Sov),f,4
+30004412,Null Sec (Sov),f,4
+30002581,Null Sec (Sov),f,4
+30001202,Null Sec (Sov),f,4
+30001573,Null Sec (Sov),f,4
+30002785,High Sec,f,4
+30000218,Null Sec (Sov),f,4
+30001103,Null Sec (Sov),f,4
+30003492,High Sec,f,4
+30004423,Null Sec (Sov),f,4
+30004632,Null Sec (Sov),f,4
+30002790,High Sec,f,4
+30000226,Null Sec (Sov),f,4
+30002636,High Sec,f,4
+30005014,Low Sec,f,4
+30005333,High Sec,f,4
+30001824,Null Sec (Sov),f,4
+30000927,Null Sec (NPC),f,4
+30004995,High Sec,f,4
+30001088,Null Sec (Sov),f,4
+30000591,Null Sec (Sov),f,4
+30002795,High Sec,f,4
+30004987,High Sec,f,4
+30002081,Low Sec,f,4
+30001082,Null Sec (Sov),f,4
+30001080,Null Sec (Sov),f,4
+30004436,Null Sec (Sov),f,4
+30000727,Null Sec (Sov),f,4
+30003568,Low Sec,f,4
+30004438,Null Sec (Sov),f,4
+30003572,Low Sec,f,4
+30001076,Null Sec (Sov),f,4
+30001075,Null Sec (Sov),f,4
+30004443,Null Sec (Sov),f,4
+30003602,Low Sec,f,4
+30000093,Low Sec,f,4
+30001072,Null Sec (Sov),f,4
+30000964,Null Sec (NPC),f,4
+30001065,Null Sec (Sov),f,4
+30001770,Null Sec (Sov),f,4
+30003621,Null Sec (Sov),f,4
+30003625,Null Sec (Sov),f,4
+30000971,Null Sec (NPC),f,4
+30003631,Null Sec (Sov),f,4
+30004958,Null Sec (Sov),f,4
+30000433,Null Sec (Sov),f,4
+30004615,Null Sec (Sov),f,4
+30001410,High Sec,f,4
+30004952,Null Sec (Sov),f,4
+30000721,Null Sec (Sov),f,4
+30000672,Null Sec (Sov),f,4
+30000979,Null Sec (NPC),f,4
+30000720,Null Sec (Sov),f,4
+30001415,High Sec,f,4
+30003662,Null Sec (Sov),f,4
+30000717,Null Sec (Sov),f,4
+30002042,Null Sec (Sov),f,4
+30003680,Null Sec (Sov),f,4
+30000576,Null Sec (Sov),f,4
+30003683,Null Sec (Sov),f,4
+30000690,Null Sec (Sov),f,4
+30003689,Null Sec (Sov),f,4
+30002035,Null Sec (Sov),f,4
+30000834,Null Sec (Sov),f,4
+30001571,Null Sec (Sov),f,3
+30001575,Null Sec (Sov),f,3
+30041407,High Sec,f,3
+30004165,Null Sec (Sov),f,3
+30002913,Null Sec (Sov),f,3
+30001577,Null Sec (Sov),f,3
+30001580,Null Sec (Sov),f,3
+30002281,High Sec,f,3
+30004182,Null Sec (Sov),f,3
+30002454,Null Sec (Sov),f,3
+30004186,Null Sec (Sov),f,3
+30001586,Null Sec (Sov),f,3
+30004196,Null Sec (Sov),f,3
+30002920,Null Sec (Sov),f,3
+30002277,High Sec,f,3
+30001591,Null Sec (Sov),f,3
+30004202,Null Sec (Sov),f,3
+30004209,Null Sec (Sov),f,3
+30005284,Low Sec,f,3
+30004747,Null Sec (Sov),f,3
+30004218,Null Sec (Sov),f,3
+30001594,Null Sec (Sov),f,3
+30004231,Low Sec,f,3
+30001033,Null Sec (NPC),f,3
+30004238,Low Sec,f,3
+30005303,High Sec,f,3
+30002692,High Sec,f,3
+30002610,Null Sec (Sov),f,3
+30004734,Null Sec (Sov),f,3
+30002935,Null Sec (Sov),f,3
+30002528,High Sec,f,3
+30002607,Null Sec (Sov),f,3
+30004260,Low Sec,f,3
+30004266,Low Sec,f,3
+30004269,Low Sec,f,3
+30004270,High Sec,f,3
+30004276,Low Sec,f,3
+30000463,Null Sec (Sov),f,3
+30001672,High Sec,t,3
+30001674,High Sec,f,3
+30000316,Null Sec (Sov),f,3
+30001815,Null Sec (Sov),f,3
+30004700,Null Sec (Sov),f,3
+30004320,Null Sec (Sov),f,3
+30002946,Null Sec (Sov),f,3
+30002464,Null Sec (Sov),f,3
+30002948,Null Sec (Sov),f,3
+30001809,Null Sec (Sov),f,3
+30004698,Null Sec (Sov),f,3
+30004339,Null Sec (Sov),f,3
+30001804,Null Sec (Sov),f,3
+30001803,Null Sec (Sov),f,3
+30001800,Null Sec (Sov),f,3
+30001798,Null Sec (Sov),f,3
+30001796,Null Sec (Sov),f,3
+30002953,Null Sec (Sov),f,3
+30004368,Null Sec (Sov),f,3
+30004678,Null Sec (Sov),f,3
+30002252,High Sec,f,3
+30001787,Null Sec (Sov),f,3
+30004656,Null Sec (Sov),f,3
+30004651,Null Sec (Sov),f,3
+30001694,High Sec,f,3
+30004645,Null Sec (Sov),f,3
+30004400,Null Sec (Sov),f,3
+30004401,Null Sec (Sov),f,3
+30004404,Null Sec (Sov),f,3
+30004408,Null Sec (Sov),f,3
+30004410,Null Sec (Sov),f,3
+30004635,Null Sec (Sov),f,3
+30004634,Null Sec (Sov),f,3
+30004420,Null Sec (Sov),f,3
+30001778,Null Sec (Sov),f,3
+30002242,High Sec,f,3
+30001708,High Sec,f,3
+30001775,Null Sec (Sov),f,3
+30002240,Low Sec,f,3
+30001774,Null Sec (Sov),f,3
+30000323,Null Sec (Sov),f,3
+30002701,High Sec,f,3
+30004444,Null Sec (Sov),f,3
+30004446,Null Sec (Sov),f,3
+30002419,Low Sec,f,3
+30000675,Null Sec (Sov),f,3
+30000325,Null Sec (Sov),f,3
+30004618,Null Sec (NPC),f,3
+30004462,Null Sec (Sov),f,3
+30000671,Null Sec (Sov),f,3
+30001769,Null Sec (Sov),f,3
+30000434,Null Sec (Sov),f,3
+30004470,Null Sec (Sov),f,3
+30004474,Null Sec (Sov),f,3
+30004476,Null Sec (Sov),f,3
+30004478,Null Sec (Sov),f,3
+30001169,Null Sec (Sov),f,3
+30001733,High Sec,f,3
+30004492,Null Sec (Sov),f,3
+30004500,Null Sec (NPC),f,3
+30000438,Null Sec (Sov),f,3
+30002474,Null Sec (Sov),f,3
+30001742,High Sec,f,3
+30004508,Null Sec (NPC),f,3
+30004515,Null Sec (NPC),f,3
+30002505,High Sec,t,3
+30004520,Null Sec (NPC),f,3
+30004524,Null Sec (NPC),f,3
+30004587,Null Sec (Sov),f,3
+30002991,High Sec,f,3
+30004585,Null Sec (Sov),f,3
+30002503,Null Sec (Sov),f,3
+30004534,Null Sec (NPC),f,3
+30004581,Null Sec (Sov),f,3
+30002601,Null Sec (Sov),f,3
+30002709,High Sec,f,3
+30001184,Null Sec (Sov),f,3
+30002500,Null Sec (Sov),f,3
+30004568,Null Sec (Sov),f,3
+30002497,Null Sec (Sov),f,3
+30003008,High Sec,f,3
+30002496,Null Sec (Sov),f,3
+30003013,High Sec,f,3
+30003017,High Sec,f,3
+30000667,Null Sec (Sov),f,3
+30002486,Null Sec (Sov),f,3
+30002483,Null Sec (Sov),f,3
+30003024,High Sec,f,3
+30002476,Null Sec (Sov),f,3
+30002221,High Sec,f,3
+30002430,Null Sec (Sov),f,3
+30002477,Null Sec (Sov),f,3
+30003036,High Sec,f,3
+30002215,High Sec,f,3
+30005276,Low Sec,f,3
+30003050,High Sec,f,3
+30003058,High Sec,f,3
+30001235,Null Sec (Sov),f,3
+30001240,Null Sec (Sov),f,3
+30003065,High Sec,f,3
+30001241,Null Sec (Sov),f,3
+30002197,High Sec,f,3
+30000645,Null Sec (Sov),f,3
+30003078,High Sec,f,3
+30002195,High Sec,f,3
+30001244,Null Sec (Sov),f,3
+30000642,Null Sec (Sov),f,3
+30000757,Null Sec (Sov),f,3
+30001245,Null Sec (Sov),f,3
+30002724,High Sec,f,3
+30003111,Null Sec (Sov),f,3
+30001246,Null Sec (Sov),f,3
+30003114,Null Sec (Sov),f,3
+30001129,Null Sec (Sov),f,3
+30002378,Null Sec (Sov),f,3
+30003124,Null Sec (Sov),f,3
+30003132,Null Sec (Sov),f,3
+30002166,Null Sec (Sov),f,3
+30003145,Null Sec (Sov),f,3
+30002588,Null Sec (Sov),f,3
+30002736,High Sec,f,3
+30002648,High Sec,f,3
+30002159,Null Sec (Sov),f,3
+30003159,Null Sec (Sov),f,3
+30001211,Null Sec (Sov),f,3
+30005214,High Sec,f,3
+30002372,Null Sec (Sov),f,3
+30001210,Null Sec (Sov),f,3
+30002150,Null Sec (Sov),f,3
+30003180,Null Sec (Sov),f,3
+30003181,Null Sec (Sov),f,3
+30003182,Null Sec (Sov),f,3
+30003183,Null Sec (Sov),f,3
+30005206,High Sec,f,3
+30003190,Null Sec (Sov),f,3
+30002144,Null Sec (Sov),f,3
+30003195,Null Sec (Sov),f,3
+30001267,Null Sec (NPC),f,3
+30001116,Null Sec (Sov),f,3
+30001207,Null Sec (Sov),f,3
+30002630,Null Sec (Sov),f,3
+30003215,Null Sec (Sov),f,3
+30003232,Null Sec (Sov),f,3
+30003235,Null Sec (Sov),f,3
+30003240,Null Sec (Sov),f,3
+30000634,Null Sec (Sov),f,3
+30002364,Null Sec (Sov),f,3
+30003248,Null Sec (Sov),f,3
+30000109,High Sec,f,3
+30003253,Null Sec (Sov),f,3
+30001204,Null Sec (Sov),f,3
+30003264,Null Sec (Sov),f,3
+30003265,Null Sec (Sov),f,3
+30001283,Null Sec (NPC),f,3
+30002132,Null Sec (Sov),f,3
+30003283,Null Sec (NPC),f,3
+30003299,Null Sec (NPC),f,3
+30001295,Null Sec (NPC),f,3
+30002763,High Sec,f,3
+30000616,Null Sec (Sov),f,3
+30003308,Null Sec (NPC),f,3
+30005139,Null Sec (Sov),f,3
+30001203,Null Sec (Sov),f,3
+30000615,Null Sec (Sov),f,3
+30003328,Null Sec (NPC),f,3
+30000175,High Sec,f,3
+30003342,Null Sec (NPC),f,3
+30003345,Null Sec (NPC),f,3
+30003349,Null Sec (NPC),f,3
+30000096,Low Sec,f,3
+30002353,Null Sec (Sov),f,3
+30001313,Null Sec (NPC),f,3
+30000178,High Sec,f,3
+30005105,Null Sec (Sov),f,3
+30002108,Null Sec (Sov),f,3
+30003394,High Sec,f,3
+30001326,Null Sec (NPC),f,3
+30001332,Null Sec (NPC),f,3
+30003414,High Sec,f,3
+30002777,High Sec,f,3
+30003431,High Sec,f,3
+30003432,High Sec,f,3
+30002778,High Sec,f,3
+30000612,Null Sec (Sov),f,3
+30003450,High Sec,f,3
+30003451,High Sec,f,3
+30005055,High Sec,f,3
+30000912,Null Sec (NPC),f,3
+30003464,High Sec,f,3
+30002406,Low Sec,f,3
+30003472,High Sec,f,3
+30005050,High Sec,f,3
+30005046,High Sec,f,3
+30005042,High Sec,t,3
+30005041,High Sec,f,3
+30000917,Null Sec (NPC),f,3
+30005039,High Sec,f,3
+30002663,High Sec,f,3
+30003489,High Sec,t,3
+30002435,Null Sec (Sov),f,3
+30005032,Low Sec,f,3
+30003498,High Sec,f,3
+30003502,High Sec,f,3
+30003507,High Sec,f,3
+30005016,High Sec,f,3
+30001152,Null Sec (Sov),f,3
+30002436,Null Sec (Sov),f,3
+30000596,Null Sec (Sov),f,3
+30003524,High Sec,f,3
+30000594,Null Sec (Sov),f,3
+30001085,Null Sec (Sov),f,3
+30003548,High Sec,f,3
+30001081,Null Sec (Sov),f,3
+30000258,Null Sec (Sov),f,3
+30003566,Low Sec,f,3
+30000584,Null Sec (Sov),f,3
+30004976,High Sec,f,3
+30003577,High Sec,f,3
+30003586,High Sec,f,3
+30000842,Null Sec (Sov),f,3
+30003595,Low Sec,f,3
+30003596,Low Sec,f,3
+30000953,Null Sec (NPC),f,3
+30001073,Null Sec (Sov),f,3
+30003603,High Sec,f,3
+30003609,Null Sec (Sov),f,3
+30000094,Low Sec,f,3
+30000580,Null Sec (Sov),f,3
+30002804,High Sec,f,3
+30003635,Null Sec (Sov),f,3
+30004957,Null Sec (Sov),f,3
+30003639,Null Sec (Sov),f,3
+30001411,High Sec,f,3
+30003648,Null Sec (Sov),f,3
+30001064,Null Sec (Sov),f,3
+30003664,Null Sec (Sov),f,3
+30003676,Null Sec (Sov),f,3
+30003682,Null Sec (Sov),f,3
+30001126,Null Sec (Sov),f,3
+30000273,Null Sec (Sov),f,3
+30004940,Null Sec (Sov),f,3
+30003693,Null Sec (Sov),f,3
+30002570,High Sec,f,3
+30000090,Low Sec,f,3
+30001419,High Sec,f,3
+30000712,Null Sec (Sov),f,3
+30003722,Null Sec (Sov),f,3
+30002815,High Sec,f,3
+30002017,Null Sec (Sov),f,3
+30004929,Null Sec (Sov),f,3
+30004928,Null Sec (Sov),f,3
+30002014,Null Sec (Sov),f,3
+30004925,Null Sec (Sov),f,3
+30003753,Null Sec (Sov),f,3
+30002622,Null Sec (Sov),f,3
+30003757,Null Sec (Sov),f,3
+30000841,Null Sec (Sov),f,3
+30002327,Null Sec (Sov),f,3
+30003762,Null Sec (Sov),f,3
+30004920,Null Sec (Sov),f,3
+30004916,Null Sec (Sov),f,3
+30003778,Null Sec (Sov),f,3
+30000565,Null Sec (Sov),f,3
+30000564,Null Sec (Sov),f,3
+30004912,Null Sec (Sov),f,3
+30000561,Null Sec (Sov),f,3
+30001998,Null Sec (Sov),f,3
+30001996,Null Sec (Sov),f,3
+30000556,Null Sec (Sov),f,3
+30004906,Null Sec (Sov),f,3
+30004902,Null Sec (Sov),f,3
+30003822,Low Sec,f,3
+30002323,Null Sec (Sov),f,3
+30002322,Null Sec (Sov),f,3
+30002838,Null Sec (Sov),f,3
+30045336,Low Sec,f,3
+30000532,Null Sec (Sov),f,3
+30001428,High Sec,f,3
+30001955,Null Sec (NPC),f,3
+30004888,Null Sec (Sov),f,3
+30002317,Null Sec (Sov),f,3
+30003863,High Sec,f,3
+30004880,Null Sec (Sov),f,3
+30004879,Null Sec (Sov),f,3
+30004877,Null Sec (Sov),f,3
+30000708,Null Sec (Sov),f,3
+30004875,Null Sec (Sov),f,3
+30001950,Null Sec (NPC),f,3
+30004872,Null Sec (Sov),f,3
+30004870,Null Sec (Sov),f,3
+30003893,High Sec,f,3
+30003894,High Sec,f,3
+30003895,High Sec,f,3
+30004862,Null Sec (Sov),f,3
+30003908,High Sec,f,3
+30003911,High Sec,f,3
+30004849,Null Sec (Sov),f,3
+30001937,Null Sec (NPC),f,3
+30002310,Null Sec (Sov),f,3
+30003924,Low Sec,f,3
+30003925,Low Sec,f,3
+30003926,Low Sec,f,3
+30003928,Low Sec,f,3
+30002550,High Sec,f,3
+30000697,Null Sec (Sov),f,3
+30003934,Low Sec,f,3
+30003939,Low Sec,f,3
+30004843,Null Sec (Sov),f,3
+30002308,Null Sec (Sov),f,3
+30002549,High Sec,f,3
+30002307,Null Sec (Sov),f,3
+30003955,Null Sec (Sov),f,3
+30004841,Null Sec (Sov),f,3
+30000034,High Sec,f,3
+30003958,Null Sec (Sov),f,3
+30001917,Null Sec (NPC),f,3
+30001914,Null Sec (NPC),f,3
+30001527,Null Sec (Sov),f,3
+30002306,Null Sec (Sov),f,3
+30000104,Low Sec,f,3
+30001904,Null Sec (NPC),f,3
+30001899,Null Sec (NPC),f,3
+30001894,Null Sec (NPC),f,3
+30004000,Null Sec (Sov),f,3
+30001190,Null Sec (Sov),f,3
+30004005,Null Sec (Sov),f,3
+30004006,Null Sec (Sov),f,3
+30004007,Null Sec (Sov),f,3
+30004010,Null Sec (Sov),f,3
+30004016,Null Sec (Sov),f,3
+30004018,Null Sec (Sov),f,3
+30004813,Null Sec (Sov),f,3
+30002678,High Sec,f,3
+30001874,Null Sec (NPC),f,3
+30000493,Null Sec (Sov),f,3
+30001872,Null Sec (NPC),f,3
+30004052,Null Sec (Sov),f,3
+30002294,Null Sec (Sov),f,3
+30004796,Null Sec (Sov),f,3
+30004064,Null Sec (Sov),f,3
+30002891,Null Sec (Sov),f,3
+30001551,Null Sec (Sov),f,3
+30002893,Null Sec (Sov),f,3
+30002618,Null Sec (Sov),f,3
+30002451,Null Sec (Sov),f,3
+30001862,Null Sec (NPC),f,3
+30001554,Null Sec (Sov),f,3
+30001859,Null Sec (NPC),f,3
+30002901,Null Sec (Sov),f,3
+30004111,High Sec,f,3
+30002291,Null Sec (Sov),f,3
+30001565,Null Sec (Sov),f,3
+30004117,Low Sec,f,3
+30004118,Low Sec,f,3
+30004121,Low Sec,f,3
+30001189,Null Sec (Sov),f,3
+30000816,Null Sec (Sov),f,3
+30001567,Null Sec (Sov),f,3
+30004152,High Sec,f,3
+30001572,Null Sec (Sov),f,3
+30001590,Null Sec (Sov),f,2
+30000799,Null Sec (Sov),f,2
+30000845,Null Sec (Sov),f,2
+30002639,High Sec,f,2
+30000796,Null Sec (Sov),f,2
+30000794,Null Sec (Sov),f,2
+30002646,High Sec,f,2
+30000790,Null Sec (Sov),f,2
+30002417,Low Sec,f,2
+30002664,High Sec,f,2
+30002685,High Sec,f,2
+30002689,High Sec,f,2
+30005287,Low Sec,f,2
+30002705,High Sec,f,2
+30000855,Null Sec (Sov),f,2
+30002375,Null Sec (Sov),f,2
+30000753,Null Sec (Sov),f,2
+30002373,Null Sec (Sov),f,2
+30000752,Null Sec (Sov),f,2
+30002745,High Sec,f,2
+30002747,High Sec,f,2
+30002357,Null Sec (Sov),f,2
+30002356,Null Sec (Sov),f,2
+30001222,Null Sec (Sov),f,2
+30000738,Null Sec (Sov),f,2
+30000737,Null Sec (Sov),f,2
+30000878,Null Sec (Sov),f,2
+30002347,Null Sec (Sov),f,2
+30000732,Null Sec (Sov),f,2
+30000730,Null Sec (Sov),f,2
+30005293,High Sec,f,2
+30000881,Null Sec (Sov),f,2
+30002343,Null Sec (Sov),f,2
+30002339,Null Sec (Sov),f,2
+30000728,Null Sec (Sov),f,2
+30002337,Null Sec (Sov),f,2
+30000719,Null Sec (Sov),f,2
+30002329,Null Sec (Sov),f,2
+30001221,Null Sec (Sov),f,2
+30002321,Null Sec (Sov),f,2
+30002319,Null Sec (Sov),f,2
+30002315,Null Sec (Sov),f,2
+30000704,Null Sec (Sov),f,2
+30002311,Null Sec (Sov),f,2
+30000106,High Sec,f,2
+30002879,Null Sec (Sov),f,2
+30000883,Null Sec (Sov),f,2
+30002895,Null Sec (Sov),f,2
+30002897,Null Sec (Sov),f,2
+30002914,Null Sec (Sov),f,2
+30000885,Null Sec (Sov),f,2
+30002278,High Sec,f,2
+30002925,Null Sec (Sov),f,2
+30000886,Null Sec (Sov),f,2
+30005302,High Sec,f,2
+30002929,Null Sec (Sov),f,2
+30000691,Null Sec (Sov),f,2
+30002269,High Sec,f,2
+30002933,Null Sec (Sov),f,2
+30002934,Null Sec (Sov),f,2
+30002267,High Sec,f,2
+30002950,Null Sec (Sov),f,2
+30002258,High Sec,f,2
+30000888,Null Sec (Sov),f,2
+30002245,High Sec,f,2
+30002973,High Sec,f,2
+30000677,Null Sec (Sov),f,2
+30000676,Null Sec (Sov),f,2
+30002232,High Sec,f,2
+30002230,High Sec,f,2
+30002986,High Sec,f,2
+30002987,Low Sec,f,2
+30002228,High Sec,f,2
+30002995,High Sec,f,2
+30002996,High Sec,f,2
+30002226,High Sec,f,2
+30003019,High Sec,f,2
+30002220,High Sec,f,2
+30003038,High Sec,f,2
+30000658,Null Sec (Sov),f,2
+30002211,High Sec,f,2
+30003053,High Sec,f,2
+30003075,High Sec,f,2
+30003084,High Sec,f,2
+30003085,High Sec,f,2
+30000641,Null Sec (Sov),f,2
+30003094,High Sec,f,2
+30003102,Null Sec (Sov),f,2
+30000900,Null Sec (NPC),f,2
+30000640,Null Sec (Sov),f,2
+30003118,Null Sec (Sov),f,2
+30002183,Null Sec (Sov),f,2
+30002182,Null Sec (Sov),f,2
+30002181,Null Sec (Sov),f,2
+30002180,Null Sec (Sov),f,2
+30003137,Null Sec (Sov),f,2
+30003142,Null Sec (Sov),f,2
+30003147,Null Sec (Sov),f,2
+30002165,Null Sec (Sov),f,2
+30002160,Null Sec (Sov),f,2
+30003155,Null Sec (Sov),f,2
+30003157,Null Sec (Sov),f,2
+30002158,Null Sec (Sov),f,2
+30000635,Null Sec (Sov),f,2
+30003172,Null Sec (Sov),f,2
+30002148,Null Sec (Sov),f,2
+30003189,Null Sec (Sov),f,2
+30003191,Null Sec (Sov),f,2
+30003206,Null Sec (Sov),f,2
+30002140,Null Sec (Sov),f,2
+30003211,Null Sec (Sov),f,2
+30003220,Null Sec (Sov),f,2
+30003225,Null Sec (Sov),f,2
+30002138,Null Sec (Sov),f,2
+30003230,Null Sec (Sov),f,2
+30003234,Null Sec (Sov),f,2
+30003245,Null Sec (Sov),f,2
+30002135,Null Sec (Sov),f,2
+30003251,Null Sec (Sov),f,2
+30003252,Null Sec (Sov),f,2
+30003257,Null Sec (Sov),f,2
+30003261,Null Sec (Sov),f,2
+30003263,Null Sec (Sov),f,2
+30000623,Null Sec (Sov),f,2
+30005323,High Sec,f,2
+30002127,Null Sec (Sov),f,2
+30003306,Null Sec (NPC),f,2
+30005325,High Sec,f,2
+30003313,Null Sec (NPC),f,2
+30002123,Null Sec (Sov),f,2
+30003336,Null Sec (NPC),f,2
+30003340,Null Sec (NPC),f,2
+30003358,Null Sec (NPC),f,2
+30003360,Null Sec (NPC),f,2
+30002112,Null Sec (Sov),f,2
+30003368,Null Sec (NPC),f,2
+30003377,High Sec,f,2
+30003397,High Sec,f,2
+30003400,High Sec,f,2
+30002105,Null Sec (Sov),f,2
+30003429,High Sec,f,2
+30002104,Null Sec (Sov),f,2
+30003441,High Sec,f,2
+30003443,High Sec,f,2
+30000610,Null Sec (Sov),f,2
+30003448,High Sec,f,2
+30000606,Null Sec (Sov),f,2
+30000915,Null Sec (NPC),f,2
+30000918,Null Sec (NPC),f,2
+30000601,Null Sec (Sov),f,2
+30003485,High Sec,f,2
+30000600,Null Sec (Sov),f,2
+30003493,High Sec,f,2
+30000598,Null Sec (Sov),f,2
+30003510,High Sec,f,2
+30003518,High Sec,f,2
+30003531,High Sec,f,2
+30003539,High Sec,f,2
+30000932,Null Sec (NPC),f,2
+30000590,Null Sec (Sov),f,2
+30000586,Null Sec (Sov),f,2
+30000095,Low Sec,f,2
+30000583,Null Sec (Sov),f,2
+30000946,Null Sec (NPC),f,2
+30003613,Null Sec (Sov),f,2
+30000966,Null Sec (NPC),f,2
+30000967,Null Sec (NPC),f,2
+30003628,Null Sec (Sov),f,2
+30003644,Null Sec (Sov),f,2
+30003655,Null Sec (Sov),f,2
+30000982,Null Sec (NPC),f,2
+30003667,Null Sec (Sov),f,2
+30003669,Null Sec (Sov),f,2
+30001195,Null Sec (Sov),f,2
+30003696,Null Sec (Sov),f,2
+30002034,Null Sec (Sov),f,2
+30000089,Low Sec,f,2
+30003720,Null Sec (Sov),f,2
+30000984,Null Sec (NPC),f,2
+30002015,Null Sec (Sov),f,2
+30002011,Null Sec (Sov),f,2
+30002008,Null Sec (NPC),f,2
+30003754,Null Sec (Sov),f,2
+30003759,Null Sec (Sov),f,2
+30002007,Null Sec (NPC),f,2
+30003761,Null Sec (Sov),f,2
+30003763,Null Sec (Sov),f,2
+30000566,Null Sec (Sov),f,2
+30003772,Null Sec (Sov),f,2
+30003777,Null Sec (Sov),f,2
+30003784,Null Sec (Sov),f,2
+30003785,Null Sec (Sov),f,2
+30003786,Null Sec (Sov),f,2
+30002001,Null Sec (Sov),f,2
+30001988,Null Sec (Sov),f,2
+30000994,Null Sec (NPC),f,2
+30003824,High Sec,f,2
+30001972,Null Sec (Sov),f,2
+30000546,Null Sec (Sov),f,2
+30000539,Null Sec (Sov),f,2
+30000537,Null Sec (Sov),f,2
+30001966,Null Sec (Sov),f,2
+30001006,Null Sec (NPC),f,2
+30001007,Null Sec (NPC),f,2
+30000526,Null Sec (Sov),f,2
+30003860,High Sec,f,2
+30003870,High Sec,f,2
+30001013,Null Sec (NPC),f,2
+30000039,Low Sec,f,2
+30003891,High Sec,f,2
+30000517,Null Sec (Sov),f,2
+30003901,Low Sec,f,2
+30000516,Null Sec (Sov),f,2
+30003913,High Sec,f,2
+30001938,Null Sec (NPC),f,2
+30003918,Low Sec,f,2
+30001936,Null Sec (NPC),f,2
+30001935,Null Sec (NPC),f,2
+30003929,Low Sec,f,2
+30001934,Null Sec (NPC),f,2
+30001933,Null Sec (NPC),f,2
+30024971,High Sec,f,2
+30001932,Null Sec (NPC),f,2
+30003936,Low Sec,f,2
+30001930,Null Sec (NPC),f,2
+30003946,Null Sec (Sov),f,2
+30001919,Null Sec (NPC),f,2
+30000511,Null Sec (Sov),f,2
+30000510,Null Sec (Sov),f,2
+30001913,Null Sec (NPC),f,2
+30001912,Null Sec (NPC),f,2
+30000506,Null Sec (Sov),f,2
+30003981,Null Sec (Sov),f,2
+30001898,Null Sec (NPC),f,2
+30001897,Null Sec (NPC),f,2
+30004002,Null Sec (Sov),f,2
+30000503,Null Sec (Sov),f,2
+30000502,Null Sec (Sov),f,2
+30001888,Null Sec (NPC),f,2
+30004022,Null Sec (Sov),f,2
+30000032,High Sec,f,2
+30000031,High Sec,f,2
+30000497,Null Sec (Sov),f,2
+30004039,Null Sec (Sov),f,2
+30000495,Null Sec (Sov),f,2
+30000491,Null Sec (Sov),f,2
+30000489,Null Sec (Sov),f,2
+30000030,High Sec,f,2
+30004054,Null Sec (Sov),f,2
+30000482,Null Sec (Sov),f,2
+30031407,High Sec,f,2
+30004058,Null Sec (Sov),f,2
+30004066,Null Sec (Sov),f,2
+30001866,Null Sec (NPC),f,2
+30004075,Null Sec (Sov),f,2
+30004076,Null Sec (Sov),f,2
+30004077,High Sec,f,2
+30004081,High Sec,f,2
+30004082,High Sec,f,2
+30004083,High Sec,f,2
+30004089,High Sec,f,2
+30004100,High Sec,f,2
+30004102,High Sec,f,2
+30001853,Null Sec (NPC),f,2
+30004112,High Sec,f,2
+30004119,Low Sec,f,2
+30004128,High Sec,f,2
+30001849,Null Sec (NPC),f,2
+30001031,Null Sec (NPC),f,2
+30001846,Null Sec (NPC),f,2
+30004154,High Sec,f,2
+30004159,High Sec,f,2
+30004167,Null Sec (Sov),f,2
+30001844,Null Sec (NPC),f,2
+30004176,Null Sec (Sov),f,2
+30004180,Null Sec (Sov),f,2
+30001841,Null Sec (NPC),f,2
+30004184,Null Sec (Sov),f,2
+30004191,Null Sec (Sov),f,2
+30004197,Null Sec (Sov),f,2
+30004199,Null Sec (Sov),f,2
+30004201,Null Sec (Sov),f,2
+30001838,Null Sec (NPC),f,2
+30001834,Null Sec (NPC),f,2
+30004210,Null Sec (Sov),f,2
+30004212,Null Sec (Sov),f,2
+30004220,Null Sec (Sov),f,2
+30001830,Null Sec (Sov),f,2
+30000471,Null Sec (Sov),f,2
+30001034,Null Sec (NPC),f,2
+30004243,Low Sec,f,2
+30000467,Null Sec (Sov),f,2
+30004247,Low Sec,f,2
+30004255,Low Sec,f,2
+30004256,Low Sec,f,2
+30004257,Low Sec,f,2
+30004258,Low Sec,f,2
+30004261,Low Sec,f,2
+30004271,Low Sec,f,2
+30004278,Low Sec,f,2
+30004279,Low Sec,f,2
+30004303,Low Sec,f,2
+30004306,Low Sec,f,2
+30042547,High Sec,f,2
+30004317,Null Sec (Sov),f,2
+30004321,Null Sec (Sov),f,2
+30004322,Null Sec (Sov),f,2
+30001812,Null Sec (Sov),f,2
+30004340,Null Sec (Sov),f,2
+30004343,Null Sec (Sov),f,2
+30001802,Null Sec (Sov),f,2
+30001797,Null Sec (Sov),f,2
+30004358,Null Sec (Sov),f,2
+30004361,Null Sec (Sov),f,2
+30004362,Null Sec (Sov),f,2
+30004363,Null Sec (Sov),f,2
+30004365,Null Sec (Sov),f,2
+30004372,Null Sec (Sov),f,2
+30004375,Null Sec (Sov),f,2
+30004376,Null Sec (Sov),f,2
+30004377,Null Sec (Sov),f,2
+30001786,Null Sec (Sov),f,2
+30004388,Null Sec (Sov),f,2
+30001785,Null Sec (Sov),f,2
+30004391,Null Sec (Sov),f,2
+30004406,Null Sec (Sov),f,2
+30004414,Null Sec (Sov),f,2
+30000457,Null Sec (Sov),f,2
+30100032,High Sec,f,2
+30000456,Null Sec (Sov),f,2
+30004441,Null Sec (Sov),f,2
+30004442,Null Sec (Sov),f,2
+30004448,Null Sec (Sov),f,2
+30004450,Null Sec (Sov),f,2
+30004458,Null Sec (Sov),f,2
+30004460,Null Sec (Sov),f,2
+30004461,Null Sec (Sov),f,2
+30004463,Null Sec (Sov),f,2
+30004466,Null Sec (Sov),f,2
+30004471,Null Sec (Sov),f,2
+30004479,Null Sec (Sov),f,2
+30004485,Null Sec (Sov),f,2
+30004494,Null Sec (NPC),f,2
+30004495,Null Sec (NPC),f,2
+30001763,Null Sec (Sov),f,2
+30000454,Null Sec (Sov),f,2
+30004517,Null Sec (NPC),f,2
+30004521,Null Sec (NPC),f,2
+30004527,Null Sec (NPC),f,2
+30004533,Null Sec (NPC),f,2
+30004539,Null Sec (NPC),f,2
+30004545,Null Sec (NPC),f,2
+30004548,Null Sec (NPC),f,2
+30004551,Null Sec (NPC),f,2
+30001755,Null Sec (Sov),f,2
+30001754,Null Sec (Sov),f,2
+30004571,Null Sec (Sov),f,2
+30000449,Null Sec (Sov),f,2
+30004574,Null Sec (Sov),f,2
+30000445,Null Sec (Sov),f,2
+30000444,Null Sec (Sov),f,2
+30001744,Null Sec (Sov),f,2
+30000437,Null Sec (Sov),f,2
+30000436,Null Sec (Sov),f,2
+30001731,High Sec,f,2
+30001728,High Sec,f,2
+30001037,Null Sec (NPC),f,2
+30001718,High Sec,f,2
+30000324,Null Sec (Sov),f,2
+30001703,High Sec,f,2
+30000321,Null Sec (Sov),f,2
+30004658,Null Sec (Sov),f,2
+30004660,Null Sec (Sov),f,2
+30004664,Null Sec (Sov),f,2
+30004666,Null Sec (Sov),f,2
+30001181,Null Sec (Sov),f,2
+30004670,Null Sec (Sov),f,2
+30004671,Null Sec (Sov),f,2
+30004674,Null Sec (Sov),f,2
+30004677,Null Sec (Sov),f,2
+30004679,Null Sec (Sov),f,2
+30004681,Null Sec (Sov),f,2
+30004689,Null Sec (Sov),f,2
+30001680,High Sec,f,2
+30001678,High Sec,f,2
+30001677,High Sec,f,2
+30001049,Null Sec (NPC),f,2
+30001667,High Sec,f,2
+30001659,High Sec,f,2
+30001652,High Sec,f,2
+30001650,High Sec,f,2
+30001648,High Sec,f,2
+30001646,High Sec,f,2
+30001645,High Sec,f,2
+30001644,High Sec,f,2
+30004744,Null Sec (Sov),f,2
+30002632,High Sec,f,2
+30001588,Null Sec (Sov),f,2
+30000287,Null Sec (Sov),f,2
+30001549,Null Sec (Sov),f,2
+30001547,Null Sec (Sov),f,2
+30001545,Null Sec (Sov),f,2
+30004801,Null Sec (Sov),f,2
+30001535,Null Sec (Sov),f,2
+30001530,Null Sec (Sov),f,2
+30004823,Null Sec (Sov),f,2
+30001528,Null Sec (Sov),f,2
+30004826,Null Sec (Sov),f,2
+30004829,Null Sec (Sov),f,2
+30004835,Null Sec (Sov),f,2
+30001054,Null Sec (Sov),f,2
+30001055,Null Sec (Sov),f,2
+30004846,Null Sec (Sov),f,2
+30004850,Null Sec (Sov),f,2
+30004863,Null Sec (Sov),f,2
+30004869,Null Sec (Sov),f,2
+30004871,Null Sec (Sov),f,2
+30004873,Null Sec (Sov),f,2
+30004874,Null Sec (Sov),f,2
+30004881,Null Sec (Sov),f,2
+30004885,Null Sec (Sov),f,2
+30004887,Null Sec (Sov),f,2
+30004890,Null Sec (Sov),f,2
+30000048,High Sec,f,2
+30004894,Null Sec (Sov),f,2
+30004900,Null Sec (Sov),f,2
+30001424,High Sec,f,2
+30001423,High Sec,f,2
+30004911,Null Sec (Sov),f,2
+30004913,Null Sec (Sov),f,2
+30004945,Null Sec (Sov),f,2
+30001068,Null Sec (Sov),f,2
+30001070,Null Sec (Sov),f,2
+30001074,Null Sec (Sov),f,2
+30001150,Null Sec (Sov),f,2
+30001079,Null Sec (Sov),f,2
+30004989,High Sec,f,2
+30001087,Null Sec (Sov),f,2
+30001090,Null Sec (Sov),f,2
+30001377,High Sec,f,2
+30005006,High Sec,f,2
+30005011,High Sec,f,2
+30005027,High Sec,f,2
+30001358,High Sec,f,2
+30001174,Null Sec (Sov),f,2
+30005040,High Sec,f,2
+30005049,High Sec,f,2
+30001347,Null Sec (NPC),f,2
+30001105,Null Sec (Sov),f,2
+30001345,Null Sec (NPC),f,2
+30001341,Null Sec (NPC),f,2
+30005078,High Sec,f,2
+30001335,Null Sec (NPC),f,2
+30001333,Null Sec (NPC),f,2
+30001137,Null Sec (Sov),f,2
+30001331,Null Sec (NPC),f,2
+30005092,Null Sec (Sov),f,2
+30005097,Null Sec (Sov),f,2
+30001323,Null Sec (NPC),f,2
+30001314,Null Sec (NPC),f,2
+30005101,Null Sec (Sov),f,2
+30000177,High Sec,f,2
+30001310,Null Sec (NPC),f,2
+30001135,Null Sec (Sov),f,2
+30005125,Null Sec (Sov),f,2
+30005126,Null Sec (Sov),f,2
+30001298,Null Sec (NPC),f,2
+30005145,Null Sec (Sov),f,2
+30005148,Null Sec (Sov),f,2
+30005154,Null Sec (Sov),f,2
+30005155,Null Sec (Sov),f,2
+30005156,Null Sec (Sov),f,2
+30005157,Null Sec (Sov),f,2
+30005167,Null Sec (Sov),f,2
+30005172,Null Sec (Sov),f,2
+30001131,Null Sec (Sov),f,2
+30005175,Null Sec (Sov),f,2
+30005183,Null Sec (Sov),f,2
+30005187,Null Sec (Sov),f,2
+30001115,Null Sec (Sov),f,2
+30005193,High Sec,f,2
+30001119,Null Sec (Sov),f,2
+30001265,Null Sec (NPC),f,2
+30001264,Null Sec (NPC),f,2
+30001122,Null Sec (Sov),f,2
+30001253,Null Sec (Sov),f,2
+30001251,Null Sec (Sov),f,2
+30001250,Null Sec (Sov),f,2
+30001247,Null Sec (Sov),f,2
+30001128,Null Sec (Sov),f,2
+30005240,Low Sec,f,2
+30005252,High Sec,f,2
+30001243,Null Sec (Sov),f,2
+30001164,Null Sec (Sov),f,2
+30001238,Null Sec (Sov),f,2
+30001230,Null Sec (Sov),f,2
+30002480,Null Sec (Sov),f,2
+30002484,Null Sec (Sov),f,2
+30002487,Null Sec (Sov),f,2
+30002490,Null Sec (Sov),f,2
+30002491,Null Sec (Sov),f,2
+30002493,Null Sec (Sov),f,2
+30002494,Null Sec (Sov),f,2
+30002502,Null Sec (Sov),f,2
+30000829,Null Sec (Sov),f,2
+30002469,Null Sec (Sov),f,2
+30002462,Null Sec (Sov),f,2
+30002519,High Sec,f,2
+30000818,Null Sec (Sov),f,2
+30000815,Null Sec (Sov),f,2
+30000814,Null Sec (Sov),f,2
+30000806,Null Sec (Sov),f,2
+30002557,High Sec,f,2
+30002563,High Sec,f,2
+30002571,High Sec,f,2
+30002578,High Sec,f,2
+30002579,Low Sec,f,2
+30002594,Null Sec (Sov),f,2
+30002596,Null Sec (Sov),f,2
+30002597,Null Sec (Sov),f,2
+30000843,Null Sec (Sov),f,2
+30002615,Null Sec (Sov),f,2
+30002619,Null Sec (Sov),f,2
+30002626,Null Sec (Sov),f,2
+30004221,Null Sec (Sov),f,1
+30004219,Null Sec (Sov),f,1
+30002706,High Sec,f,1
+30004217,Null Sec (Sov),f,1
+30004215,Null Sec (Sov),f,1
+30004214,Null Sec (Sov),f,1
+30004208,Null Sec (Sov),f,1
+30004200,Null Sec (Sov),f,1
+30000474,Null Sec (Sov),f,1
+30003021,High Sec,f,1
+30002224,High Sec,f,1
+30001587,Null Sec (Sov),f,1
+30004194,Null Sec (Sov),f,1
+30004187,Null Sec (Sov),f,1
+30004185,Null Sec (Sov),f,1
+30001584,Null Sec (Sov),f,1
+30004177,Null Sec (Sov),f,1
+30004175,Null Sec (Sov),f,1
+30004174,Null Sec (Sov),f,1
+30004173,Null Sec (Sov),f,1
+30004170,Null Sec (Sov),f,1
+30004166,Null Sec (Sov),f,1
+30004160,High Sec,f,1
+30004158,High Sec,f,1
+30002603,Null Sec (Sov),f,1
+30001574,Null Sec (Sov),f,1
+30004157,High Sec,f,1
+30001175,Null Sec (Sov),f,1
+30004156,High Sec,f,1
+30004155,High Sec,f,1
+30004153,High Sec,f,1
+30004150,High Sec,f,1
+30004149,High Sec,f,1
+30041392,High Sec,f,1
+30004129,High Sec,f,1
+30004127,High Sec,f,1
+30000477,Null Sec (Sov),f,1
+30004116,High Sec,f,1
+30004115,High Sec,f,1
+30004107,High Sec,f,1
+30001557,Null Sec (Sov),f,1
+30001030,Null Sec (NPC),f,1
+30004094,High Sec,f,1
+30004091,High Sec,f,1
+30001553,Null Sec (Sov),f,1
+30004088,High Sec,f,1
+30004074,Null Sec (Sov),f,1
+30001867,Null Sec (NPC),f,1
+30000283,Null Sec (Sov),f,1
+30003015,High Sec,f,1
+30003011,High Sec,f,1
+30002604,Null Sec (Sov),f,1
+30004067,Null Sec (Sov),f,1
+30001027,Null Sec (NPC),f,1
+30031672,High Sec,f,1
+30001544,Null Sec (Sov),f,1
+30004049,Null Sec (Sov),f,1
+30001877,Null Sec (NPC),f,1
+30001879,Null Sec (NPC),f,1
+30005288,High Sec,f,1
+30004803,Null Sec (Sov),f,1
+30001880,Null Sec (NPC),f,1
+30001539,Null Sec (Sov),f,1
+30001538,Null Sec (Sov),f,1
+30001883,Null Sec (NPC),f,1
+30001885,Null Sec (NPC),f,1
+30001886,Null Sec (NPC),f,1
+30000011,High Sec,f,1
+30004021,Null Sec (Sov),f,1
+30003010,High Sec,f,1
+30000501,Null Sec (Sov),f,1
+30001889,Null Sec (NPC),f,1
+30001891,Null Sec (NPC),f,1
+30001892,Null Sec (NPC),f,1
+30000504,Null Sec (Sov),f,1
+30002397,High Sec,f,1
+30004001,Null Sec (Sov),f,1
+30000077,High Sec,f,1
+30000505,Null Sec (Sov),f,1
+30001906,Null Sec (NPC),f,1
+30002695,High Sec,f,1
+30001907,Null Sec (NPC),f,1
+30003009,High Sec,f,1
+30003001,High Sec,f,1
+30004827,Null Sec (Sov),f,1
+30001908,Null Sec (NPC),f,1
+30001218,Null Sec (Sov),f,1
+30001909,Null Sec (NPC),f,1
+30003969,Null Sec (Sov),f,1
+30001526,Null Sec (Sov),f,1
+30001910,Null Sec (NPC),f,1
+30001915,Null Sec (NPC),f,1
+30002998,High Sec,f,1
+30002997,High Sec,f,1
+30004837,Null Sec (Sov),f,1
+30001916,Null Sec (NPC),f,1
+30002694,High Sec,f,1
+30025305,High Sec,f,1
+30025042,High Sec,f,1
+30001920,Null Sec (NPC),f,1
+30001921,Null Sec (NPC),f,1
+30001922,Null Sec (NPC),f,1
+30001023,Null Sec (NPC),f,1
+30002992,High Sec,f,1
+30001142,Null Sec (Sov),f,1
+30003937,Low Sec,f,1
+30003915,High Sec,f,1
+30002990,High Sec,f,1
+30004851,Null Sec (Sov),f,1
+30003914,High Sec,f,1
+30003912,High Sec,f,1
+30000085,High Sec,f,1
+30003903,High Sec,f,1
+30001942,Null Sec (NPC),f,1
+30001943,Null Sec (NPC),f,1
+30002989,High Sec,f,1
+30001947,Null Sec (NPC),f,1
+30001014,Null Sec (NPC),f,1
+30004866,Null Sec (Sov),f,1
+30004868,Null Sec (Sov),f,1
+30002988,High Sec,f,1
+30000518,Null Sec (Sov),f,1
+30002609,Null Sec (Sov),f,1
+30003890,High Sec,f,1
+30002233,High Sec,f,1
+30002244,High Sec,f,1
+30022547,High Sec,f,1
+30000520,Null Sec (Sov),f,1
+30003880,High Sec,f,1
+30003879,High Sec,f,1
+30003876,High Sec,f,1
+30003873,High Sec,f,1
+30002250,High Sec,f,1
+30003872,High Sec,f,1
+30004883,Null Sec (Sov),f,1
+30003871,High Sec,f,1
+30002251,High Sec,f,1
+30002398,High Sec,f,1
+30000521,Null Sec (Sov),f,1
+30001964,Null Sec (Sov),f,1
+30000686,Null Sec (Sov),f,1
+30000535,Null Sec (Sov),f,1
+30002257,High Sec,f,1
+30001969,Null Sec (Sov),f,1
+30002260,High Sec,f,1
+30001970,Null Sec (Sov),f,1
+30000548,Null Sec (Sov),f,1
+30000550,Null Sec (Sov),f,1
+30002611,Null Sec (Sov),f,1
+30004901,Null Sec (Sov),f,1
+30001979,Null Sec (NPC),f,1
+30000819,Null Sec (Sov),f,1
+30001981,Null Sec (NPC),f,1
+30000993,Null Sec (NPC),f,1
+30002518,High Sec,f,1
+30000989,Null Sec (NPC),f,1
+30000988,Null Sec (NPC),f,1
+30000559,Null Sec (Sov),f,1
+30002687,High Sec,f,1
+30000563,Null Sec (Sov),f,1
+30002263,High Sec,f,1
+30004914,Null Sec (Sov),f,1
+30022505,High Sec,f,1
+30002003,Null Sec (Sov),f,1
+30004919,Null Sec (Sov),f,1
+30003768,Null Sec (Sov),f,1
+30001144,Null Sec (Sov),f,1
+30003755,Null Sec (Sov),f,1
+30003751,Null Sec (Sov),f,1
+30001173,Null Sec (Sov),f,1
+30002010,Null Sec (Sov),f,1
+30002013,Null Sec (Sov),f,1
+30000985,Null Sec (NPC),f,1
+30000569,Null Sec (Sov),f,1
+30000570,Null Sec (Sov),f,1
+30000571,Null Sec (Sov),f,1
+30000573,Null Sec (Sov),f,1
+30003712,Null Sec (Sov),f,1
+30004933,Null Sec (Sov),f,1
+30003711,Null Sec (Sov),f,1
+30000983,Null Sec (NPC),f,1
+30000575,Null Sec (Sov),f,1
+30003701,Null Sec (Sov),f,1
+30001417,High Sec,f,1
+30003695,Null Sec (Sov),f,1
+30003692,Null Sec (Sov),f,1
+30013410,High Sec,f,1
+30003684,Null Sec (Sov),f,1
+30003668,Null Sec (Sov),f,1
+30001147,Null Sec (Sov),f,1
+30002265,High Sec,f,1
+30003666,Null Sec (Sov),f,1
+30001416,High Sec,f,1
+30003656,Null Sec (Sov),f,1
+30000977,Null Sec (NPC),f,1
+30000976,Null Sec (NPC),f,1
+30000974,Null Sec (NPC),f,1
+30003643,Null Sec (Sov),f,1
+30001412,High Sec,f,1
+30003642,Null Sec (Sov),f,1
+30003641,Null Sec (Sov),f,1
+30000091,Low Sec,f,1
+30003637,Null Sec (Sov),f,1
+30000972,Null Sec (NPC),f,1
+30011672,High Sec,f,1
+30000965,Null Sec (NPC),f,1
+30003616,Null Sec (Sov),f,1
+30002941,Null Sec (Sov),f,1
+30001069,Null Sec (Sov),f,1
+30005281,Low Sec,f,1
+30001071,Null Sec (Sov),f,1
+30000961,Null Sec (NPC),f,1
+30000955,Null Sec (NPC),f,1
+30000954,Null Sec (NPC),f,1
+30002268,High Sec,f,1
+30000950,Null Sec (NPC),f,1
+30000582,Null Sec (Sov),f,1
+30003583,High Sec,f,1
+30002461,Null Sec (Sov),f,1
+30003582,High Sec,f,1
+30001077,Null Sec (Sov),f,1
+30003574,High Sec,f,1
+30002276,High Sec,f,1
+30000585,Null Sec (Sov),f,1
+30000259,Null Sec (Sov),f,1
+30000944,Null Sec (NPC),f,1
+30000587,Null Sec (Sov),f,1
+30005334,High Sec,f,1
+30004983,High Sec,f,1
+30000589,Null Sec (Sov),f,1
+30003555,High Sec,f,1
+30000939,Null Sec (NPC),f,1
+30000936,Null Sec (NPC),f,1
+30003540,High Sec,f,1
+30002625,Null Sec (Sov),f,1
+30000931,Null Sec (NPC),f,1
+30002456,Null Sec (Sov),f,1
+30003536,High Sec,f,1
+30000592,Null Sec (Sov),f,1
+30000930,Null Sec (NPC),f,1
+30003529,High Sec,f,1
+30003528,High Sec,f,1
+30001089,Null Sec (Sov),f,1
+30000926,Null Sec (NPC),f,1
+30002279,High Sec,f,1
+30003520,High Sec,f,1
+30001092,Null Sec (Sov),f,1
+30000817,Null Sec (Sov),f,1
+30001093,Null Sec (Sov),f,1
+30003519,High Sec,f,1
+30003514,High Sec,f,1
+30002910,Null Sec (Sov),f,1
+30001370,High Sec,f,1
+30001095,Null Sec (Sov),f,1
+30001096,Null Sec (Sov),f,1
+30002614,Null Sec (Sov),f,1
+30003513,High Sec,f,1
+30003512,High Sec,f,1
+30001098,Null Sec (Sov),f,1
+30003511,High Sec,f,1
+30003509,High Sec,f,1
+30005018,High Sec,f,1
+30001099,Null Sec (Sov),f,1
+30003508,High Sec,f,1
+30000597,Null Sec (Sov),f,1
+30005024,High Sec,f,1
+30005025,High Sec,f,1
+30001101,Null Sec (Sov),f,1
+30002631,Null Sec (Sov),f,1
+30005028,High Sec,f,1
+30001102,Null Sec (Sov),f,1
+30000924,Null Sec (NPC),f,1
+30000103,High Sec,f,1
+30003496,High Sec,f,1
+30003494,High Sec,f,1
+30005332,High Sec,f,1
+30002900,Null Sec (Sov),f,1
+30000921,Null Sec (NPC),f,1
+30001354,Null Sec (NPC),f,1
+30001353,Null Sec (NPC),f,1
+30000920,Null Sec (NPC),f,1
+30002894,Null Sec (Sov),f,1
+30000914,Null Sec (NPC),f,1
+30000602,Null Sec (Sov),f,1
+30005044,High Sec,f,1
+30000603,Null Sec (Sov),f,1
+30005047,High Sec,f,1
+30002890,Null Sec (Sov),f,1
+30003473,High Sec,f,1
+30000608,Null Sec (Sov),f,1
+30005053,High Sec,f,1
+30003459,High Sec,f,1
+30000911,Null Sec (NPC),f,1
+30003445,High Sec,f,1
+30001351,Null Sec (NPC),f,1
+30002103,Null Sec (Sov),f,1
+30003428,High Sec,f,1
+30003422,High Sec,f,1
+30003421,High Sec,f,1
+30003419,High Sec,f,1
+30003417,High Sec,f,1
+30002297,Null Sec (Sov),f,1
+30003416,High Sec,f,1
+30003415,High Sec,f,1
+30002299,Null Sec (Sov),f,1
+30005282,Low Sec,f,1
+30001343,Null Sec (NPC),f,1
+30005075,High Sec,f,1
+30005076,High Sec,f,1
+30000693,Null Sec (Sov),f,1
+30000694,Null Sec (Sov),f,1
+30001138,Null Sec (Sov),f,1
+30002107,Null Sec (Sov),f,1
+30001340,Null Sec (NPC),f,1
+30001338,Null Sec (NPC),f,1
+30000696,Null Sec (Sov),f,1
+30001334,Null Sec (NPC),f,1
+30000698,Null Sec (Sov),f,1
+30003411,High Sec,f,1
+30000701,Null Sec (Sov),f,1
+30003410,High Sec,t,1
+30002313,Null Sec (Sov),f,1
+30003407,High Sec,f,1
+30000771,Null Sec (Sov),f,1
+30003403,High Sec,f,1
+30003396,High Sec,f,1
+30003393,High Sec,f,1
+30001108,Null Sec (Sov),f,1
+30000805,Null Sec (Sov),f,1
+30002831,Null Sec (Sov),f,1
+30003391,High Sec,f,1
+30002399,High Sec,f,1
+30002326,Null Sec (Sov),f,1
+30005102,Null Sec (Sov),f,1
+30005103,Null Sec (Sov),f,1
+30005104,Null Sec (Sov),f,1
+30003390,High Sec,f,1
+30003388,High Sec,f,1
+30003387,High Sec,f,1
+30003385,High Sec,f,1
+30002328,Null Sec (Sov),f,1
+30000909,Null Sec (NPC),f,1
+30003381,High Sec,f,1
+30000803,Null Sec (Sov),f,1
+30003379,High Sec,f,1
+30001309,Null Sec (NPC),f,1
+30003376,High Sec,f,1
+30003374,High Sec,f,1
+30003370,Null Sec (NPC),f,1
+30005118,Null Sec (Sov),f,1
+30002113,Null Sec (Sov),f,1
+30003356,Null Sec (NPC),f,1
+30003353,Null Sec (NPC),f,1
+30002821,Null Sec (Sov),f,1
+30005123,Null Sec (Sov),f,1
+30003350,Null Sec (NPC),f,1
+30002562,High Sec,f,1
+30001224,Null Sec (Sov),f,1
+30005127,Null Sec (Sov),f,1
+30003339,Null Sec (NPC),f,1
+30002116,Null Sec (Sov),f,1
+30002119,Null Sec (Sov),f,1
+30000010,High Sec,f,1
+30000174,High Sec,f,1
+30002121,Null Sec (Sov),f,1
+30000614,Null Sec (Sov),f,1
+30003316,Null Sec (NPC),f,1
+30003314,Null Sec (NPC),f,1
+30003310,Null Sec (NPC),f,1
+30002818,High Sec,f,1
+30002126,Null Sec (Sov),f,1
+30003304,Null Sec (NPC),f,1
+30001296,Null Sec (NPC),f,1
+30003302,Null Sec (NPC),f,1
+30005324,High Sec,f,1
+30001294,Null Sec (NPC),f,1
+30002333,Null Sec (Sov),f,1
+30005146,Null Sec (Sov),f,1
+30003300,Null Sec (NPC),f,1
+30002426,Null Sec (NPC),f,1
+30005149,Null Sec (Sov),f,1
+30005150,Null Sec (Sov),f,1
+30003296,Null Sec (NPC),f,1
+30001293,Null Sec (NPC),f,1
+30003295,Null Sec (NPC),f,1
+30000722,Null Sec (Sov),f,1
+30000724,Null Sec (Sov),f,1
+30000725,Null Sec (Sov),f,1
+30000726,Null Sec (Sov),f,1
+30003293,Null Sec (NPC),f,1
+30001287,Null Sec (NPC),f,1
+30003291,Null Sec (NPC),f,1
+30000629,Null Sec (Sov),f,1
+30005162,Null Sec (Sov),f,1
+30003273,Null Sec (NPC),f,1
+30001285,Null Sec (NPC),f,1
+30001284,Null Sec (NPC),f,1
+30005322,High Sec,f,1
+30002341,Null Sec (Sov),f,1
+30005170,Null Sec (Sov),f,1
+30002677,High Sec,f,1
+30002671,High Sec,f,1
+30002789,High Sec,f,1
+30000907,Null Sec (NPC),f,1
+30003254,Null Sec (Sov),f,1
+30003244,Null Sec (Sov),f,1
+30005179,Null Sec (Sov),f,1
+30005180,Null Sec (Sov),f,1
+30003223,Null Sec (Sov),f,1
+30002784,High Sec,f,1
+30001279,Null Sec (NPC),f,1
+30003221,Null Sec (Sov),f,1
+30001225,Null Sec (Sov),f,1
+30001166,Null Sec (Sov),f,1
+30002762,High Sec,f,1
+30003216,Null Sec (Sov),f,1
+30003209,Null Sec (Sov),f,1
+30005291,High Sec,f,1
+30003207,Null Sec (Sov),f,1
+30003203,Null Sec (Sov),f,1
+30002142,Null Sec (Sov),f,1
+30005197,High Sec,f,1
+30003198,Null Sec (Sov),f,1
+30001117,Null Sec (Sov),f,1
+30001271,Null Sec (NPC),f,1
+30001130,Null Sec (Sov),f,1
+30002367,Null Sec (Sov),f,1
+30002143,Null Sec (Sov),f,1
+30000750,Null Sec (Sov),f,1
+30002147,Null Sec (Sov),f,1
+30003187,Null Sec (Sov),f,1
+30002152,Null Sec (Sov),f,1
+30005209,High Sec,f,1
+30002374,Null Sec (Sov),f,1
+30001263,Null Sec (NPC),f,1
+30003168,Null Sec (Sov),f,1
+30005213,Low Sec,f,1
+30000906,Null Sec (NPC),f,1
+30003162,Null Sec (Sov),f,1
+30002377,Null Sec (Sov),f,1
+30000050,High Sec,f,1
+30003161,Null Sec (Sov),f,1
+30003154,Null Sec (Sov),f,1
+30005220,High Sec,f,1
+30000100,Low Sec,f,1
+30005223,High Sec,f,1
+30003146,Null Sec (Sov),f,1
+30000754,Null Sec (Sov),f,1
+30003143,Null Sec (Sov),f,1
+30003139,Null Sec (Sov),f,1
+30000761,Null Sec (Sov),f,1
+30003134,Null Sec (Sov),f,1
+30002431,Null Sec (Sov),f,1
+30005232,High Sec,f,1
+30002172,Null Sec (Sov),f,1
+30001124,Null Sec (Sov),f,1
+30003128,Null Sec (Sov),f,1
+30002713,High Sec,f,1
+30004565,Null Sec (Sov),f,1
+30001747,Null Sec (Sov),f,1
+30001749,Null Sec (Sov),f,1
+30002185,Null Sec (Sov),f,1
+30000453,Null Sec (Sov),f,1
+30005313,High Sec,f,1
+30002669,High Sec,f,1
+30001756,Null Sec (Sov),f,1
+30001746,Null Sec (Sov),f,1
+30004538,Null Sec (NPC),f,1
+30004536,Null Sec (NPC),f,1
+30001745,Null Sec (Sov),f,1
+30004580,Null Sec (Sov),f,1
+30004535,Null Sec (NPC),f,1
+30004530,Null Sec (NPC),f,1
+30002712,High Sec,f,1
+30003106,Null Sec (Sov),f,1
+30004528,Null Sec (NPC),f,1
+30000443,Null Sec (Sov),f,1
+30004526,Null Sec (NPC),f,1
+30004522,Null Sec (NPC),f,1
+30001212,Null Sec (Sov),f,1
+30004519,Null Sec (NPC),f,1
+30004514,Null Sec (NPC),f,1
+30004511,Null Sec (NPC),f,1
+30004507,Null Sec (NPC),f,1
+30004506,Null Sec (NPC),f,1
+30001736,High Sec,f,1
+30001760,Null Sec (Sov),f,1
+30000066,High Sec,f,1
+30005246,High Sec,f,1
+30000064,High Sec,f,1
+30005247,High Sec,f,1
+30000435,Null Sec (Sov),f,1
+30001734,High Sec,f,1
+30004497,Null Sec (NPC),f,1
+30004604,Null Sec (Sov),f,1
+30001766,Null Sec (Sov),f,1
+30005249,High Sec,f,1
+30005250,High Sec,f,1
+30001725,High Sec,f,1
+30004481,Null Sec (Sov),f,1
+30004480,Null Sec (Sov),f,1
+30004475,Null Sec (Sov),f,1
+30004468,Null Sec (Sov),f,1
+30001723,High Sec,f,1
+30004467,Null Sec (Sov),f,1
+30004459,Null Sec (Sov),f,1
+30002668,High Sec,f,1
+30004457,Null Sec (Sov),f,1
+30004454,Null Sec (Sov),f,1
+30003101,Null Sec (Sov),f,1
+30004451,Null Sec (Sov),f,1
+30003100,Null Sec (Sov),f,1
+30001771,Null Sec (Sov),f,1
+30004440,Null Sec (Sov),f,1
+30001716,High Sec,f,1
+30004437,Null Sec (Sov),f,1
+30000063,High Sec,f,1
+30001714,High Sec,f,1
+30004433,Null Sec (Sov),f,1
+30004429,Null Sec (Sov),f,1
+30000069,High Sec,f,1
+30001776,Null Sec (Sov),f,1
+30004418,Null Sec (Sov),f,1
+30004416,Null Sec (Sov),f,1
+30001707,High Sec,f,1
+30004415,Null Sec (Sov),f,1
+30004411,Null Sec (Sov),f,1
+30004405,Null Sec (Sov),f,1
+30003097,High Sec,f,1
+30004402,Null Sec (Sov),f,1
+30002193,High Sec,f,1
+30001702,High Sec,f,1
+30001701,High Sec,f,1
+30001782,Null Sec (Sov),f,1
+30001699,High Sec,f,1
+30001696,High Sec,f,1
+30000062,High Sec,f,1
+30000458,Null Sec (Sov),f,1
+30004389,Null Sec (Sov),f,1
+30004382,Null Sec (Sov),f,1
+30004652,Null Sec (Sov),f,1
+30001692,High Sec,f,1
+30004654,Null Sec (Sov),f,1
+30004655,Null Sec (Sov),f,1
+30004381,Null Sec (Sov),f,1
+30004657,Null Sec (Sov),f,1
+30002196,High Sec,f,1
+30000060,High Sec,f,1
+30003074,High Sec,f,1
+30001691,High Sec,f,1
+30001689,High Sec,f,1
+30001688,High Sec,f,1
+30000789,Null Sec (Sov),f,1
+30001788,Null Sec (Sov),f,1
+30001242,Null Sec (Sov),f,1
+30000056,High Sec,f,1
+30001789,Null Sec (Sov),f,1
+30002198,High Sec,f,1
+30002203,High Sec,f,1
+30005266,Low Sec,f,1
+30001790,Null Sec (Sov),f,1
+30004373,Null Sec (Sov),f,1
+30005309,High Sec,f,1
+30004371,Null Sec (Sov),f,1
+30002205,High Sec,f,1
+30004370,Null Sec (Sov),f,1
+30002710,High Sec,f,1
+30001040,Null Sec (NPC),f,1
+30002599,Null Sec (Sov),f,1
+30001186,Null Sec (Sov),f,1
+30000459,Null Sec (Sov),f,1
+30004366,Null Sec (Sov),f,1
+30001799,Null Sec (Sov),f,1
+30002206,High Sec,f,1
+30001801,Null Sec (Sov),f,1
+30001043,Null Sec (NPC),f,1
+30002208,High Sec,f,1
+30004350,Null Sec (Sov),f,1
+30001679,High Sec,f,1
+30002600,Null Sec (Sov),f,1
+30000020,Low Sec,f,1
+30004337,Null Sec (Sov),f,1
+30000462,Null Sec (Sov),f,1
+30001811,Null Sec (Sov),f,1
+30004316,Null Sec (Sov),f,1
+30004314,Null Sec (Sov),f,1
+30000654,Null Sec (Sov),f,1
+30001676,High Sec,f,1
+30000052,High Sec,f,1
+30001675,High Sec,f,1
+30004308,Low Sec,f,1
+30000315,Null Sec (Sov),f,1
+30004307,Low Sec,f,1
+30004304,Low Sec,f,1
+30001818,Null Sec (Sov),f,1
+30004295,High Sec,f,1
+30004294,Low Sec,f,1
+30004293,Low Sec,f,1
+30002213,High Sec,f,1
+30004292,Low Sec,f,1
+30000659,Null Sec (Sov),f,1
+30001666,High Sec,f,1
+30004291,Low Sec,f,1
+30001052,Null Sec (Sov),f,1
+30005277,Low Sec,f,1
+30004289,Low Sec,f,1
+30004285,Low Sec,f,1
+30001822,Null Sec (Sov),f,1
+30001654,High Sec,f,1
+30001823,Null Sec (Sov),f,1
+30005278,Low Sec,f,1
+30002217,High Sec,f,1
+30002708,High Sec,f,1
+30000661,Null Sec (Sov),f,1
+30004268,High Sec,f,1
+30004265,Low Sec,f,1
+30000051,High Sec,f,1
+30004253,High Sec,f,1
+30004252,High Sec,f,1
+30002482,Null Sec (Sov),f,1
+30004248,High Sec,f,1
+30002222,High Sec,f,1
+30001595,Null Sec (Sov),f,1
+30042505,High Sec,f,1
+30004234,Low Sec,f,1
+30000472,Null Sec (Sov),f,1
