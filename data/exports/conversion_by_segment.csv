@@ -1,0 +1,34 @@
+segment,players,converted_month_1,converted_within_12_months
+Flew an Omega-only ship,29190,1.0000,1.0000
+Area: Null Sec (Sov),38489,0.2843,0.4454
+"Corp size: 201-1,000 members",24815,0.2575,0.4420
+Fought in a war (100+ pilots),10210,0.2559,0.4160
+Fought in a skirmish (50-99),7340,0.2421,0.3943
+Corp size: 51-200 members,24961,0.2158,0.3722
+Joined a corp and got a kill,45729,0.2242,0.3523
+"Got a kill, in a corp",45729,0.2242,0.3523
+Corp size: 11-50 members,24238,0.2076,0.3320
+"Combat, got a kill",50987,0.2112,0.3304
+Traded and fought,7949,0.1408,0.3276
+Area: Wormhole,18692,0.2006,0.3213
+"Victim only, in a corp",88318,0.1626,0.3010
+Joined a corp only,92520,0.1552,0.2916
+"Corp size: 1,000+ members",26717,0.1427,0.2893
+Area: Null Sec (NPC),7961,0.1286,0.2546
+Did not lose a ship,24579,0.1642,0.2529
+All new players,215589,0.1354,0.2521
+Lost a ship,191010,0.1317,0.2520
+No battle,198039,0.1252,0.2384
+"Got a kill, no corp",7071,0.1355,0.2343
+Got a kill only,7071,0.1355,0.2343
+"Combat, victim only",145928,0.1186,0.2334
+Corp size: 2-10 members,33175,0.1200,0.1994
+Area: Low Sec,76823,0.0917,0.1979
+Area: High Sec,53167,0.0760,0.1700
+Corp size: NPC starter corp,70958,0.0646,0.1531
+"Victim only, no corp",63746,0.0568,0.1437
+Neither,70269,0.0515,0.1367
+No Omega-only ship,186399,0.0000,0.1350
+"Non-combatant, in a corp",4202,0.0000,0.0938
+Non-combatant (contracts only),10725,0.0000,0.0779
+"Non-combatant, no corp",6523,0.0000,0.0678

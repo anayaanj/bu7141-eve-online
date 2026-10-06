@@ -4,7 +4,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## 1. Killmails — `data/raw/killmails/YYYY/killmails-YYYY-MM-DD.tar.bz2`
 - **Publisher:** zKillboard / CCP ESI, archived by EVE Ref. Real, public game events.
-- **Volume:** 973 daily archives, 2.6 GB compressed, ~23k killmails/day (~22M total).
+- **Volume:** 973 daily archives, 2.6 GB compressed: 15,811,654 killmails (~16k a day), 91.7M participant rows. The 2026-01-06 archive repeats 14,042 killmails from 2026-01-05; the transform keeps each killmail once, under its own date.
 - **Grain:** one JSON file per killmail (`killmails/<killmail_id>.json`).
 - **Fields:**
   - `killmail_id` (int, PK), `killmail_hash`, `killmail_time` (ISO UTC), `solar_system_id`, `war_id` (rare), `moon_id` (rare), `http_last_modified`
@@ -37,7 +37,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Volume:** 974 daily files, ~56k rows/day.
 - **Grain:** one row per `(date, region_id, type_id)`.
 - **Columns:** `average, date, highest, lowest, order_count, volume, http_last_modified, region_id, type_id`
-- **PLEX:** `type_id = 44992`, traded in ~40 regions/day; ~6.0M ISK in June 2025 (The Forge, region 10000002, is the main hub).
+- **PLEX:** `type_id = 44992`, traded in ~40 regions/day until early July 2025; ~6.0M ISK in June 2025. **From July 2025 PLEX trades only in one global market, region 19000001 ("GPMR-01")**, so build PLEX series across regions, not from The Forge alone.
 
 ## 4. Monthly Economic Report (MER) — `data/raw/mer/*.zip`
 - **Publisher:** CCP Games, mirrored by EVE Ref. Real, official aggregates.
@@ -80,7 +80,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Publisher:** Pearl Abyss Corp. investor relations (pearlabyss.com/en-US/IR). Real, official.
 - **Files:** `performance/` — 13 quarterly earnings releases, 2Q23 → 2Q26 (1Q23 has no English attachment). `letter/` — 32 monthly IR letters, Jan 2024 → Jul 2026. `financial_info.html` — annual statements FY2023–FY2025 (million KRW).
 - **EVE figures:** "Revenue by Core IP" chart (Black Desert vs EVE, billion KRW, 5 trailing quarters per release). In the 2Q23–3Q25 PDFs the numbers are in the text layer. 4Q25 is image-only and has to be read visually.
-- **Ownership change:** Pearl Abyss sold CCP Games to CCP's management on 2026-05-01, and CCP renamed itself Fenris Creations on 2026-05-06. The 2026 reports no longer include EVE, so the Pearl Abyss EVE revenue series ends at 4Q25.
+- **Ownership change:** Pearl Abyss's board approved selling CCP Games to CCP's management on 2026-04-30 and completed the sale on 2026-05-06 (1Q26 and 2Q26 letters), and CCP renamed itself Fenris Creations on 2026-05-06. The 2026 reports no longer include EVE, so the Pearl Abyss EVE revenue series ends at 4Q25.
 
 ### CCP ehf. annual accounts — `ccp/` (downloaded from Skatturinn, free, 2026-09-28)
 - **Publisher:** CCP ehf. (kennitala 450697-3469, now Fenris Creations hf.), filed with Skatturinn. Real, audited. English, **USD**, 62–70 pages, text layer present.
@@ -125,7 +125,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## 14. Steam players — `data/raw/steam_players/steamcharts_8500.html`
 - **Publisher:** SteamCharts, built from the Steam Web API. Real, third-party tracker.
-- **Grain:** one row per month since Aug 2012 (86 months): average players, gain, % gain, peak players (HTML table).
+- **Grain:** one row per month, Jul 2012 → Sep 2026 (171 months; the last is partial): average players, gain, % gain, peak players (HTML table).
 - **Use:** Steam share of all players online (≈ 4,000 of ≈ 23,500 in Aug 2026, ≈ 17%): an acquisition-channel proxy.
 
 ## 15. All CCP news — `data/raw/news_all/page_NNN.json`
@@ -171,7 +171,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 ## 22. Patch and release history — `data/raw/patch_history/`
 - `patch_notes_page_NN.json`: CCP's **major-version patch notes**, all 244 since 2003 (Contentful, same fields as section 7). Recent years have ~4 a year; minor patches are not in this archive.
 - `sde_builds_YYYY.json`: EVE Ref indexes of every static-data build, Oct 2016 → 2026 (379 files: `name` with build number, `last_modified`). Each build ≈ one game deployment.
-- `eveuni_expansions.html`: EVE University wiki list of expansions and major releases by year, 2003 → 2025 (176 dated entries). Community-maintained, CC BY-SA.
+- `eveuni_expansions.html`: EVE University wiki list of expansions and major releases, 2003 → 2024 (the 2025 section is empty and there is no 2026 yet). Community-maintained, CC BY-SA. The 2025–2026 expansions (Legion 2025-05-27, Catalyst 2025-11-18, Cradle of War 2026-06-09) come from CCP news [15] via `data/reference/key_events.csv`.
 - **Use:** the `game_event` table: expansions, major patches and deployments by date. Cross-check with section 15 (news).
 
 ## 23. Down the Rabbit Hole transcript — `data/raw/qualitative/down_the_rabbit_hole_BCSeISYcoyI.json` (not in git)
@@ -179,6 +179,13 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Format:** 7,973 lines (`start` seconds, `duration`, `text`), 5.9 hours, 1997 → ~2022.
 - **Licence:** someone else's work. Kept out of git; cite it, don't redistribute it.
 - **Derived:** `data/reference/lore_events.csv` (committed): 40 dated lore events (founding, PLEX, Monoclegate, big battles, casino ban, Pearl Abyss acquisition, Prospector Pack) with the video timestamp for each. Verify against primary sources before quoting a figure.
+
+## 24. Curated reference data — `data/reference/` (committed)
+Hand-entered from the raw files; every row names its source file (and page, where it is a PDF).
+- `financial_metrics.csv`: 87 figures. CCP ehf. 2022–2025 (income statement p8; Note 4 revenue by type and region p19–20; Note 17 deferred revenue p28–29, in USD) and Pearl Abyss quarterly EVE revenue 4Q22–4Q25 ("Revenue by Core IP" chart, p6 of the 4Q23, 3Q24 and 4Q25 releases, KRW) plus CCP's quarterly net result as a discontinued operation 1Q25–2Q26 (1Q26 letter p7, 2Q26 letter p8). Totals reconcile (revenue by type and by region add up for every year). **Cross-check:** Pearl Abyss's EVE revenue converted at the quarterly KRW/USD average matches CCP's audited game revenue within 0.5% (2023: $55.8M vs $55.7M; 2024: $60.2M vs $60.1M; 2025: $65.2M vs $64.9M).
+- `plan_prices.csv`: 68 price observations for 15 plans (Omega 1/3/6/12/24 months, PLEX packs) from the store snapshots [6] and the 2025-07-25 Omega restructure article [15], which lists old and new prices (e.g. 12 months $149.90 → $144 + 1,000 PLEX).
+- `benchmarks.csv`: 10 figures. WoWAH monthly cohort retention computed with our definition (`scripts/wowah_retention.py`: month 1 28.2%, month 3 15.6%, month 12 8.2%), Lee et al. 2011 p3 (60% subscribed > 1 year), Khan 2020 p13 (survival), Lee et al. 2019 p3 (AION event logins +44%).
+- `lore_events.csv`, `key_events.csv`: see sections 22–23.
 
 ## How the sources join
 - `killmail.victim/attackers.character_id` → `characters.character_id` (Customer)

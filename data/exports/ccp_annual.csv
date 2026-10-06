@@ -1,0 +1,69 @@
+year,metric,geography,amount
+2022,deferred_ingame_purchases,"",3569754
+2022,deferred_subscriptions,"",3090584
+2022,external_revenue,Asia,11092771
+2022,external_revenue,Europe,14054150
+2022,external_revenue,North America,28771174
+2022,external_revenue,Other regions,2135257
+2022,game_revenue,"",55914671
+2022,goods_revenue,"",138681
+2022,marketing_expense,"",11586813
+2022,net_result,"",-205398
+2022,operating_result,"",-2677471
+2022,other_revenue,"",12685295
+2022,research_and_development_expense,"",41930479
+2022,royalties_and_licenses_revenue,"",8792803
+2022,services_revenue_related_party,"",12546614
+2022,subscription_and_ingame_revenue,"",47121868
+2022,total_revenue,"",68599966
+2023,deferred_ingame_purchases,"",5049795
+2023,deferred_subscriptions,"",3413457
+2023,external_revenue,Asia,9814914
+2023,external_revenue,Europe,14761557
+2023,external_revenue,North America,29053578
+2023,external_revenue,Other regions,2344985
+2023,game_revenue,"",55734716
+2023,goods_revenue,"",240318
+2023,marketing_expense,"",11494984
+2023,net_result,"",5621429
+2023,operating_result,"",-5711833
+2023,other_revenue,"",17487225
+2023,research_and_development_expense,"",52057571
+2023,royalties_and_licenses_revenue,"",7021654
+2023,services_revenue_related_party,"",17246907
+2023,subscription_and_ingame_revenue,"",48713062
+2023,total_revenue,"",73221941
+2024,deferred_ingame_purchases,"",5436015
+2024,deferred_subscriptions,"",3471289
+2024,external_revenue,Asia,9259336
+2024,external_revenue,Europe,16955462
+2024,external_revenue,North America,31331715
+2024,external_revenue,Other regions,2644884
+2024,game_revenue,"",60117362
+2024,goods_revenue,"",74035
+2024,marketing_expense,"",11407643
+2024,net_result,"",-2860920
+2024,operating_result,"",-14125848
+2024,other_revenue,"",10261056
+2024,research_and_development_expense,"",54733158
+2024,royalties_and_licenses_revenue,"",5100662
+2024,services_revenue_related_party,"",10187021
+2024,subscription_and_ingame_revenue,"",55016700
+2024,total_revenue,"",70378418
+2025,deferred_ingame_purchases,"",6567735
+2025,deferred_subscriptions,"",5305675
+2025,external_revenue,Asia,7417569
+2025,external_revenue,Europe,18790071
+2025,external_revenue,North America,36573534
+2025,external_revenue,Other regions,2503876
+2025,game_revenue,"",64908597
+2025,goods_revenue,"",376453
+2025,marketing_expense,"",16084264
+2025,net_result,"",-13975685
+2025,operating_result,"",-26580500
+2025,other_revenue,"",5376754
+2025,research_and_development_expense,"",58194840
+2025,royalties_and_licenses_revenue,"",4074000
+2025,services_revenue_related_party,"",5000301
+2025,subscription_and_ingame_revenue,"",60834597
+2025,total_revenue,"",70285351

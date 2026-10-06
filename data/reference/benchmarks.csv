@@ -1,0 +1,11 @@
+game,metric,value,unit,period,source_file,method
+World of Warcraft,retention_month_1,0.2818,share of cohort,2006-02 to 2007-12 cohorts,benchmarks/wowah_full.parquet,computed: scripts/wowah_retention.py
+World of Warcraft,retention_month_2,0.1902,share of cohort,2006-02 to 2007-12 cohorts,benchmarks/wowah_full.parquet,computed: scripts/wowah_retention.py
+World of Warcraft,retention_month_3,0.156,share of cohort,2006-02 to 2007-12 cohorts,benchmarks/wowah_full.parquet,computed: scripts/wowah_retention.py
+World of Warcraft,retention_month_6,0.113,share of cohort,2006-02 to 2007-12 cohorts,benchmarks/wowah_full.parquet,computed: scripts/wowah_retention.py
+World of Warcraft,retention_month_12,0.0824,share of cohort,2006-02 to 2007-12 cohorts,benchmarks/wowah_full.parquet,computed: scripts/wowah_retention.py
+World of Warcraft,subscribed_over_1_year,0.6,share of players (first to last login),2006-2009,benchmarks/lee2011_wowah_dataset.pdf,page 3
+World of Warcraft,subscribed_over_500_days,0.5,share of players (first to last login),2006-2009,benchmarks/lee2011_wowah_dataset.pdf,page 3
+World of Warcraft,not_churned_215_days_2_month_definition,0.7,survival probability,2006-2009,benchmarks/khan2020_churn_in_wow.pdf,page 13
+World of Warcraft,not_churned_245_days_3_month_definition,0.6,survival probability,2006-2009,benchmarks/khan2020_churn_in_wow.pdf,page 13
+AION,login_increase_during_event_levels_31_60,0.44,relative increase,2016-01-27 to 2016-02-09,benchmarks/lee2019_aion_promotion_events.pdf,page 3

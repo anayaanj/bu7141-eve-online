@@ -10,3 +10,6 @@ __pycache__/
 
 # Local secrets
 .env*
+
+# Clean tables built by scripts/transform.py (several GB)
+data/clean/

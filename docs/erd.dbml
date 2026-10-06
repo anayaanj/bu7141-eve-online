@@ -20,7 +20,7 @@ Table calendar_date {
   month date [not null, note: '/derived: first day of the month of date. Used for cohorts and MAU']
   quarter varchar [not null, note: '/derived: year and quarter of date, e.g. 2025Q3. Joins Pearl Abyss quarters']
   year int [not null, note: '/derived: year of date']
-  after_sale boolean [not null, note: '/derived: date >= 2026-05-01, when Pearl Abyss sold CCP']
+  after_sale boolean [not null, note: '/derived: date >= 2026-05-06, when Pearl Abyss completed the sale of CCP (2Q26 letter)']
   Note: 'Generated. The glue between per-player and company-level data.'
 }
 
@@ -95,7 +95,7 @@ Table player_character {
   character_name varchar
   signup_date date [note: 'birthday: dump if real (>= 2003), else ESI, else null']
   signup_date_source varchar [note: 'dump / esi / unknown']
-  cohort_month date [note: '/derived: first day of the month of signup_date']
+  cohort_month date [note: '/derived: signup month. Exact from character_signup_month ID ranges for characters created from 2024; first day of the month of signup_date for older ones']
   gender varchar
   race_id int
   bloodline_id int
@@ -164,6 +164,18 @@ Table contract {
   Note: 'Non-combat activity (traders, haulers). Daily snapshots deduplicated on contract_id [10].'
 }
 
+Table contract_item {
+  contract_id bigint [ref: > contract.contract_id]
+  record_id bigint
+  type_id int [not null, ref: > item_type.type_id]
+  quantity bigint [not null]
+  is_included boolean [not null, note: 'true: the issuer offers the item; false: the issuer asks for it']
+  indexes {
+    (contract_id, record_id) [pk]
+  }
+  Note: 'Items bought with real money from CCP (PLEX, Skill Extractor, Large/Small Skill Injector, Multiple Pilot Training Certificate, Daily Alpha Injector) in contracts [10]. The per-player link to real-money spending: someone paid for these.'
+}
+
 Table character_month_activity [headercolor: #9E9E9E] {
   character_id bigint [ref: > player_character.character_id]
   month date
@@ -172,6 +184,7 @@ Table character_month_activity [headercolor: #9E9E9E] {
   contracts_issued int [note: '/derived: count of contracts issued that month']
   active_days int [note: '/derived: distinct days with a killmail or contract']
   flew_omega_ship boolean [note: '/derived: any row that month in a ship with alpha_can_fly = false']
+  plex_offered bigint [note: '/derived: PLEX quantity in contract_item rows with is_included = true, in contracts the character issued that month']
   in_player_corporation boolean [note: '/derived: corporation at last activity that month has is_npc = false']
   indexes {
     (character_id, month) [pk]
@@ -289,7 +302,7 @@ Table market_history_daily {
   indexes {
     (date, region_id, type_id) [pk]
   }
-  Note: 'Market history [3]. PLEX (type_id 44992) is the monetization signal for 2026.'
+  Note: 'Market history [3], limited to the six real-money store items (PLEX etc.). PLEX (type_id 44992) is the monetization signal for 2026.'
 }
 
 Table financial_metric {
@@ -421,6 +434,7 @@ TableGroup conflict_events {
   game_event
 }
 TableGroup monetization {
+  contract_item
   plan
   plan_price
   market_history_daily

@@ -15,6 +15,11 @@ docs/erd.dbml             the ERD (source of truth for the diagram and the datab
 docs/erd_design.md        how the ERD was normalized (1NF-3NF) and which fields are derived
 db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/gen_schema.sh
 compose.yaml              local PostgreSQL in Docker
+scripts/transform.py      raw data -> clean CSV per ERD table (data/clean/, not in git)
+scripts/load.sh           clean CSVs -> PostgreSQL, with every foreign key checked
+db/analysis.sql           analysis layer for the story (new players, retention by segment)
+db/exports/, scripts/export.sh  one SQL file and CSV per dashboard view -> data/exports/
+docs/story.md             the story: question, narrative, numbers, caveats
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
 docs/eve-online-brief.pdf one-page team brief: sources, KPI coverage, caveats
 data-sourcing-guide.docx  the assignment's data sourcing guide
@@ -93,7 +98,27 @@ docker compose exec db psql -U eve -d eve      # psql inside the container, noth
 | Start it again | `docker compose up -d` |
 | Rebuild from scratch after an ERD change (**deletes all data**) | `docker compose down -v && docker compose up -d --wait` |
 
-The database only listens on your own machine, so the simple password is fine. Loading the data into it comes next (`scripts/load.py`, not written yet).
+The database only listens on your own machine, so the simple password is fine.
+
+**Load the data** (after downloading the raw data):
+
+```bash
+python3 scripts/transform.py all   # raw files -> data/clean/*.csv.gz, one per table (~2 h, uses all CPU cores)
+./scripts/load.sh                  # CSVs -> PostgreSQL, then adds every foreign key (~30 min)
+```
+
+`transform.py` steps can also run one at a time (`python3 scripts/transform.py <step>`; the list is at the top of the script). Every table is loaded: Phase 1 core tables, Phase 2 market/engagement/satisfaction/events, and Phase 3 curated figures from `data/reference/`.
+
+## Story and dashboard data
+
+The story is **"What turns a new EVE character into a player who stays?"**: see [`docs/story.md`](docs/story.md) for the narrative, the numbers and one view per dashboard page.
+
+```bash
+docker compose exec -T db psql -U eve -d eve -f - < db/analysis.sql   # analysis layer (new players, retention by segment)
+./scripts/export.sh                                                    # one CSV per dashboard view -> data/exports/
+```
+
+`data/exports/*.csv` is committed (small), so Tableau Public can use it without the database.
 
 ## Get the raw data
 
@@ -192,5 +217,5 @@ We cover 12 of the guide's 15 KPIs: 2 directly, 6 by proxy and 4 as company-leve
 
 - **No per-player payments exist publicly.** Monetization is company level only. This is our ERD boundary.
 - **Killmails only show players who fight**, so retention measured from them is a lower bound.
-- **Pearl Abyss sold CCP to CCP's management on 1 May 2026**, and CCP renamed itself Fenris Creations. Pearl Abyss's EVE revenue series ends at 4Q25.
+- **Pearl Abyss sold CCP to CCP's management** (board approval 30 Apr 2026, completed 6 May 2026, per Pearl Abyss's 1Q26 and 2Q26 letters), and CCP renamed itself Fenris Creations. Pearl Abyss's EVE revenue series ends at 4Q25.
 - **2026-07-13 has no killmails.** The file is missing at the source, not in our download.

@@ -1,0 +1,370 @@
+segment,k,players,active,retention,game
+All new players,0,356769,356769,1.0000,EVE Online
+All new players,1,345363,105443,0.3053,EVE Online
+All new players,2,334993,63732,0.1902,EVE Online
+All new players,3,321963,47923,0.1488,EVE Online
+All new players,4,310369,39090,0.1259,EVE Online
+All new players,5,297673,33777,0.1135,EVE Online
+All new players,6,285807,30217,0.1057,EVE Online
+All new players,7,271507,26943,0.0992,EVE Online
+All new players,8,259286,24096,0.0929,EVE Online
+All new players,9,247666,22044,0.0890,EVE Online
+All new players,10,235271,20294,0.0863,EVE Online
+All new players,11,225035,18788,0.0835,EVE Online
+All new players,12,215589,17757,0.0824,EVE Online
+"Combat, got a kill",0,78849,78849,1.0000,EVE Online
+"Combat, got a kill",1,76370,31154,0.4079,EVE Online
+"Combat, got a kill",2,74158,20709,0.2793,EVE Online
+"Combat, got a kill",3,71052,16091,0.2265,EVE Online
+"Combat, got a kill",4,68565,13352,0.1947,EVE Online
+"Combat, got a kill",5,65889,11666,0.1771,EVE Online
+"Combat, got a kill",6,63627,10494,0.1649,EVE Online
+"Combat, got a kill",7,61439,9392,0.1529,EVE Online
+"Combat, got a kill",8,59052,8240,0.1395,EVE Online
+"Combat, got a kill",9,56897,7628,0.1341,EVE Online
+"Combat, got a kill",10,54661,6970,0.1275,EVE Online
+"Combat, got a kill",11,52727,6327,0.1200,EVE Online
+"Combat, got a kill",12,50987,5868,0.1151,EVE Online
+"Combat, victim only",0,246988,246988,1.0000,EVE Online
+"Combat, victim only",1,239144,63202,0.2643,EVE Online
+"Combat, victim only",2,231967,36696,0.1582,EVE Online
+"Combat, victim only",3,223130,27261,0.1222,EVE Online
+"Combat, victim only",4,214987,22140,0.1030,EVE Online
+"Combat, victim only",5,205942,19027,0.0924,EVE Online
+"Combat, victim only",6,197372,16945,0.0859,EVE Online
+"Combat, victim only",7,186257,15140,0.0813,EVE Online
+"Combat, victim only",8,177561,13705,0.0772,EVE Online
+"Combat, victim only",9,169257,12453,0.0736,EVE Online
+"Combat, victim only",10,160162,11459,0.0715,EVE Online
+"Combat, victim only",11,152804,10677,0.0699,EVE Online
+"Combat, victim only",12,145928,10173,0.0697,EVE Online
+"Corp size: 1,000+ members",0,42531,42531,1.0000,EVE Online
+"Corp size: 1,000+ members",1,41314,15868,0.3841,EVE Online
+"Corp size: 1,000+ members",2,40205,9447,0.2350,EVE Online
+"Corp size: 1,000+ members",3,38965,7115,0.1826,EVE Online
+"Corp size: 1,000+ members",4,37697,5688,0.1509,EVE Online
+"Corp size: 1,000+ members",5,36235,4908,0.1354,EVE Online
+"Corp size: 1,000+ members",6,34912,4537,0.1300,EVE Online
+"Corp size: 1,000+ members",7,33573,4118,0.1227,EVE Online
+"Corp size: 1,000+ members",8,32075,3718,0.1159,EVE Online
+"Corp size: 1,000+ members",9,30620,3404,0.1112,EVE Online
+"Corp size: 1,000+ members",10,29139,3157,0.1083,EVE Online
+"Corp size: 1,000+ members",11,27914,2923,0.1047,EVE Online
+"Corp size: 1,000+ members",12,26717,2824,0.1057,EVE Online
+Corp size: 11-50 members,0,39123,39123,1.0000,EVE Online
+Corp size: 11-50 members,1,38299,12610,0.3293,EVE Online
+Corp size: 11-50 members,2,37392,8239,0.2203,EVE Online
+Corp size: 11-50 members,3,36333,6285,0.1730,EVE Online
+Corp size: 11-50 members,4,35069,5279,0.1505,EVE Online
+Corp size: 11-50 members,5,33400,4583,0.1372,EVE Online
+Corp size: 11-50 members,6,31898,4108,0.1288,EVE Online
+Corp size: 11-50 members,7,30371,3648,0.1201,EVE Online
+Corp size: 11-50 members,8,28944,3218,0.1112,EVE Online
+Corp size: 11-50 members,9,27734,2875,0.1037,EVE Online
+Corp size: 11-50 members,10,26410,2601,0.0985,EVE Online
+Corp size: 11-50 members,11,25212,2460,0.0976,EVE Online
+Corp size: 11-50 members,12,24238,2236,0.0923,EVE Online
+"Corp size: 201-1,000 members",0,46306,46306,1.0000,EVE Online
+"Corp size: 201-1,000 members",1,44638,18485,0.4141,EVE Online
+"Corp size: 201-1,000 members",2,43181,11976,0.2773,EVE Online
+"Corp size: 201-1,000 members",3,41211,9391,0.2279,EVE Online
+"Corp size: 201-1,000 members",4,39403,7876,0.1999,EVE Online
+"Corp size: 201-1,000 members",5,37330,6748,0.1808,EVE Online
+"Corp size: 201-1,000 members",6,35527,6119,0.1722,EVE Online
+"Corp size: 201-1,000 members",7,33712,5406,0.1604,EVE Online
+"Corp size: 201-1,000 members",8,31850,4877,0.1531,EVE Online
+"Corp size: 201-1,000 members",9,30004,4441,0.1480,EVE Online
+"Corp size: 201-1,000 members",10,27895,4015,0.1439,EVE Online
+"Corp size: 201-1,000 members",11,26200,3674,0.1402,EVE Online
+"Corp size: 201-1,000 members",12,24815,3438,0.1385,EVE Online
+Corp size: 2-10 members,0,46479,46479,1.0000,EVE Online
+Corp size: 2-10 members,1,45727,10652,0.2329,EVE Online
+Corp size: 2-10 members,2,45052,6432,0.1428,EVE Online
+Corp size: 2-10 members,3,44143,4890,0.1108,EVE Online
+Corp size: 2-10 members,4,43226,3978,0.0920,EVE Online
+Corp size: 2-10 members,5,41912,3506,0.0837,EVE Online
+Corp size: 2-10 members,6,40513,3029,0.0748,EVE Online
+Corp size: 2-10 members,7,39092,2750,0.0703,EVE Online
+Corp size: 2-10 members,8,37788,2410,0.0638,EVE Online
+Corp size: 2-10 members,9,36489,2266,0.0621,EVE Online
+Corp size: 2-10 members,10,35077,2068,0.0590,EVE Online
+Corp size: 2-10 members,11,34087,1908,0.0560,EVE Online
+Corp size: 2-10 members,12,33175,1863,0.0562,EVE Online
+Corp size: 51-200 members,0,42393,42393,1.0000,EVE Online
+Corp size: 51-200 members,1,41191,15649,0.3799,EVE Online
+Corp size: 51-200 members,2,39989,10505,0.2627,EVE Online
+Corp size: 51-200 members,3,38546,8028,0.2083,EVE Online
+Corp size: 51-200 members,4,37006,6560,0.1773,EVE Online
+Corp size: 51-200 members,5,35350,5776,0.1634,EVE Online
+Corp size: 51-200 members,6,33802,5102,0.1509,EVE Online
+Corp size: 51-200 members,7,32071,4501,0.1403,EVE Online
+Corp size: 51-200 members,8,30476,4008,0.1315,EVE Online
+Corp size: 51-200 members,9,29061,3751,0.1291,EVE Online
+Corp size: 51-200 members,10,27547,3392,0.1231,EVE Online
+Corp size: 51-200 members,11,26227,3057,0.1166,EVE Online
+Corp size: 51-200 members,12,24961,2836,0.1136,EVE Online
+Corp size: NPC starter corp,0,116225,116225,1.0000,EVE Online
+Corp size: NPC starter corp,1,112785,26355,0.2337,EVE Online
+Corp size: NPC starter corp,2,109655,14061,0.1282,EVE Online
+Corp size: NPC starter corp,3,105896,10161,0.0960,EVE Online
+Corp size: NPC starter corp,4,102303,8127,0.0794,EVE Online
+Corp size: NPC starter corp,5,98389,6873,0.0699,EVE Online
+Corp size: NPC starter corp,6,94709,6044,0.0638,EVE Online
+Corp size: NPC starter corp,7,88857,5419,0.0610,EVE Online
+Corp size: NPC starter corp,8,85009,4904,0.0577,EVE Online
+Corp size: NPC starter corp,9,81324,4430,0.0545,EVE Online
+Corp size: NPC starter corp,10,77449,4245,0.0548,EVE Online
+Corp size: NPC starter corp,11,74208,4023,0.0542,EVE Online
+Corp size: NPC starter corp,12,70958,3815,0.0538,EVE Online
+Did not lose a ship,0,41673,41673,1.0000,EVE Online
+Did not lose a ship,1,40180,12534,0.3119,EVE Online
+Did not lose a ship,2,38847,8244,0.2122,EVE Online
+Did not lose a ship,3,37162,6479,0.1743,EVE Online
+Did not lose a ship,4,35724,5458,0.1528,EVE Online
+Did not lose a ship,5,34213,4774,0.1395,EVE Online
+Did not lose a ship,6,32794,4414,0.1346,EVE Online
+Did not lose a ship,7,31422,3879,0.1234,EVE Online
+Did not lose a ship,8,29879,3351,0.1122,EVE Online
+Did not lose a ship,9,28382,3114,0.1097,EVE Online
+Did not lose a ship,10,26879,2873,0.1069,EVE Online
+Did not lose a ship,11,25629,2566,0.1001,EVE Online
+Did not lose a ship,12,24579,2403,0.0978,EVE Online
+Flew an Omega-only ship,0,50808,50808,1.0000,EVE Online
+Flew an Omega-only ship,1,48930,21603,0.4415,EVE Online
+Flew an Omega-only ship,2,47207,14869,0.3150,EVE Online
+Flew an Omega-only ship,3,45053,11806,0.2620,EVE Online
+Flew an Omega-only ship,4,43256,9868,0.2281,EVE Online
+Flew an Omega-only ship,5,41425,8765,0.2116,EVE Online
+Flew an Omega-only ship,6,39767,8060,0.2027,EVE Online
+Flew an Omega-only ship,7,38043,7064,0.1857,EVE Online
+Flew an Omega-only ship,8,36108,6313,0.1748,EVE Online
+Flew an Omega-only ship,9,34217,5764,0.1685,EVE Online
+Flew an Omega-only ship,10,32268,5348,0.1657,EVE Online
+Flew an Omega-only ship,11,30626,4912,0.1604,EVE Online
+Flew an Omega-only ship,12,29190,4579,0.1569,EVE Online
+Fought in a skirmish (50-99),0,12227,12227,1.0000,EVE Online
+Fought in a skirmish (50-99),1,11855,5389,0.4546,EVE Online
+Fought in a skirmish (50-99),2,11459,3597,0.3139,EVE Online
+Fought in a skirmish (50-99),3,10933,2812,0.2572,EVE Online
+Fought in a skirmish (50-99),4,10416,2268,0.2177,EVE Online
+Fought in a skirmish (50-99),5,10079,2066,0.2050,EVE Online
+Fought in a skirmish (50-99),6,9649,1916,0.1986,EVE Online
+Fought in a skirmish (50-99),7,9274,1637,0.1765,EVE Online
+Fought in a skirmish (50-99),8,8773,1318,0.1502,EVE Online
+Fought in a skirmish (50-99),9,8399,1250,0.1488,EVE Online
+Fought in a skirmish (50-99),10,8032,1147,0.1428,EVE Online
+Fought in a skirmish (50-99),11,7630,1099,0.1440,EVE Online
+Fought in a skirmish (50-99),12,7340,944,0.1286,EVE Online
+Fought in a war (100+ pilots),0,18399,18399,1.0000,EVE Online
+Fought in a war (100+ pilots),1,17687,8158,0.4612,EVE Online
+Fought in a war (100+ pilots),2,17127,5617,0.3280,EVE Online
+Fought in a war (100+ pilots),3,15987,4389,0.2745,EVE Online
+Fought in a war (100+ pilots),4,15314,3688,0.2408,EVE Online
+Fought in a war (100+ pilots),5,14162,3011,0.2126,EVE Online
+Fought in a war (100+ pilots),6,13678,2798,0.2046,EVE Online
+Fought in a war (100+ pilots),7,12747,2544,0.1996,EVE Online
+Fought in a war (100+ pilots),8,12219,2186,0.1789,EVE Online
+Fought in a war (100+ pilots),9,11855,2104,0.1775,EVE Online
+Fought in a war (100+ pilots),10,11181,1908,0.1706,EVE Online
+Fought in a war (100+ pilots),11,10648,1688,0.1585,EVE Online
+Fought in a war (100+ pilots),12,10210,1640,0.1606,EVE Online
+"Got a kill, in a corp",0,70733,70733,1.0000,EVE Online
+"Got a kill, in a corp",1,68502,29543,0.4313,EVE Online
+"Got a kill, in a corp",2,66515,19876,0.2988,EVE Online
+"Got a kill, in a corp",3,63752,15445,0.2423,EVE Online
+"Got a kill, in a corp",4,61540,12731,0.2069,EVE Online
+"Got a kill, in a corp",5,59068,11119,0.1882,EVE Online
+"Got a kill, in a corp",6,57026,9909,0.1738,EVE Online
+"Got a kill, in a corp",7,55051,8883,0.1614,EVE Online
+"Got a kill, in a corp",8,52913,7772,0.1469,EVE Online
+"Got a kill, in a corp",9,50949,7185,0.1410,EVE Online
+"Got a kill, in a corp",10,48979,6558,0.1339,EVE Online
+"Got a kill, in a corp",11,47229,5980,0.1266,EVE Online
+"Got a kill, in a corp",12,45729,5532,0.1210,EVE Online
+"Got a kill, no corp",0,10980,10980,1.0000,EVE Online
+"Got a kill, no corp",1,10633,3573,0.3360,EVE Online
+"Got a kill, no corp",2,10316,2032,0.1970,EVE Online
+"Got a kill, no corp",3,9895,1520,0.1536,EVE Online
+"Got a kill, no corp",4,9531,1308,0.1372,EVE Online
+"Got a kill, no corp",5,9244,1147,0.1241,EVE Online
+"Got a kill, no corp",6,8945,1099,0.1229,EVE Online
+"Got a kill, no corp",7,8653,957,0.1106,EVE Online
+"Got a kill, no corp",8,8312,886,0.1066,EVE Online
+"Got a kill, no corp",9,8016,829,0.1034,EVE Online
+"Got a kill, no corp",10,7660,773,0.1009,EVE Online
+"Got a kill, no corp",11,7393,718,0.0971,EVE Online
+"Got a kill, no corp",12,7071,698,0.0987,EVE Online
+Got a kill only,0,10980,10980,1.0000,EVE Online
+Got a kill only,1,10633,3573,0.3360,EVE Online
+Got a kill only,2,10316,2032,0.1970,EVE Online
+Got a kill only,3,9895,1520,0.1536,EVE Online
+Got a kill only,4,9531,1308,0.1372,EVE Online
+Got a kill only,5,9244,1147,0.1241,EVE Online
+Got a kill only,6,8945,1099,0.1229,EVE Online
+Got a kill only,7,8653,957,0.1106,EVE Online
+Got a kill only,8,8312,886,0.1066,EVE Online
+Got a kill only,9,8016,829,0.1034,EVE Online
+Got a kill only,10,7660,773,0.1009,EVE Online
+Got a kill only,11,7393,718,0.0971,EVE Online
+Got a kill only,12,7071,698,0.0987,EVE Online
+Joined a corp and got a kill,0,70733,70733,1.0000,EVE Online
+Joined a corp and got a kill,1,68502,29543,0.4313,EVE Online
+Joined a corp and got a kill,2,66515,19876,0.2988,EVE Online
+Joined a corp and got a kill,3,63752,15445,0.2423,EVE Online
+Joined a corp and got a kill,4,61540,12731,0.2069,EVE Online
+Joined a corp and got a kill,5,59068,11119,0.1882,EVE Online
+Joined a corp and got a kill,6,57026,9909,0.1738,EVE Online
+Joined a corp and got a kill,7,55051,8883,0.1614,EVE Online
+Joined a corp and got a kill,8,52913,7772,0.1469,EVE Online
+Joined a corp and got a kill,9,50949,7185,0.1410,EVE Online
+Joined a corp and got a kill,10,48979,6558,0.1339,EVE Online
+Joined a corp and got a kill,11,47229,5980,0.1266,EVE Online
+Joined a corp and got a kill,12,45729,5532,0.1210,EVE Online
+Joined a corp only,0,159326,159326,1.0000,EVE Online
+Joined a corp only,1,153946,47263,0.3070,EVE Online
+Joined a corp only,2,149009,28541,0.1915,EVE Online
+Joined a corp only,3,142903,21414,0.1498,EVE Online
+Joined a corp only,4,137450,17534,0.1276,EVE Online
+Joined a corp only,5,131449,15164,0.1154,EVE Online
+Joined a corp only,6,125635,13696,0.1090,EVE Online
+Joined a corp only,7,119504,12145,0.1016,EVE Online
+Joined a corp only,8,113655,10985,0.0967,EVE Online
+Joined a corp only,9,108065,10014,0.0927,EVE Online
+Joined a corp only,10,101898,9119,0.0895,EVE Online
+Joined a corp only,11,96968,8449,0.0871,EVE Online
+Joined a corp only,12,92520,8035,0.0868,EVE Online
+Lost a ship,0,315096,315096,1.0000,EVE Online
+Lost a ship,1,305183,92909,0.3044,EVE Online
+Lost a ship,2,296146,55488,0.1874,EVE Online
+Lost a ship,3,284801,41444,0.1455,EVE Online
+Lost a ship,4,274645,33632,0.1225,EVE Online
+Lost a ship,5,263460,29003,0.1101,EVE Online
+Lost a ship,6,253013,25803,0.1020,EVE Online
+Lost a ship,7,240085,23064,0.0961,EVE Online
+Lost a ship,8,229407,20745,0.0904,EVE Online
+Lost a ship,9,219284,18930,0.0863,EVE Online
+Lost a ship,10,208392,17421,0.0836,EVE Online
+Lost a ship,11,199406,16222,0.0814,EVE Online
+Lost a ship,12,191010,15354,0.0804,EVE Online
+Neither,0,115730,115730,1.0000,EVE Online
+Neither,1,112282,25064,0.2232,EVE Online
+Neither,2,109153,13283,0.1217,EVE Online
+Neither,3,105413,9544,0.0905,EVE Online
+Neither,4,101848,7517,0.0738,EVE Online
+Neither,5,97912,6347,0.0648,EVE Online
+Neither,6,94201,5513,0.0585,EVE Online
+Neither,7,88299,4958,0.0562,EVE Online
+Neither,8,84406,4453,0.0528,EVE Online
+Neither,9,80636,4016,0.0498,EVE Online
+Neither,10,76734,3844,0.0501,EVE Online
+Neither,11,73445,3641,0.0496,EVE Online
+Neither,12,70269,3492,0.0497,EVE Online
+No battle,0,326143,326143,1.0000,EVE Online
+No battle,1,315821,91896,0.2910,EVE Online
+No battle,2,306407,54518,0.1779,EVE Online
+No battle,3,295043,40722,0.1380,EVE Online
+No battle,4,284639,33134,0.1164,EVE Online
+No battle,5,273432,28700,0.1050,EVE Online
+No battle,6,262480,25503,0.0972,EVE Online
+No battle,7,249486,22762,0.0912,EVE Online
+No battle,8,238294,20592,0.0864,EVE Online
+No battle,9,227412,18690,0.0822,EVE Online
+No battle,10,216058,17239,0.0798,EVE Online
+No battle,11,206757,16001,0.0774,EVE Online
+No battle,12,198039,15173,0.0766,EVE Online
+Non-combatant (contracts only),0,18169,18169,1.0000,EVE Online
+Non-combatant (contracts only),1,17518,4559,0.2602,EVE Online
+Non-combatant (contracts only),2,16939,2674,0.1579,EVE Online
+Non-combatant (contracts only),3,16249,1972,0.1214,EVE Online
+Non-combatant (contracts only),4,15656,1580,0.1009,EVE Online
+Non-combatant (contracts only),5,15053,1383,0.0919,EVE Online
+Non-combatant (contracts only),6,14443,1278,0.0885,EVE Online
+Non-combatant (contracts only),7,13830,1101,0.0796,EVE Online
+Non-combatant (contracts only),8,13144,961,0.0731,EVE Online
+Non-combatant (contracts only),9,12434,877,0.0705,EVE Online
+Non-combatant (contracts only),10,11754,816,0.0694,EVE Online
+Non-combatant (contracts only),11,11187,743,0.0664,EVE Online
+Non-combatant (contracts only),12,10725,745,0.0695,EVE Online
+"Non-combatant, in a corp",0,7450,7450,1.0000,EVE Online
+"Non-combatant, in a corp",1,7160,2160,0.3017,EVE Online
+"Non-combatant, in a corp",2,6906,1362,0.1972,EVE Online
+"Non-combatant, in a corp",3,6624,1019,0.1538,EVE Online
+"Non-combatant, in a corp",4,6372,847,0.1329,EVE Online
+"Non-combatant, in a corp",5,6087,732,0.1203,EVE Online
+"Non-combatant, in a corp",6,5818,686,0.1179,EVE Online
+"Non-combatant, in a corp",7,5554,572,0.1030,EVE Online
+"Non-combatant, in a corp",8,5261,502,0.0954,EVE Online
+"Non-combatant, in a corp",9,4942,446,0.0902,EVE Online
+"Non-combatant, in a corp",10,4652,421,0.0905,EVE Online
+"Non-combatant, in a corp",11,4407,389,0.0883,EVE Online
+"Non-combatant, in a corp",12,4202,350,0.0833,EVE Online
+"Non-combatant, no corp",0,10719,10719,1.0000,EVE Online
+"Non-combatant, no corp",1,10358,2399,0.2316,EVE Online
+"Non-combatant, no corp",2,10033,1312,0.1308,EVE Online
+"Non-combatant, no corp",3,9625,953,0.0990,EVE Online
+"Non-combatant, no corp",4,9284,733,0.0790,EVE Online
+"Non-combatant, no corp",5,8966,651,0.0726,EVE Online
+"Non-combatant, no corp",6,8625,592,0.0686,EVE Online
+"Non-combatant, no corp",7,8276,529,0.0639,EVE Online
+"Non-combatant, no corp",8,7883,459,0.0582,EVE Online
+"Non-combatant, no corp",9,7492,431,0.0575,EVE Online
+"Non-combatant, no corp",10,7102,395,0.0556,EVE Online
+"Non-combatant, no corp",11,6780,354,0.0522,EVE Online
+"Non-combatant, no corp",12,6523,395,0.0606,EVE Online
+No Omega-only ship,0,305961,305961,1.0000,EVE Online
+No Omega-only ship,1,296433,83840,0.2828,EVE Online
+No Omega-only ship,2,287786,48863,0.1698,EVE Online
+No Omega-only ship,3,276910,36117,0.1304,EVE Online
+No Omega-only ship,4,267113,29222,0.1094,EVE Online
+No Omega-only ship,5,256248,25012,0.0976,EVE Online
+No Omega-only ship,6,246040,22157,0.0901,EVE Online
+No Omega-only ship,7,233464,19879,0.0851,EVE Online
+No Omega-only ship,8,223178,17783,0.0797,EVE Online
+No Omega-only ship,9,213449,16280,0.0763,EVE Online
+No Omega-only ship,10,203003,14946,0.0736,EVE Online
+No Omega-only ship,11,194409,13876,0.0714,EVE Online
+No Omega-only ship,12,186399,13178,0.0707,EVE Online
+Traded and fought,0,12763,12763,1.0000,EVE Online
+Traded and fought,1,12331,6528,0.5294,EVE Online
+Traded and fought,2,11929,3653,0.3062,EVE Online
+Traded and fought,3,11532,2599,0.2254,EVE Online
+Traded and fought,4,11161,2018,0.1808,EVE Online
+Traded and fought,5,10789,1701,0.1577,EVE Online
+Traded and fought,6,10365,1500,0.1447,EVE Online
+Traded and fought,7,9981,1310,0.1312,EVE Online
+Traded and fought,8,9529,1190,0.1249,EVE Online
+Traded and fought,9,9078,1086,0.1196,EVE Online
+Traded and fought,10,8694,1049,0.1207,EVE Online
+Traded and fought,11,8317,1041,0.1252,EVE Online
+Traded and fought,12,7949,971,0.1222,EVE Online
+"Victim only, in a corp",0,151876,151876,1.0000,EVE Online
+"Victim only, in a corp",1,146786,45103,0.3073,EVE Online
+"Victim only, in a corp",2,142103,27179,0.1913,EVE Online
+"Victim only, in a corp",3,136279,20395,0.1497,EVE Online
+"Victim only, in a corp",4,131078,16687,0.1273,EVE Online
+"Victim only, in a corp",5,125362,14432,0.1151,EVE Online
+"Victim only, in a corp",6,119817,13010,0.1086,EVE Online
+"Victim only, in a corp",7,113950,11573,0.1016,EVE Online
+"Victim only, in a corp",8,108394,10483,0.0967,EVE Online
+"Victim only, in a corp",9,103123,9568,0.0928,EVE Online
+"Victim only, in a corp",10,97246,8698,0.0894,EVE Online
+"Victim only, in a corp",11,92561,8060,0.0871,EVE Online
+"Victim only, in a corp",12,88318,7685,0.0870,EVE Online
+"Victim only, no corp",0,105011,105011,1.0000,EVE Online
+"Victim only, no corp",1,101924,22665,0.2224,EVE Online
+"Victim only, no corp",2,99120,11971,0.1208,EVE Online
+"Victim only, no corp",3,95788,8591,0.0897,EVE Online
+"Victim only, no corp",4,92564,6784,0.0733,EVE Online
+"Victim only, no corp",5,88946,5696,0.0640,EVE Online
+"Victim only, no corp",6,85576,4921,0.0575,EVE Online
+"Victim only, no corp",7,80023,4429,0.0553,EVE Online
+"Victim only, no corp",8,76523,3994,0.0522,EVE Online
+"Victim only, no corp",9,73144,3585,0.0490,EVE Online
+"Victim only, no corp",10,69632,3449,0.0495,EVE Online
+"Victim only, no corp",11,66665,3287,0.0493,EVE Online
+"Victim only, no corp",12,63746,3097,0.0486,EVE Online
+World of Warcraft (2006-07),1,,,0.2818,World of Warcraft
+World of Warcraft (2006-07),2,,,0.1902,World of Warcraft
+World of Warcraft (2006-07),3,,,0.156,World of Warcraft
+World of Warcraft (2006-07),6,,,0.113,World of Warcraft
+World of Warcraft (2006-07),12,,,0.0824,World of Warcraft
