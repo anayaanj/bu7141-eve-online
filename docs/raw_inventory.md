@@ -93,7 +93,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## 9. Static game data (SDE) — `data/raw/sde/eve-online-static-data-latest-jsonl.zip`
 - **Publisher:** CCP Games, mirrored by EVE Ref. Real, official reference data. Build 3569502, released 2026-10-02.
-- **Files used:** `types.jsonl` (`_key` = type_id, `name` per language, `groupID`), `groups.jsonl` (`_key`, `name`, `categoryID`), `categories.jsonl` (`_key`, `name`), `mapRegions.jsonl`, `mapConstellations.jsonl`, `mapSolarSystems.jsonl`.
+- **Files used:** `types.jsonl` (`_key` = type_id, `name` per language, `groupID`), `groups.jsonl` (`_key`, `name`, `categoryID`), `categories.jsonl` (`_key`, `name`), `mapRegions.jsonl`, `mapConstellations.jsonl`, `mapSolarSystems.jsonl` (including `position2D`, CCP's 2D map position), `mapStargates.jsonl` (`solarSystemID` → `destination.solarSystemID`: the jump connections that draw the map).
 - **Example:** type 587 = Rifter → group 25 (Frigate) → category Ship. Type 44992 = PLEX.
 
 ## 10. Public contracts — `data/raw/public_contracts/YYYY/public-contracts-YYYY-MM-DD_00-00-*.v2.tar.bz2`
@@ -123,10 +123,11 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Columns:** `observation_date`, value. `DEXKOUS` = KRW per USD (1,356.51 on 2026-09-25), `DEXUSEU` = USD per EUR (1.14). Blank values on US holidays.
 - **Use:** convert Pearl Abyss's KRW figures to USD so they compare with CCP's accounts.
 
-## 14. Steam players — `data/raw/steam_players/steamcharts_8500.html`
+## 14. Steam players — `data/raw/steam_players/steamcharts_<app>.html`
 - **Publisher:** SteamCharts, built from the Steam Web API. Real, third-party tracker.
 - **Grain:** one row per month, Jul 2012 → Sep 2026 (171 months; the last is partial): average players, gain, % gain, peak players (HTML table).
 - **Use:** Steam share of all players online (≈ 4,000 of ≈ 23,500 in Aug 2026, ≈ 17%): an acquisition-channel proxy.
+- **Other MMOs (comparison):** the same page for 10 more games (ESO, FFXIV, Black Desert, RuneScape, Old School RuneScape, New World, Lost Ark, Throne and Liberty, Albion Online, Guild Wars 2), used to compute the share of peak-month players still there 12 months later.
 
 ## 15. All CCP news — `data/raw/news_all/page_NNN.json`
 - **Publisher:** CCP Games (Contentful CMS behind eveonline.com). Real, official.
@@ -144,6 +145,11 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Grain:** each snapshot lists the territory fights under way: `campaign_id`, `event_type` (e.g. `tcu_defense`), `solar_system_id`, `constellation_id`, `defender_id`, `structure_id`, `start_time`, `attackers_score`, `defender_score`.
 - **Use:** big territorial conflicts by date and system. Deduplicate on `campaign_id`.
 
+## 17b. Sovereignty map — `data/raw/sovereignty_map/YYYY/sovereignty-map-YYYY-MM-DD_HH-MM-SS.json.bz2`
+- **Publisher:** CCP ESI `/sovereignty/map`, archived hourly by EVE Ref. Real, public game data. We keep one snapshot a day, the first after downtime (11:00 UTC).
+- **Grain:** one row per solar system per snapshot (~8,400): `system_id`, plus `alliance_id` and `corporation_id` for player-held space or `faction_id` for empire space.
+- **Use:** who holds space over time (`sovereignty_daily`). Visual reference for the map: Verite Rendition's daily influence maps (verite.space), which are images only.
+
 ## 18. Forums — `data/raw/forums/{search,topics}/`
 - **Publisher:** CCP Games, official forums (forums.eveonline.com, Discourse JSON). Real, public user posts.
 - **Queries:** omega price, plex price, subscription, pearl abyss, fenris, new player, unsubscribed (topics active Jan 2024 → Aug 2026). The searches matched 1,396 threads; only the **340 with an on-topic title** are downloaded (`FORUM_TITLE_FILTER` in `download.py`), because searches also match off-topic threads through a single post.
@@ -154,7 +160,9 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 ## 19. Benchmarks — `data/raw/benchmarks/`
 - **Papers:** Lee et al. 2011 (WoWAH dataset), Khan 2020 (churn in WoW), Borbora et al. 2011 (EverQuest II churn), Lee et al. 2019 (AION promotion events and retention).
 - **Dataset:** `wowah_full.parquet` (319 MB): World of Warcraft Avatar History, 91,065 avatars observed every 10 minutes, 2006–2009 (Parquet copy linked from calmcode.io).
-- **Use:** sanity-check our retention and churn figures against published MMO figures.
+- **Press pages (`press_*.html`):** official peak subscriber figures (WoW 12M 2010, SWTOR 1.7M 2012, EVE 500k 2013, EverQuest 420k 2004), CCP's 2019 new-player figure (89.74% quit in the first week) and SuperData's F2P MMO retention (20% at day 30, ~6% after a year). The Activision release is a Wayback copy because the live page doesn't respond.
+- **Use:** sanity-check our retention and churn figures against published MMO figures, and compare EVE with other MMOs at their peak.
+- **EVE University wiki (`eveuni_getting_started.html`, CC BY-SA):** the new player guide: tutorial and career agents (solo, PvE), the advice to join a corporation, three characters per account.
 
 ## 20. Google Trends — `data/raw/google_trends/` (manual export)
 - **Publisher:** Google. Relative interest index 0–100, not search counts.

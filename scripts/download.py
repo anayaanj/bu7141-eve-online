@@ -349,10 +349,16 @@ def fx():
                  user_agent="python-urllib/3.12")  # FRED drops requests with custom User-Agents
 
 
+MMO_STEAM_APPS = {8500: "EVE Online", 306130: "The Elder Scrolls Online", 39210: "Final Fantasy XIV", 582660: "Black Desert",
+                  1343400: "RuneScape", 1343370: "Old School RuneScape", 1063730: "New World", 1599340: "Lost Ark",
+                  2429640: "Throne and Liberty", 761890: "Albion Online", 1284210: "Guild Wars 2"}
+
+
 def steam_players():
-    """SteamCharts page for EVE Online: monthly average and peak concurrent Steam players."""
-    download("https://steamcharts.com/app/8500", RAW / "steam_players" / "steamcharts_8500.html",
-             "Steam concurrent players (SteamCharts)", "SteamCharts, from the Steam Web API", "real, third-party tracker")
+    """SteamCharts pages: monthly average and peak concurrent Steam players for EVE Online and other MMOs (comparison)."""
+    for app, game in MMO_STEAM_APPS.items():
+        download(f"https://steamcharts.com/app/{app}", RAW / "steam_players" / f"steamcharts_{app}.html",
+                 f"Steam concurrent players (SteamCharts): {game}", "SteamCharts, from the Steam Web API", "real, third-party tracker")
 
 
 def news_all():
@@ -377,6 +383,18 @@ def wars():
             if START <= date.fromisoformat(f["name"][5:15]) <= END:
                 download(f["url"], RAW / "wars" / str(year) / f["name"], "Wars (CCP ESI via EVE Ref)", EVEREF,
                          "real, public game data")
+
+
+def sovereignty_map():
+    """EVE Ref snapshots of ESI /sovereignty/map: who holds each system. One per day, the first after downtime (11:00 UTC)."""
+    day = START
+    while day <= END:
+        files = sorted(fetch_json(f"https://data.everef.net/sovereignty-map/history/{day.year}/{day}/index.json")["files"],
+                       key=lambda f: f["name"])
+        f = next((f for f in files if f["name"][len("sovereignty-map-YYYY-MM-DD_"):] >= "12"), files[-1])
+        download(f["url"], RAW / "sovereignty_map" / str(day.year) / f["name"],
+                 "Sovereignty map (CCP ESI via EVE Ref)", EVEREF, "real, public game data")
+        day = date.fromordinal(day.toordinal() + 1)
 
 
 def sovereignty_campaigns():
@@ -404,6 +422,24 @@ BENCHMARKS = [  # (file name, url, publisher)
     ("lee2019_aion_promotion_events.pdf", "https://arxiv.org/pdf/1909.10851", "Lee et al., arXiv 2019 (AION)"),
     ("wowah_full.parquet", "https://github.com/koaning/wow-avatar-datasets/raw/main/wow-full.parquet",
      "WoWAH dataset (Lee et al. 2011), Parquet copy by V. Warmerdam (calmcode.io)"),
+    # Peak subscribers and published new-player retention (press pages quoting the companies)
+    ("press_eve_500k_subscribers_2013.html", "https://www.shacknews.com/article/78020/eve-online-passes-500000-subscribers",
+     "Shacknews, quoting CCP, Feb 2013"),
+    ("press_everquest_subscribers_2004.html",
+     "https://sony.mediaroom.com/2004-03-15-Sony-Online-Entertainments-EverQuest-Celebrates-Its-Fifth-Year-and-Over-2.5-Million-Units-Sold-Worldwide",
+     "Sony Online Entertainment press release, Mar 2004"),
+    ("press_swtor_subscribers_2012.html",
+     "https://www.gameinformer.com/b/news/archive/2012/07/31/old-republic-subs-drop-below-1-million.aspx",
+     "Game Informer, quoting EA earnings calls, Jul 2012"),
+    ("press_eve_new_player_retention_2019.html",
+     "https://kotaku.com/eve-online-developers-discuss-ways-to-stop-new-players-1835909279", "Kotaku, quoting CCP at EVE North, Jun 2019"),
+    ("press_superdata_f2p_retention_2015.html",
+     "https://gamesbeat.com/day-1-players-of-f2p-games-are-much-more-likely-to-still-be-there-a-year-later/",
+     "GamesBeat, quoting SuperData Research, Feb 2015"),
+    ("eveuni_getting_started.html", "https://wiki.eveuniversity.org/Getting_Started_in_EVE_Online",
+     "EVE University wiki (CC BY-SA): new player guide"),
+    ("press_wow_12m_subscribers_2010.html", "http://web.archive.org/web/20210123051920/https://investor.activision.com/node/18936",
+     "Activision Blizzard press release, Oct 2010 (Wayback copy; the live page does not respond)"),
 ]
 
 
@@ -591,6 +627,6 @@ if __name__ == "__main__":
      "financials": financials, "pearl_abyss": pearl_abyss, "sde": sde,
      "contracts": contracts, "character_id_boundaries": character_id_boundaries,
      "players_online": players_online, "fx": fx, "steam_players": steam_players, "news_all": news_all,
-     "wars": wars, "sovereignty_campaigns": sovereignty_campaigns, "forums": forums,
+     "wars": wars, "sovereignty_campaigns": sovereignty_campaigns, "sovereignty_map": sovereignty_map, "forums": forums,
      "benchmarks": benchmarks, "google_trends": google_trends,
      "twitch": twitch, "patch_history": patch_history, "transcript": transcript}[sys.argv[1]]()
