@@ -2,7 +2,7 @@
 
 **Question:** What turns a new EVE character into a player who stays?
 
-**Answer:** belonging. New players who join a player corporation, get their first kill, or fight in a big battle in their first month are about twice as likely to still be playing three months later. Dying hardly matters: almost everyone loses a ship.
+**Answer:** belonging. New players who join a player corporation, get their first kill, or fight in a big battle in their first month are about twice as likely to still be playing three months later (at least 1.4× on a measure combat visibility can't inflate), and more likely to pay. Dying hardly matters: almost everyone loses a ship.
 
 > "…the foundation of the Friendship Machine, as we call it." CCP's CEO, in *EVE Online | Down the Rabbit Hole* (Fredrik Knudsen, 00:30:37)
 
@@ -34,6 +34,7 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 - Main chart: retention curves (k = 0–12) for "Neither", "Joined a corp and got a kill", "Fought in a war", with World of Warcraft as a reference line.
 - **It holds after a year:** at month 12 the advantage over "Neither" (5.0%) is 2.4× for corp + kill (12.1%) and 3.2× for war veterans (16.1%; 10,210 players with a full year of follow-up).
 - **It's belonging, not combat.** Non-combatants (contracts only, no killmails) stay at 12.1% at month 3, the same as players who only got killed (12.2%) and about half the rate of players who fought back (22.6%). Within every group, a player corporation adds ~60%: non-combatants 9.9% → 15.4%, victims 9.0% → 15.0%, kill-getters 15.4% → 24.2%. A non-combatant in a corp stays exactly as often as a fighter with a kill but no corp (15.4%). (Caveat: free accounts can only use contracts in a limited way, per CCP's store.)
+- **Robustness: it isn't just visibility** (`robustness_contracts_only.csv`, a panel next to the main chart). Corp members fly in fleets, so they show up in more killmails and can look "more active" without playing more. Test: among new players who already traded in their first month, count later activity from **contracts only**, which fleets can't inflate. Corp members are still **1.4× more likely to be active** at month 3 (9.6% vs 6.9%) and month 12 (4.8% vs 3.5%), against 1.7–1.8× on our usual measure. So the effect is real, but part of the bigger gaps is visibility. Say: belonging raises retention by **at least 1.4×**; the 2–3× figures are the upper end.
 - **Mid-sized corporations work best** (`retention_by_segment.csv`, "Corp size" segments). Still active at month 3 / month 12: NPC starter corp 9.6% / 5.4%, 2–10 members 11.1% / 5.6%, 11–50 17.3% / 9.2%, 51–200 20.8% / 11.4%, **201–1,000 22.8% / 13.9%**, 1,000+ 18.3% / 10.6%. A tiny corporation is barely better than none; the biggest are worse than mid-sized ones.
 - **The effect happens early:** of players still active at month 3, about half are still active at month 12 in every segment (50–59%). Belonging gets new players over the first hump; after that, every group fades at a similar pace.
 - Line: *"The best way to recruit people is by shooting them."* (an early mercenary leader, Down the Rabbit Hole, 00:44:55)
@@ -65,6 +66,7 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 
 ## Caveats (say them on the slides)
 - **Correlation, not causation.** Players who join corps may be more committed to begin with.
+- **Activity is measured by visibility.** A player who keeps playing but stops fighting looks like they quit; the contracts-only check bounds this (1.4× vs 1.7×).
 - **We see the 13% who are visible** (killmails and contracts). Miners and market-only traders stay invisible, so retention is a lower bound.
 - **Characters, not accounts.** One account can hold several characters.
 - **Corporation size is today's member count**, not the size when the player joined.

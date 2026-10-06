@@ -191,17 +191,17 @@ The full fields, keys and data quality notes are in [`docs/raw_inventory.md`](do
 
 ## KPI coverage vs. the sourcing guide
 
-We cover 12 of the guide's 15 KPIs: 2 directly, 6 by proxy and 4 as company-level estimates. Keep the estimates visually separate from official figures in the dashboard.
+We cover 13 of the guide's 15 KPIs: 2 directly, 7 by proxy and 4 as company-level estimates. Keep the estimates visually separate from official figures in the dashboard.
 
 | Category | KPI | Coverage | How | Gap |
 |---|---|---|---|---|
-| Acquisition | Signups | ✅ Direct | Characters by creation month (`birthday`); 97.8% coverage for killmail characters | One account can have several characters |
+| Acquisition | Signups | ✅ Direct | Exact characters created per month, from CCP's character ID sequence (`character_signup_month`) | One account can have several characters |
 | Acquisition | CAC | ⚠️ Estimate | CCP marketing expense ($11.4M 2024, $16.1M 2025) ÷ new characters | Marketing covers all CCP games, so it overstates EVE's CAC |
-| Acquisition | Conversion rate | ❌ None | — | No public Alpha → Omega funnel data |
+| Acquisition | Conversion rate | 🔶 Proxy | First month a new player is seen in an Omega-only ship (`analysis.conversion_by_segment`) | Only seen when the ship appears in a killmail |
 | Engagement | DAU / MAU | 🔶 Proxy | Distinct characters in killmails per day / 30 days | Only players who fight; no login data |
 | Engagement | Session frequency | 🔶 Proxy | Days with combat activity per character per week | Not real sessions |
 | Engagement | Feature adoption | 🔶 Proxy | Ship class, security band, fleet size | Combat only |
-| Retention | Retention rate | 🔶 Proxy | Character still active in killmails N months later | Activity, not subscription |
+| Retention | Retention rate | 🔶 Proxy | Character still active in killmails or contracts N months later (`analysis.retention_by_segment`) | Activity, not subscription |
 | Retention | Churn rate | 🔶 Proxy | No killmails for N months | A player who stops fighting isn't necessarily unsubscribed |
 | Retention | Cohort trends | ✅ Direct | Creation-month cohorts × monthly killmail activity | Same activity caveat |
 | Monetization | MRR / ARR | ⚠️ Estimate | CCP subscriptions and in-game sales ($55.0M 2024, $60.8M 2025); Pearl Abyss quarterly EVE revenue to 4Q25 | Annual / quarterly, not per subscriber |

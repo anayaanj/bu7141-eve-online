@@ -145,3 +145,20 @@ SELECT month,
        count(*) AS active,
        round(count(*) FILTER (WHERE previous_month <= month - interval '4 month')::numeric / count(*), 4) AS returner_share
 FROM a WHERE month >= date '2024-05-01' GROUP BY month;
+
+-- Robustness: is the corporation effect just visibility? Corp members fly in fleets and appear in more killmails,
+-- so here "active" counts contracts only, among new players who already traded in their first month.
+CREATE VIEW analysis.robustness_contracts_only AS
+SELECT CASE WHEN n.joined_corp THEN 'Traded in month 1, in a corp' ELSE 'Traded in month 1, no corp' END AS segment,
+       k.k,
+       count(*) AS players,
+       count(c.character_id) AS active_contracts,
+       round(count(c.character_id)::numeric / count(*), 4) AS retention_contracts_only,
+       round(count(a.character_id)::numeric / count(*), 4) AS retention_any_activity
+FROM analysis.new_player n
+CROSS JOIN (VALUES (3), (12)) AS k(k)
+LEFT JOIN character_month_activity c ON c.character_id = n.character_id
+     AND c.month = n.first_month + make_interval(months => k.k) AND c.contracts_issued > 0
+LEFT JOIN analysis.new_player_activity a ON a.character_id = n.character_id AND a.k = k.k
+WHERE n.traded AND n.first_month + make_interval(months => k.k) <= date '2026-08-01'
+GROUP BY 1, 2;

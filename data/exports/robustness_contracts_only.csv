@@ -1,0 +1,5 @@
+segment,k,players,active_contracts,retention_contracts_only,retention_any_activity
+"Traded in month 1, in a corp",3,13829,1331,0.0962,0.2076
+"Traded in month 1, no corp",3,13952,956,0.0685,0.1218
+"Traded in month 1, in a corp",12,9196,442,0.0481,0.1176
+"Traded in month 1, no corp",12,9478,331,0.0349,0.0670
