@@ -27,7 +27,8 @@ CREATE TABLE "solar_system" (
   "security_status" decimal,
   "security_band" varchar,
   "map_x" double precision,
-  "map_y" double precision
+  "map_y" double precision,
+  "is_starter_system" boolean
 );
 
 CREATE TABLE "stargate_link" (
@@ -195,6 +196,13 @@ CREATE TABLE "sov_campaign" (
   "final_defender_score" decimal
 );
 
+CREATE TABLE "sovereignty_daily" (
+  "date" date,
+  "solar_system_id" int,
+  "alliance_id" int NOT NULL,
+  PRIMARY KEY ("date", "solar_system_id")
+);
+
 CREATE TABLE "battle" (
   "battle_id" int PRIMARY KEY,
   "solar_system_id" int NOT NULL,
@@ -356,6 +364,8 @@ COMMENT ON COLUMN "solar_system"."map_x" IS 'CCP 2D map position (SDE position2D
 
 COMMENT ON COLUMN "solar_system"."map_y" IS 'CCP 2D map position (SDE position2D.y)';
 
+COMMENT ON COLUMN "solar_system"."is_starter_system" IS 'A school starting system for new characters (SDE schoolMap)';
+
 COMMENT ON TABLE "stargate_link" IS 'SDE mapStargates [9]: one row per stargate connection between two systems (each direction stored once). Draws the map.';
 
 COMMENT ON TABLE "item_category" IS 'SDE categories [9].';
@@ -477,6 +487,8 @@ COMMENT ON COLUMN "sov_campaign"."last_seen" IS '/derived: latest hourly snapsho
 COMMENT ON COLUMN "sov_campaign"."final_attackers_score" IS '/derived: attackers_score in the latest snapshot';
 
 COMMENT ON COLUMN "sov_campaign"."final_defender_score" IS '/derived: defender_score in the latest snapshot';
+
+COMMENT ON TABLE "sovereignty_daily" IS 'Who holds space: the player alliance holding each system, one ESI /sovereignty/map snapshot per day (first after downtime) via EVE Ref. Empire and unclaimed systems are left out.';
 
 COMMENT ON TABLE "battle" IS '/derived table. Killmails in the same system within an hour with 50+ distinct pilots [1].';
 
@@ -647,6 +659,12 @@ ALTER TABLE "war" ADD FOREIGN KEY ("defender_alliance_id") REFERENCES "alliance"
 ALTER TABLE "sov_campaign" ADD FOREIGN KEY ("solar_system_id") REFERENCES "solar_system" ("solar_system_id") DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "sov_campaign" ADD FOREIGN KEY ("defender_alliance_id") REFERENCES "alliance" ("alliance_id") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "sovereignty_daily" ADD FOREIGN KEY ("date") REFERENCES "calendar_date" ("date") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "sovereignty_daily" ADD FOREIGN KEY ("solar_system_id") REFERENCES "solar_system" ("solar_system_id") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "sovereignty_daily" ADD FOREIGN KEY ("alliance_id") REFERENCES "alliance" ("alliance_id") DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "battle" ADD FOREIGN KEY ("solar_system_id") REFERENCES "solar_system" ("solar_system_id") DEFERRABLE INITIALLY IMMEDIATE;
 

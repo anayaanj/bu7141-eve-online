@@ -385,6 +385,18 @@ def wars():
                          "real, public game data")
 
 
+def sovereignty_map():
+    """EVE Ref snapshots of ESI /sovereignty/map: who holds each system. One per day, the first after downtime (11:00 UTC)."""
+    day = START
+    while day <= END:
+        files = sorted(fetch_json(f"https://data.everef.net/sovereignty-map/history/{day.year}/{day}/index.json")["files"],
+                       key=lambda f: f["name"])
+        f = next((f for f in files if f["name"][len("sovereignty-map-YYYY-MM-DD_"):] >= "12"), files[-1])
+        download(f["url"], RAW / "sovereignty_map" / str(day.year) / f["name"],
+                 "Sovereignty map (CCP ESI via EVE Ref)", EVEREF, "real, public game data")
+        day = date.fromordinal(day.toordinal() + 1)
+
+
 def sovereignty_campaigns():
     """EVE Ref hourly sovereignty campaign snapshots (territory fights)."""
     day = START
@@ -424,6 +436,8 @@ BENCHMARKS = [  # (file name, url, publisher)
     ("press_superdata_f2p_retention_2015.html",
      "https://gamesbeat.com/day-1-players-of-f2p-games-are-much-more-likely-to-still-be-there-a-year-later/",
      "GamesBeat, quoting SuperData Research, Feb 2015"),
+    ("eveuni_getting_started.html", "https://wiki.eveuniversity.org/Getting_Started_in_EVE_Online",
+     "EVE University wiki (CC BY-SA): new player guide"),
     ("press_wow_12m_subscribers_2010.html", "http://web.archive.org/web/20210123051920/https://investor.activision.com/node/18936",
      "Activision Blizzard press release, Oct 2010 (Wayback copy; the live page does not respond)"),
 ]
@@ -613,6 +627,6 @@ if __name__ == "__main__":
      "financials": financials, "pearl_abyss": pearl_abyss, "sde": sde,
      "contracts": contracts, "character_id_boundaries": character_id_boundaries,
      "players_online": players_online, "fx": fx, "steam_players": steam_players, "news_all": news_all,
-     "wars": wars, "sovereignty_campaigns": sovereignty_campaigns, "forums": forums,
+     "wars": wars, "sovereignty_campaigns": sovereignty_campaigns, "sovereignty_map": sovereignty_map, "forums": forums,
      "benchmarks": benchmarks, "google_trends": google_trends,
      "twitch": twitch, "patch_history": patch_history, "transcript": transcript}[sys.argv[1]]()

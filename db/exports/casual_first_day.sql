@@ -12,6 +12,8 @@ COPY (
            CASE WHEN killed_by_veteran THEN 'Yes' WHEN killed_by_player THEN 'No, by a newer player' ELSE 'Not killed by a player' END FROM c
     UNION ALL SELECT character_id, active_month_3, 'Killed in their first week',
            CASE WHEN killed_in_first_week THEN 'Yes' ELSE 'No' END FROM c
+    UNION ALL SELECT character_id, active_month_3, 'Killed by a player in a starter system',
+           CASE WHEN killed_in_starter_system THEN 'Yes' WHEN killed_by_player THEN 'No, elsewhere' ELSE 'Not killed by a player' END FROM c
     UNION ALL SELECT character_id, active_month_3, 'Lost their escape pod',
            CASE WHEN lost_pod THEN 'Yes' ELSE 'No' END FROM c
     UNION ALL SELECT character_id, active_month_3, 'Where they were', coalesce(main_area, 'Trading only') FROM c

@@ -145,6 +145,11 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Grain:** each snapshot lists the territory fights under way: `campaign_id`, `event_type` (e.g. `tcu_defense`), `solar_system_id`, `constellation_id`, `defender_id`, `structure_id`, `start_time`, `attackers_score`, `defender_score`.
 - **Use:** big territorial conflicts by date and system. Deduplicate on `campaign_id`.
 
+## 17b. Sovereignty map — `data/raw/sovereignty_map/YYYY/sovereignty-map-YYYY-MM-DD_HH-MM-SS.json.bz2`
+- **Publisher:** CCP ESI `/sovereignty/map`, archived hourly by EVE Ref. Real, public game data. We keep one snapshot a day, the first after downtime (11:00 UTC).
+- **Grain:** one row per solar system per snapshot (~8,400): `system_id`, plus `alliance_id` and `corporation_id` for player-held space or `faction_id` for empire space.
+- **Use:** who holds space over time (`sovereignty_daily`). Visual reference for the map: Verite Rendition's daily influence maps (verite.space), which are images only.
+
 ## 18. Forums — `data/raw/forums/{search,topics}/`
 - **Publisher:** CCP Games, official forums (forums.eveonline.com, Discourse JSON). Real, public user posts.
 - **Queries:** omega price, plex price, subscription, pearl abyss, fenris, new player, unsubscribed (topics active Jan 2024 → Aug 2026). The searches matched 1,396 threads; only the **340 with an on-topic title** are downloaded (`FORUM_TITLE_FILTER` in `download.py`), because searches also match off-topic threads through a single post.
@@ -157,6 +162,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Dataset:** `wowah_full.parquet` (319 MB): World of Warcraft Avatar History, 91,065 avatars observed every 10 minutes, 2006–2009 (Parquet copy linked from calmcode.io).
 - **Press pages (`press_*.html`):** official peak subscriber figures (WoW 12M 2010, SWTOR 1.7M 2012, EVE 500k 2013, EverQuest 420k 2004), CCP's 2019 new-player figure (89.74% quit in the first week) and SuperData's F2P MMO retention (20% at day 30, ~6% after a year). The Activision release is a Wayback copy because the live page doesn't respond.
 - **Use:** sanity-check our retention and churn figures against published MMO figures, and compare EVE with other MMOs at their peak.
+- **EVE University wiki (`eveuni_getting_started.html`, CC BY-SA):** the new player guide: tutorial and career agents (solo, PvE), the advice to join a corporation, three characters per account.
 
 ## 20. Google Trends — `data/raw/google_trends/` (manual export)
 - **Publisher:** Google. Relative interest index 0–100, not search counts.

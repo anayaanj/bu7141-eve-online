@@ -96,8 +96,9 @@ def dimensions():
         mer = {int(r["solarsystem_id"]): r["solarsystem_metagroup"]
                for r in csv.DictReader(io.TextIOWrapper(z.open("data/static_solarsystems.csv"), encoding="utf-8"))}
     systems = set()
+    starter = {r["solarSystemID"] for r in sde_rows("schoolMap")}
     f, w = out("solar_system", ["solar_system_id", "solar_system_name", "constellation_id", "security_status", "security_band",
-                                "map_x", "map_y"])
+                                "map_x", "map_y", "is_starter_system"])
     for r in sde_rows("mapSolarSystems"):
         sec = r.get("securityStatus")
         band = mer.get(r["_key"]) or (
@@ -106,7 +107,7 @@ def dimensions():
             "Low Sec" if sec is not None and sec > 0 else "Null Sec")
         pos = r.get("position2D") if r["regionID"] < 11000000 else None  # wormholes and abyssal space are off the map
         w.writerow([r["_key"], en(r["name"]), r["constellationID"], sec, band,
-                    pos and pos["x"], pos and pos["y"]])
+                    pos and pos["x"], pos and pos["y"], r["_key"] in starter])
         systems.add(r["_key"])
     f.close()
 
@@ -604,6 +605,20 @@ def sov_campaigns():
     print(f"sov_campaigns: {len(seen):,} campaigns ({added} placeholder alliances)")
 
 
+def sovereignty():
+    f, w = out("sovereignty_daily", ["date", "solar_system_id", "alliance_id"])
+    alliances, days = set(), 0
+    for path in sorted((RAW / "sovereignty_map").rglob("*.json.bz2")):
+        day = path.name[16:26]  # sovereignty-map-YYYY-MM-DD_...
+        for r in json.loads(bz2.decompress(path.read_bytes())):
+            if r.get("alliance_id"):
+                w.writerow([day, r["system_id"], r["alliance_id"]])
+                alliances.add(r["alliance_id"])
+        days += 1
+    f.close()
+    print(f"sovereignty: {days} days, {len(alliances)} alliances ({append_alliances(alliances)} placeholder alliances)")
+
+
 def steam():
     seen = {}
     for path in sorted((RAW / "steam_reviews").glob("*.json")):
@@ -824,7 +839,7 @@ def curated():
 
 STEPS = {"dimensions": dimensions, "wars": wars, "killmails": killmails, "placeholders": placeholders,
          "contracts": contracts, "characters": characters, "activity": activity,
-         "sources": sources, "market": market, "players_online": players_online, "sov_campaigns": sov_campaigns,
+         "sources": sources, "market": market, "players_online": players_online, "sov_campaigns": sov_campaigns, "sovereignty": sovereignty,
          "steam": steam, "forums": forums, "fx": fx, "economy": economy, "interest": interest, "game_events": game_events,
          "curated": curated}
 

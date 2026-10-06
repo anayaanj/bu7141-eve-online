@@ -205,7 +205,7 @@ WITH c AS (
   WHERE a.active_days = 1
 ),
 deaths AS (  -- each casual's first-month deaths
-  SELECT c.character_id, k.kill_date, s.security_band, g.group_name AS ship_group,
+  SELECT c.character_id, k.kill_date, s.security_band, s.is_starter_system AS starter, g.group_name AS ship_group,
          fb.character_id AS killer_id,
          EXISTS (SELECT 1 FROM killmail_participant at WHERE at.killmail_id = k.killmail_id
                  AND at.role = 'attacker' AND at.character_id IS NOT NULL) AS by_player
@@ -224,6 +224,7 @@ SELECT c.character_id, c.first_month, c.main_area, c.first_corp_size, c.got_kill
        bool_or(d.by_player AND d.killer_id < (SELECT min(first_character_id) FROM character_signup_month)) IS TRUE AS killed_by_veteran,
        bool_or(d.kill_date - pc.signup_date <= 7) IS TRUE AS killed_in_first_week,
        bool_or(d.ship_group = 'Capsule') IS TRUE AS lost_pod,
+       bool_or(d.by_player AND d.starter) IS TRUE AS killed_in_starter_system,
        mode() WITHIN GROUP (ORDER BY d.security_band) AS death_area,
        EXISTS (SELECT 1 FROM analysis.new_player_activity a3 WHERE a3.character_id = c.character_id AND a3.k = 3) AS active_month_3
 FROM c
