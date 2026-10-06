@@ -32,6 +32,8 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 | Lost a ship / did not | 14.6% / 17.4% | 8.0% / 9.8% |
 
 - Main chart: retention curves (k = 0–12) for "Neither", "Joined a corp and got a kill", "Fought in a war", with World of Warcraft as a reference line.
+- **It holds after a year:** at month 12 the advantage over "Neither" (5.0%) is 2.4× for corp + kill (12.1%) and 3.2× for war veterans (16.1%; 10,210 players with a full year of follow-up).
+- **The effect happens early:** of players still active at month 3, about half are still active at month 12 in every segment (50–59%). Belonging gets new players over the first hump; after that, every group fades at a similar pace.
 - Line: *"The best way to recruit people is by shooting them."* (an early mercenary leader, Down the Rabbit Hole, 00:44:55)
 
 ### 3. What doesn't work: launches bring people, not stayers
@@ -42,6 +44,7 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 
 ### 4. What it's worth: fewer arrive, more stay, more revenue
 - After the July 2025 Omega restructure (cheaper long plans plus free PLEX, `omega_prices.csv`), signups fell but **3-month retention of new cohorts rose from 14.0% (2024 cohorts) to 16.2% (Jul 2025 – May 2026 cohorts)**, about 16% higher (monthly range 12.7–15.5% vs 14.0–18.3%).
+- **But be careful with cause:** 12-month retention started rising in **April 2025**, before the restructure (Apr–Jun 2025 cohorts: 9.4–9.5% vs ~8% for 2024; Jul–Aug 2025: 8.6–9.6%; later cohorts don't have a year of follow-up yet). Say: retention has been improving since spring 2025 (around the Legion expansion); the restructure fits the trend but isn't the only cause.
 - CCP's **subscription and in-game revenue rose 11% in 2025 ($55.0M → $60.8M)** while signups fell 10% (`ccp_annual.csv`).
 - EVE revenue by quarter from Pearl Abyss, converted to USD (`revenue_quarterly.csv`), matches CCP's audited game revenue within 0.5% for 2023–2025.
 - PLEX fell from ~6.2M ISK (Q2 2025) to ~4.5M after PLEX moved to a single global market in July 2025 (`plex_monthly.csv`).
