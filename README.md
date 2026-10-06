@@ -17,6 +17,9 @@ db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/g
 compose.yaml              local PostgreSQL in Docker
 scripts/transform.py      raw data -> clean CSV per ERD table (data/clean/, not in git)
 scripts/load.sh           clean CSVs -> PostgreSQL, with every foreign key checked
+db/analysis.sql           analysis layer for the story (new players, retention by segment)
+db/exports/, scripts/export.sh  one SQL file and CSV per dashboard view -> data/exports/
+docs/story.md             the story: question, narrative, numbers, caveats
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
 docs/eve-online-brief.pdf one-page team brief: sources, KPI coverage, caveats
 data-sourcing-guide.docx  the assignment's data sourcing guide
@@ -105,6 +108,17 @@ python3 scripts/transform.py all   # raw files -> data/clean/*.csv.gz, one per t
 ```
 
 `transform.py` steps can also run one at a time (`python3 scripts/transform.py <step>`; the list is at the top of the script). Every table is loaded: Phase 1 core tables, Phase 2 market/engagement/satisfaction/events, and Phase 3 curated figures from `data/reference/`.
+
+## Story and dashboard data
+
+The story is **"What turns a new EVE character into a player who stays?"**: see [`docs/story.md`](docs/story.md) for the narrative, the numbers and one view per dashboard page.
+
+```bash
+docker compose exec -T db psql -U eve -d eve -f - < db/analysis.sql   # analysis layer (new players, retention by segment)
+./scripts/export.sh                                                    # one CSV per dashboard view -> data/exports/
+```
+
+`data/exports/*.csv` is committed (small), so Tableau Public can use it without the database.
 
 ## Get the raw data
 

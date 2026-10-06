@@ -1,0 +1,18 @@
+plan_name,billing_cycle_months,effective_date,list_price,price_per_month
+Omega 1 month,1,2024-01-06,19.99,19.99
+Omega 1 month,1,2024-02-06,19.99,19.99
+Omega 1 month,1,2026-03-07,20.0,20.00
+Omega 3 months,3,2024-01-06,47.98,15.99
+Omega 3 months,3,2024-02-06,47.98,15.99
+Omega 3 months,3,2025-07-24,47.98,15.99
+Omega 3 months,3,2025-07-25,48,16.00
+Omega 3 months,3,2026-03-07,48.0,16.00
+Omega 6 months,6,2025-07-24,86.95,14.49
+Omega 6 months,6,2025-07-25,84,14.00
+Omega 6 months,6,2026-03-07,84.0,14.00
+Omega 12 months,12,2025-07-24,149.9,12.49
+Omega 12 months,12,2025-07-25,144,12.00
+Omega 12 months,12,2026-03-07,144.0,12.00
+Omega 24 months,24,2025-07-24,270.99,11.29
+Omega 24 months,24,2025-07-25,264,11.00
+Omega 24 months,24,2026-03-07,264.0,11.00
