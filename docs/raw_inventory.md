@@ -37,7 +37,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Volume:** 974 daily files, ~56k rows/day.
 - **Grain:** one row per `(date, region_id, type_id)`.
 - **Columns:** `average, date, highest, lowest, order_count, volume, http_last_modified, region_id, type_id`
-- **PLEX:** `type_id = 44992`, traded in ~40 regions/day; ~6.0M ISK in June 2025 (The Forge, region 10000002, is the main hub).
+- **PLEX:** `type_id = 44992`, traded in ~40 regions/day until early July 2025; ~6.0M ISK in June 2025. **From July 2025 PLEX trades only in one global market, region 19000001 ("GPMR-01")**, so build PLEX series across regions, not from The Forge alone.
 
 ## 4. Monthly Economic Report (MER) — `data/raw/mer/*.zip`
 - **Publisher:** CCP Games, mirrored by EVE Ref. Real, official aggregates.
@@ -80,7 +80,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Publisher:** Pearl Abyss Corp. investor relations (pearlabyss.com/en-US/IR). Real, official.
 - **Files:** `performance/` — 13 quarterly earnings releases, 2Q23 → 2Q26 (1Q23 has no English attachment). `letter/` — 32 monthly IR letters, Jan 2024 → Jul 2026. `financial_info.html` — annual statements FY2023–FY2025 (million KRW).
 - **EVE figures:** "Revenue by Core IP" chart (Black Desert vs EVE, billion KRW, 5 trailing quarters per release). In the 2Q23–3Q25 PDFs the numbers are in the text layer. 4Q25 is image-only and has to be read visually.
-- **Ownership change:** Pearl Abyss sold CCP Games to CCP's management on 2026-05-01, and CCP renamed itself Fenris Creations on 2026-05-06. The 2026 reports no longer include EVE, so the Pearl Abyss EVE revenue series ends at 4Q25.
+- **Ownership change:** Pearl Abyss's board approved selling CCP Games to CCP's management on 2026-04-30 and completed the sale on 2026-05-06 (1Q26 and 2Q26 letters), and CCP renamed itself Fenris Creations on 2026-05-06. The 2026 reports no longer include EVE, so the Pearl Abyss EVE revenue series ends at 4Q25.
 
 ### CCP ehf. annual accounts — `ccp/` (downloaded from Skatturinn, free, 2026-09-28)
 - **Publisher:** CCP ehf. (kennitala 450697-3469, now Fenris Creations hf.), filed with Skatturinn. Real, audited. English, **USD**, 62–70 pages, text layer present.
@@ -125,7 +125,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## 14. Steam players — `data/raw/steam_players/steamcharts_8500.html`
 - **Publisher:** SteamCharts, built from the Steam Web API. Real, third-party tracker.
-- **Grain:** one row per month since Aug 2012 (86 months): average players, gain, % gain, peak players (HTML table).
+- **Grain:** one row per month, Jul 2012 → Sep 2026 (171 months; the last is partial): average players, gain, % gain, peak players (HTML table).
 - **Use:** Steam share of all players online (≈ 4,000 of ≈ 23,500 in Aug 2026, ≈ 17%): an acquisition-channel proxy.
 
 ## 15. All CCP news — `data/raw/news_all/page_NNN.json`
@@ -171,7 +171,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 ## 22. Patch and release history — `data/raw/patch_history/`
 - `patch_notes_page_NN.json`: CCP's **major-version patch notes**, all 244 since 2003 (Contentful, same fields as section 7). Recent years have ~4 a year; minor patches are not in this archive.
 - `sde_builds_YYYY.json`: EVE Ref indexes of every static-data build, Oct 2016 → 2026 (379 files: `name` with build number, `last_modified`). Each build ≈ one game deployment.
-- `eveuni_expansions.html`: EVE University wiki list of expansions and major releases by year, 2003 → 2025 (176 dated entries). Community-maintained, CC BY-SA.
+- `eveuni_expansions.html`: EVE University wiki list of expansions and major releases, 2003 → 2024 (the 2025 section is empty and there is no 2026 yet). Community-maintained, CC BY-SA. The 2025–2026 expansions (Legion 2025-05-27, Catalyst 2025-11-18, Cradle of War 2026-06-09) come from CCP news [15] via `data/reference/key_events.csv`.
 - **Use:** the `game_event` table: expansions, major patches and deployments by date. Cross-check with section 15 (news).
 
 ## 23. Down the Rabbit Hole transcript — `data/raw/qualitative/down_the_rabbit_hole_BCSeISYcoyI.json` (not in git)

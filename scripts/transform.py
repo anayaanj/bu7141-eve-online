@@ -1,11 +1,14 @@
 """Transform data/raw into one clean CSV per ERD table (data/clean/<table>.csv.gz), ready for scripts/load.sh.
 
-Phase 1 (core): dimensions, wars, killmails, contracts, characters, activity.
-Usage: python3 scripts/transform.py {dimensions|wars|killmails|contracts|characters|activity|all}
+Phase 1 (core): dimensions, wars, killmails, placeholders, contracts, characters, activity.
+Phase 2: sources, market, players_online, sov_campaigns, steam, forums, fx, economy, interest, game_events.
+Usage: python3 scripts/transform.py <step>|all
 Steps run in that order; later steps read the work files of earlier ones (data/clean/_work/).
 """
+import bz2
 import csv
 import gzip
+import hashlib
 import io
 import json
 import pickle
@@ -21,7 +24,7 @@ RAW = ROOT / "data" / "raw"
 CLEAN = ROOT / "data" / "clean"
 WORK = CLEAN / "_work"
 START, END = date(2024, 1, 1), date(2026, 8, 31)
-SALE_DATE = date(2026, 5, 1)
+SALE_DATE = date(2026, 5, 6)  # sale of CCP completed (Pearl Abyss 2Q26 letter)
 SDE = RAW / "sde" / "eve-online-static-data-latest-jsonl.zip"
 MER = RAW / "mer" / "EVEOnline_MER_202608.zip"  # each MER holds the full history; use the latest
 CHAR_DUMP = RAW / "characters" / "eve-kill-com-karbowiak-2026-05-10.tar.bz2"
@@ -316,25 +319,37 @@ def placeholders():
 
 # ───────────────────────── Contracts ─────────────────────────
 
+# Items bought with real money from CCP's store: PLEX, Skill Extractor, Large/Small Skill Injector,
+# Multiple Pilot Training Certificate, Daily Alpha Injector (type ids from the SDE)
+STORE_TYPES = {44992, 40519, 40520, 45635, 34133, 46375}
+PLEX = 44992
 CONTRACT_FIELDS = ["contract_id", "issuer_id", "issuer_corporation_id", "type", "date_issued", "date_expired",
                    "price", "reward", "collateral", "volume", "region_id", "system_id"]
 
 
 def contract_snapshot(path):
     day = path.name[17:27]  # public-contracts-YYYY-MM-DD_...
-    rows = {}
+    rows, items = {}, {}
     with tarfile.open(path, "r:bz2") as tar:
         for r in csv.DictReader(io.TextIOWrapper(tar.extractfile("contracts.csv"), encoding="utf-8")):
             if START.isoformat() <= r["date_issued"][:10] <= END.isoformat():
                 rows[r["contract_id"]] = [r[k] for k in CONTRACT_FIELDS]
-    return day, rows
+        for r in csv.DictReader(io.TextIOWrapper(tar.extractfile("contract_items.csv"), encoding="utf-8")):
+            if r["contract_id"] in rows and int(r["type_id"]) in STORE_TYPES:
+                items[(r["contract_id"], r["record_id"])] = [int(r["type_id"]), int(float(r["quantity"])),
+                                                              r["is_included"].lower() in ("true", "1")]
+    return day, rows, items
 
 
 def contracts():
     seen = {}  # contract_id -> [fields, first_seen, last_seen]
+    items = {}  # (contract_id, record_id) -> [type_id, quantity, is_included]
     files = sorted((RAW / "public_contracts").rglob("*.tar.bz2"))
     with Pool() as pool:
-        for day, rows in pool.imap_unordered(contract_snapshot, files, chunksize=4):
+        for n, (day, rows, its) in enumerate(pool.imap_unordered(contract_snapshot, files, chunksize=4), 1):
+            items.update(its)
+            if n % 100 == 0:
+                print(f"contracts: {n}/{len(files)} snapshots", flush=True)
             for cid, fields in rows.items():
                 s = seen.get(cid)
                 if s is None:
@@ -349,7 +364,7 @@ def contracts():
         issuer, corp, issued = int(r[1]), int(r[2]) if r[2] else None, r[4]
         w.writerow([r[0], issuer, corp, r[3], issued, issued[:10], r[5], r[6], r[7], r[8], r[9], r[10] or None,
                     r[11] or None, first, last])
-        a = activity.setdefault(issuer, {}).setdefault(issued[:7], [0, 0, "", None])
+        a = activity.setdefault(issuer, {}).setdefault(issued[:7], [0, 0, "", None, 0])
         a[0] += 1
         a[1] |= 1 << (int(issued[8:10]) - 1)
         if issued >= a[2]:
@@ -359,8 +374,15 @@ def contracts():
         if r[11]:
             systems.add(int(r[11]))
     f.close()
+    f, w = out("contract_item", ["contract_id", "record_id", "type_id", "quantity", "is_included"])
+    for (cid, rid), (type_id, qty, included) in items.items():
+        w.writerow([cid, rid, type_id, qty, included])
+        if type_id == PLEX and included:
+            r = seen[cid][0]
+            activity[int(r[1])][r[4][:7]][4] += qty
+    f.close()
     save("contracts", {"activity": activity, "corps": corps, "systems": systems})
-    print(f"contracts: {len(seen):,} issued in the window, {len(activity):,} issuers")
+    print(f"contracts: {len(seen):,} issued in the window, {len(activity):,} issuers, {len(items):,} store items")
 
 
 # ───────────────────────── Characters, corporations, alliances ─────────────────────────
@@ -461,14 +483,14 @@ def activity():
         for r in csv.DictReader(f):
             npc[int(r["corporation_id"])] = r["is_npc"] == "True"
     f, w = out("character_month_activity", ["character_id", "month", "kills", "losses", "contracts_issued",
-                                            "active_days", "flew_omega_ship", "in_player_corporation"])
+                                            "active_days", "flew_omega_ship", "plex_offered", "in_player_corporation"])
     for c in sorted(set(km["activity"]) | set(ct["activity"])):
         kms, cts = km["activity"].get(c, {}), ct["activity"].get(c, {})
         for month in sorted(set(kms) | set(cts)):
             k = kms.get(month, [0, 0, 0, False, "", None])
-            t = cts.get(month, [0, 0, "", None])
+            t = cts.get(month, [0, 0, "", None, 0])
             corp = k[5] if k[4] >= t[2] else t[3]
-            w.writerow([c, month + "-01", k[0], k[1], t[0], bin(k[2] | t[1]).count("1"), k[3],
+            w.writerow([c, month + "-01", k[0], k[1], t[0], bin(k[2] | t[1]).count("1"), k[3], t[4],
                         None if corp is None else not npc.get(corp, True)])
     f.close()
 
@@ -480,9 +502,263 @@ def activity():
     print("activity: character_month_activity and character_signup_month written")
 
 
+# ───────────────────────── Phase 2 ─────────────────────────
+
+def sources():
+    """source_document: one row per raw file in data/raw/sources.csv (its row number is the id)."""
+    ids = {}
+    f, w = out("source_document", ["source_id", "source_name", "publisher", "url", "retrieved_at", "sha256", "data_nature"])
+    for i, r in enumerate(csv.DictReader(open(RAW / "sources.csv")), 1):
+        if r["file"] in ids:  # a file re-logged by a later run: keep the first entry
+            continue
+        ids[r["file"]] = i
+        w.writerow([i, r["source"], r["publisher"], r["url"], r["retrieved_at"], r["sha256"], r["data_nature"]])
+    f.close()
+    save("sources", ids)
+    print(f"sources: {len(ids):,} documents")
+
+
+def source_id(path):
+    return load("sources")[str(Path(path).relative_to(RAW))]
+
+
+def market_day(path):
+    rows = []
+    with bz2.open(path, "rt") as f:
+        for r in csv.DictReader(f):
+            if int(r["type_id"]) in STORE_TYPES:
+                rows.append([r["date"], r["region_id"], r["type_id"], r["average"], r["highest"], r["lowest"],
+                             r["volume"], r["order_count"]])
+    return rows
+
+
+def market():
+    files = [p for p in sorted((RAW / "market_history").rglob("*.csv.bz2")) if START <= date.fromisoformat(p.name[15:25]) <= END]
+    f, w = out("market_history_daily", ["date", "region_id", "type_id", "average_price", "highest_price", "lowest_price",
+                                        "volume", "order_count"])
+    n = 0
+    with Pool() as pool:
+        for rows in pool.imap_unordered(market_day, files, chunksize=8):
+            w.writerows(rows)
+            n += len(rows)
+    f.close()
+    print(f"market: {n:,} rows for the store items")
+
+
+def players_online():
+    """Daily average / peak / min concurrent players, and minutes of outage outside the 11:00 UTC downtime."""
+    by_day = {}
+    for path in sorted((RAW / "players_online").glob("*.jsonp")):
+        s = path.read_text()
+        for ms, players in json.loads(s[s.index("["):s.rindex("]") + 1]):
+            t = datetime.utcfromtimestamp(ms / 1000)
+            by_day.setdefault(t.date(), []).append((t, players))
+    f, w = out("players_online_daily", ["date", "avg_players", "peak_players", "min_players", "outage_minutes"])
+    for d, points in sorted(by_day.items()):
+        if not START <= d <= END:
+            continue
+        values = [p for _, p in points]
+        up_slots = {(t.hour, t.minute // 30) for t, p in points if p > 0}
+        expected = {(h, m) for h in range(24) for m in (0, 1) if h != 11}  # 11:00-12:00 UTC is daily downtime
+        w.writerow([d, round(sum(values) / len(values)), max(values), min(values), 30 * len(expected - up_slots)])
+    f.close()
+    print(f"players_online: {len(by_day):,} days")
+
+
+def append_alliances(ids):
+    """Placeholder alliance rows for referenced alliances missing from the dump (idempotent)."""
+    missing = set(ids) - existing_ids("alliance")
+    with gzip.open(CLEAN / "alliance.csv.gz", "at", newline="") as f:
+        csv.writer(f).writerows([a, None, None, None, None] for a in sorted(missing))
+    return len(missing)
+
+
+def sov_campaigns():
+    seen = {}  # campaign_id -> [campaign, first_seen, last_seen]
+    for path in sorted((RAW / "sovereignty_campaigns").rglob("*.json.bz2")):
+        stamp = path.name[22:32] + "T" + path.name[33:41].replace("-", ":")  # sovereignty-campaigns-YYYY-MM-DD_HH-MM-SS
+        for c in json.loads(bz2.decompress(path.read_bytes())):
+            s = seen.get(c["campaign_id"])
+            if s is None:
+                seen[c["campaign_id"]] = [c, stamp, stamp]
+            else:
+                s[0], s[2] = c, max(s[2], stamp)
+                s[1] = min(s[1], stamp)
+    f, w = out("sov_campaign", ["campaign_id", "event_type", "solar_system_id", "defender_alliance_id", "structure_id",
+                                "start_time", "first_seen", "last_seen", "final_attackers_score", "final_defender_score"])
+    for c, first, last in seen.values():
+        w.writerow([c["campaign_id"], c["event_type"], c["solar_system_id"], c.get("defender_id"), c.get("structure_id"),
+                    c["start_time"], first, last, c.get("attackers_score"), c.get("defender_score")])
+    f.close()
+    added = append_alliances({c.get("defender_id") for c, _, _ in seen.values() if c.get("defender_id")})
+    print(f"sov_campaigns: {len(seen):,} campaigns ({added} placeholder alliances)")
+
+
+def steam():
+    seen = {}
+    for path in sorted((RAW / "steam_reviews").glob("*.json")):
+        for r in json.loads(path.read_text())["reviews"]:
+            seen[r["recommendationid"]] = r
+    f, w = out("steam_review", ["recommendation_id", "steam_author_id", "created_date", "language", "voted_up",
+                                "playtime_at_review_hours", "steam_purchase", "received_for_free", "votes_up", "review_text"])
+    for r in seen.values():
+        a = r["author"]
+        w.writerow([r["recommendationid"], a["steamid"], datetime.utcfromtimestamp(r["timestamp_created"]).date(),
+                    r["language"], r["voted_up"],
+                    round(a["playtime_at_review"] / 60, 1) if a.get("playtime_at_review") is not None else None,
+                    r.get("steam_purchase"), r.get("received_for_free"), r.get("votes_up"), r.get("review")])
+    f.close()
+    print(f"steam: {len(seen):,} reviews")
+
+
+def strip_html(html):
+    import html as h
+    import re
+    return h.unescape(re.sub(r"<[^>]+>", " ", html or "")).strip()
+
+
+def forums():
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from download import FORUM_TITLE_FILTER
+    query_of = {}
+    for path in sorted((RAW / "forums" / "search").glob("*.json")):
+        query = path.name.rsplit("_page_", 1)[0].replace("_", " ")
+        for t in json.loads(path.read_text()).get("topics", []):
+            query_of.setdefault(t["id"], query)
+    topics, posts = {}, {}
+    for path in sorted((RAW / "forums" / "topics").glob("*.json")):
+        t = json.loads(path.read_text())
+        if not FORUM_TITLE_FILTER.search(t.get("title", "")):  # off-topic threads fetched before the filter
+            continue
+        topics[t["id"]] = t
+        for p in t.get("post_stream", {}).get("posts", []):
+            posts[p["id"]] = p
+    f, w = out("forum_topic", ["topic_id", "title", "created_date", "posts_count", "matched_query"])
+    for t in topics.values():
+        w.writerow([t["id"], t["title"], t["created_at"][:10], t.get("posts_count"), query_of.get(t["id"])])
+    f.close()
+    f, w = out("forum_post", ["post_id", "topic_id", "created_date", "author_hash", "post_text"])
+    for p in posts.values():
+        if p.get("topic_id") in topics:
+            w.writerow([p["id"], p["topic_id"], p["created_at"][:10],
+                        hashlib.sha256(p.get("username", "").encode()).hexdigest(), strip_html(p.get("cooked"))])
+    f.close()
+    print(f"forums: {len(topics):,} topics, {len(posts):,} posts")
+
+
+def fx():
+    f, w = out("fx_rate", ["date", "currency_pair", "rate"])
+    for series, pair in (("DEXKOUS", "KRW/USD"), ("DEXUSEU", "USD/EUR")):
+        for r in csv.DictReader(open(RAW / "fx" / f"{series}.csv")):
+            d, v = r["observation_date"], r[series]
+            if v not in ("", ".") and "1997-01-01" <= d <= "2026-12-31":
+                w.writerow([d, pair, v])
+    f.close()
+    print("fx: written")
+
+
+def economy():
+    """MER (latest): money supply, ISK sinks and faucets by category, mined/produced/destroyed value by security band."""
+    totals = {}
+    with zipfile.ZipFile(MER) as z:
+        def rows(name):
+            return csv.DictReader(io.TextIOWrapper(z.open(f"data/{name}.csv"), encoding="utf-8"))
+        for r in rows("money_supply"):
+            for k in ("character_isk", "corporation_isk", "total_isk", "isk_velocity"):
+                totals[(r["history_date"], k)] = float(r[k])
+        for r in rows("sinks_and_faucets_history"):
+            for kind, col in (("sink", "entry_sink_value"), ("faucet", "entry_faucet_value")):
+                key = (r["history_date"], f"{kind}:{r['entry_name']}")
+                totals[key] = totals.get(key, 0) + float(r[col] or 0)
+        for r in rows("mining_production_destruction"):
+            for k in ("mined_value", "produced_value", "destroyed_value"):
+                key = (r["history_date"], f"{k}:{r['location_metagroup']}")
+                totals[key] = totals.get(key, 0) + float(r[k] or 0)
+    f, w = out("economy_daily", ["date", "metric", "value"])
+    for (d, metric), v in sorted(totals.items()):
+        w.writerow([d, metric, v])
+    f.close()
+    print(f"economy: {len(totals):,} daily figures")
+
+
+def parse_num(text):
+    """'515.6 thousand' -> 515600, '1.5 million' -> 1500000, '693' -> 693."""
+    n, _, unit = text.replace(",", "").strip().partition(" ")
+    return float(n) * {"thousand": 1e3, "million": 1e6, "billion": 1e9}.get(unit.strip(), 1)
+
+
+def interest():
+    import re
+    f, w = out("interest_metric", ["period_start", "granularity", "source", "metric", "geography", "value", "source_id"])
+    trends = RAW / "google_trends"
+    sid = source_id(trends / "eve_online_worldwide_weekly.csv")
+    for row in list(csv.reader(open(trends / "eve_online_worldwide_weekly.csv")))[3:]:
+        if row and row[1]:
+            w.writerow([row[0], "week", "google_trends", "search_interest", "Worldwide", 0.5 if row[1] == "<1" else row[1], sid])
+    sid = source_id(trends / "eve_online_by_country.csv")
+    for row in list(csv.reader(open(trends / "eve_online_by_country.csv")))[3:]:
+        if row and row[1]:
+            w.writerow([START, "period", "google_trends", "search_interest", row[0], 0.5 if row[1] == "<1" else row[1], sid])
+    path = RAW / "steam_players" / "steamcharts_8500.html"
+    sid = source_id(path)
+    for month, avg, peak in re.findall(r'month-cell left">\s*([A-Z][a-z]+ \d{4})\s*</td>\s*<td class="right num-f">([\d.]+)</td>'
+                                       r'.*?<td class="right num">(\d+)</td>', path.read_text(), flags=re.S):
+        d = datetime.strptime(month, "%B %Y").date()
+        w.writerow([d, "month", "steam", "avg_players", "Worldwide", avg, sid])
+        w.writerow([d, "month", "steam", "peak_players", "Worldwide", peak, sid])
+    labels = {"Hours watched": "hours_watched", "Hours streamed": "hours_streamed", "Average viewers": "avg_viewers",
+              "Max viewers": "peak_viewers", "Streamers": "streamers", "Average channels": "avg_channels"}
+    for path in sorted((RAW / "twitch").glob("sullygnome_20??-??.html")):
+        t = re.sub(r"<script.*?</script>|<style.*?</style>", "", path.read_text(errors="ignore"), flags=re.S)
+        t = re.sub(r"\s*\|[\s|]*", "|", re.sub(r"<[^>]+>", "|", t))
+        sid = source_id(path)
+        for label, metric in labels.items():
+            m = re.search(re.escape(label) + r"\|([^|]+)", t)
+            if m:
+                w.writerow([path.stem.split("_")[1] + "-01", "month", "twitch", metric, "Worldwide", parse_num(m.group(1)), sid])
+    f.close()
+    print("interest: written")
+
+
+def game_events():
+    import re
+    f, w = out("game_event", ["event_id", "event_date", "date_precision", "category", "title", "source_id", "source_ref"])
+    n = 0
+
+    def add(d, precision, category, title, sid, ref):
+        nonlocal n
+        n += 1
+        w.writerow([n, d, precision, category, title, sid, ref])
+
+    for path in sorted((RAW / "patch_history").glob("patch_notes_page_*.json")):
+        sid = source_id(path)
+        for i in json.loads(path.read_text())["items"]:
+            fl = i["fields"]
+            add(fl["publishingDate"][:10], "day", "patch", fl["title"], sid, fl["slug"])
+    for path in sorted((RAW / "patch_history").glob("sde_builds_*.json")):
+        sid = source_id(path)
+        for fl in json.loads(path.read_text()).get("files", []):
+            m = re.search(r"(\d{6,})", fl["name"])
+            if fl["name"].endswith("jsonl.zip") or (fl["name"].endswith(".zip") and "yaml" not in fl["name"]):
+                add(fl["last_modified"][:10], "day", "deployment", f"Static data build {m.group(1) if m else fl['name']}", sid, fl["name"])
+    path = RAW / "patch_history" / "eveuni_expansions.html"
+    sid = source_id(path)
+    for name, day in re.findall(r"<b>\s*([^<]+?)\s*</b></span><br>\s*<b>Initial Release Date:</b>\s*(\d{2}/\d{2}/\d{4})", path.read_text()):
+        d = datetime.strptime(day, "%d/%m/%Y").date()
+        add(d, "day", "release" if re.match(r"^\d+\.\d+ Release$", name) else "expansion", name, sid, name)
+    transcript_sid = source_id(RAW / "qualitative" / "down_the_rabbit_hole_BCSeISYcoyI.json")
+    for r in csv.DictReader(open(ROOT / "data" / "reference" / "lore_events.csv")):
+        add(r["date"], r["precision"], "lore", r["event"], transcript_sid, r["video_timestamp"])
+    for r in csv.DictReader(open(ROOT / "data" / "reference" / "key_events.csv")):
+        add(r["date"], r["precision"], r["category"], r["title"], source_id(RAW / r["source_file"]), r["source_file"])
+    f.close()
+    print(f"game_events: {n:,}")
+
+
 STEPS = {"dimensions": dimensions, "wars": wars, "killmails": killmails, "placeholders": placeholders,
-         "contracts": contracts,
-         "characters": characters, "activity": activity}
+         "contracts": contracts, "characters": characters, "activity": activity,
+         "sources": sources, "market": market, "players_online": players_online, "sov_campaigns": sov_campaigns,
+         "steam": steam, "forums": forums, "fx": fx, "economy": economy, "interest": interest, "game_events": game_events}
 
 if __name__ == "__main__":
     for step in (STEPS if sys.argv[1] == "all" else [sys.argv[1]]):

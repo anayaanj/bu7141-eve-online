@@ -203,5 +203,5 @@ We cover 12 of the guide's 15 KPIs: 2 directly, 6 by proxy and 4 as company-leve
 
 - **No per-player payments exist publicly.** Monetization is company level only. This is our ERD boundary.
 - **Killmails only show players who fight**, so retention measured from them is a lower bound.
-- **Pearl Abyss sold CCP to CCP's management on 1 May 2026**, and CCP renamed itself Fenris Creations. Pearl Abyss's EVE revenue series ends at 4Q25.
+- **Pearl Abyss sold CCP to CCP's management** (board approval 30 Apr 2026, completed 6 May 2026, per Pearl Abyss's 1Q26 and 2Q26 letters), and CCP renamed itself Fenris Creations. Pearl Abyss's EVE revenue series ends at 4Q25.
 - **2026-07-13 has no killmails.** The file is missing at the source, not in our download.

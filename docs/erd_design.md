@@ -20,6 +20,7 @@ Most of our raw sources are nested JSON, so they are not in 1NF as delivered. Ea
 | Killmail JSON [1] | `attackers[]` is a repeating group (many attackers per killmail); `victim` is a nested object | One row per participant in **`killmail_participant`** (victim = participant 0, attackers 1..n), keyed `(killmail_id, participant_no)` |
 | Killmail JSON [1] | `items[]` (dropped and destroyed items) is another repeating group | Not modelled: no KPI uses it. It would become a `killmail_item` table |
 | Forum topic JSON [18] | `posts[]` holds many posts per topic | **`forum_post`**, one row per post, with `topic_id` as a foreign key |
+| Contract snapshots [10] | Each contract lists many items (`contract_items.csv`) | **`contract_item`**, one row per item, keyed `(contract_id, record_id)`; only the six real-money store items are kept |
 | Character dump [2] | `history[]` (corporation history) is a repeating group | Not modelled: membership over time comes from `killmail_participant.corporation_id` instead |
 | SDE types [9] | `name` holds one value per language (`{"en": …, "de": …}`) | Kept the English name only: one value per column |
 | Wars [16] | `allies[]` is a repeating group; `aggressor` and `defender` are nested objects | Nested objects flattened into single-valued columns (`aggressor_alliance_id`, …). Allies not modelled |
@@ -95,6 +96,7 @@ Stored derived columns break 3NF on purpose (for example `player_character.cohor
 | `contract.issued_date` | `date_issued` | Join key to `calendar_date` |
 | `contract.first_seen`, `last_seen` | Daily snapshots | Snapshots are not stored in the database |
 | `character_month_activity` (all columns) | `killmail_participant`, `contract`, `item_type`, `corporation` | Monthly roll-up of 140M + 4.7M rows; feeds every retention query |
+| `character_month_activity.plex_offered` | `contract_item` (PLEX, `is_included`) for contracts issued that month | Same monthly roll-up |
 | `players_online_daily` (all columns) | 30-minute player counts | Raw points are not stored |
 | `sov_campaign.first_seen`, `last_seen`, `final_*_score` | Hourly snapshots | Snapshots are not stored |
 | `battle` (all columns) | Clustered `killmail` + `killmail_participant` rows | Clustering is expensive |

@@ -129,6 +129,15 @@ CREATE TABLE "contract" (
   "last_seen" date
 );
 
+CREATE TABLE "contract_item" (
+  "contract_id" bigint,
+  "record_id" bigint,
+  "type_id" int NOT NULL,
+  "quantity" bigint NOT NULL,
+  "is_included" boolean NOT NULL,
+  PRIMARY KEY ("contract_id", "record_id")
+);
+
 CREATE TABLE "character_month_activity" (
   "character_id" bigint,
   "month" date,
@@ -137,6 +146,7 @@ CREATE TABLE "character_month_activity" (
   "contracts_issued" int,
   "active_days" int,
   "flew_omega_ship" boolean,
+  "plex_offered" bigint,
   "in_player_corporation" boolean,
   PRIMARY KEY ("character_id", "month")
 );
@@ -410,6 +420,10 @@ COMMENT ON COLUMN "contract"."first_seen" IS '/derived: earliest daily snapshot 
 
 COMMENT ON COLUMN "contract"."last_seen" IS '/derived: latest daily snapshot containing the contract';
 
+COMMENT ON TABLE "contract_item" IS 'Items bought with real money from CCP (PLEX, Skill Extractor, Large/Small Skill Injector, Multiple Pilot Training Certificate, Daily Alpha Injector) in contracts [10]. The per-player link to real-money spending: someone paid for these.';
+
+COMMENT ON COLUMN "contract_item"."is_included" IS 'true: the issuer offers the item; false: the issuer asks for it';
+
 COMMENT ON TABLE "character_month_activity" IS '/derived table. From killmail_participant and contract. Feeds DAU/MAU, cohort retention, churn, social glue.';
 
 COMMENT ON COLUMN "character_month_activity"."kills" IS '/derived: count of attacker rows that month';
@@ -421,6 +435,8 @@ COMMENT ON COLUMN "character_month_activity"."contracts_issued" IS '/derived: co
 COMMENT ON COLUMN "character_month_activity"."active_days" IS '/derived: distinct days with a killmail or contract';
 
 COMMENT ON COLUMN "character_month_activity"."flew_omega_ship" IS '/derived: any row that month in a ship with alpha_can_fly = false';
+
+COMMENT ON COLUMN "character_month_activity"."plex_offered" IS '/derived: PLEX quantity in contract_item rows with is_included = true, in contracts the character issued that month';
 
 COMMENT ON COLUMN "character_month_activity"."in_player_corporation" IS '/derived: corporation at last activity that month has is_npc = false';
 
@@ -486,7 +502,7 @@ COMMENT ON TABLE "plan_price" IS 'Price history [6][7].';
 
 COMMENT ON COLUMN "plan_price"."sale_price" IS 'when a sale was running';
 
-COMMENT ON TABLE "market_history_daily" IS 'Market history [3]. PLEX (type_id 44992) is the monetization signal for 2026.';
+COMMENT ON TABLE "market_history_daily" IS 'Market history [3], limited to the six real-money store items (PLEX etc.). PLEX (type_id 44992) is the monetization signal for 2026.';
 
 COMMENT ON COLUMN "market_history_daily"."average_price" IS 'ISK';
 
@@ -593,6 +609,10 @@ ALTER TABLE "contract" ADD FOREIGN KEY ("issued_date") REFERENCES "calendar_date
 ALTER TABLE "contract" ADD FOREIGN KEY ("region_id") REFERENCES "region" ("region_id") DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "contract" ADD FOREIGN KEY ("solar_system_id") REFERENCES "solar_system" ("solar_system_id") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "contract_item" ADD FOREIGN KEY ("contract_id") REFERENCES "contract" ("contract_id") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "contract_item" ADD FOREIGN KEY ("type_id") REFERENCES "item_type" ("type_id") DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "character_month_activity" ADD FOREIGN KEY ("character_id") REFERENCES "player_character" ("character_id") DEFERRABLE INITIALLY IMMEDIATE;
 
