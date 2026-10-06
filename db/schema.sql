@@ -184,7 +184,8 @@ CREATE TABLE "battle" (
   "end_time" timestamp NOT NULL,
   "battle_date" date NOT NULL,
   "killmails" int,
-  "pilots" int
+  "pilots" int NOT NULL,
+  "battle_class" varchar NOT NULL
 );
 
 CREATE TABLE "game_event" (
@@ -317,11 +318,13 @@ CREATE INDEX ON "killmail_participant" ("character_id", "killmail_id");
 
 COMMENT ON TABLE "calendar_date" IS 'Generated. The glue between per-player and company-level data.';
 
-COMMENT ON COLUMN "calendar_date"."month" IS 'first day of month, for cohorts and MAU';
+COMMENT ON COLUMN "calendar_date"."month" IS '/derived: first day of the month of date. Used for cohorts and MAU';
 
-COMMENT ON COLUMN "calendar_date"."quarter" IS 'e.g. 2025Q3, joins Pearl Abyss quarters';
+COMMENT ON COLUMN "calendar_date"."quarter" IS '/derived: year and quarter of date, e.g. 2025Q3. Joins Pearl Abyss quarters';
 
-COMMENT ON COLUMN "calendar_date"."after_sale" IS 'on or after 2026-05-01, when Pearl Abyss sold CCP';
+COMMENT ON COLUMN "calendar_date"."year" IS '/derived: year of date';
+
+COMMENT ON COLUMN "calendar_date"."after_sale" IS '/derived: date >= 2026-05-01, when Pearl Abyss sold CCP';
 
 COMMENT ON TABLE "region" IS 'SDE mapRegions [9].';
 
@@ -343,15 +346,15 @@ COMMENT ON TABLE "item_type" IS 'SDE types [9].';
 
 COMMENT ON COLUMN "item_type"."mean_isk_value" IS 'MER static_type_values [4]';
 
-COMMENT ON COLUMN "item_type"."alpha_can_fly" IS 'ships only: every required skill within the Alpha clone limits (SDE cloneGrades + typeDogma)';
+COMMENT ON COLUMN "item_type"."alpha_can_fly" IS '/derived: ships only. Every skill the ship requires (SDE typeDogma) is within the Alpha clone limits (SDE cloneGrades)';
 
 COMMENT ON TABLE "alliance" IS 'Character dump alliances.json [2].';
 
 COMMENT ON TABLE "corporation" IS 'Character dump corporations.json [2].';
 
-COMMENT ON COLUMN "corporation"."is_npc" IS 'corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)';
+COMMENT ON COLUMN "corporation"."is_npc" IS '/derived: corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)';
 
-COMMENT ON TABLE "player_character" IS 'Customer. Character dump [2] + ESI [2b]. Scope: characters in killmails or contracts.';
+COMMENT ON TABLE "player_character" IS 'Customer. Character dump [2] + ESI [2b]. Scope: characters active in killmails or contracts, Jan 2024 - Aug 2026 (889,560). Signup totals for everyone are in character_signup_month.';
 
 COMMENT ON COLUMN "player_character"."character_id" IS 'Customer. One account can own several characters.';
 
@@ -359,23 +362,29 @@ COMMENT ON COLUMN "player_character"."signup_date" IS 'birthday: dump if real (>
 
 COMMENT ON COLUMN "player_character"."signup_date_source" IS 'dump / esi / unknown';
 
-COMMENT ON COLUMN "player_character"."cohort_month" IS 'first day of signup month';
+COMMENT ON COLUMN "player_character"."cohort_month" IS '/derived: first day of the month of signup_date';
 
 COMMENT ON COLUMN "player_character"."corporation_id" IS 'current, at snapshot';
 
-COMMENT ON COLUMN "player_character"."is_deleted" IS 'dump deleted flag, ESI 404, or corporation = Doomheim (1000001)';
+COMMENT ON COLUMN "player_character"."is_deleted" IS '/derived: dump deleted flag OR ESI 404 OR corporation_id = 1000001 (Doomheim)';
 
-COMMENT ON COLUMN "player_character"."inferred_plan" IS 'omega (seen in a ship an Alpha cannot fly) / unknown. Never "alpha": absence proves nothing';
+COMMENT ON COLUMN "player_character"."inferred_plan" IS '/derived: omega if any killmail_participant row flies an item_type with alpha_can_fly = false, else unknown. Never alpha: absence proves nothing';
 
-COMMENT ON COLUMN "player_character"."first_omega_seen" IS 'first killmail in an Omega-only ship';
+COMMENT ON COLUMN "player_character"."first_omega_seen" IS '/derived: earliest kill_date in a ship with alpha_can_fly = false';
 
 COMMENT ON TABLE "character_signup_month" IS 'Exact signups for every character, seen or not, deleted or not [11]. Characters, not accounts.';
 
 COMMENT ON COLUMN "character_signup_month"."first_character_id" IS 'first character created that month';
 
-COMMENT ON COLUMN "character_signup_month"."characters_created" IS 'next month first ID minus this month first ID';
+COMMENT ON COLUMN "character_signup_month"."characters_created" IS '/derived: first_character_id of the next month minus first_character_id of this month';
 
 COMMENT ON TABLE "killmail" IS 'UsageEvent. One ship destroyed [1].';
+
+COMMENT ON COLUMN "killmail"."kill_date" IS '/derived: date part of killmail_time';
+
+COMMENT ON COLUMN "killmail"."battle_id" IS '/derived: battle the killmail falls in (system + hour cluster)';
+
+COMMENT ON COLUMN "killmail"."attacker_count" IS '/derived: count of attacker rows in killmail_participant';
 
 COMMENT ON TABLE "killmail_participant" IS 'Victim and attackers in one table, so "was this character active?" is one lookup [1].';
 
@@ -395,19 +404,35 @@ COMMENT ON TABLE "contract" IS 'Non-combat activity (traders, haulers). Daily sn
 
 COMMENT ON COLUMN "contract"."contract_type" IS 'item_exchange / auction / courier';
 
-COMMENT ON COLUMN "contract"."first_seen" IS 'first daily snapshot containing it';
+COMMENT ON COLUMN "contract"."issued_date" IS '/derived: date part of date_issued';
 
-COMMENT ON COLUMN "contract"."last_seen" IS 'last daily snapshot containing it';
+COMMENT ON COLUMN "contract"."first_seen" IS '/derived: earliest daily snapshot containing the contract';
 
-COMMENT ON TABLE "character_month_activity" IS 'Derived from killmail_participant and contract. Feeds DAU/MAU, cohort retention, churn, social glue.';
+COMMENT ON COLUMN "contract"."last_seen" IS '/derived: latest daily snapshot containing the contract';
 
-COMMENT ON COLUMN "character_month_activity"."active_days" IS 'days with a killmail or a contract';
+COMMENT ON TABLE "character_month_activity" IS '/derived table. From killmail_participant and contract. Feeds DAU/MAU, cohort retention, churn, social glue.';
 
-COMMENT ON COLUMN "character_month_activity"."in_player_corporation" IS 'last seen in a non-NPC corporation that month';
+COMMENT ON COLUMN "character_month_activity"."kills" IS '/derived: count of attacker rows that month';
 
-COMMENT ON TABLE "players_online_daily" IS 'Concurrent players, all activities, from 30-minute points [12].';
+COMMENT ON COLUMN "character_month_activity"."losses" IS '/derived: count of victim rows that month';
 
-COMMENT ON COLUMN "players_online_daily"."outage_minutes" IS 'minutes with no data or 0 players outside daily downtime: service-quality proxy';
+COMMENT ON COLUMN "character_month_activity"."contracts_issued" IS '/derived: count of contracts issued that month';
+
+COMMENT ON COLUMN "character_month_activity"."active_days" IS '/derived: distinct days with a killmail or contract';
+
+COMMENT ON COLUMN "character_month_activity"."flew_omega_ship" IS '/derived: any row that month in a ship with alpha_can_fly = false';
+
+COMMENT ON COLUMN "character_month_activity"."in_player_corporation" IS '/derived: corporation at last activity that month has is_npc = false';
+
+COMMENT ON TABLE "players_online_daily" IS '/derived table. Concurrent players, all activities, from 30-minute points [12].';
+
+COMMENT ON COLUMN "players_online_daily"."avg_players" IS '/derived: mean of the 30-minute points that day';
+
+COMMENT ON COLUMN "players_online_daily"."peak_players" IS '/derived: max of the 30-minute points that day';
+
+COMMENT ON COLUMN "players_online_daily"."min_players" IS '/derived: min of the 30-minute points that day';
+
+COMMENT ON COLUMN "players_online_daily"."outage_minutes" IS '/derived: 30-minute points with no data or 0 players outside daily downtime, x 30. Service-quality proxy';
 
 COMMENT ON TABLE "war" IS 'Latest daily snapshot of each war [16].';
 
@@ -415,9 +440,27 @@ COMMENT ON TABLE "sov_campaign" IS 'Territory fights. Hourly snapshots deduplica
 
 COMMENT ON COLUMN "sov_campaign"."event_type" IS 'e.g. tcu_defense, ihub_defense';
 
-COMMENT ON TABLE "battle" IS 'Derived: killmails clustered by system and time, above a size threshold [1].';
+COMMENT ON COLUMN "sov_campaign"."first_seen" IS '/derived: earliest hourly snapshot containing the campaign';
 
-COMMENT ON COLUMN "battle"."pilots" IS 'distinct characters involved';
+COMMENT ON COLUMN "sov_campaign"."last_seen" IS '/derived: latest hourly snapshot containing the campaign';
+
+COMMENT ON COLUMN "sov_campaign"."final_attackers_score" IS '/derived: attackers_score in the latest snapshot';
+
+COMMENT ON COLUMN "sov_campaign"."final_defender_score" IS '/derived: defender_score in the latest snapshot';
+
+COMMENT ON TABLE "battle" IS '/derived table. Killmails in the same system within an hour with 50+ distinct pilots [1].';
+
+COMMENT ON COLUMN "battle"."start_time" IS '/derived: first killmail in the cluster';
+
+COMMENT ON COLUMN "battle"."end_time" IS '/derived: last killmail in the cluster';
+
+COMMENT ON COLUMN "battle"."battle_date" IS '/derived: date part of start_time';
+
+COMMENT ON COLUMN "battle"."killmails" IS '/derived: count of killmails in the cluster';
+
+COMMENT ON COLUMN "battle"."pilots" IS '/derived: distinct character_id among the participants';
+
+COMMENT ON COLUMN "battle"."battle_class" IS '/derived: skirmish if pilots 50-99, war if 100+. Size of a fight, not the official war declarations in the war table';
 
 COMMENT ON TABLE "game_event" IS 'Timeline: patch notes and SDE builds [22], news [15], EVE University list [22], lore events [23].';
 
@@ -481,15 +524,25 @@ COMMENT ON TABLE "steam_review" IS 'SurveyResponse proxy. Steam appreviews API, 
 
 COMMENT ON COLUMN "steam_review"."steam_author_id" IS 'Steam account, NOT linkable to a character';
 
+COMMENT ON COLUMN "steam_review"."created_date" IS '/derived: date of timestamp_created (unix)';
+
 COMMENT ON COLUMN "steam_review"."voted_up" IS 'recommend yes / no: the NPS proxy';
 
+COMMENT ON COLUMN "steam_review"."playtime_at_review_hours" IS '/derived: playtime_at_review (minutes) / 60';
+
 COMMENT ON TABLE "forum_topic" IS 'Official forums [18].';
+
+COMMENT ON COLUMN "forum_topic"."created_date" IS '/derived: date part of created_at';
 
 COMMENT ON COLUMN "forum_topic"."matched_query" IS 'search query that found it (title must also be on topic)';
 
 COMMENT ON TABLE "forum_post" IS 'Official forums [18]. Feeds sentiment around price changes and the sale.';
 
-COMMENT ON COLUMN "forum_post"."author_hash" IS 'hashed forum username: counts distinct posters without storing names';
+COMMENT ON COLUMN "forum_post"."created_date" IS '/derived: date part of created_at';
+
+COMMENT ON COLUMN "forum_post"."author_hash" IS '/derived: SHA-256 of the forum username. Counts distinct posters without storing names';
+
+COMMENT ON COLUMN "forum_post"."post_text" IS '/derived: post HTML (cooked) with tags stripped';
 
 COMMENT ON TABLE "benchmark_metric" IS 'Published MMO figures and figures computed from the WoWAH dataset [19]: the sanity check.';
 

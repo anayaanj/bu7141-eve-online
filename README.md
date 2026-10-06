@@ -12,6 +12,7 @@ data/raw/sources.csv      log of every downloaded file: URL, date, size, sha256
 data/raw/financials/      CCP and Pearl Abyss reports (committed: hard to re-fetch)
 data/raw/<everything else> not in git (6.4 GB): re-create with the script
 docs/erd.dbml             the ERD (source of truth for the diagram and the database)
+docs/erd_design.md        how the ERD was normalized (1NF-3NF) and which fields are derived
 db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/gen_schema.sh
 compose.yaml              local PostgreSQL in Docker
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
