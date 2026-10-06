@@ -33,6 +33,7 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 
 - Main chart: retention curves (k = 0–12) for "Neither", "Joined a corp and got a kill", "Fought in a war", with World of Warcraft as a reference line.
 - **It holds after a year:** at month 12 the advantage over "Neither" (5.0%) is 2.4× for corp + kill (12.1%) and 3.2× for war veterans (16.1%; 10,210 players with a full year of follow-up).
+- **It's belonging, not combat.** Non-combatants (contracts only, no killmails) stay at 12.1% at month 3, the same as players who only got killed (12.2%) and about half the rate of players who fought back (22.6%). Within every group, a player corporation adds ~60%: non-combatants 9.9% → 15.4%, victims 9.0% → 15.0%, kill-getters 15.4% → 24.2%. A non-combatant in a corp stays exactly as often as a fighter with a kill but no corp (15.4%). (Caveat: free accounts can only use contracts in a limited way, per CCP's store.)
 - **The effect happens early:** of players still active at month 3, about half are still active at month 12 in every segment (50–59%). Belonging gets new players over the first hump; after that, every group fades at a similar pace.
 - Line: *"The best way to recruit people is by shooting them."* (an early mercenary leader, Down the Rabbit Hole, 00:44:55)
 

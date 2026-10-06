@@ -59,7 +59,16 @@ UNION ALL SELECT character_id, first_month, CASE first_month_battle WHEN 'war' T
                                                                    WHEN 'skirmish' THEN 'Fought in a skirmish (50-99)'
                                                                    ELSE 'No battle' END FROM analysis.new_player
 UNION ALL SELECT character_id, first_month, CASE WHEN lost_ship THEN 'Lost a ship' ELSE 'Did not lose a ship' END FROM analysis.new_player
-UNION ALL SELECT character_id, first_month, CASE WHEN flew_omega THEN 'Flew an Omega-only ship' ELSE 'No Omega-only ship' END FROM analysis.new_player;
+UNION ALL SELECT character_id, first_month, CASE WHEN flew_omega THEN 'Flew an Omega-only ship' ELSE 'No Omega-only ship' END FROM analysis.new_player
+UNION ALL SELECT character_id, first_month,
+       CASE WHEN traded AND NOT (got_kill OR lost_ship) THEN 'Non-combatant (contracts only)'
+            WHEN traded THEN 'Traded and fought'
+            WHEN got_kill THEN 'Combat, got a kill'
+            ELSE 'Combat, victim only' END FROM analysis.new_player
+UNION ALL SELECT character_id, first_month,
+       CASE WHEN traded AND NOT (got_kill OR lost_ship) THEN 'Non-combatant'
+            WHEN got_kill THEN 'Got a kill' ELSE 'Victim only' END
+       || CASE WHEN joined_corp THEN ', in a corp' ELSE ', no corp' END FROM analysis.new_player;
 
 -- Retention by segment and month k, censored: a cohort only counts for k if first_month + k <= 2026-08-01
 CREATE VIEW analysis.retention_by_segment AS
