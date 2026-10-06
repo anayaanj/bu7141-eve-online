@@ -2,6 +2,7 @@
 
 Phase 1 (core): dimensions, wars, killmails, placeholders, contracts, characters, activity.
 Phase 2: sources, market, players_online, sov_campaigns, steam, forums, fx, economy, interest, game_events.
+Phase 3: curated (financial figures, plan prices, benchmarks from data/reference/).
 Usage: python3 scripts/transform.py <step>|all
 Steps run in that order; later steps read the work files of earlier ones (data/clean/_work/).
 """
@@ -755,10 +756,45 @@ def game_events():
     print(f"game_events: {n:,}")
 
 
+# ───────────────────────── Phase 3: curated reference data ─────────────────────────
+
+def curated():
+    """financial_metric, plan, plan_price and benchmark_metric from the hand-curated files in data/reference/
+    (each row cites its raw file; the CSVs also keep the page number)."""
+    ref = ROOT / "data" / "reference"
+    f, w = out("financial_metric", ["metric_id", "period_start", "period_end", "granularity", "entity", "metric",
+                                    "geography", "amount", "currency", "source_id"])
+    for i, r in enumerate(csv.DictReader(open(ref / "financial_metrics.csv")), 1):
+        w.writerow([i, r["period_start"], r["period_end"], r["granularity"], r["entity"], r["metric"],
+                    r["geography"] or None, r["amount"], r["currency"], source_id(RAW / r["source_file"])])
+    f.close()
+
+    prices = list(csv.DictReader(open(ref / "plan_prices.csv")))
+    plan_ids = {}
+    f, w = out("plan", ["plan_id", "plan_name", "product_type", "billing_cycle_months"])
+    for r in prices:
+        if r["plan_name"] not in plan_ids:
+            plan_ids[r["plan_name"]] = len(plan_ids) + 1
+            w.writerow([plan_ids[r["plan_name"]], r["plan_name"], r["product_type"], r["billing_cycle_months"] or None])
+    f.close()
+    f, w = out("plan_price", ["plan_id", "effective_date", "currency", "list_price", "sale_price", "source_id"])
+    for r in prices:
+        w.writerow([plan_ids[r["plan_name"]], r["effective_date"], r["currency"], r["list_price"], r["sale_price"] or None,
+                    source_id(RAW / r["source_file"])])
+    f.close()
+
+    f, w = out("benchmark_metric", ["benchmark_id", "game", "metric", "value", "unit", "period", "source_id"])
+    for i, r in enumerate(csv.DictReader(open(ref / "benchmarks.csv")), 1):
+        w.writerow([i, r["game"], r["metric"], r["value"], r["unit"], r["period"], source_id(RAW / r["source_file"])])
+    f.close()
+    print(f"curated: {i} benchmarks, {len(plan_ids)} plans, {len(prices)} prices")
+
+
 STEPS = {"dimensions": dimensions, "wars": wars, "killmails": killmails, "placeholders": placeholders,
          "contracts": contracts, "characters": characters, "activity": activity,
          "sources": sources, "market": market, "players_online": players_online, "sov_campaigns": sov_campaigns,
-         "steam": steam, "forums": forums, "fx": fx, "economy": economy, "interest": interest, "game_events": game_events}
+         "steam": steam, "forums": forums, "fx": fx, "economy": economy, "interest": interest, "game_events": game_events,
+         "curated": curated}
 
 if __name__ == "__main__":
     for step in (STEPS if sys.argv[1] == "all" else [sys.argv[1]]):

@@ -1,0 +1,88 @@
+period_start,period_end,granularity,entity,metric,geography,amount,currency,source_file,page
+2025-01-01,2025-12-31,year,CCP ehf.,total_revenue,,70285351,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,game_revenue,,64908597,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,other_revenue,,5376754,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,marketing_expense,,16084264,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,research_and_development_expense,,58194840,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,operating_result,,-26580500,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,net_result,,-13975685,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,total_revenue,,70378418,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,game_revenue,,60117362,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,other_revenue,,10261056,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,marketing_expense,,11407643,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,research_and_development_expense,,54733158,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,operating_result,,-14125848,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2024-01-01,2024-12-31,year,CCP ehf.,net_result,,-2860920,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,total_revenue,,73221941,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,game_revenue,,55734716,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,other_revenue,,17487225,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,marketing_expense,,11494984,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,research_and_development_expense,,52057571,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,operating_result,,-5711833,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2023-01-01,2023-12-31,year,CCP ehf.,net_result,,5621429,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,total_revenue,,68599966,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,game_revenue,,55914671,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,other_revenue,,12685295,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,marketing_expense,,11586813,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,research_and_development_expense,,41930479,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,operating_result,,-2677471,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2022-01-01,2022-12-31,year,CCP ehf.,net_result,,-205398,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,8
+2025-01-01,2025-12-31,year,CCP ehf.,subscription_and_ingame_revenue,,60834597,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2025-01-01,2025-12-31,year,CCP ehf.,royalties_and_licenses_revenue,,4074000,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2025-01-01,2025-12-31,year,CCP ehf.,goods_revenue,,376453,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2025-01-01,2025-12-31,year,CCP ehf.,services_revenue_related_party,,5000301,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,subscription_and_ingame_revenue,,55016700,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,royalties_and_licenses_revenue,,5100662,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,goods_revenue,,74035,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,services_revenue_related_party,,10187021,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2023-01-01,2023-12-31,year,CCP ehf.,subscription_and_ingame_revenue,,48713062,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2023-01-01,2023-12-31,year,CCP ehf.,royalties_and_licenses_revenue,,7021654,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2023-01-01,2023-12-31,year,CCP ehf.,goods_revenue,,240318,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2023-01-01,2023-12-31,year,CCP ehf.,services_revenue_related_party,,17246907,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,subscription_and_ingame_revenue,,47121868,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,royalties_and_licenses_revenue,,8792803,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,goods_revenue,,138681,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,services_revenue_related_party,,12546614,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2025-01-01,2025-12-31,year,CCP ehf.,external_revenue,North America,36573534,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2025-01-01,2025-12-31,year,CCP ehf.,external_revenue,Europe,18790071,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2025-01-01,2025-12-31,year,CCP ehf.,external_revenue,Asia,7417569,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2025-01-01,2025-12-31,year,CCP ehf.,external_revenue,Other regions,2503876,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,external_revenue,North America,31331715,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,external_revenue,Europe,16955462,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,external_revenue,Asia,9259336,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2024-01-01,2024-12-31,year,CCP ehf.,external_revenue,Other regions,2644884,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,20
+2023-01-01,2023-12-31,year,CCP ehf.,external_revenue,North America,29053578,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2023-01-01,2023-12-31,year,CCP ehf.,external_revenue,Europe,14761557,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2023-01-01,2023-12-31,year,CCP ehf.,external_revenue,Asia,9814914,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2023-01-01,2023-12-31,year,CCP ehf.,external_revenue,Other regions,2344985,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,external_revenue,North America,28771174,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,external_revenue,Europe,14054150,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,external_revenue,Asia,11092771,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2022-01-01,2022-12-31,year,CCP ehf.,external_revenue,Other regions,2135257,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,19
+2025-12-31,2025-12-31,balance,CCP ehf.,deferred_subscriptions,,5305675,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,29
+2025-12-31,2025-12-31,balance,CCP ehf.,deferred_ingame_purchases,,6567735,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,29
+2024-12-31,2024-12-31,balance,CCP ehf.,deferred_subscriptions,,3471289,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,29
+2024-12-31,2024-12-31,balance,CCP ehf.,deferred_ingame_purchases,,5436015,USD,financials/ccp/4506973469_CCP_ehf._ars_2025.pdf,29
+2023-12-31,2023-12-31,balance,CCP ehf.,deferred_subscriptions,,3413457,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,28
+2023-12-31,2023-12-31,balance,CCP ehf.,deferred_ingame_purchases,,5049795,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,28
+2022-12-31,2022-12-31,balance,CCP ehf.,deferred_subscriptions,,3090584,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,28
+2022-12-31,2022-12-31,balance,CCP ehf.,deferred_ingame_purchases,,3569754,USD,financials/ccp/4506973469_CCP_ehf._ars_2023.pdf,28
+2022-10-01,2022-12-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,17300000000,KRW,financials/pearl_abyss/performance/13633_2023.4Q Earnings Release_v 5 (0214)_Final.pdf,6
+2023-01-01,2023-03-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,16900000000,KRW,financials/pearl_abyss/performance/13633_2023.4Q Earnings Release_v 5 (0214)_Final.pdf,6
+2023-04-01,2023-06-30,quarter,Pearl Abyss (EVE IP),eve_revenue,,20200000000,KRW,financials/pearl_abyss/performance/13633_2023.4Q Earnings Release_v 5 (0214)_Final.pdf,6
+2023-07-01,2023-09-30,quarter,Pearl Abyss (EVE IP),eve_revenue,,16000000000,KRW,financials/pearl_abyss/performance/13633_2023.4Q Earnings Release_v 5 (0214)_Final.pdf,6
+2023-10-01,2023-12-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,19900000000,KRW,financials/pearl_abyss/performance/13633_2023.4Q Earnings Release_v 5 (0214)_Final.pdf,6
+2024-01-01,2024-03-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,18000000000,KRW,financials/pearl_abyss/performance/14008_2024.3Q Earnings Release_final.pdf,6
+2024-04-01,2024-06-30,quarter,Pearl Abyss (EVE IP),eve_revenue,,21600000000,KRW,financials/pearl_abyss/performance/14008_2024.3Q Earnings Release_final.pdf,6
+2024-07-01,2024-09-30,quarter,Pearl Abyss (EVE IP),eve_revenue,,20500000000,KRW,financials/pearl_abyss/performance/14008_2024.3Q Earnings Release_final.pdf,6
+2024-10-01,2024-12-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,22000000000,KRW,financials/pearl_abyss/performance/14624_2025.4Q Earnings Release_Final.pdf,6
+2025-01-01,2025-03-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,20500000000,KRW,financials/pearl_abyss/performance/14624_2025.4Q Earnings Release_Final.pdf,6
+2025-04-01,2025-06-30,quarter,Pearl Abyss (EVE IP),eve_revenue,,24200000000,KRW,financials/pearl_abyss/performance/14624_2025.4Q Earnings Release_Final.pdf,6
+2025-07-01,2025-09-30,quarter,Pearl Abyss (EVE IP),eve_revenue,,20800000000,KRW,financials/pearl_abyss/performance/14624_2025.4Q Earnings Release_Final.pdf,6
+2025-10-01,2025-12-31,quarter,Pearl Abyss (EVE IP),eve_revenue,,27300000000,KRW,financials/pearl_abyss/performance/14624_2025.4Q Earnings Release_Final.pdf,6
+2025-01-01,2025-03-31,quarter,Pearl Abyss (EVE IP),ccp_net_result_discontinued,,-7168000000,KRW,financials/pearl_abyss/performance/14789_1Q26 Earnings Letter_Eng..pdf,7
+2025-04-01,2025-06-30,quarter,Pearl Abyss (EVE IP),ccp_net_result_discontinued,,-7183000000,KRW,financials/pearl_abyss/performance/14789_1Q26 Earnings Letter_Eng..pdf,7
+2025-07-01,2025-09-30,quarter,Pearl Abyss (EVE IP),ccp_net_result_discontinued,,-8303000000,KRW,financials/pearl_abyss/performance/14789_1Q26 Earnings Letter_Eng..pdf,7
+2025-10-01,2025-12-31,quarter,Pearl Abyss (EVE IP),ccp_net_result_discontinued,,-11032000000,KRW,financials/pearl_abyss/performance/14789_1Q26 Earnings Letter_Eng..pdf,7
+2026-01-01,2026-03-31,quarter,Pearl Abyss (EVE IP),ccp_net_result_discontinued,,-12079000000,KRW,financials/pearl_abyss/performance/14789_1Q26 Earnings Letter_Eng..pdf,7
+2026-04-01,2026-06-30,quarter,Pearl Abyss (EVE IP),ccp_net_result_discontinued,,28659000000,KRW,financials/pearl_abyss/performance/15177_2Q26 Earnings Letter_Eng..pdf,8

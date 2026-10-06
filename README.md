@@ -104,7 +104,7 @@ python3 scripts/transform.py all   # raw files -> data/clean/*.csv.gz, one per t
 ./scripts/load.sh                  # CSVs -> PostgreSQL, then adds every foreign key (~30 min)
 ```
 
-`transform.py` steps can also run one at a time (`dimensions`, `wars`, `killmails`, `placeholders`, `contracts`, `characters`, `activity`). Phase 1 loads the core tables (characters, killmails, contracts, activity, battles); the other tables are still empty.
+`transform.py` steps can also run one at a time (`python3 scripts/transform.py <step>`; the list is at the top of the script). Every table is loaded: Phase 1 core tables, Phase 2 market/engagement/satisfaction/events, and Phase 3 curated figures from `data/reference/`.
 
 ## Get the raw data
 

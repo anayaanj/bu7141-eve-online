@@ -12,7 +12,7 @@ PSQL="docker compose exec -T db psql -v ON_ERROR_STOP=1 -q -U eve -d eve"
 TABLES="source_document calendar_date region constellation solar_system item_category item_group item_type
 alliance corporation player_character character_signup_month war battle contract contract_item character_month_activity
 players_online_daily sov_campaign game_event market_history_daily fx_rate economy_daily interest_metric
-steam_review forum_topic forum_post"
+steam_review forum_topic forum_post plan plan_price financial_metric benchmark_metric"
 
 echo "== Rebuilding schema (tables only)"
 echo "DROP SCHEMA public CASCADE; CREATE SCHEMA public;" | $PSQL

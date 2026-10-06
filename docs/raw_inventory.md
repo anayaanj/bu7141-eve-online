@@ -180,6 +180,13 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Licence:** someone else's work. Kept out of git; cite it, don't redistribute it.
 - **Derived:** `data/reference/lore_events.csv` (committed): 40 dated lore events (founding, PLEX, Monoclegate, big battles, casino ban, Pearl Abyss acquisition, Prospector Pack) with the video timestamp for each. Verify against primary sources before quoting a figure.
 
+## 24. Curated reference data — `data/reference/` (committed)
+Hand-entered from the raw files; every row names its source file (and page, where it is a PDF).
+- `financial_metrics.csv`: 87 figures. CCP ehf. 2022–2025 (income statement p8; Note 4 revenue by type and region p19–20; Note 17 deferred revenue p28–29, in USD) and Pearl Abyss quarterly EVE revenue 4Q22–4Q25 ("Revenue by Core IP" chart, p6 of the 4Q23, 3Q24 and 4Q25 releases, KRW) plus CCP's quarterly net result as a discontinued operation 1Q25–2Q26 (1Q26 letter p7, 2Q26 letter p8). Totals reconcile (revenue by type and by region add up for every year). **Cross-check:** Pearl Abyss's EVE revenue converted at the quarterly KRW/USD average matches CCP's audited game revenue within 0.5% (2023: $55.8M vs $55.7M; 2024: $60.2M vs $60.1M; 2025: $65.2M vs $64.9M).
+- `plan_prices.csv`: 68 price observations for 15 plans (Omega 1/3/6/12/24 months, PLEX packs) from the store snapshots [6] and the 2025-07-25 Omega restructure article [15], which lists old and new prices (e.g. 12 months $149.90 → $144 + 1,000 PLEX).
+- `benchmarks.csv`: 10 figures. WoWAH monthly cohort retention computed with our definition (`scripts/wowah_retention.py`: month 1 28.2%, month 3 15.6%, month 12 8.2%), Lee et al. 2011 p3 (60% subscribed > 1 year), Khan 2020 p13 (survival), Lee et al. 2019 p3 (AION event logins +44%).
+- `lore_events.csv`, `key_events.csv`: see sections 22–23.
+
 ## How the sources join
 - `killmail.victim/attackers.character_id` → `characters.character_id` (Customer)
 - `contracts.issuer_id` → `characters.character_id` (non-combat activity)
