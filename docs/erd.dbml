@@ -225,8 +225,9 @@ Table battle {
   end_time timestamp [not null]
   battle_date date [not null, ref: > calendar_date.date]
   killmails int
-  pilots int [note: 'distinct characters involved']
-  Note: 'Derived: killmails clustered by system and time, above a size threshold [1].'
+  pilots int [not null, note: 'distinct characters involved']
+  battle_class varchar [not null, note: 'skirmish (50-99 pilots) / war (100+ pilots). Size of a fight, not the official war declarations in the war table']
+  Note: 'Derived: killmails in the same system within an hour with 50+ distinct pilots [1].'
 }
 
 Table game_event {

@@ -184,7 +184,8 @@ CREATE TABLE "battle" (
   "end_time" timestamp NOT NULL,
   "battle_date" date NOT NULL,
   "killmails" int,
-  "pilots" int
+  "pilots" int NOT NULL,
+  "battle_class" varchar NOT NULL
 );
 
 CREATE TABLE "game_event" (
@@ -415,9 +416,11 @@ COMMENT ON TABLE "sov_campaign" IS 'Territory fights. Hourly snapshots deduplica
 
 COMMENT ON COLUMN "sov_campaign"."event_type" IS 'e.g. tcu_defense, ihub_defense';
 
-COMMENT ON TABLE "battle" IS 'Derived: killmails clustered by system and time, above a size threshold [1].';
+COMMENT ON TABLE "battle" IS 'Derived: killmails in the same system within an hour with 50+ distinct pilots [1].';
 
 COMMENT ON COLUMN "battle"."pilots" IS 'distinct characters involved';
+
+COMMENT ON COLUMN "battle"."battle_class" IS 'skirmish (50-99 pilots) / war (100+ pilots). Size of a fight, not the official war declarations in the war table';
 
 COMMENT ON TABLE "game_event" IS 'Timeline: patch notes and SDE builds [22], news [15], EVE University list [22], lore events [23].';
 
