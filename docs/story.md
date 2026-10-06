@@ -34,6 +34,7 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 - Main chart: retention curves (k = 0–12) for "Neither", "Joined a corp and got a kill", "Fought in a war", with World of Warcraft as a reference line.
 - **It holds after a year:** at month 12 the advantage over "Neither" (5.0%) is 2.4× for corp + kill (12.1%) and 3.2× for war veterans (16.1%; 10,210 players with a full year of follow-up).
 - **It's belonging, not combat.** Non-combatants (contracts only, no killmails) stay at 12.1% at month 3, the same as players who only got killed (12.2%) and about half the rate of players who fought back (22.6%). Within every group, a player corporation adds ~60%: non-combatants 9.9% → 15.4%, victims 9.0% → 15.0%, kill-getters 15.4% → 24.2%. A non-combatant in a corp stays exactly as often as a fighter with a kill but no corp (15.4%). (Caveat: free accounts can only use contracts in a limited way, per CCP's store.)
+- **Mid-sized corporations work best** (`retention_by_segment.csv`, "Corp size" segments). Still active at month 3 / month 12: NPC starter corp 9.6% / 5.4%, 2–10 members 11.1% / 5.6%, 11–50 17.3% / 9.2%, 51–200 20.8% / 11.4%, **201–1,000 22.8% / 13.9%**, 1,000+ 18.3% / 10.6%. A tiny corporation is barely better than none; the biggest are worse than mid-sized ones.
 - **The effect happens early:** of players still active at month 3, about half are still active at month 12 in every segment (50–59%). Belonging gets new players over the first hump; after that, every group fades at a similar pace.
 - Line: *"The best way to recruit people is by shooting them."* (an early mercenary leader, Down the Rabbit Hole, 00:44:55)
 
@@ -42,6 +43,7 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 - **Equinox (June 2024): 115,029 signups, the biggest month, and the lowest 3-month retention of 2024 (12.7%).** Revenant and Legion: average retention.
 - Twitch, Google Trends and Steam players (`signals_monthly.csv`) rise around launches, which is attention, not loyalty.
 - View: signups (bars) with 3-month retention (line) and event markers (`events.csv`).
+- **Returners are the exception** (`returners_monthly.csv`: active again after 3+ inactive months). Catalyst (Nov 2025) brought back **23,311** lapsed players, 17.2% of everyone active that month, the highest of the window (the rise started in October). Revenant (10.3%), Legion (12.1%) and Cradle of War (13.3%) barely moved it. The returner share grew from ~10% of active players (late 2024) to 12–15% (2026). Expansions can win back old players; they don't make new ones stay.
 
 ### 4. What it's worth: fewer arrive, more stay, more revenue
 - After the July 2025 Omega restructure (cheaper long plans plus free PLEX, `omega_prices.csv`), signups fell but **3-month retention of new cohorts rose from 14.0% (2024 cohorts) to 16.2% (Jul 2025 – May 2026 cohorts)**, about 16% higher (monthly range 12.7–15.5% vs 14.0–18.3%).
@@ -50,10 +52,11 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 - EVE revenue by quarter from Pearl Abyss, converted to USD (`revenue_quarterly.csv`), matches CCP's audited game revenue within 0.5% for 2023–2025.
 - PLEX fell from ~6.2M ISK (Q2 2025) to ~4.5M after PLEX moved to a single global market in July 2025 (`plex_monthly.csv`).
 - Players who flew an Omega-only (paid) ship in their first month: **26.2%** active at month 3 vs 13.0%.
+- **Belonging also turns players into payers** (`conversion_by_segment.csv`: first seen in an Omega-only ship within 12 months, cohorts Jan 2024 – Aug 2025). Joined a corp and got a kill: **35.2%**; corporation of 201–1,000 members: **44.2%**; player territory in null-sec: 44.5%; all new players: 25.2%; NPC starter corp: **15.3%**; neither: 13.7%. Most conversions happen in the first month (13.5% of all new players). So belonging drives both KPIs at once: retention and monetization.
 
 ### 5. So what
-- **Recommendation:** for a subscription game, onboarding new players into groups is worth more than launch spikes. Corporation recruitment, beginner fleets and first fights in week one roughly double retention.
-- **Open question:** Pearl Abyss sold CCP (completed 6 May 2026). Signups rose (85K in May, 90K in June), Twitch peaked, and Cradle of War launched in June. Will the new owners lean into the Friendship Machine?
+- **Recommendation:** for a subscription game, onboarding new players into groups is worth more than launch spikes. Route new players out of the NPC starter corp into **mid-sized player corporations (50–1,000 members)**, with beginner fleets and a first fight in the first month. Those players stay about twice as often and convert to paying about 2.5× as often. Use expansions to win back lapsed players.
+- **Open question:** Pearl Abyss sold CCP (completed 6 May 2026). Three months before vs after (`sale_before_after.csv`): signups up 13% (76K → 86K a month), but active characters (126K → 121K), returners (16.2K → 15.9K), players online (24.8K → 24.3K) and the PLEX price (4.47M → 4.58M ISK) barely moved, and Steam positive reviews fell from 69.6% to 65.0%. Cradle of War launched in June, so the two can't be separated yet. More people are trying EVE; the question is whether the new owners lean into the Friendship Machine so they stay.
 
 ## Satisfaction (supporting, not a claim)
 - Steam reviews stay at 63–74% positive; the restructure quarter (Q3 2025) was 65.6%, then 71.8–71.9%. New players (under 50 h) are 5–8 points less positive.
@@ -64,6 +67,8 @@ Share still active 3 months after their first month (`retention_by_segment.csv`)
 - **Correlation, not causation.** Players who join corps may be more committed to begin with.
 - **We see the 13% who are visible** (killmails and contracts). Miners and market-only traders stay invisible, so retention is a lower bound.
 - **Characters, not accounts.** One account can hold several characters.
+- **Corporation size is today's member count**, not the size when the player joined.
+- **Paying is inferred** from flying an Omega-only ship in a killmail; Omega players who never fly one, or never appear in a killmail, are missed.
 - **The latest cohorts are censored:** retention at month k only counts cohorts with k months of follow-up.
 
 ## Dashboard rules

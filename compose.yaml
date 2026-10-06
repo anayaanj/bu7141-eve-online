@@ -5,6 +5,7 @@ name: bu7141-eve
 services:
   db:
     image: postgres:18
+    shm_size: 1g              # parallel queries need more than Docker's 64 MB default
     environment:
       POSTGRES_DB: eve
       POSTGRES_USER: eve

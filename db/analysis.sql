@@ -39,6 +39,38 @@ LEFT JOIN battles bt ON bt.character_id = f.character_id;
 
 ALTER TABLE analysis.new_player ADD PRIMARY KEY (character_id);
 
+-- First-month context from killmails: corporation size, main area, and the month of the first Omega-only ship
+CREATE TABLE analysis.new_player_context AS
+WITH fm AS (
+  SELECT n.character_id, p.corporation_id, k.killmail_time, s.security_band
+  FROM analysis.new_player n
+  JOIN killmail_participant p ON p.character_id = n.character_id
+  JOIN killmail k ON k.killmail_id = p.killmail_id
+   AND k.kill_date >= n.first_month AND k.kill_date < n.first_month + interval '1 month'
+  JOIN solar_system s ON s.solar_system_id = k.solar_system_id
+),
+last_corp AS (  -- corporation on the last killmail of the first month
+  SELECT DISTINCT ON (character_id) character_id, corporation_id FROM fm ORDER BY character_id, killmail_time DESC
+),
+area AS (SELECT character_id, mode() WITHIN GROUP (ORDER BY security_band) AS main_area FROM fm GROUP BY 1)
+SELECT n.character_id,
+       CASE WHEN lc.character_id IS NULL THEN NULL      -- contracts only: no killmail to read the corporation from
+            WHEN c.is_npc THEN 'NPC starter corp'
+            WHEN c.member_count <= 10 THEN '2-10 members'
+            WHEN c.member_count <= 50 THEN '11-50 members'
+            WHEN c.member_count <= 200 THEN '51-200 members'
+            WHEN c.member_count <= 1000 THEN '201-1,000 members'
+            WHEN c.member_count > 1000 THEN '1,000+ members' END AS first_corp_size,  -- member_count is today's, not at joining
+       ar.main_area,
+       date_trunc('month', pc.first_omega_seen)::date AS first_omega_month
+FROM analysis.new_player n
+JOIN player_character pc USING (character_id)
+LEFT JOIN last_corp lc USING (character_id)
+LEFT JOIN corporation c ON c.corporation_id = lc.corporation_id
+LEFT JOIN area ar USING (character_id);
+
+ALTER TABLE analysis.new_player_context ADD PRIMARY KEY (character_id);
+
 -- Months since first month in which each new player was active (k = 0..32)
 CREATE TABLE analysis.new_player_activity AS
 SELECT n.character_id, n.first_month,
@@ -68,7 +100,9 @@ UNION ALL SELECT character_id, first_month,
 UNION ALL SELECT character_id, first_month,
        CASE WHEN traded AND NOT (got_kill OR lost_ship) THEN 'Non-combatant'
             WHEN got_kill THEN 'Got a kill' ELSE 'Victim only' END
-       || CASE WHEN joined_corp THEN ', in a corp' ELSE ', no corp' END FROM analysis.new_player;
+       || CASE WHEN joined_corp THEN ', in a corp' ELSE ', no corp' END FROM analysis.new_player
+UNION ALL SELECT character_id, first_month, 'Corp size: ' || first_corp_size
+          FROM analysis.new_player JOIN analysis.new_player_context USING (character_id) WHERE first_corp_size IS NOT NULL;
 
 -- Retention by segment and month k, censored: a cohort only counts for k if first_month + k <= 2026-08-01
 CREATE VIEW analysis.retention_by_segment AS
@@ -81,3 +115,33 @@ CROSS JOIN generate_series(0, 12) AS k(k)
 LEFT JOIN analysis.new_player_activity act ON act.character_id = s.character_id AND act.k = k.k
 WHERE s.first_month + make_interval(months => k.k) <= date '2026-08-01'
 GROUP BY s.segment, k.k;
+
+-- Payer conversion: share of new players seen in an Omega-only (paid) ship by their first month and within 12 months.
+-- Only cohorts with 12 months of follow-up (first month <= 2025-08-01).
+CREATE VIEW analysis.conversion_by_segment AS
+WITH seg AS (
+  SELECT s.segment, s.first_month, x.first_omega_month
+  FROM analysis.new_player_segment s JOIN analysis.new_player_context x USING (character_id)
+  UNION ALL
+  SELECT 'Area: ' || x.main_area, n.first_month, x.first_omega_month
+  FROM analysis.new_player n JOIN analysis.new_player_context x USING (character_id)
+  WHERE x.main_area IN ('High Sec', 'Low Sec', 'Null Sec (Sov)', 'Null Sec (NPC)', 'Wormhole')
+)
+SELECT segment, count(*) AS players,
+       round(avg(coalesce(first_omega_month <= first_month, false)::int), 4) AS converted_month_1,
+       round(avg(coalesce(first_omega_month <= first_month + interval '12 month', false)::int), 4) AS converted_within_12_months
+FROM seg WHERE first_month <= date '2025-08-01'
+GROUP BY segment;
+
+-- Returners: characters active in a month after 3+ inactive months, having been active earlier in the window.
+-- Counts before ~Oct 2024 are low because the window starts in Jan 2024 (not enough history to spot a return).
+CREATE TABLE analysis.returners_monthly AS
+WITH a AS (
+  SELECT month, lag(month) OVER (PARTITION BY character_id ORDER BY month) AS previous_month
+  FROM character_month_activity
+)
+SELECT month,
+       count(*) FILTER (WHERE previous_month <= month - interval '4 month') AS returners,
+       count(*) AS active,
+       round(count(*) FILTER (WHERE previous_month <= month - interval '4 month')::numeric / count(*), 4) AS returner_share
+FROM a WHERE month >= date '2024-05-01' GROUP BY month;
