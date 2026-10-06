@@ -362,7 +362,7 @@ COMMENT ON COLUMN "player_character"."signup_date" IS 'birthday: dump if real (>
 
 COMMENT ON COLUMN "player_character"."signup_date_source" IS 'dump / esi / unknown';
 
-COMMENT ON COLUMN "player_character"."cohort_month" IS '/derived: first day of the month of signup_date';
+COMMENT ON COLUMN "player_character"."cohort_month" IS '/derived: signup month. Exact from character_signup_month ID ranges for characters created from 2024; first day of the month of signup_date for older ones';
 
 COMMENT ON COLUMN "player_character"."corporation_id" IS 'current, at snapshot';
 

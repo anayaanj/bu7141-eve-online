@@ -15,6 +15,8 @@ docs/erd.dbml             the ERD (source of truth for the diagram and the datab
 docs/erd_design.md        how the ERD was normalized (1NF-3NF) and which fields are derived
 db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/gen_schema.sh
 compose.yaml              local PostgreSQL in Docker
+scripts/transform.py      raw data -> clean CSV per ERD table (data/clean/, not in git)
+scripts/load.sh           clean CSVs -> PostgreSQL, with every foreign key checked
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
 docs/eve-online-brief.pdf one-page team brief: sources, KPI coverage, caveats
 data-sourcing-guide.docx  the assignment's data sourcing guide
@@ -93,7 +95,16 @@ docker compose exec db psql -U eve -d eve      # psql inside the container, noth
 | Start it again | `docker compose up -d` |
 | Rebuild from scratch after an ERD change (**deletes all data**) | `docker compose down -v && docker compose up -d --wait` |
 
-The database only listens on your own machine, so the simple password is fine. Loading the data into it comes next (`scripts/load.py`, not written yet).
+The database only listens on your own machine, so the simple password is fine.
+
+**Load the data** (after downloading the raw data):
+
+```bash
+python3 scripts/transform.py all   # raw files -> data/clean/*.csv.gz, one per table (~2 h, uses all CPU cores)
+./scripts/load.sh                  # CSVs -> PostgreSQL, then adds every foreign key (~30 min)
+```
+
+`transform.py` steps can also run one at a time (`dimensions`, `wars`, `killmails`, `placeholders`, `contracts`, `characters`, `activity`). Phase 1 loads the core tables (characters, killmails, contracts, activity, battles); the other tables are still empty.
 
 ## Get the raw data
 

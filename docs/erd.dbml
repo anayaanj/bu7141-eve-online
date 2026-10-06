@@ -95,7 +95,7 @@ Table player_character {
   character_name varchar
   signup_date date [note: 'birthday: dump if real (>= 2003), else ESI, else null']
   signup_date_source varchar [note: 'dump / esi / unknown']
-  cohort_month date [note: '/derived: first day of the month of signup_date']
+  cohort_month date [note: '/derived: signup month. Exact from character_signup_month ID ranges for characters created from 2024; first day of the month of signup_date for older ones']
   gender varchar
   race_id int
   bloodline_id int

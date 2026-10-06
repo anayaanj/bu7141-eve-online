@@ -85,7 +85,7 @@ Stored derived columns break 3NF on purpose (for example `player_character.cohor
 | `calendar_date.month`, `quarter`, `year`, `after_sale` | `date` | Generated once; used in nearly every join and grouping |
 | `item_type.alpha_can_fly` | SDE `typeDogma` (required skills) + `cloneGrades` (Alpha limits) | Needs a recursive skill check; used against 140M participant rows |
 | `corporation.is_npc` | `corporation_id < 2000000` | Cheap, but stored for readability in the dashboard |
-| `player_character.cohort_month` | `signup_date` | Grouping key for every cohort chart (890K characters) |
+| `player_character.cohort_month` | ID ranges in `character_signup_month` (characters created from 2024, exact even without a signup date); `signup_date` for older ones | Grouping key for every cohort chart (890K characters) |
 | `player_character.is_deleted` | Dump flag, ESI 404, Doomheim membership | Combines three sources, one of them not in the database |
 | `player_character.inferred_plan`, `first_omega_seen` | `killmail_participant` + `item_type.alpha_can_fly` | Scans 140M rows |
 | `character_signup_month.characters_created` | Next month's `first_character_id` | Needs the next row; the count is the main acquisition figure |

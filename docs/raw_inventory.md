@@ -4,7 +4,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## 1. Killmails — `data/raw/killmails/YYYY/killmails-YYYY-MM-DD.tar.bz2`
 - **Publisher:** zKillboard / CCP ESI, archived by EVE Ref. Real, public game events.
-- **Volume:** 973 daily archives, 2.6 GB compressed, ~23k killmails/day (~22M total).
+- **Volume:** 973 daily archives, 2.6 GB compressed: 15,811,654 killmails (~16k a day), 91.7M participant rows. The 2026-01-06 archive repeats 14,042 killmails from 2026-01-05; the transform keeps each killmail once, under its own date.
 - **Grain:** one JSON file per killmail (`killmails/<killmail_id>.json`).
 - **Fields:**
   - `killmail_id` (int, PK), `killmail_hash`, `killmail_time` (ISO UTC), `solar_system_id`, `war_id` (rare), `moon_id` (rare), `http_last_modified`
