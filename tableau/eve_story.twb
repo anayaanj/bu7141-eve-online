@@ -1392,8 +1392,8 @@
           <local-type>string</local-type>
         </metadata-record>
         <metadata-record class='column'>
-          <remote-name>colour_group</remote-name>
-          <local-name>[colour_group]</local-name>
+          <remote-name>highlight</remote-name>
+          <local-name>[highlight]</local-name>
           <parent-name>[Extract]</parent-name>
           <local-type>string</local-type>
         </metadata-record>

@@ -2,8 +2,10 @@
 
 How to build the dashboard for `docs/story.md` in Tableau Public, one story point per act, in an EVE Online look.
 
+**Visual reference:** the interactive prototype (private artifact, ask Jose for access) shows every view below in the target look; build to match it.
+
 ## Setup (once)
-1. **Palette:** copy `tableau/Preferences.tps` into `~/Documents/My Tableau Repository/` (replace the empty default), then restart Tableau. You get four palettes: *EVE story*, *EVE alliances*, *EVE heat*, *EVE security*.
+1. **Palette:** copy `tableau/Preferences.tps` into `~/Documents/My Tableau Repository/` (replace the empty default), then restart Tableau. You get *EVE story* (five role colours) and *EVE heat* (one-hue ramp for magnitude). Both were checked for colour-blind separation on the dark background.
 2. **Open** `tableau/eve_story.twb`. Every file in `data/exports/` is already connected as an extract (`tableau/extracts/`), which Tableau Public needs before it can save.
 3. **After changing the data:** rerun `./scripts/export.sh`, then `python3 scripts/make_workbook.py` (needs `python3 -m pip install tableauhyperapi`), then reopen the workbook.
 4. **Saving:** Tableau Public saves to your public profile. Use *File > Save to Tableau Public*; you can hide the workbook on your profile while it's a draft.
@@ -14,12 +16,16 @@ How to build the dashboard for `docs/story.md` in Tableau Public, one story poin
 | Dashboard and sheet background | `#070b10` (Format > Shading > Worksheet and Pane) |
 | Panels (containers) | `#0d141c`, 1 px border `#1f3344` |
 | Text | `#d7e2ec`; muted labels `#8195a8` |
-| Accent (group, win, highlight) | `#4fd1ff` |
-| Alone / starter corporation | `#5b6b7a` |
-| Money | `#f2c45a`; death or loss `#ff6b4a` |
+| Titles and UI accent | `#4fd1ff` (text only) |
+| Group, win; Goonswarm | `#00a3c9` |
+| Alone, starter corporation; other alliances | `#5b6b7a` |
+| Death by a player; Pandemic Horde | `#d25030` |
+| Death by the computer; Fraternity | `#8b5dce` |
+| Money (single-series charts only) | `#b08505` |
 | Gridlines and axes | none, or `#1f3344` at 50% |
 | Fonts | Tableau Public renders in the browser, so use *Tableau Book* / *Tableau Bold*. Titles in capitals, letter-spaced, in the accent colour. |
 | Estimates | dotted borders or 50% opacity, with an "estimate" label |
+| Rules | Never two different y-scales on one chart (use two stacked charts with a shared x axis). Colour follows the entity, not its rank. Values and labels in text colours, not series colours. |
 
 Set it once: *Format > Workbook* (fonts, colours), then *Format > Shading* on each sheet. Dashboard size: **1366 × 768** (fixed), one dashboard per act, combined in a **Story** (*Story > New Story*), with the story point captions written as the finding.
 
@@ -30,7 +36,7 @@ Set it once: *Format > Workbook* (fonts, colours), then *Format > Shading* on ea
 1. Data source `map_layers`: *Data > Edit Relationships*, add `sovereignty_monthly`, relate `solar_system_id = solar_system_id`.
 2. Columns: `map_x` (dimension, continuous). Rows: `map_y` twice. Right-click the second `map_y` > *Dual Axis* > *Synchronize Axis*. Reverse the y axis if north looks upside down (*Edit Axis > Reversed*). Hide both axes.
 3. First mark card (lines): mark type **Line**, filter `layer = link`, *Detail* `link_id`, *Path* `point_order`, colour `#1f3344`, size small.
-4. Second mark card (systems): mark type **Circle**, filter `layer = system`, *Colour* `colour_group` (palette *EVE alliances*, "Other" in `#3a4652`), size very small.
+4. Second mark card (systems): mark type **Circle**, filter `layer = system`, *Colour* `highlight` (Goonswarm `#00a3c9`, Pandemic Horde `#d25030`, Fraternity `#8b5dce`, Other alliances `#3a4652`; unclaimed systems stay out of the relationship and show nothing), size very small. Only three alliances get a colour: more colours can't be told apart on a map.
 5. Drag `month` (from `sovereignty_monthly`) to **Pages**. Show the history trail off, speed medium. The play button animates 32 months: Pandemic Horde vanishes around December 2025 and Goonswarm spreads.
 6. Tooltip: system name, alliance, month.
 
@@ -48,27 +54,27 @@ Set it once: *Format > Workbook* (fonts, colours), then *Format > Shading* on ea
 ## Act 2: A newcomer's first day
 **Headline:** *For most newcomers, the only trace they leave is their death.*
 
-**⭐ Waffle** (`waffle_first_day`): Columns `x` (dimension), Rows `y` (dimension), mark **Square**, *Colour* `category` (killed by a player `#ff6b4a`, by the computer `#b9573f`, other `#5b6b7a`, seen on 2+ days `#4fd1ff`), size maximum, no gridlines. Title: "100 newcomers we can see".
+**⭐ Waffle** (`waffle_first_day`): Columns `x` (dimension), Rows `y` (dimension), mark **Square**, *Colour* `category` (killed by a player `#d25030`, by the computer `#8b5dce`, other `#3a4652`, seen on 2+ days `#00a3c9`), size maximum, no gridlines. Title: "100 newcomers we can see".
 
 **Staircase** (`first_month_active_days`): Columns `days_seen_first_month`, Rows `retention_month_3`, mark **Line** (step: right-click the line > *Line type: stepped*), label each step. Annotate 9.5% at 1 day and 45% at 8+.
 
-**Where they die** (`map_layers` related to `casual_deaths_by_system`): same dual-axis map as act 0; systems sized and coloured by `casual_newcomers_killed` (palette *EVE heat*), starter systems (`is_starter_system`) as a white ring. Annotate the five hotspots: Ahbazon, Tama, Jita, Uitra, Ami.
+**Where they die** (`map_layers` related to `casual_deaths_by_system`): same dual-axis map as act 0 (both axes share the map coordinates, so this is one scale); systems sized and coloured by `casual_newcomers_killed` (palette *EVE heat*), starter systems (`is_starter_system`) as a white ring. Annotate the five hotspots: Ahbazon, Tama, Jita, Uitra, Ami.
 
 ## Act 3: The few who come back
 **Headline:** *Newcomers in a group, in player space or with a win come back twice as often.*
 
-**⭐ Dumbbell** (`come_back_pairs`): Rows `pair`; Columns `alone_retention_month_3` and `together_retention_month_3` on a dual axis (synchronised). First mark **Circle** (grey), second **Circle** (accent); add a **Line** between them with *Measure Values* and *Path*. Label both ends.
+**⭐ Dumbbell** (`come_back_pairs`): Rows `pair`; Columns `alone_retention_month_3` and `together_retention_month_3` on a synchronised dual axis (one scale). First mark **Circle** (`#5b6b7a`), second **Circle** (`#00a3c9`); add a **Line** between them with *Measure Values* and *Path*. Label both ends.
 
-**⭐ Pandemic Horde** (`horde_story`): Columns `month`. Rows `horde_systems` (mark **Area**, `#3a4652`) and, on a dual axis, `horde_retention_month_3` and `other_alliances_retention_month_3` (*Measure Values*, mark **Line**, Horde in `#ff6b4a`, others in accent). Annotate November 2025: "Horde loses its space: its newcomers' retention falls to 8%".
+**⭐ Pandemic Horde** (`horde_story`): two charts stacked on one sheet, sharing `month` on Columns. Top: `horde_systems` (mark **Area**, `#d25030` at 40%), "Systems Horde holds". Bottom: `horde_retention_month_3` and `other_alliances_retention_month_3` (*Measure Names* on Colour, mark **Line**: Horde `#d25030`, other alliances `#5b6b7a`), "Newcomers still playing at month 3". Annotate November 2025: "Horde loses its space; its newcomers' retention falls to 8%".
 
 **Robustness panel** (`robustness_equal_activity`): small bars, retention for "In a corp" vs "No corp" within each activity band; one line of text: "Even among equally active players: 1.5×".
 
 ## Act 4: What it's worth
 **Headline:** *Buying newcomers got pricier. Only those in a group pay back their cost.* Shade every number on this page as an estimate.
 
-**⭐ Spend up, signups down** (`unit_economics`): Columns `year`; Rows `marketing` (bars, `#f2c45a`) and `signups` (line, accent) on a dual axis. Label: "+41% spend, −10% signups".
+**⭐ Spend up, signups down** (`unit_economics`): two small bar charts side by side, 2024 vs 2025: marketing (`#b08505`) and signups (`#5b6b7a`), each with its own axis and the change labelled ("+41%", "−10%"). Below them, cost per signup as a big number: $10.43 → $16.25.
 
-**⭐ Payback bullet** (`newcomer_value`): Rows `segment` (sorted by `ltv_to_cac`), Columns `ltv_to_cac`, mark **Bar**; reference line at **1.0** labelled "pays back its cost". Bars below 1 in `#5b6b7a`, above in accent.
+**⭐ Payback bullet** (`newcomer_value`): Rows `segment` (sorted by `ltv_to_cac`), Columns `ltv_to_cac`, mark **Bar**; reference line at **1.0** labelled "pays back its cost". Bars below 1 in `#5b6b7a`, above in `#00a3c9`.
 
 **MRR by quarter** (`revenue_quarterly`): Columns `quarter_start`, Rows `mrr_usd`, mark **Area**, money colour.
 
@@ -85,6 +91,6 @@ Set it once: *Format > Workbook* (fonts, colours), then *Format > Shading* on ea
 
 ## Story assembly
 - One story point per act, caption = the headline above.
-- Same colour language everywhere: grey = alone, accent = group or win, gold = money, coral = death.
+- Same colour language everywhere: grey = alone, cyan = group or win, coral = death, violet = killed by the computer, gold = money.
 - Event markers (`events`) as reference lines on every time chart.
 - Last story point: the caveats in plain words (copy from `docs/story.md`).
