@@ -233,3 +233,14 @@ LEFT JOIN deaths d ON d.character_id = c.character_id
 GROUP BY c.character_id, c.first_month, c.main_area, c.first_corp_size, c.got_kill, c.traded;
 
 ALTER TABLE analysis.casual_player ADD PRIMARY KEY (character_id);
+
+-- Alliance each new player flew for on their last killmail of the first month (null: no alliance or contracts only).
+CREATE TABLE analysis.new_player_alliance AS
+SELECT DISTINCT ON (n.character_id) n.character_id, n.first_month, p.alliance_id
+FROM analysis.new_player n
+JOIN killmail_participant p ON p.character_id = n.character_id
+JOIN killmail k ON k.killmail_id = p.killmail_id
+ AND k.kill_date >= n.first_month AND k.kill_date < n.first_month + interval '1 month'
+ORDER BY n.character_id, k.killmail_time DESC;
+
+ALTER TABLE analysis.new_player_alliance ADD PRIMARY KEY (character_id);
