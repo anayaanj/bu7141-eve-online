@@ -118,6 +118,68 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 - **Examples:** monthly average ≈ 21,600–26,800, peak ≈ 31,000–38,800.
 - **Use:** the all-player benchmark for engagement: compare it with the characters active in killmails and contracts.
 
+## 13. Exchange rates — `data/raw/fx/{DEXKOUS,DEXUSEU}.csv`
+- **Publisher:** Federal Reserve Bank of St. Louis (FRED). Real, official statistics. Daily, 1981 → 2026-09-25.
+- **Columns:** `observation_date`, value. `DEXKOUS` = KRW per USD (1,356.51 on 2026-09-25), `DEXUSEU` = USD per EUR (1.14). Blank values on US holidays.
+- **Use:** convert Pearl Abyss's KRW figures to USD so they compare with CCP's accounts.
+
+## 14. Steam players — `data/raw/steam_players/steamcharts_8500.html`
+- **Publisher:** SteamCharts, built from the Steam Web API. Real, third-party tracker.
+- **Grain:** one row per month since Aug 2012 (86 months): average players, gain, % gain, peak players (HTML table).
+- **Use:** Steam share of all players online (≈ 4,000 of ≈ 23,500 in Aug 2026, ≈ 17%): an acquisition-channel proxy.
+
+## 15. All CCP news — `data/raw/news_all/page_NNN.json`
+- **Publisher:** CCP Games (Contentful CMS behind eveonline.com). Real, official.
+- **Volume:** 685 articles, 2023-01-03 → 2026-10-02: 622 news, 44 dev blogs, 19 patch notes. Same fields as section 7.
+- **Use:** the `game_event` timeline (expansion launches, patches, sales). Includes the Viridian, Havoc and Equinox expansion articles.
+
+## 16. Wars — `data/raw/wars/YYYY/wars-YYYY-MM-DD_*.tar.bz2`
+- **Publisher:** CCP ESI, archived daily by EVE Ref. Real, public.
+- **Volume:** 962 daily snapshots (every day EVE Ref has in the window).
+- **Grain:** one JSON per war (`wars/<war_id>.json`): `war_id`, `aggressor` / `defender` (`corporation_id` or `alliance_id`, `isk_destroyed`, `ships_killed`), `allies`, `declared`, `started`, `finished` (when over), `mutual`, `open_for_allies`.
+- **Joins:** `killmail.war_id` → `war_id`.
+
+## 17. Sovereignty campaigns — `data/raw/sovereignty_campaigns/YYYY/sovereignty-campaigns-*.json.bz2`
+- **Publisher:** CCP ESI, archived hourly by EVE Ref. Real, public.
+- **Grain:** each snapshot lists the territory fights under way: `campaign_id`, `event_type` (e.g. `tcu_defense`), `solar_system_id`, `constellation_id`, `defender_id`, `structure_id`, `start_time`, `attackers_score`, `defender_score`.
+- **Use:** big territorial conflicts by date and system. Deduplicate on `campaign_id`.
+
+## 18. Forums — `data/raw/forums/{search,topics}/`
+- **Publisher:** CCP Games, official forums (forums.eveonline.com, Discourse JSON). Real, public user posts.
+- **Queries:** omega price, plex price, subscription, pearl abyss, fenris, new player, unsubscribed (topics active Jan 2024 → Aug 2026). The searches matched 1,396 threads; only the **340 with an on-topic title** are downloaded (`FORUM_TITLE_FILTER` in `download.py`), because searches also match off-topic threads through a single post.
+- **Volume:** 476 threads on disk (the 340 on-topic ones plus 136 off-topic ones fetched before the filter; skip them when loading), 2,379 pages, 42,334 posts, 170 MB.
+- **Files:** `search/<query>_page_NN.json` (matching topics), `topics/<topic_id>_page_NNN.json` (20 posts per page: `posts[].cooked` HTML, `created_at`, `username`).
+- **Use:** satisfaction beyond Steam (sentiment around price changes and the sale). Usernames are public forum names; keep them out of the dashboard.
+
+## 19. Benchmarks — `data/raw/benchmarks/`
+- **Papers:** Lee et al. 2011 (WoWAH dataset), Khan 2020 (churn in WoW), Borbora et al. 2011 (EverQuest II churn), Lee et al. 2019 (AION promotion events and retention).
+- **Dataset:** `wowah_full.parquet` (319 MB): World of Warcraft Avatar History, 91,065 avatars observed every 10 minutes, 2006–2009 (Parquet copy linked from calmcode.io).
+- **Use:** sanity-check our retention and churn figures against published MMO figures.
+
+## 20. Google Trends — `data/raw/google_trends/` (manual export)
+- **Publisher:** Google. Relative interest index 0–100, not search counts.
+- **Files:** `eve_online_worldwide_weekly.csv` (weekly, 2023-12-31 → 2026-10-04), `eve_online_by_country.csv` (≈ 250 countries; Iceland = 100, then Estonia, Latvia, Russia). The first two lines are a header note; the table starts on line 3.
+- **Caveat:** the country index is scaled by each country's total searches, so small countries rank high.
+
+## 21. Twitch viewership — `data/raw/twitch/`
+- **Publisher:** SullyGnome, built from the Twitch API. Real, third-party tracker.
+- **Monthly pages:** `sullygnome_YYYY-MM.html`, all 32 months Jan 2024 → Aug 2026: hours watched, hours streamed, average and peak viewers, average channels, streamers. Saved by hand in a browser (the archive pages sit behind a Cloudflare browser check, which we don't work around); `download.py twitch` logs them in `sources.csv`.
+- **Rolling year:** `sullygnome_365d_to_YYYY-MM-DD.html` (scripted): 2025-10-05 → 2026-10-04 totals.
+- **Examples:** hours watched 515.6K (Jan 2024) → 1.5M (May 2024); peaks of 20.4K (May 2025) and 19.3K (May 2026).
+- **Use:** interest and marketing signal next to signups, Google Trends and Steam players.
+
+## 22. Patch and release history — `data/raw/patch_history/`
+- `patch_notes_page_NN.json`: CCP's **major-version patch notes**, all 244 since 2003 (Contentful, same fields as section 7). Recent years have ~4 a year; minor patches are not in this archive.
+- `sde_builds_YYYY.json`: EVE Ref indexes of every static-data build, Oct 2016 → 2026 (379 files: `name` with build number, `last_modified`). Each build ≈ one game deployment.
+- `eveuni_expansions.html`: EVE University wiki list of expansions and major releases by year, 2003 → 2025 (176 dated entries). Community-maintained, CC BY-SA.
+- **Use:** the `game_event` table: expansions, major patches and deployments by date. Cross-check with section 15 (news).
+
+## 23. Down the Rabbit Hole transcript — `data/raw/qualitative/down_the_rabbit_hole_BCSeISYcoyI.json` (not in git)
+- **Source:** "EVE Online | Down the Rabbit Hole", Fredrik Knudsen, https://www.youtube.com/watch?v=BCSeISYcoyI. Fetched with `youtube-transcript-api`. Secondary source: a player documentary; the author says it may contain errors.
+- **Format:** 7,973 lines (`start` seconds, `duration`, `text`), 5.9 hours, 1997 → ~2022.
+- **Licence:** someone else's work. Kept out of git; cite it, don't redistribute it.
+- **Derived:** `data/reference/lore_events.csv` (committed): 40 dated lore events (founding, PLEX, Monoclegate, big battles, casino ban, Pearl Abyss acquisition, Prospector Pack) with the video timestamp for each. Verify against primary sources before quoting a figure.
+
 ## How the sources join
 - `killmail.victim/attackers.character_id` → `characters.character_id` (Customer)
 - `contracts.issuer_id` → `characters.character_id` (non-combat activity)

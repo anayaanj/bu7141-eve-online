@@ -112,6 +112,19 @@ Run each command from the repo root. Each one skips files you already have, so i
 | `python3 scripts/download.py contracts` | Public contracts, first snapshot per day | 5.5 GB | ~2 h |
 | `python3 scripts/download.py character_id_boundaries` | First character ID of each month (exact signups) | <1 MB | ~1 h |
 | `python3 scripts/download.py players_online` | Concurrent players every 30 min (EVE-Offline) | 2 MB | 2 min |
+| `python3 scripts/download.py fx` | Exchange rates KRW/USD, USD/EUR (FRED) | <1 MB | 1 min |
+| `python3 scripts/download.py steam_players` | Monthly Steam players (SteamCharts) | <1 MB | 1 min |
+| `python3 scripts/download.py news_all` | Every CCP news article since 2023 | 30 MB | 5 min |
+| `python3 scripts/download.py wars` | Daily wars snapshots | 78 MB | ~30 min |
+| `python3 scripts/download.py sovereignty_campaigns` | Hourly territory campaign snapshots | ~70 MB | several hours |
+| `python3 scripts/download.py forums` | Forum topics on Omega, PLEX, subscriptions, the sale, new players | varies | ~1 h |
+| `python3 scripts/download.py benchmarks` | MMO churn papers and the WoWAH dataset | 320 MB | 2 min |
+| `python3 scripts/download.py google_trends` | Logs manually exported Google Trends CSVs (see below) | — | — |
+| `python3 scripts/download.py twitch` | Twitch viewership, last 365 days (SullyGnome) | <1 MB | 1 min |
+| `python3 scripts/download.py patch_history` | Major patch notes, SDE build history, expansion list | 5 MB | 2 min |
+| `python3 scripts/download.py transcript` | Down the Rabbit Hole transcript (needs `pip install youtube-transcript-api`; not committed) | 2 MB | 1 min |
+
+**Google Trends** can't be scripted. Export it by hand: on https://trends.google.com/trends/explore search "EVE Online" (video game topic), set 1 Jan 2024 – 31 Aug 2026, Worldwide, and download "Interest over time" and "Interest by region" into `data/raw/google_trends/`. Then run the `google_trends` command above.
 
 - **Order:** `esi_characters` needs `killmails` and `characters` first.
 - **Long jobs:** on a Mac, put `caffeinate -i` in front of a command to keep the computer awake while it runs.
