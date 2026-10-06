@@ -1,0 +1,30 @@
+dimension,value,players,share,retention_month_3
+Killed by a veteran,Yes,126749,0.6333,0.0862
+Killed by a veteran,Not killed by a player,55601,0.2778,0.1212
+Killed by a veteran,"No, by a newer player",17792,0.0889,0.0732
+Killed in their first week,No,132388,0.6615,0.1081
+Killed in their first week,Yes,67754,0.3385,0.0687
+Lost their escape pod,No,122345,0.6113,0.0971
+Lost their escape pod,Yes,77797,0.3887,0.0910
+Their corporation,NPC starter corp,74479,0.3721,0.0687
+Their corporation,2-10 members,29595,0.1479,0.0666
+Their corporation,11-50 members,21738,0.1086,0.1119
+Their corporation,"201-1,000 members",21008,0.1050,0.1502
+Their corporation,51-200 members,20807,0.1040,0.1367
+Their corporation,"1,000+ members",19257,0.0962,0.1162
+Their corporation,Unknown (trading only),13258,0.0662,0.0907
+What happened,Killed by another player,133837,0.6687,0.0849
+What happened,Killed by the computer (NPCs),21069,0.1053,0.1357
+What happened,Got a kill and died,16983,0.0849,0.0548
+What happened,Got a kill and survived,15312,0.0765,0.1727
+What happened,Only traded,12941,0.0647,0.0906
+Where they were,Low Sec,69059,0.3451,0.0776
+Where they were,High Sec,47823,0.2389,0.0626
+Where they were,Null Sec (Sov),35024,0.1750,0.1443
+Where they were,Wormhole,19454,0.0972,0.0999
+Where they were,Trading only,12941,0.0647,0.0906
+Where they were,Null Sec (NPC),8313,0.0415,0.1179
+Where they were,Pochven,3637,0.0182,0.1743
+Where they were,"Non-Universe (Void, Abyssal, CCP)",2519,0.0126,0.2763
+Where they were,"Wormhole (Shattered, Drifter and Thera)",1347,0.0067,0.0965
+Where they were,Zarzakh,25,0.0001,0.1600

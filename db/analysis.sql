@@ -193,3 +193,42 @@ LEFT JOIN character_month_activity c3 ON c3.character_id = n.character_id
      AND c3.month = n.first_month + interval '3 month' AND c3.contracts_issued > 0
 WHERE n.first_month <= date '2026-05-01'
 GROUP BY 1, 2;
+
+-- Casual new players: seen on only one day in their first month (62% of new players). What their one visible day looked like.
+-- "Veteran" = character created before 2024 (ID below the first 2024 boundary).
+CREATE TABLE analysis.casual_player AS
+WITH c AS (
+  SELECT n.character_id, n.first_month, n.got_kill, n.lost_ship, n.traded, x.main_area, x.first_corp_size
+  FROM analysis.new_player n
+  JOIN character_month_activity a ON a.character_id = n.character_id AND a.month = n.first_month
+  JOIN analysis.new_player_context x ON x.character_id = n.character_id
+  WHERE a.active_days = 1
+),
+deaths AS (  -- each casual's first-month deaths
+  SELECT c.character_id, k.kill_date, s.security_band, g.group_name AS ship_group,
+         fb.character_id AS killer_id,
+         EXISTS (SELECT 1 FROM killmail_participant at WHERE at.killmail_id = k.killmail_id
+                 AND at.role = 'attacker' AND at.character_id IS NOT NULL) AS by_player
+  FROM c
+  JOIN killmail_participant v ON v.character_id = c.character_id AND v.role = 'victim'
+  JOIN killmail k ON k.killmail_id = v.killmail_id
+   AND k.kill_date >= c.first_month AND k.kill_date < c.first_month + interval '1 month'
+  JOIN solar_system s ON s.solar_system_id = k.solar_system_id
+  LEFT JOIN item_type t ON t.type_id = v.ship_type_id
+  LEFT JOIN item_group g ON g.group_id = t.group_id
+  LEFT JOIN killmail_participant fb ON fb.killmail_id = k.killmail_id AND fb.role = 'attacker' AND fb.final_blow
+)
+SELECT c.character_id, c.first_month, c.main_area, c.first_corp_size, c.got_kill, c.traded,
+       bool_or(d.by_player) IS TRUE AS killed_by_player,
+       bool_or(NOT d.by_player) IS TRUE AS killed_by_npc,
+       bool_or(d.by_player AND d.killer_id < (SELECT min(first_character_id) FROM character_signup_month)) IS TRUE AS killed_by_veteran,
+       bool_or(d.kill_date - pc.signup_date <= 7) IS TRUE AS killed_in_first_week,
+       bool_or(d.ship_group = 'Capsule') IS TRUE AS lost_pod,
+       mode() WITHIN GROUP (ORDER BY d.security_band) AS death_area,
+       EXISTS (SELECT 1 FROM analysis.new_player_activity a3 WHERE a3.character_id = c.character_id AND a3.k = 3) AS active_month_3
+FROM c
+JOIN player_character pc ON pc.character_id = c.character_id
+LEFT JOIN deaths d ON d.character_id = c.character_id
+GROUP BY c.character_id, c.first_month, c.main_area, c.first_corp_size, c.got_kill, c.traded;
+
+ALTER TABLE analysis.casual_player ADD PRIMARY KEY (character_id);
