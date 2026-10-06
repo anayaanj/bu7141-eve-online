@@ -102,7 +102,7 @@ Table player_character {
   is_deleted boolean [note: 'dump deleted flag, ESI 404, or corporation = Doomheim (1000001)']
   inferred_plan varchar [note: 'omega (seen in a ship an Alpha cannot fly) / unknown. Never "alpha": absence proves nothing']
   first_omega_seen date [note: 'first killmail in an Omega-only ship']
-  Note: 'Customer. Character dump [2] + ESI [2b]. Scope: characters in killmails or contracts.'
+  Note: 'Customer. Character dump [2] + ESI [2b]. Scope: characters active in killmails or contracts, Jan 2024 - Aug 2026 (889,560). Signup totals for everyone are in character_signup_month.'
 }
 
 Table character_signup_month {

@@ -352,7 +352,7 @@ COMMENT ON TABLE "corporation" IS 'Character dump corporations.json [2].';
 
 COMMENT ON COLUMN "corporation"."is_npc" IS 'corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)';
 
-COMMENT ON TABLE "player_character" IS 'Customer. Character dump [2] + ESI [2b]. Scope: characters in killmails or contracts.';
+COMMENT ON TABLE "player_character" IS 'Customer. Character dump [2] + ESI [2b]. Scope: characters active in killmails or contracts, Jan 2024 - Aug 2026 (889,560). Signup totals for everyone are in character_signup_month.';
 
 COMMENT ON COLUMN "player_character"."character_id" IS 'Customer. One account can own several characters.';
 
