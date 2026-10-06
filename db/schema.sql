@@ -334,7 +334,7 @@ COMMENT ON COLUMN "calendar_date"."quarter" IS '/derived: year and quarter of da
 
 COMMENT ON COLUMN "calendar_date"."year" IS '/derived: year of date';
 
-COMMENT ON COLUMN "calendar_date"."after_sale" IS '/derived: date >= 2026-05-01, when Pearl Abyss sold CCP';
+COMMENT ON COLUMN "calendar_date"."after_sale" IS '/derived: date >= 2026-05-06, when Pearl Abyss completed the sale of CCP (2Q26 letter)';
 
 COMMENT ON TABLE "region" IS 'SDE mapRegions [9].';
 
