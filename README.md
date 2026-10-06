@@ -196,17 +196,17 @@ We cover 13 of the guide's 15 KPIs: 2 directly, 7 by proxy and 4 as company-leve
 | Category | KPI | Coverage | How | Gap |
 |---|---|---|---|---|
 | Acquisition | Signups | ✅ Direct | Exact characters created per month, from CCP's character ID sequence (`character_signup_month`) | One account can have several characters |
-| Acquisition | CAC | ⚠️ Estimate | CCP marketing expense ($11.4M 2024, $16.1M 2025) ÷ new characters | Marketing covers all CCP games, so it overstates EVE's CAC |
+| Acquisition | CAC | ⚠️ Estimate | CCP marketing ÷ signups, engaged newcomers and newcomers kept a year: $16.25 / $117 / $1,424 in 2025 (`analysis.unit_economics`) | Marketing covers all of CCP, not only new EVE players |
 | Acquisition | Conversion rate | 🔶 Proxy | First month a new player is seen in an Omega-only ship (`analysis.conversion_by_segment`) | Only seen when the ship appears in a killmail |
-| Engagement | DAU / MAU | 🔶 Proxy | Distinct characters in killmails per day / 30 days | Only players who fight; no login data |
+| Engagement | DAU / MAU | 🔶 Proxy | Distinct characters in killmails or contracts per day / per month: about 16,000 / 119,000, 13% (`analysis.daily_active`) | Visible players only; no login data |
 | Engagement | Session frequency | 🔶 Proxy | Days with combat activity per character per week | Not real sessions |
 | Engagement | Feature adoption | 🔶 Proxy | Ship class, security band, fleet size | Combat only |
 | Retention | Retention rate | 🔶 Proxy | Character still active in killmails or contracts N months later (`analysis.retention_by_segment`) | Activity, not subscription |
 | Retention | Churn rate | 🔶 Proxy | No killmails for N months | A player who stops fighting isn't necessarily unsubscribed |
 | Retention | Cohort trends | ✅ Direct | Creation-month cohorts × monthly killmail activity | Same activity caveat |
-| Monetization | MRR / ARR | ⚠️ Estimate | CCP subscriptions and in-game sales ($55.0M 2024, $60.8M 2025); Pearl Abyss quarterly EVE revenue to 4Q25 | Annual / quarterly, not per subscriber |
-| Monetization | ARPU | ⚠️ Estimate | Revenue ÷ active characters | Overstated: active = only those who fight |
-| Monetization | LTV | ⚠️ Estimate | ARPU × average lifespan from cohort curves | Inherits both caveats |
+| Monetization | MRR / ARR | ⚠️ Estimate | CCP subscriptions and in-game sales: ARR $55.0M / $60.8M, MRR $4.6M / $5.1M (2024 / 2025); Pearl Abyss quarterly EVE revenue to 4Q25 | Annual / quarterly, not per subscriber |
+| Monetization | ARPU | ⚠️ Estimate | Revenue ÷ monthly active characters: about $43 a month in 2025 | Overstated: active = only visible characters |
+| Monetization | LTV | ⚠️ Estimate | ARPU × active months in a newcomer's first year, by group, vs CAC (`analysis.newcomer_value`) | First year only; inherits the ARPU caveat |
 | Satisfaction | NPS | 🔶 Proxy | Steam reviews, % positive vs. negative by month | Recommend yes/no, not a 0–10 score |
 | Satisfaction | CSAT | ❌ None | — | No public surveys |
 | Satisfaction | Support tickets | ❌ None | — | No public ticket data |

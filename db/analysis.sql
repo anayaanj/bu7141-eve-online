@@ -244,3 +244,65 @@ JOIN killmail k ON k.killmail_id = p.killmail_id
 ORDER BY n.character_id, k.killmail_time DESC;
 
 ALTER TABLE analysis.new_player_alliance ADD PRIMARY KEY (character_id);
+
+-- Daily active characters (killmails and contracts), for DAU / MAU. Same visibility as the monthly activity.
+CREATE TABLE analysis.daily_active AS
+SELECT date, count(DISTINCT character_id) AS characters
+FROM (
+  SELECT k.kill_date AS date, p.character_id
+  FROM killmail k JOIN killmail_participant p USING (killmail_id) WHERE p.character_id IS NOT NULL
+  UNION ALL
+  SELECT issued_date, issuer_character_id FROM contract
+) x
+WHERE date BETWEEN date '2024-01-01' AND date '2026-08-31'
+GROUP BY date;
+
+-- Unit economics by year (estimates from audited CCP figures; activity counts visible characters only).
+-- CAC = marketing / new customers; ARPU = subscription and in-game revenue per active character per month.
+CREATE VIEW analysis.unit_economics AS
+WITH y AS (SELECT generate_series(2024, 2025) AS year),
+fin AS (
+  SELECT extract(year FROM period_start)::int AS year,
+         max(amount) FILTER (WHERE metric = 'subscription_and_ingame_revenue') AS revenue,
+         max(amount) FILTER (WHERE metric = 'marketing_expense') AS marketing
+  FROM financial_metric WHERE entity = 'CCP ehf.' AND geography IS NULL GROUP BY 1),
+sig AS (SELECT extract(year FROM month)::int AS year, sum(characters_created) AS signups FROM character_signup_month GROUP BY 1),
+eng AS (SELECT extract(year FROM first_month)::int AS year, count(*) AS engaged FROM analysis.new_player GROUP BY 1),
+mau AS (SELECT extract(year FROM month)::int AS year, avg(n) AS mau
+        FROM (SELECT month, count(*) AS n FROM character_month_activity GROUP BY month) m GROUP BY 1),
+r12 AS (SELECT retention FROM analysis.retention_by_segment WHERE segment = 'All new players' AND k = 12)
+SELECT y.year, f.revenue AS arr, round(f.revenue / 12) AS mrr, f.marketing,
+       s.signups, e.engaged, round(e.engaged * (SELECT retention FROM r12)) AS still_playing_after_a_year,
+       round(m.mau) AS avg_monthly_active,
+       round(f.revenue / 12 / m.mau, 2) AS arpu_month,
+       round(f.marketing / s.signups, 2) AS cac_per_signup,
+       round(f.marketing / e.engaged, 2) AS cac_per_engaged_newcomer,
+       round(f.marketing / (e.engaged * (SELECT retention FROM r12)), 2) AS cac_per_newcomer_kept_a_year
+FROM y JOIN fin f USING (year) JOIN sig s USING (year) JOIN eng e USING (year) JOIN mau m USING (year);
+
+-- First-year value of a newcomer by group: average active months in the first 12 (k = 0..11), cohorts with a full year.
+-- LTV (12 months) = active months x 2025 ARPU; payback compares it with the 2025 CAC per engaged newcomer.
+CREATE VIEW analysis.newcomer_value AS
+WITH g AS (
+  SELECT s.character_id, s.first_month, s.segment FROM analysis.new_player_segment s
+  WHERE s.segment IN ('All new players', 'Joined a corp and got a kill', 'Neither')
+  UNION ALL
+  SELECT character_id, first_month, 'Casual, starter corporation' FROM analysis.casual_player WHERE first_corp_size = 'NPC starter corp'
+  UNION ALL
+  SELECT character_id, first_month, 'Casual, mid-sized corporation (51-1,000)' FROM analysis.casual_player
+  WHERE first_corp_size IN ('51-200 members', '201-1,000 members')
+  UNION ALL
+  SELECT character_id, first_month, 'Casual, all' FROM analysis.casual_player
+),
+months AS (
+  SELECT g.segment, g.character_id, count(a.k) AS active_months
+  FROM g LEFT JOIN analysis.new_player_activity a ON a.character_id = g.character_id AND a.k BETWEEN 0 AND 11
+  WHERE g.first_month <= date '2025-08-01'
+  GROUP BY 1, 2
+),
+ue AS (SELECT arpu_month, cac_per_engaged_newcomer FROM analysis.unit_economics WHERE year = 2025)
+SELECT segment, count(*) AS players, round(avg(active_months), 2) AS active_months_first_year,
+       round(avg(active_months) * (SELECT arpu_month FROM ue), 2) AS ltv_first_year,
+       (SELECT cac_per_engaged_newcomer FROM ue) AS cac_per_engaged_newcomer,
+       round(avg(active_months) * (SELECT arpu_month FROM ue) / (SELECT cac_per_engaged_newcomer FROM ue), 2) AS ltv_to_cac
+FROM months GROUP BY segment;
