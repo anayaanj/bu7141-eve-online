@@ -11,6 +11,9 @@ scripts/download.py       downloads every source into data/raw/ and logs it
 data/raw/sources.csv      log of every downloaded file: URL, date, size, sha256
 data/raw/financials/      CCP and Pearl Abyss reports (committed: hard to re-fetch)
 data/raw/<everything else> not in git (6.4 GB): re-create with the script
+docs/erd.dbml             the ERD (source of truth for the diagram and the database)
+db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/gen_schema.sh
+compose.yaml              local PostgreSQL in Docker
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
 docs/eve-online-brief.pdf one-page team brief: sources, KPI coverage, caveats
 data-sourcing-guide.docx  the assignment's data sourcing guide
@@ -18,7 +21,7 @@ data-sourcing-guide.docx  the assignment's data sourcing guide
 
 ## Setup
 
-Needs Python 3.10+ only (no packages to install).
+Needs Python 3.10+ (no packages to install) and, for the database, Docker Desktop.
 
 ```bash
 git clone https://github.com/anayaanj/bu7141-eve-online.git
@@ -28,7 +31,7 @@ export CONTACT_EMAIL=you@tcd.ie   # CCP asks API users to include a contact
 
 ## How to make changes
 
-`main` is protected: nobody can push to it directly, admins included. Every change goes through a pull request that **one other teammate** approves.
+`main` is protected: nobody can push to it directly. Every change goes through a pull request that **one other teammate** approves.
 
 ```bash
 git checkout main && git pull
@@ -50,10 +53,46 @@ gh pr create --fill                            # or open the PR on github.com
 
 To change the ERD:
 1. Edit `docs/erd.dbml` on a branch. To preview, paste it into a new diagram on dbdiagram.io (not the shared one).
-2. Open a pull request. The ERD check validates the DBML.
-3. Once it's approved and merged, the shared diagram updates automatically.
+2. Regenerate the database schema: `./scripts/gen_schema.sh` (needs Node.js). Commit `docs/erd.dbml` and `db/schema.sql` together.
+3. Open a pull request. The ERD check validates the DBML, checks `db/schema.sql` matches it, and loads it into a test PostgreSQL.
+4. Once it's approved and merged, the shared diagram updates automatically.
 
 Don't edit the shared diagram on dbdiagram.io or run `dbdiagram push` yourself: the next merge overwrites those changes.
+
+## Database
+
+A local PostgreSQL 18 in Docker. The tables come from the ERD (`db/schema.sql`).
+
+**Setup once:**
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and open it.
+2. From the repo root, run:
+   ```bash
+   docker compose up -d --wait
+   ```
+   The first start creates all 17 tables.
+
+**Connect** with any SQL client ([DBeaver](https://dbeaver.io) is free), or with `psql`:
+
+| Setting | Value |
+|---|---|
+| Host | `127.0.0.1` |
+| Port | `5433` |
+| Database | `eve` |
+| User / password | `eve` / `eve` |
+
+```bash
+docker compose exec db psql -U eve -d eve      # psql inside the container, nothing to install
+```
+
+**Day to day:**
+
+| To… | Run |
+|---|---|
+| Stop the database (keeps data) | `docker compose stop` |
+| Start it again | `docker compose up -d` |
+| Rebuild from scratch after an ERD change (**deletes all data**) | `docker compose down -v && docker compose up -d --wait` |
+
+The database only listens on your own machine, so the simple password is fine. Loading the data into it comes next (`scripts/load.py`, not written yet).
 
 ## Get the raw data
 
