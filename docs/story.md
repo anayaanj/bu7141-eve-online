@@ -1,80 +1,87 @@
-# The Friendship Machine
+# What makes new EVE players stay?
 
-**Question:** What turns a new EVE character into a player who stays?
+**For:** CCP Games (now Fenris Creations), the team that runs EVE Online's subscriptions.
 
-**Answer:** belonging. New players who join a player corporation, get their first kill, or fight in a big battle in their first month are about twice as likely to still be playing three months later (at least 1.4× on a measure combat visibility can't inflate), and more likely to pay. Dying hardly matters: almost everyone loses a ship.
+**Answer:** belonging. New players who join a player corporation in their first month stay **1.4 to 2 times as often** as those who play alone, and are about **twice as likely to pay**. The difference is biggest for casual newcomers. We can show the link, not prove the cause.
 
-> "…the foundation of the Friendship Machine, as we call it." CCP's CEO, in *EVE Online | Down the Rabbit Hole* (Fredrik Knudsen, 00:30:37)
+All numbers come from `data/exports/` (built by `db/analysis.sql` and `scripts/export.sh`).
 
-All numbers below come from `data/exports/` (built by `db/analysis.sql` and `scripts/export.sh`). Definitions are at the top of `db/analysis.sql`.
+## Words the audience needs (one box on page 0)
+- **Corporation:** a player-run group, like a guild or a company. **Alliance:** a group of corporations.
+- **ISK:** the in-game money. **PLEX:** an item bought with real money and sold to other players for ISK.
+- **Alpha / Omega:** free account / paid subscription. Some ships can only be flown with Omega.
+- **High-sec / null-sec:** safe space policed by the game / lawless space held by player alliances.
 
-## The narrative (one dashboard page each)
+## The story (one dashboard page each)
 
-### 1. The challenge: most new characters never stick
-- **2,733,207** characters were created between Jan 2024 and Aug 2026 (exact, from CCP's ID sequence).
-- Only **13.1%** (356,769) ever fight or trade with another player.
-- Of those, **14.9%** are still active 3 months later and **8.2%** after 12 months.
-- Hook: that is exactly World of Warcraft's rate at its 2006–07 peak (**8.2%** at 12 months, measured the same way). The "harshest MMO" keeps new players as well as the friendliest one.
-- Views: KPI tiles (`kpi_tiles.csv`), the monthly funnel (`funnel_monthly.csv`), cohort heatmap (`cohort_heatmap.csv`).
+### 0. What is EVE Online?
+One shared universe where everything is made, traded, fought over and destroyed by players.
+- **Wars:** about **16,000 ships destroyed every day**, and **13,983 battles with 100+ pilots** since January 2024. The largest: **4,367 pilots in one hour** (4-HWWF, April 2026).
+- **Economy:** players produce about **177 trillion ISK** of goods a month and destroy about **70 trillion**. The money supply grew from 2.1 to 2.95 quadrillion ISK.
+- **Culture:** **104,786 player corporations** and **3,788 alliances** took part in fights; about **24,000 players are online at any moment**.
+- Views:
+  - **War-zone map by month:** CCP's map of 5,485 systems, with dots sized by the largest battle and coloured by area (`map_systems.csv`, `map_links.csv`, `war_zones_monthly.csv`). Animate it by month.
+  - **Economy by month:** value produced, destroyed and mined, by area, as in CCP's Monthly Economic Report (`economy_monthly.csv`), plus money created vs removed (`isk_monthly.csv`).
+  - **Headline numbers:** `eve_at_a_glance.csv`.
 
-### 2. The answer: belonging (main chart)
-Share still active 3 months after their first month (`retention_by_segment.csv`):
+### 1. The challenge: EVE keeps its veterans, not its newcomers
+- **EVE is a niche game.** At its peak it had **500,000 subscribers** (2013), against 12 million for World of Warcraft, 1.7 million for Star Wars: The Old Republic and 420,000 for EverQuest.
+- **But its players stay.** On Steam, EVE still had **84%** of its peak-month players a year later. Big recent launches kept far fewer: New World 8.5%, Throne and Liberty 9%, Lost Ark 24%.
+- **Newcomers are the problem.** **2.73 million** characters were created from January 2024 to August 2026. Only **13%** ever fought or traded with another player, and of those **8.2%** were still playing a year later, about **1 in 100** of everyone who signed up. CCP's own figure (2019): 9 in 10 new players quit in the first week.
+- That is in line with other online games: free-to-play MMOs keep about 6% of new players for a year.
+- Views:
+  - **Comparison:** peak subscribers, and the share of players kept a year after the peak (`mmo_comparison.csv`).
+  - **Funnel:** signups → engaged → still playing (`funnel_monthly.csv`, `kpi_tiles.csv`).
 
-| First month | Month 3 | Month 12 |
-|---|---|---|
-| Fought in a war (100+ pilots) | **27.5%** | 16.1% |
-| Fought in a skirmish (50–99) | 25.7% | 12.9% |
-| Joined a corp and got a kill | **24.2%** | 12.1% |
-| Got a kill only | 15.4% | 9.9% |
-| Joined a corp only | 15.0% | 8.7% |
-| All new players | 14.9% | 8.2% |
-| Neither | **9.1%** | 5.0% |
-| Lost a ship / did not | 14.6% / 17.4% | 8.0% / 9.8% |
+### 2. What makes them stay: belonging
+Share of new players still playing 3 months after their first month (`retention_by_segment.csv`):
 
-- Main chart: retention curves (k = 0–12) for "Neither", "Joined a corp and got a kill", "Fought in a war", with World of Warcraft as a reference line.
-- **It holds after a year:** at month 12 the advantage over "Neither" (5.0%) is 2.4× for corp + kill (12.1%) and 3.2× for war veterans (16.1%; 10,210 players with a full year of follow-up).
-- **It's belonging, not combat.** Non-combatants (contracts only, no killmails) stay at 12.1% at month 3, the same as players who only got killed (12.2%) and about half the rate of players who fought back (22.6%). Within every group, a player corporation adds ~60%: non-combatants 9.9% → 15.4%, victims 9.0% → 15.0%, kill-getters 15.4% → 24.2%. A non-combatant in a corp stays exactly as often as a fighter with a kill but no corp (15.4%). (Caveat: free accounts can only use contracts in a limited way, per CCP's store.)
-- **Robustness: it isn't just visibility** (`robustness_contracts_only.csv`, a panel next to the main chart). Corp members fly in fleets, so they show up in more killmails and can look "more active" without playing more. Test: among new players who already traded in their first month, count later activity from **contracts only**, which fleets can't inflate. Corp members are still **1.4× more likely to be active** at month 3 (9.6% vs 6.9%) and month 12 (4.8% vs 3.5%), against 1.7–1.8× on our usual measure. So the effect is real, but part of the bigger gaps is visibility. Say: belonging raises retention by **at least 1.4×**; the 2–3× figures are the upper end.
-- **Mid-sized corporations work best** (`retention_by_segment.csv`, "Corp size" segments). Still active at month 3 / month 12: NPC starter corp 9.6% / 5.4%, 2–10 members 11.1% / 5.6%, 11–50 17.3% / 9.2%, 51–200 20.8% / 11.4%, **201–1,000 22.8% / 13.9%**, 1,000+ 18.3% / 10.6%. A tiny corporation is barely better than none; the biggest are worse than mid-sized ones.
-- **The effect happens early:** of players still active at month 3, about half are still active at month 12 in every segment (50–59%). Belonging gets new players over the first hump; after that, every group fades at a similar pace.
-- Line: *"The best way to recruit people is by shooting them."* (an early mercenary leader, Down the Rabbit Hole, 00:44:55)
+| First month | Still playing at month 3 |
+|---|---|
+| No corporation, no kill | 9% |
+| All new players | 15% |
+| In a corporation of 201–1,000 members | 23% |
+| Joined a corporation and got a kill | 24% |
+| Fought in a battle of 100+ pilots | 27% |
+
+- **Main chart:** these groups over 12 months.
+- **Size matters:** mid-sized corporations (201–1,000 members) keep new players best. Tiny ones are barely better than none.
+- **Dying doesn't drive players away:** almost everyone loses a ship (88%).
+- **Is it just that keen players join corporations?** We checked three ways (`robustness_contracts_only.csv`, `robustness_equal_activity.csv`):
+  - Counting only trading activity, which fleets can't inflate: corporation members still stay **1.4×** as often.
+  - Comparing players who were equally active in their first month: still **1.5–1.6×**.
+  - With both together, the effect remains for **casual newcomers** (1.5×) but disappears for players who were already playing a lot.
+  - So: belonging matters most for the newcomers who haven't committed yet. We show a strong link, not proof of cause.
 
 ### 3. What doesn't work: launches bring people, not stayers
-- Expansion months spike signups, but those cohorts don't stay longer (`funnel_monthly.csv`).
-- **Equinox (June 2024): 115,029 signups, the biggest month, and the lowest 3-month retention of 2024 (12.7%).** Revenant and Legion: average retention.
-- Twitch, Google Trends and Steam players (`signals_monthly.csv`) rise around launches, which is attention, not loyalty.
-- View: signups (bars) with 3-month retention (line) and event markers (`events.csv`).
-- **Returners are the exception** (`returners_monthly.csv`: active again after 3+ inactive months). Catalyst (Nov 2025) brought back **23,311** lapsed players, 17.2% of everyone active that month, the highest of the window (the rise started in October). Revenant (10.3%), Legion (12.1%) and Cradle of War (13.3%) barely moved it. The returner share grew from ~10% of active players (late 2024) to 12–15% (2026). Expansions can win back old players; they don't make new ones stay.
+- Big expansions bring a rush of signups, but those players don't stay longer: **14%** still playing at month 3 for expansion-month newcomers, against **15%** in other months (`funnel_monthly.csv`).
+- Equinox (June 2024) brought the most signups of the window (115,029) and the weakest retention of 2024 (12.7%).
+- Expansions do bring **old players back**: Catalyst (November 2025) brought back **23,311** players who had left, the most of any month (`returners_monthly.csv`).
+- View: signups (bars), 3-month retention (line), returners, with expansion markers (`events.csv`).
 
-### 4. What it's worth: fewer arrive, more stay, more revenue
-- After the July 2025 Omega restructure (cheaper long plans plus free PLEX, `omega_prices.csv`), signups fell but **3-month retention of new cohorts rose from 14.0% (2024 cohorts) to 16.2% (Jul 2025 – May 2026 cohorts)**, about 16% higher (monthly range 12.7–15.5% vs 14.0–18.3%).
-- **But be careful with cause:** 12-month retention started rising in **April 2025**, before the restructure (Apr–Jun 2025 cohorts: 9.4–9.5% vs ~8% for 2024; Jul–Aug 2025: 8.6–9.6%; later cohorts don't have a year of follow-up yet). Say: retention has been improving since spring 2025 (around the Legion expansion); the restructure fits the trend but isn't the only cause.
-- CCP's **subscription and in-game revenue rose 11% in 2025 ($55.0M → $60.8M)** while signups fell 10% (`ccp_annual.csv`).
-- EVE revenue by quarter from Pearl Abyss, converted to USD (`revenue_quarterly.csv`), matches CCP's audited game revenue within 0.5% for 2023–2025.
-- PLEX fell from ~6.2M ISK (Q2 2025) to ~4.5M after PLEX moved to a single global market in July 2025 (`plex_monthly.csv`).
-- Players who flew an Omega-only (paid) ship in their first month: **26.2%** active at month 3 vs 13.0%.
-- **Belonging also turns players into payers** (`conversion_by_segment.csv`: first seen in an Omega-only ship within 12 months, cohorts Jan 2024 – Aug 2025). Joined a corp and got a kill: **35.2%**; corporation of 201–1,000 members: **44.2%**; player territory in null-sec: 44.5%; all new players: 25.2%; NPC starter corp: **15.3%**; neither: 13.7%. Most conversions happen in the first month (13.5% of all new players). So belonging drives both KPIs at once: retention and monetization.
+### 4. What it's worth: players who belong also pay
+- **Belonging turns players into payers.** Within a year, **35%** of new players who joined a corporation and got a kill flew a ship that needs a paid subscription, against **14%** of those who did neither. In mid-sized corporations, **44%** (`conversion_by_segment.csv`).
+- **Revenue grew while signups fell.** CCP's subscription and in-game revenue rose **11%** in 2025 ($55.0M → $60.8M) while signups fell 10% (`ccp_annual.csv`). Pearl Abyss's quarterly figures match CCP's audited accounts within 0.5% (`revenue_quarterly.csv`).
+- **Retention of new players improved** from 14.0% (2024) to 16.2% (July 2025 – May 2026) at month 3. It started rising in spring 2025, before the July 2025 price change, so we don't credit the price change alone (`omega_prices.csv`).
+- **Estimate (shade it as an estimate):** about 47,500 visible new players a year start without a corporation. If they all joined one, about **1,000 to 2,100 more** would still be playing a year later. On a 12-month Omega plan ($144) that is **$0.15M to $0.30M a year**, under 1% of revenue. The visible players are only 13% of signups, so this is a floor.
 
 ### 5. So what
-- **Recommendation:** for a subscription game, onboarding new players into groups is worth more than launch spikes. Route new players out of the NPC starter corp into **mid-sized player corporations (50–1,000 members)**, with beginner fleets and a first fight in the first month. Those players stay about twice as often and convert to paying about 2.5× as often. Use expansions to win back lapsed players.
-- **Open question:** Pearl Abyss sold CCP (completed 6 May 2026). Three months before vs after (`sale_before_after.csv`): signups up 13% (76K → 86K a month), but active characters (126K → 121K), returners (16.2K → 15.9K), players online (24.8K → 24.3K) and the PLEX price (4.47M → 4.58M ISK) barely moved, and Steam positive reviews fell from 69.6% to 65.0%. Cradle of War launched in June, so the two can't be separated yet. More people are trying EVE; the question is whether the new owners lean into the Friendship Machine so they stay.
+- **Recommendation:** put new players into groups early. Move them out of the starter corporation into **mid-sized player corporations** in their first month, with beginner fleets and a first fight. They are **1.4 to 2 times as likely to stay** and about **twice as likely to pay**. Use expansions to win back players who left.
+- **Open question:** Pearl Abyss sold CCP to its management on 6 May 2026. In the three months after, signups rose 13% but players online and active players barely changed (`sale_before_after.csv`). More people are trying EVE; will the new owners help them find a group?
 
-## Satisfaction (supporting, not a claim)
-- Steam reviews stay at 63–74% positive; the restructure quarter (Q3 2025) was 65.6%, then 71.8–71.9%. New players (under 50 h) are 5–8 points less positive.
-- Forum threads spike at events: pricing after July 2025, ownership in May 2026, new players in April 2026 ("Separate Space for Newbies?").
-- So the restructure got people talking without changing satisfaction. Act 4 rests on retention and revenue, not sentiment.
+## Supporting: satisfaction
+- Steam reviews stay between 63% and 74% positive. The July 2025 price change got people talking on the forums but didn't change satisfaction (`signals_monthly.csv`).
 
-## Caveats (say them on the slides)
-- **Correlation, not causation.** Players who join corps may be more committed to begin with.
-- **Activity is measured by visibility.** A player who keeps playing but stops fighting looks like they quit; the contracts-only check bounds this (1.4× vs 1.7×).
-- **We see the 13% who are visible** (killmails and contracts). Miners and market-only traders stay invisible, so retention is a lower bound.
-- **Characters, not accounts.** One account can hold several characters.
-- **Corporation size is today's member count**, not the size when the player joined.
-- **Paying is inferred** from flying an Omega-only ship in a killmail; Omega players who never fly one, or never appear in a killmail, are missed.
-- **The latest cohorts are censored:** retention at month k only counts cohorts with k months of follow-up.
+## Caveats (one slide, plain words)
+- **We see 13% of new characters in detail:** those who fight or trade with others. Signups, players online and revenue cover everyone.
+- **Activity, not logins.** A player who stops fighting and trading looks like they quit.
+- **A link, not proof.** Keen players may join corporations more often; our checks reduce but don't remove this.
+- **Characters, not people.** One account can have several characters.
+- **Paying is inferred** from flying a ship that needs a subscription.
+- **Comparisons with other games use different measures** (subscribers, Steam players, logins); read them as a sense of scale.
 
 ## Dashboard rules
 - One headline per page, written as the finding.
+- No game jargon without the glossary; say "players", "groups", "paid subscription".
 - The same event markers on every time chart (`events.csv`).
-- Estimates (USD from KRW, ARPU) are shaded differently from official figures.
-- Business language: subscribers, cohorts, retention, not killmails.
+- Estimates (KRW converted to USD, the value estimate) shaded differently from official figures.

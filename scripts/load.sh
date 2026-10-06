@@ -9,7 +9,7 @@ CLEAN=data/clean
 PSQL="docker compose exec -T db psql -v ON_ERROR_STOP=1 -q -U eve -d eve"
 
 # Tables in dependency order (parents before children)
-TABLES="source_document calendar_date region constellation solar_system item_category item_group item_type
+TABLES="source_document calendar_date region constellation solar_system stargate_link item_category item_group item_type
 alliance corporation player_character character_signup_month war battle contract contract_item character_month_activity
 players_online_daily sov_campaign game_event market_history_daily fx_rate economy_daily interest_metric
 steam_review forum_topic forum_post plan plan_price financial_metric benchmark_metric"

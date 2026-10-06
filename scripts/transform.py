@@ -96,15 +96,24 @@ def dimensions():
         mer = {int(r["solarsystem_id"]): r["solarsystem_metagroup"]
                for r in csv.DictReader(io.TextIOWrapper(z.open("data/static_solarsystems.csv"), encoding="utf-8"))}
     systems = set()
-    f, w = out("solar_system", ["solar_system_id", "solar_system_name", "constellation_id", "security_status", "security_band"])
+    f, w = out("solar_system", ["solar_system_id", "solar_system_name", "constellation_id", "security_status", "security_band",
+                                "map_x", "map_y"])
     for r in sde_rows("mapSolarSystems"):
         sec = r.get("securityStatus")
         band = mer.get(r["_key"]) or (
             "Wormhole" if 11000000 <= r["regionID"] < 12000000 else
             "High Sec" if sec is not None and sec >= 0.45 else
             "Low Sec" if sec is not None and sec > 0 else "Null Sec")
-        w.writerow([r["_key"], en(r["name"]), r["constellationID"], sec, band])
+        pos = r.get("position2D") if r["regionID"] < 11000000 else None  # wormholes and abyssal space are off the map
+        w.writerow([r["_key"], en(r["name"]), r["constellationID"], sec, band,
+                    pos and pos["x"], pos and pos["y"]])
         systems.add(r["_key"])
+    f.close()
+
+    # stargate_link: each connection once (lower system ID first)
+    f, w = out("stargate_link", ["from_solar_system_id", "to_solar_system_id"])
+    for a, b in sorted({tuple(sorted((r["solarSystemID"], r["destination"]["solarSystemID"]))) for r in sde_rows("mapStargates")}):
+        w.writerow([a, b])
     f.close()
 
     f, w = out("item_category", ["category_id", "category_name"])
@@ -688,6 +697,13 @@ def parse_num(text):
     return float(n) * {"thousand": 1e3, "million": 1e6, "billion": 1e9}.get(unit.strip(), 1)
 
 
+def steam_months(path):
+    """(month, average players, peak players) rows from a SteamCharts app page; the current partial month is skipped."""
+    import re
+    return re.findall(r'month-cell left">\s*([A-Z][a-z]+ \d{4})\s*</td>\s*<td class="right num-f">([\d.]+)</td>'
+                      r'.*?<td class="right num">(\d+)</td>', path.read_text(), flags=re.S)
+
+
 def interest():
     import re
     f, w = out("interest_metric", ["period_start", "granularity", "source", "metric", "geography", "value", "source_id"])
@@ -702,8 +718,7 @@ def interest():
             w.writerow([START, "period", "google_trends", "search_interest", row[0], 0.5 if row[1] == "<1" else row[1], sid])
     path = RAW / "steam_players" / "steamcharts_8500.html"
     sid = source_id(path)
-    for month, avg, peak in re.findall(r'month-cell left">\s*([A-Z][a-z]+ \d{4})\s*</td>\s*<td class="right num-f">([\d.]+)</td>'
-                                       r'.*?<td class="right num">(\d+)</td>', path.read_text(), flags=re.S):
+    for month, avg, peak in steam_months(path):
         d = datetime.strptime(month, "%B %Y").date()
         w.writerow([d, "month", "steam", "avg_players", "Worldwide", avg, sid])
         w.writerow([d, "month", "steam", "peak_players", "Worldwide", peak, sid])
@@ -786,6 +801,23 @@ def curated():
     f, w = out("benchmark_metric", ["benchmark_id", "game", "metric", "value", "unit", "period", "source_id"])
     for i, r in enumerate(csv.DictReader(open(ref / "benchmarks.csv")), 1):
         w.writerow([i, r["game"], r["metric"], r["value"], r["unit"], r["period"], source_id(RAW / r["source_file"])])
+    # Steam staying power: average players 12 months after the month with the all-time peak, as a share of that month
+    games = {8500: "EVE Online", 306130: "The Elder Scrolls Online", 39210: "Final Fantasy XIV", 582660: "Black Desert",
+             1343400: "RuneScape", 1343370: "Old School RuneScape", 1063730: "New World", 1599340: "Lost Ark",
+             2429640: "Throne and Liberty", 761890: "Albion Online", 1284210: "Guild Wars 2"}
+    for app, game in games.items():
+        path = RAW / "steam_players" / f"steamcharts_{app}.html"
+        months = {datetime.strptime(m, "%B %Y").date(): (float(avg), int(peak)) for m, avg, peak in steam_months(path)}
+        peak_month = max(months, key=lambda m: months[m][1])
+        later = peak_month.replace(year=peak_month.year + 1)
+        rows = [("steam_all_time_peak_players", months[peak_month][1], "players"),
+                ("steam_avg_players_peak_month", months[peak_month][0], "players")]
+        if later in months:
+            rows.append(("steam_share_of_peak_month_after_12_months", round(months[later][0] / months[peak_month][0], 4),
+                         "share of peak-month average players"))
+        for metric, value, unit in rows:
+            i += 1
+            w.writerow([i, game, metric, value, unit, f"peak month {peak_month:%Y-%m}", source_id(path)])
     f.close()
     print(f"curated: {i} benchmarks, {len(plan_ids)} plans, {len(prices)} prices")
 

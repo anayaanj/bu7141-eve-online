@@ -1,0 +1,7 @@
+first_month_active_days,corp,players,retention_month_3_any_activity,traders,retention_month_3_contracts_only_traders
+1 day,In a corp,117709,0.1124,5197,0.0662
+1 day,No corp,82433,0.0695,8298,0.0439
+2-3 days,In a corp,55181,0.2066,4092,0.0980
+2-3 days,No corp,24751,0.1369,3767,0.0889
+4+ days,In a corp,33765,0.3620,4540,0.1291
+4+ days,No corp,8124,0.2392,1887,0.1362

@@ -43,7 +43,18 @@ Table solar_system {
   constellation_id int [not null, ref: > constellation.constellation_id]
   security_status decimal
   security_band varchar [note: 'High Sec / Low Sec / Null Sec / Wormhole']
+  map_x "double precision" [note: 'CCP 2D map position (SDE position2D.x); null for wormholes and other off-map systems']
+  map_y "double precision" [note: 'CCP 2D map position (SDE position2D.y)']
   Note: 'SDE mapSolarSystems [9], security band from MER static_solarsystems [4].'
+}
+
+Table stargate_link {
+  from_solar_system_id int [ref: > solar_system.solar_system_id]
+  to_solar_system_id int [ref: > solar_system.solar_system_id]
+  indexes {
+    (from_solar_system_id, to_solar_system_id) [pk]
+  }
+  Note: 'SDE mapStargates [9]: one row per stargate connection between two systems (each direction stored once). Draws the map.'
 }
 
 Table item_category {

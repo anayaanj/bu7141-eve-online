@@ -162,3 +162,34 @@ LEFT JOIN character_month_activity c ON c.character_id = n.character_id
 LEFT JOIN analysis.new_player_activity a ON a.character_id = n.character_id AND a.k = k.k
 WHERE n.traded AND n.first_month + make_interval(months => k.k) <= date '2026-08-01'
 GROUP BY 1, 2;
+
+-- Battle size at its busiest hour. A few battles chain separate fights in a busy system over days
+-- (killmails within an hour of each other), so "largest battle" uses distinct pilots in the peak hour.
+CREATE TABLE analysis.battle_peak AS
+SELECT battle_id, max(pilots) AS peak_hour_pilots
+FROM (
+  SELECT k.battle_id, date_trunc('hour', k.killmail_time) AS hour, count(DISTINCT p.character_id) AS pilots
+  FROM killmail k JOIN killmail_participant p USING (killmail_id)
+  WHERE k.battle_id IS NOT NULL
+  GROUP BY 1, 2
+) h GROUP BY battle_id;
+
+ALTER TABLE analysis.battle_peak ADD PRIMARY KEY (battle_id);
+
+-- Robustness: are corp members just keener? Compare players equally active in their first month (active days),
+-- on any activity and, for players who traded in month 1, on contracts only.
+CREATE VIEW analysis.robustness_equal_activity AS
+SELECT CASE WHEN a.active_days = 1 THEN '1 day' WHEN a.active_days <= 3 THEN '2-3 days' ELSE '4+ days' END AS first_month_active_days,
+       CASE WHEN n.joined_corp THEN 'In a corp' ELSE 'No corp' END AS corp,
+       count(*) AS players,
+       round(count(a3.character_id)::numeric / count(*), 4) AS retention_month_3_any_activity,
+       count(*) FILTER (WHERE n.traded) AS traders,
+       round(count(c3.character_id) FILTER (WHERE n.traded)::numeric / nullif(count(*) FILTER (WHERE n.traded), 0), 4)
+         AS retention_month_3_contracts_only_traders
+FROM analysis.new_player n
+JOIN character_month_activity a ON a.character_id = n.character_id AND a.month = n.first_month
+LEFT JOIN analysis.new_player_activity a3 ON a3.character_id = n.character_id AND a3.k = 3
+LEFT JOIN character_month_activity c3 ON c3.character_id = n.character_id
+     AND c3.month = n.first_month + interval '3 month' AND c3.contracts_issued > 0
+WHERE n.first_month <= date '2026-05-01'
+GROUP BY 1, 2;

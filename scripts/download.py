@@ -349,10 +349,16 @@ def fx():
                  user_agent="python-urllib/3.12")  # FRED drops requests with custom User-Agents
 
 
+MMO_STEAM_APPS = {8500: "EVE Online", 306130: "The Elder Scrolls Online", 39210: "Final Fantasy XIV", 582660: "Black Desert",
+                  1343400: "RuneScape", 1343370: "Old School RuneScape", 1063730: "New World", 1599340: "Lost Ark",
+                  2429640: "Throne and Liberty", 761890: "Albion Online", 1284210: "Guild Wars 2"}
+
+
 def steam_players():
-    """SteamCharts page for EVE Online: monthly average and peak concurrent Steam players."""
-    download("https://steamcharts.com/app/8500", RAW / "steam_players" / "steamcharts_8500.html",
-             "Steam concurrent players (SteamCharts)", "SteamCharts, from the Steam Web API", "real, third-party tracker")
+    """SteamCharts pages: monthly average and peak concurrent Steam players for EVE Online and other MMOs (comparison)."""
+    for app, game in MMO_STEAM_APPS.items():
+        download(f"https://steamcharts.com/app/{app}", RAW / "steam_players" / f"steamcharts_{app}.html",
+                 f"Steam concurrent players (SteamCharts): {game}", "SteamCharts, from the Steam Web API", "real, third-party tracker")
 
 
 def news_all():
@@ -404,6 +410,22 @@ BENCHMARKS = [  # (file name, url, publisher)
     ("lee2019_aion_promotion_events.pdf", "https://arxiv.org/pdf/1909.10851", "Lee et al., arXiv 2019 (AION)"),
     ("wowah_full.parquet", "https://github.com/koaning/wow-avatar-datasets/raw/main/wow-full.parquet",
      "WoWAH dataset (Lee et al. 2011), Parquet copy by V. Warmerdam (calmcode.io)"),
+    # Peak subscribers and published new-player retention (press pages quoting the companies)
+    ("press_eve_500k_subscribers_2013.html", "https://www.shacknews.com/article/78020/eve-online-passes-500000-subscribers",
+     "Shacknews, quoting CCP, Feb 2013"),
+    ("press_everquest_subscribers_2004.html",
+     "https://sony.mediaroom.com/2004-03-15-Sony-Online-Entertainments-EverQuest-Celebrates-Its-Fifth-Year-and-Over-2.5-Million-Units-Sold-Worldwide",
+     "Sony Online Entertainment press release, Mar 2004"),
+    ("press_swtor_subscribers_2012.html",
+     "https://www.gameinformer.com/b/news/archive/2012/07/31/old-republic-subs-drop-below-1-million.aspx",
+     "Game Informer, quoting EA earnings calls, Jul 2012"),
+    ("press_eve_new_player_retention_2019.html",
+     "https://kotaku.com/eve-online-developers-discuss-ways-to-stop-new-players-1835909279", "Kotaku, quoting CCP at EVE North, Jun 2019"),
+    ("press_superdata_f2p_retention_2015.html",
+     "https://gamesbeat.com/day-1-players-of-f2p-games-are-much-more-likely-to-still-be-there-a-year-later/",
+     "GamesBeat, quoting SuperData Research, Feb 2015"),
+    ("press_wow_12m_subscribers_2010.html", "http://web.archive.org/web/20210123051920/https://investor.activision.com/node/18936",
+     "Activision Blizzard press release, Oct 2010 (Wayback copy; the live page does not respond)"),
 ]
 
 

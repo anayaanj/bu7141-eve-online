@@ -25,7 +25,15 @@ CREATE TABLE "solar_system" (
   "solar_system_name" varchar NOT NULL,
   "constellation_id" int NOT NULL,
   "security_status" decimal,
-  "security_band" varchar
+  "security_band" varchar,
+  "map_x" double precision,
+  "map_y" double precision
+);
+
+CREATE TABLE "stargate_link" (
+  "from_solar_system_id" int,
+  "to_solar_system_id" int,
+  PRIMARY KEY ("from_solar_system_id", "to_solar_system_id")
 );
 
 CREATE TABLE "item_category" (
@@ -344,6 +352,12 @@ COMMENT ON TABLE "solar_system" IS 'SDE mapSolarSystems [9], security band from 
 
 COMMENT ON COLUMN "solar_system"."security_band" IS 'High Sec / Low Sec / Null Sec / Wormhole';
 
+COMMENT ON COLUMN "solar_system"."map_x" IS 'CCP 2D map position (SDE position2D.x); null for wormholes and other off-map systems';
+
+COMMENT ON COLUMN "solar_system"."map_y" IS 'CCP 2D map position (SDE position2D.y)';
+
+COMMENT ON TABLE "stargate_link" IS 'SDE mapStargates [9]: one row per stargate connection between two systems (each direction stored once). Draws the map.';
+
 COMMENT ON TABLE "item_category" IS 'SDE categories [9].';
 
 COMMENT ON COLUMN "item_category"."category_name" IS 'e.g. Ship, Module, Charge';
@@ -571,6 +585,10 @@ COMMENT ON COLUMN "benchmark_metric"."period" IS 'years the study covers';
 ALTER TABLE "constellation" ADD FOREIGN KEY ("region_id") REFERENCES "region" ("region_id") DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "solar_system" ADD FOREIGN KEY ("constellation_id") REFERENCES "constellation" ("constellation_id") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "stargate_link" ADD FOREIGN KEY ("from_solar_system_id") REFERENCES "solar_system" ("solar_system_id") DEFERRABLE INITIALLY IMMEDIATE;
+
+ALTER TABLE "stargate_link" ADD FOREIGN KEY ("to_solar_system_id") REFERENCES "solar_system" ("solar_system_id") DEFERRABLE INITIALLY IMMEDIATE;
 
 ALTER TABLE "item_group" ADD FOREIGN KEY ("category_id") REFERENCES "item_category" ("category_id") DEFERRABLE INITIALLY IMMEDIATE;
 
