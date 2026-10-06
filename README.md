@@ -69,6 +69,10 @@ Run each command from the repo root. Each one skips files you already have, so i
 | `python3 scripts/download.py pricing` | Omega and store page snapshots | 6 MB | ~10 min |
 | `python3 scripts/download.py news` | CCP news articles on Omega and PLEX | 15 MB | 1 min |
 | `python3 scripts/download.py esi_characters` | Real creation dates for killmail characters | 60 MB | ~2 h |
+| `python3 scripts/download.py sde` | CCP static game data (item names, ship classes, map) | 99 MB | 1 min |
+| `python3 scripts/download.py contracts` | Public contracts, first snapshot per day | 5.5 GB | ~2 h |
+| `python3 scripts/download.py character_id_boundaries` | First character ID of each month (exact signups) | <1 MB | ~1 h |
+| `python3 scripts/download.py players_online` | Concurrent players every 30 min (EVE-Offline) | 2 MB | 2 min |
 
 - **Order:** `esi_characters` needs `killmails` and `characters` first.
 - **Long jobs:** on a Mac, put `caffeinate -i` in front of a command to keep the computer awake while it runs.
