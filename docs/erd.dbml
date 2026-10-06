@@ -1,6 +1,8 @@
 // BU7141 — EVE Online subscription KPIs: ERD v1 (clean / transformed model)
 // Paste into https://dbdiagram.io to view. Source of truth lives in the repo; change it via pull request.
 // Every table notes which raw source it is built from (see docs/raw_inventory.md, section numbers in brackets).
+// Derived attributes are marked '/derived:' (the textbook's '/' prefix) and derived tables have a grey header.
+// docs/erd_design.md explains the normalization (1NF-3NF) and why each derived column is stored.
 
 Project bu7141_eve_online {
   database_type: 'PostgreSQL'
@@ -15,10 +17,10 @@ Project bu7141_eve_online {
 
 Table calendar_date {
   date date [pk]
-  month date [not null, note: 'first day of month, for cohorts and MAU']
-  quarter varchar [not null, note: 'e.g. 2025Q3, joins Pearl Abyss quarters']
-  year int [not null]
-  after_sale boolean [not null, note: 'on or after 2026-05-01, when Pearl Abyss sold CCP']
+  month date [not null, note: '/derived: first day of the month of date. Used for cohorts and MAU']
+  quarter varchar [not null, note: '/derived: year and quarter of date, e.g. 2025Q3. Joins Pearl Abyss quarters']
+  year int [not null, note: '/derived: year of date']
+  after_sale boolean [not null, note: '/derived: date >= 2026-05-01, when Pearl Abyss sold CCP']
   Note: 'Generated. The glue between per-player and company-level data.'
 }
 
@@ -62,7 +64,7 @@ Table item_type {
   type_name varchar [not null]
   group_id int [not null, ref: > item_group.group_id]
   mean_isk_value decimal [note: 'MER static_type_values [4]']
-  alpha_can_fly boolean [note: 'ships only: every required skill within the Alpha clone limits (SDE cloneGrades + typeDogma)']
+  alpha_can_fly boolean [note: '/derived: ships only. Every skill the ship requires (SDE typeDogma) is within the Alpha clone limits (SDE cloneGrades)']
   Note: 'SDE types [9].'
 }
 
@@ -84,7 +86,7 @@ Table corporation {
   alliance_id int [ref: >? alliance.alliance_id]
   date_founded timestamp
   member_count int
-  is_npc boolean [note: 'corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)']
+  is_npc boolean [note: '/derived: corporation_id < 2000000 (CCP-run starter corps, incl. Doomheim)']
   Note: 'Character dump corporations.json [2].'
 }
 
@@ -93,22 +95,22 @@ Table player_character {
   character_name varchar
   signup_date date [note: 'birthday: dump if real (>= 2003), else ESI, else null']
   signup_date_source varchar [note: 'dump / esi / unknown']
-  cohort_month date [note: 'first day of signup month']
+  cohort_month date [note: '/derived: first day of the month of signup_date']
   gender varchar
   race_id int
   bloodline_id int
   corporation_id int [not null, ref: > corporation.corporation_id, note: 'current, at snapshot']
   security_status decimal
-  is_deleted boolean [note: 'dump deleted flag, ESI 404, or corporation = Doomheim (1000001)']
-  inferred_plan varchar [note: 'omega (seen in a ship an Alpha cannot fly) / unknown. Never "alpha": absence proves nothing']
-  first_omega_seen date [note: 'first killmail in an Omega-only ship']
+  is_deleted boolean [note: '/derived: dump deleted flag OR ESI 404 OR corporation_id = 1000001 (Doomheim)']
+  inferred_plan varchar [note: '/derived: omega if any killmail_participant row flies an item_type with alpha_can_fly = false, else unknown. Never alpha: absence proves nothing']
+  first_omega_seen date [note: '/derived: earliest kill_date in a ship with alpha_can_fly = false']
   Note: 'Customer. Character dump [2] + ESI [2b]. Scope: characters active in killmails or contracts, Jan 2024 - Aug 2026 (889,560). Signup totals for everyone are in character_signup_month.'
 }
 
 Table character_signup_month {
   month date [pk]
   first_character_id bigint [not null, note: 'first character created that month']
-  characters_created int [not null, note: 'next month first ID minus this month first ID']
+  characters_created int [not null, note: '/derived: first_character_id of the next month minus first_character_id of this month']
   Note: 'Exact signups for every character, seen or not, deleted or not [11]. Characters, not accounts.'
 }
 
@@ -117,11 +119,11 @@ Table character_signup_month {
 Table killmail {
   killmail_id bigint [pk]
   killmail_time timestamp [not null]
-  kill_date date [not null, ref: > calendar_date.date]
+  kill_date date [not null, ref: > calendar_date.date, note: '/derived: date part of killmail_time']
   solar_system_id int [not null, ref: > solar_system.solar_system_id]
   war_id int [ref: >? war.war_id]
-  battle_id int [ref: >? battle.battle_id]
-  attacker_count int
+  battle_id int [ref: >? battle.battle_id, note: '/derived: battle the killmail falls in (system + hour cluster)']
+  attacker_count int [note: '/derived: count of attacker rows in killmail_participant']
   Note: 'UsageEvent. One ship destroyed [1].'
 }
 
@@ -149,7 +151,7 @@ Table contract {
   issuer_corporation_id int [ref: >? corporation.corporation_id]
   contract_type varchar [not null, note: 'item_exchange / auction / courier']
   date_issued timestamp [not null]
-  issued_date date [not null, ref: > calendar_date.date]
+  issued_date date [not null, ref: > calendar_date.date, note: '/derived: date part of date_issued']
   date_expired timestamp
   price decimal
   reward decimal
@@ -157,33 +159,33 @@ Table contract {
   volume decimal
   region_id int [ref: >? region.region_id]
   solar_system_id int [ref: >? solar_system.solar_system_id]
-  first_seen date [note: 'first daily snapshot containing it']
-  last_seen date [note: 'last daily snapshot containing it']
+  first_seen date [note: '/derived: earliest daily snapshot containing the contract']
+  last_seen date [note: '/derived: latest daily snapshot containing the contract']
   Note: 'Non-combat activity (traders, haulers). Daily snapshots deduplicated on contract_id [10].'
 }
 
-Table character_month_activity {
+Table character_month_activity [headercolor: #9E9E9E] {
   character_id bigint [ref: > player_character.character_id]
   month date
-  kills int
-  losses int
-  contracts_issued int
-  active_days int [note: 'days with a killmail or a contract']
-  flew_omega_ship boolean
-  in_player_corporation boolean [note: 'last seen in a non-NPC corporation that month']
+  kills int [note: '/derived: count of attacker rows that month']
+  losses int [note: '/derived: count of victim rows that month']
+  contracts_issued int [note: '/derived: count of contracts issued that month']
+  active_days int [note: '/derived: distinct days with a killmail or contract']
+  flew_omega_ship boolean [note: '/derived: any row that month in a ship with alpha_can_fly = false']
+  in_player_corporation boolean [note: '/derived: corporation at last activity that month has is_npc = false']
   indexes {
     (character_id, month) [pk]
   }
-  Note: 'Derived from killmail_participant and contract. Feeds DAU/MAU, cohort retention, churn, social glue.'
+  Note: '/derived table. From killmail_participant and contract. Feeds DAU/MAU, cohort retention, churn, social glue.'
 }
 
-Table players_online_daily {
+Table players_online_daily [headercolor: #9E9E9E] {
   date date [pk, ref: - calendar_date.date]
-  avg_players int
-  peak_players int
-  min_players int
-  outage_minutes int [note: 'minutes with no data or 0 players outside daily downtime: service-quality proxy']
-  Note: 'Concurrent players, all activities, from 30-minute points [12].'
+  avg_players int [note: '/derived: mean of the 30-minute points that day']
+  peak_players int [note: '/derived: max of the 30-minute points that day']
+  min_players int [note: '/derived: min of the 30-minute points that day']
+  outage_minutes int [note: '/derived: 30-minute points with no data or 0 players outside daily downtime, x 30. Service-quality proxy']
+  Note: '/derived table. Concurrent players, all activities, from 30-minute points [12].'
 }
 
 // ───────────────────────── Conflict & events ─────────────────────────
@@ -211,23 +213,23 @@ Table sov_campaign {
   defender_alliance_id int [ref: >? alliance.alliance_id]
   structure_id bigint
   start_time timestamp [not null]
-  first_seen timestamp
-  last_seen timestamp
-  final_attackers_score decimal
-  final_defender_score decimal
+  first_seen timestamp [note: '/derived: earliest hourly snapshot containing the campaign']
+  last_seen timestamp [note: '/derived: latest hourly snapshot containing the campaign']
+  final_attackers_score decimal [note: '/derived: attackers_score in the latest snapshot']
+  final_defender_score decimal [note: '/derived: defender_score in the latest snapshot']
   Note: 'Territory fights. Hourly snapshots deduplicated on campaign_id [17].'
 }
 
-Table battle {
+Table battle [headercolor: #9E9E9E] {
   battle_id int [pk]
   solar_system_id int [not null, ref: > solar_system.solar_system_id]
-  start_time timestamp [not null]
-  end_time timestamp [not null]
-  battle_date date [not null, ref: > calendar_date.date]
-  killmails int
-  pilots int [not null, note: 'distinct characters involved']
-  battle_class varchar [not null, note: 'skirmish (50-99 pilots) / war (100+ pilots). Size of a fight, not the official war declarations in the war table']
-  Note: 'Derived: killmails in the same system within an hour with 50+ distinct pilots [1].'
+  start_time timestamp [not null, note: '/derived: first killmail in the cluster']
+  end_time timestamp [not null, note: '/derived: last killmail in the cluster']
+  battle_date date [not null, ref: > calendar_date.date, note: '/derived: date part of start_time']
+  killmails int [note: '/derived: count of killmails in the cluster']
+  pilots int [not null, note: '/derived: distinct character_id among the participants']
+  battle_class varchar [not null, note: '/derived: skirmish if pilots 50-99, war if 100+. Size of a fight, not the official war declarations in the war table']
+  Note: '/derived table. Killmails in the same system within an hour with 50+ distinct pilots [1].'
 }
 
 Table game_event {
@@ -345,10 +347,10 @@ Table interest_metric {
 Table steam_review {
   recommendation_id bigint [pk]
   steam_author_id bigint [note: 'Steam account, NOT linkable to a character']
-  created_date date [not null, ref: > calendar_date.date]
+  created_date date [not null, ref: > calendar_date.date, note: '/derived: date of timestamp_created (unix)']
   language varchar
   voted_up boolean [note: 'recommend yes / no: the NPS proxy']
-  playtime_at_review_hours decimal
+  playtime_at_review_hours decimal [note: '/derived: playtime_at_review (minutes) / 60']
   steam_purchase boolean
   received_for_free boolean
   votes_up int
@@ -359,7 +361,7 @@ Table steam_review {
 Table forum_topic {
   topic_id int [pk]
   title varchar [not null]
-  created_date date [not null, ref: > calendar_date.date]
+  created_date date [not null, ref: > calendar_date.date, note: '/derived: date part of created_at']
   posts_count int
   matched_query varchar [note: 'search query that found it (title must also be on topic)']
   Note: 'Official forums [18].'
@@ -368,9 +370,9 @@ Table forum_topic {
 Table forum_post {
   post_id int [pk]
   topic_id int [not null, ref: > forum_topic.topic_id]
-  created_date date [not null, ref: > calendar_date.date]
-  author_hash varchar [note: 'hashed forum username: counts distinct posters without storing names']
-  post_text text
+  created_date date [not null, ref: > calendar_date.date, note: '/derived: date part of created_at']
+  author_hash varchar [note: '/derived: SHA-256 of the forum username. Counts distinct posters without storing names']
+  post_text text [note: '/derived: post HTML (cooked) with tags stripped']
   Note: 'Official forums [18]. Feeds sentiment around price changes and the sale.'
 }
 
