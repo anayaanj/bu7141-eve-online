@@ -10,6 +10,11 @@ World of Warcraft,not_churned_215_days_2_month_definition,0.7,survival probabili
 World of Warcraft,not_churned_245_days_3_month_definition,0.6,survival probability,2006-2009,benchmarks/khan2020_churn_in_wow.pdf,page 13
 AION,login_increase_during_event_levels_31_60,0.44,relative increase,2016-01-27 to 2016-02-09,benchmarks/lee2019_aion_promotion_events.pdf,page 3
 EVE Online,peak_subscribers,500000,paying subscribers,2013-02,benchmarks/press_eve_500k_subscribers_2013.html,headline: CCP announcement (up from 450k in Dec 2012)
+EVE Online,subscribers,50000,paying subscribers,2004-09,benchmarks/press_eve_50k_subscribers_2004.html,"Gamasutra round-up: CCP ""has announced that ... EVE Online has reached 50,000 active subscribers"""
+EVE Online,subscribers,100000,paying subscribers,2006-02,benchmarks/press_eve_100k_subscribers_2006.html,"CCP press release, 7 Feb 2006: ""reached 100,000 active game subscribers"""
+EVE Online,subscribers,200000,paying subscribers,2007-11,benchmarks/press_eve_200k_subscribers_2007.html,"CCP news, 16 Nov 2007: ""we surpassed 200,000 active subscriptions"" (trial accounts not included)"
+EVE Online,subscribers,300000,paying subscribers,2009-05,benchmarks/press_eve_300k_subscribers_2009.html,"CCP news, 6 May 2009: ""surpassed the impressive milestone of 300,000 active subscribers"""
+EVE Online,subscribers,400000,paying subscribers,2011-10,benchmarks/press_eve_400k_subscribers_2011.html,"CCP lead designer via Engadget, 20 Oct 2011: ""We have 400,000 subscribers"""
 EverQuest,peak_subscribers,420000,paying subscribers,2004-03,benchmarks/press_everquest_subscribers_2004.html,"SOE press release: ""global player base of more than 420,000"""
 Star Wars: The Old Republic,peak_subscribers,1700000,paying subscribers,2012-02,benchmarks/press_swtor_subscribers_2012.html,EA via Game Informer: 1.7M after launch; below 1M by Jul 2012
 Star Wars: The Old Republic,subscribers_6_months_after_peak,1000000,paying subscribers (upper bound),2012-07,benchmarks/press_swtor_subscribers_2012.html,EA via Game Informer: slipped below 1 million

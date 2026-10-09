@@ -112,11 +112,11 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 
 ## 12. Players online — `data/raw/players_online/tranquility_YYYY-MM.jsonp`
 - **Publisher:** EVE-Offline (eve-offline.net), a long-running third-party tracker that polls CCP's server status. Real.
-- **Volume:** 32 monthly files, Jan 2024 → Aug 2026, one point every 30 minutes (~1,488 per month).
+- **Volume:** 243 monthly files, Jun 2006 (the earliest month the site serves) → Aug 2026, one point every 30 minutes (~1,488 per month). The site sits behind Cloudflare and sometimes answers an HTML error page: `download.py players_online` checks each file starts with `([` and refetches.
 - **Format:** JSONP: `([[unix_ms, players], ...]);`. Strip the wrapper, then parse as JSON.
 - **Meaning:** concurrent players logged in at that moment, all activities (miners and market traders included). Not unique players.
 - **Examples:** monthly average ≈ 21,600–26,800, peak ≈ 31,000–38,800.
-- **Use:** the all-player benchmark for engagement: compare it with the characters active in killmails and contracts.
+- **Use:** the all-player benchmark for engagement: compare it with the characters active in killmails and contracts. The 2006–2023 months feed only the "20 years of EVE" chart (`players_history_monthly.csv`); every other export filters to Jan 2024 → Aug 2026.
 
 ## 13. Exchange rates — `data/raw/fx/{DEXKOUS,DEXUSEU}.csv`
 - **Publisher:** Federal Reserve Bank of St. Louis (FRED). Real, official statistics. Daily, 1981 → 2026-09-25.
@@ -160,7 +160,7 @@ Window: 2024-01-01 → 2026-08-31. Retrieved 2026-09-28. Every file is logged in
 ## 19. Benchmarks — `data/raw/benchmarks/`
 - **Papers:** Lee et al. 2011 (WoWAH dataset), Khan 2020 (churn in WoW), Borbora et al. 2011 (EverQuest II churn), Lee et al. 2019 (AION promotion events and retention).
 - **Dataset:** `wowah_full.parquet` (319 MB): World of Warcraft Avatar History, 91,065 avatars observed every 10 minutes, 2006–2009 (Parquet copy linked from calmcode.io).
-- **Press pages (`press_*.html`):** official peak subscriber figures (WoW 12M 2010, SWTOR 1.7M 2012, EVE 500k 2013, EverQuest 420k 2004), CCP's 2019 new-player figure (89.74% quit in the first week) and SuperData's F2P MMO retention (20% at day 30, ~6% after a year). The Activision release is a Wayback copy because the live page doesn't respond.
+- **Press pages (`press_*.html`):** official peak subscriber figures (WoW 12M 2010, SWTOR 1.7M 2012, EVE 500k 2013, EverQuest 420k 2004), EVE's subscriber milestones as CCP announced them (50k Sep 2004, 100k Feb 2006, 200k Nov 2007, 300k May 2009, 400k Oct 2011; `press_eve_*_subscribers_*.html`, for the "20 years of EVE" chart), CCP's 2019 new-player figure (89.74% quit in the first week) and SuperData's F2P MMO retention (20% at day 30, ~6% after a year). The Activision release is a Wayback copy because the live page doesn't respond.
 - **Use:** sanity-check our retention and churn figures against published MMO figures, and compare EVE with other MMOs at their peak.
 - **EVE University wiki (`eveuni_getting_started.html`, CC BY-SA):** the new player guide: tutorial and career agents (solo, PvE), the advice to join a corporation, three characters per account.
 

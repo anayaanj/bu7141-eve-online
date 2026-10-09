@@ -566,7 +566,7 @@ def players_online():
             by_day.setdefault(t.date(), []).append((t, players))
     f, w = out("players_online_daily", ["date", "avg_players", "peak_players", "min_players", "outage_minutes"])
     for d, points in sorted(by_day.items()):
-        if not START <= d <= END:
+        if d > END:  # history runs from 2006-06, before START, for the "23 years of EVE" chart
             continue
         values = [p for _, p in points]
         up_slots = {(t.hour, t.minute // 30) for t, p in points if p > 0}

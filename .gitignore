@@ -13,3 +13,4 @@ __pycache__/
 
 # Clean tables built by scripts/transform.py (several GB)
 data/clean/
+hyperd*.log

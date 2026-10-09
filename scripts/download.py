@@ -425,6 +425,19 @@ BENCHMARKS = [  # (file name, url, publisher)
     # Peak subscribers and published new-player retention (press pages quoting the companies)
     ("press_eve_500k_subscribers_2013.html", "https://www.shacknews.com/article/78020/eve-online-passes-500000-subscribers",
      "Shacknews, quoting CCP, Feb 2013"),
+    # EVE subscriber milestones announced by CCP (the "23 years of EVE" chart)
+    ("press_eve_50k_subscribers_2004.html", "https://www.gamedeveloper.com/game-platforms/gaming-news-round-up-september-15th-2004",
+     "Gamasutra news round-up, reporting CCP's announcement, Sep 2004"),
+    ("press_eve_100k_subscribers_2006.html",
+     "https://community.eveonline.com/news/news-channels/press-releases/eve-online-reaches-the-100-000-subscriber-mark",
+     "CCP press release, Feb 2006"),
+    ("press_eve_200k_subscribers_2007.html", "https://www.eveonline.com/news/view/200-000", "CCP news post, Nov 2007"),
+    ("press_eve_300k_subscribers_2009.html",
+     "https://www.eveonline.com/news/view/eves-6th-birthday-with-300-000-of-your-closest-friends-and-enemies",
+     "CCP news post, May 2009"),
+    ("press_eve_400k_subscribers_2011.html",
+     "https://www.engadget.com/2011-10-20-ccp-talks-flying-in-space-says-eve-is-a-healthy-subscriber-base.html",
+     "Engadget, quoting CCP's lead designer, Oct 2011"),
     ("press_everquest_subscribers_2004.html",
      "https://sony.mediaroom.com/2004-03-15-Sony-Online-Entertainments-EverQuest-Celebrates-Its-Fifth-Year-and-Over-2.5-Million-Units-Sold-Worldwide",
      "Sony Online Entertainment press release, Mar 2004"),
@@ -558,17 +571,28 @@ def forums():
             page += 1
 
 
+PLAYERS_ONLINE_START = date(2006, 6, 1)  # earliest month EVE-Offline serves
+
+
 def players_online():
-    """Concurrent players on Tranquility from EVE-Offline, one request per month (~1.5 h resolution)."""
-    month = date(START.year, START.month, 1)
+    """Concurrent players on Tranquility from EVE-Offline, one request per month (~1.5 h resolution), 2006-06 to END.
+    The site sits behind Cloudflare and sometimes answers with an HTML error page, so each file is checked and refetched."""
+    month = PLAYERS_ONLINE_START
     while month <= END:
         nxt = month.replace(month=month.month % 12 + 1, year=month.year + month.month // 12)
         start_ms = int(datetime(month.year, month.month, 1, tzinfo=timezone.utc).timestamp() * 1000)
         end_ms = int(datetime(nxt.year, nxt.month, 1, tzinfo=timezone.utc).timestamp() * 1000)
-        download(f"https://eve-offline.net/data/?server=tranquility&start={start_ms}&end={end_ms}",
-                 RAW / "players_online" / f"tranquility_{month:%Y-%m}.jsonp",
-                 "Concurrent players online (EVE-Offline)", "EVE-Offline (eve-offline.net), polling CCP server status",
-                 "real, third-party tracker")
+        path = RAW / "players_online" / f"tranquility_{month:%Y-%m}.jsonp"
+        for attempt in range(5):
+            download(f"https://eve-offline.net/data/?server=tranquility&start={start_ms}&end={end_ms}", path,
+                     "Concurrent players online (EVE-Offline)", "EVE-Offline (eve-offline.net), polling CCP server status",
+                     "real, third-party tracker")
+            if path.read_text().lstrip().startswith("(["):
+                break
+            path.unlink()  # HTML error page, not data
+            time.sleep(30 * (attempt + 1))
+        else:
+            raise RuntimeError(f"players_online: no data for {month:%Y-%m}")
         time.sleep(2)
         month = nxt
 
