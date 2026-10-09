@@ -9,4 +9,7 @@ COPY (
   UNION ALL SELECT 'Value destroyed per month (ISK, average)', round(sum(value) / count(DISTINCT date_trunc('month', date))), '' FROM economy_daily WHERE metric LIKE 'destroyed_value:%' AND date >= '2024-01-01'
   UNION ALL SELECT 'Value produced per month (ISK, average)', round(sum(value) / count(DISTINCT date_trunc('month', date))), '' FROM economy_daily WHERE metric LIKE 'produced_value:%' AND date >= '2024-01-01'
   UNION ALL SELECT 'Solar systems on the map', count(*), '' FROM solar_system WHERE map_x IS NOT NULL
+  UNION ALL SELECT 'Years online', extract(year FROM age(date '2026-08-31', date '2003-05-06')), 'since 6 May 2003'
+  UNION ALL SELECT 'Subscribers at the peak', value, period FROM benchmark_metric WHERE game = 'EVE Online' AND metric = 'peak_subscribers'
+  UNION ALL SELECT 'Subscription and in-game revenue 2025 (USD)', amount, 'CCP audited accounts' FROM financial_metric WHERE metric = 'subscription_and_ingame_revenue' AND period_start = '2025-01-01'
 ) TO STDOUT WITH (FORMAT csv, HEADER);

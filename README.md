@@ -137,7 +137,7 @@ Run each command from the repo root. Each one skips files you already have, so i
 | `python3 scripts/download.py sde` | CCP static game data (item names, ship classes, map) | 99 MB | 1 min |
 | `python3 scripts/download.py contracts` | Public contracts, first snapshot per day | 5.5 GB | ~2 h |
 | `python3 scripts/download.py character_id_boundaries` | First character ID of each month (exact signups) | <1 MB | ~1 h |
-| `python3 scripts/download.py players_online` | Concurrent players every 30 min (EVE-Offline) | 2 MB | 2 min |
+| `python3 scripts/download.py players_online` | Concurrent players every 30 min (EVE-Offline), Jun 2006 → Aug 2026 | 13 MB | 10 min |
 | `python3 scripts/download.py fx` | Exchange rates KRW/USD, USD/EUR (FRED) | <1 MB | 1 min |
 | `python3 scripts/download.py steam_players` | Monthly Steam players (SteamCharts) | <1 MB | 1 min |
 | `python3 scripts/download.py news_all` | Every CCP news article since 2023 | 30 MB | 5 min |

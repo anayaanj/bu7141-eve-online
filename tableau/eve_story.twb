@@ -917,6 +917,49 @@
       </connection>
       <aliases enabled='yes' />
     </datasource>
+    <datasource caption="players_history_monthly" inline='true' name='federated.players_history_monthly' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="players_history_monthly" name='hyper.players_history_monthly'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/players_history_monthly.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.players_history_monthly' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>month</remote-name>
+          <local-name>[month]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>date</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>series</remote-name>
+          <local-name>[series]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>value</remote-name>
+          <local-name>[value]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>peak</remote-name>
+          <local-name>[peak]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>source</remote-name>
+          <local-name>[source]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
     <datasource caption="plex_monthly" inline='true' name='federated.plex_monthly' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -1396,6 +1439,12 @@
           <local-name>[highlight]</local-name>
           <parent-name>[Extract]</parent-name>
           <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>rank</remote-name>
+          <local-name>[rank]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
         </metadata-record>
         </metadata-records>
       </connection>
