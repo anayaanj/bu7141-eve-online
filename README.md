@@ -20,6 +20,8 @@ scripts/load.sh           clean CSVs -> PostgreSQL, with every foreign key check
 db/analysis.sql           analysis layer for the story (new players, retention by segment)
 db/exports/, scripts/export.sh  one SQL file and CSV per dashboard view -> data/exports/
 docs/story.md             the story: question, narrative, numbers, caveats
+docs/tableau_guide.md     how to build each act in Tableau Public
+prototype/                interactive storyboard of the five acts (index.html + data.json; serve it locally)
 docs/raw_inventory.md     field-level description of every source (use it for the ERD)
 docs/eve-online-brief.pdf one-page team brief: sources, KPI coverage, caveats
 data-sourcing-guide.docx  the assignment's data sourcing guide
@@ -111,7 +113,7 @@ python3 scripts/transform.py all   # raw files -> data/clean/*.csv.gz, one per t
 
 ## Story and dashboard data
 
-The story is **"What turns a new EVE character into a player who stays?"**: see [`docs/story.md`](docs/story.md) for the narrative, the numbers and one view per dashboard page.
+The story is **"Why EVE loses its newcomers"**, five acts, diagnosis first and money as stakes: EVE is built by groups, newcomers arrive alone and leave, the ones who stay found a group, buying newcomers costs more every year while keeping them pays, so group them in week one and test it. See [`docs/story.md`](docs/story.md) for the narrative, the numbers and one dashboard page per act, [`docs/tableau_guide.md`](docs/tableau_guide.md) for the build, and `prototype/` for the interactive storyboard.
 
 ```bash
 docker compose exec -T db psql -U eve -d eve -f - < db/analysis.sql   # analysis layer (new players, retention by segment)

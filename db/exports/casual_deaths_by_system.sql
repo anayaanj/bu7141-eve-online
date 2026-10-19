@@ -1,7 +1,7 @@
 -- Act 2 map: where casual newcomers (seen on one day) were killed by other players in their first month, by solar system.
--- Join to map_systems.csv on solar_system_id for the position; is_starter_system marks the starting systems.
+-- Join to map_layers.csv on solar_system_id for the position. (The old is_starter_system flag was the SDE school list, not where newcomers spawn today, and is no longer exported.)
 COPY (
-  SELECT k.solar_system_id, s.security_band, s.is_starter_system,
+  SELECT k.solar_system_id, s.solar_system_name, s.security_band,
          count(DISTINCT c.character_id) AS casual_newcomers_killed
   FROM analysis.casual_player c
   JOIN killmail_participant v ON v.character_id = c.character_id AND v.role = 'victim'

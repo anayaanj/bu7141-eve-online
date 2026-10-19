@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EVE Newcomers Story</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow:wght@400;500;600&family=Share+Tech+Mono&display=swap">
+<style>
+/* Layout: a Tableau-style story. A bar of five numbered story points (the acts, in order) over one 16:9 HUD dashboard at a time.
+   Deliberately single dark theme, like the game's UI. */
+:root {
+  --bg: #070b10;
+  --panel: #0d141c;
+  --panel-2: #111c27;
+  --line: #1f3344;
+  --fg: #d7e2ec;
+  --white: #ffffff;
+  --muted: #8195a8;
+  --accent: #4fd1ff;          /* UI accent and titles (text only) */
+  --c-group: #00a3c9;         /* group, win; Goonswarm */
+  --c-alone: #5b6b7a;         /* alone, starter corporation */
+  --c-player: #d25030;        /* killed by a player; Pandemic Horde */
+  --c-npc: #8b5dce;           /* killed by the computer; Fraternity */
+  --c-money: #b08505;         /* money */
+  --c-other: #3a4652;         /* other alliances */
+  --display: "Rajdhani", "Arial Narrow", sans-serif;
+  --body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Share Tech Mono", ui-monospace, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body {
+  margin: 0; background-color: var(--bg); color: var(--fg); font-family: var(--body); font-size: 15px; line-height: 1.5;
+  background-image: linear-gradient(rgba(79,209,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(79,209,255,.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.wrap { max-width: 1400px; margin: 0 auto; padding: 20px 16px 40px; display: grid; gap: 14px; }
+header.top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+h1 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 2rem; letter-spacing: .06em; text-transform: uppercase; line-height: 1; text-wrap: balance; }
+h1 span { color: var(--accent); }
+.sub { font-family: var(--mono); font-size: .78rem; color: var(--muted); letter-spacing: .08em; text-transform: uppercase; }
+
+/* Story points */
+nav.story { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+nav.story button {
+  all: unset; cursor: pointer; display: grid; gap: 2px; padding: 8px 10px; min-width: 0;
+  background: var(--panel); border: 1px solid var(--line); border-top: 2px solid var(--line);
+}
+nav.story button .n { font-family: var(--mono); font-size: .72rem; color: var(--muted); letter-spacing: .1em; }
+nav.story button .t { font-family: var(--display); font-weight: 600; font-size: .98rem; line-height: 1.15; color: var(--fg); }
+nav.story button[aria-selected="true"] { border-top-color: var(--accent); background: var(--panel-2); }
+nav.story button[aria-selected="true"] .n { color: var(--accent); }
+nav.story button:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+@media (max-width: 760px) { nav.story { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Dashboard (one per act) */
+.dash { position: relative; background: var(--panel); border: 1px solid var(--line); padding: 16px; display: grid; gap: 14px; min-width: 0; }
+.dash::before, .dash::after { content: ""; position: absolute; width: 14px; height: 14px; border: 0 solid var(--accent); pointer-events: none; }
+.dash::before { top: -1px; left: -1px; border-top-width: 2px; border-left-width: 2px; }
+.dash::after { bottom: -1px; right: -1px; border-bottom-width: 2px; border-right-width: 2px; }
+.headline { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1.1; color: var(--white); text-wrap: balance; max-width: 60ch; }
+.kicker { font-family: var(--mono); font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.handoff { margin: 0; font-size: .9rem; color: var(--muted); font-style: italic; border-top: 1px solid var(--line); padding-top: 10px; }
+.handoff b { color: var(--accent); font-style: normal; font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; margin-right: 8px; }
+.grid { display: grid; gap: 14px; min-width: 0; }
+.g-map { grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr); }
+.g-2 { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.g-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.g-21 { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); }
+.g-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 900px) { .g-map, .g-2, .g-3, .g-4, .g-21 { grid-template-columns: minmax(0, 1fr); } }
+.card { background: rgba(255,255,255,.015); border: 1px solid var(--line); padding: 12px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.card h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: .95rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.card h3 em { font-style: normal; color: var(--accent); letter-spacing: .06em; }
+.card p.note, .note { margin: 0; font-size: .82rem; color: var(--muted); line-height: 1.4; }
+.est { border-style: dashed; }
+.est h3::after { content: " · estimate"; color: var(--c-money); letter-spacing: .06em; }
+svg { display: block; width: 100%; height: auto; overflow: visible; }
+svg text { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+svg .lbl { fill: var(--fg); font-family: var(--body); font-size: 12px; }
+svg .val { fill: var(--white); font-family: var(--mono); font-size: 12px; }
+svg .big { fill: var(--white); font-family: var(--display); font-weight: 700; }
+.tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.tile { border: 1px solid var(--line); padding: 8px 10px; display: grid; gap: 0; }
+.tile b { font-family: var(--display); font-weight: 700; font-size: 1.55rem; color: var(--white); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.tile span { font-size: .78rem; color: var(--muted); line-height: 1.3; }
+#tilesPlex { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+#tilesAge { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+#tilesAge .tile b { font-size: 1.4rem; }
+#tilesSide .tile { align-content: center; padding: 18px 16px; gap: 4px; }
+#tilesSide .tile b { font-size: 2.6rem; }
+#tilesSide .tile span { font-size: .92rem; }
+@media (max-width: 900px) { #tilesSide { grid-template-columns: repeat(2, minmax(0, 1fr)); } #tilesSide .tile b { font-size: 1.8rem; } }
+#tiles1 { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: minmax(0, 1fr); gap: 10px; align-content: start; }
+#tiles1 .tile { align-content: center; padding: 16px 14px; gap: 4px; }
+#tiles1 .tile b { font-size: 2.4rem; }
+#tiles1 .tile span { font-size: .88rem; }
+.tiles.three { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.tiles.four { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.tiles.three .tile, .tiles.four .tile { padding: 14px 16px; gap: 4px; }
+.tiles.three .tile b, .tiles.four .tile b { font-size: 2.4rem; }
+.tiles.three .tile span, .tiles.four .tile span { font-size: .88rem; }
+.tiles.est .tile { border-style: dashed; }
+@media (max-width: 900px) { .tiles.four { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) { .tiles.three { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 500px) { .tiles.four { grid-template-columns: minmax(0, 1fr); } }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: .82rem; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 10px; height: 10px; display: inline-block; border-radius: 2px; }
+.legend i.ring { background: none; border: 1.5px solid var(--white); border-radius: 50%; }
+canvas.map { width: 100%; aspect-ratio: 1 / .78; display: block; background: #05080c; border: 1px solid var(--line); }
+.controls { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.controls button { all: unset; cursor: pointer; font-family: var(--mono); font-size: .8rem; color: var(--bg); background: var(--accent); padding: 4px 12px; letter-spacing: .08em; }
+.controls button:focus-visible { outline: 1px solid var(--white); outline-offset: 2px; }
+.controls input[type=range] { flex: 1; min-width: 140px; accent-color: var(--accent); }
+.controls output { font-family: var(--mono); color: var(--white); min-width: 7ch; }
+.whatif-num { font-family: var(--display); font-weight: 700; font-size: 3.4rem; line-height: 1; color: var(--white); font-variant-numeric: tabular-nums; }
+.seg { display: flex; gap: 6px; flex-wrap: wrap; }
+.seg label { cursor: pointer; border: 1px solid var(--line); padding: 4px 10px; font-size: .85rem; }
+.seg input { accent-color: var(--accent); }
+ul.plain { margin: 0; padding-left: 18px; display: grid; gap: 6px; font-size: .9rem; }
+ul.plain.small { font-size: .82rem; color: var(--muted); }
+table.cost { width: 100%; border-collapse: collapse; font-size: .9rem; }
+table.cost th, table.cost td { padding: 7px 6px; border-bottom: 1px solid var(--line); text-align: right; font-variant-numeric: tabular-nums; }
+table.cost th { font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); font-weight: 400; }
+table.cost td:first-child, table.cost th:first-child { text-align: left; }
+table.cost td.now { color: var(--white); font-family: var(--display); font-weight: 700; font-size: 1.15rem; }
+table.cost td.up { color: var(--c-money); } table.cost td.down { color: var(--c-player); }
+table.cost tr.key td { background: rgba(176,133,5,.08); }
+.tip { position: fixed; pointer-events: none; z-index: 10; background: #0b1219; border: 1px solid var(--accent); padding: 6px 9px; font-size: .82rem; max-width: 280px; color: var(--fg); }
+.tip b { color: var(--white); font-weight: 600; }
+.foot { font-size: .78rem; color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>Why EVE loses <span>its newcomers</span></h1>
+    <span class="sub">Dashboard prototype · BU7141 · history 2006 – 2026 · detail Jan 2024 – Aug 2026</span>
+  </header>
+
+  <nav class="story" role="tablist" aria-label="Story points">
+    <button role="tab" data-act="0"><span class="n">01</span><span class="t">What is EVE?</span></button>
+    <button role="tab" data-act="1"><span class="n">02</span><span class="t">Newcomers arrive alone, and leave</span></button>
+    <button role="tab" data-act="2"><span class="n">03</span><span class="t">The ones who stay found a group</span></button>
+    <button role="tab" data-act="3"><span class="n">04</span><span class="t">Buying costs more; keeping pays</span></button>
+    <button role="tab" data-act="4"><span class="n">05</span><span class="t">Group them in week one, then test it</span></button>
+  </nav>
+
+  <!-- ACT 1 · what is EVE -->
+  <section class="dash" id="story-0" data-act="0">
+    <span class="kicker">01 · What is EVE?</span>
+    <p class="headline">One world for 23 years. Of 100 who sign up, one is still playing a year later.</p>
+    <div class="grid g-21">
+      <div class="grid">
+      <div class="card"><h3>Players online, by year <em>· average at any moment, 2006 – 2026</em></h3>
+        <svg id="history" viewBox="0 0 900 250" role="img" aria-label="Players online on average by year, 2006 to 2026, peak in 2013"></svg>
+        <p class="note">Yearly average of players logged in at the same time (EVE-Offline, tracked from June 2006). The light bars are this story's data.</p></div>
+      <div class="card"><h3>Of 100 who sign up <em>· new characters, Jan 2024 – Aug 2026</em></h3><svg id="funnel" viewBox="0 0 760 252" role="img" aria-label="Funnel: of 100 who sign up, 13 are ever seen fighting or trading, 1 is still playing a year later"></svg>
+        <p class="note">Seen: appears in a killmail or a contract, so quiet players are not counted. A year later: still active 12 months after the first month. Characters, not people.</p></div>
+      </div>
+      <div class="card"><h3>Most of it has no police <em>· 5,485 systems</em></h3>
+        <canvas class="map" id="zoneMap" width="1100" height="858" role="img" aria-label="Map of EVE's systems coloured by security band"></canvas>
+        <svg id="zones" viewBox="0 0 420 100" role="img" aria-label="Systems per security band"></svg>
+        <p class="note">High-sec: the computer polices it, and every newcomer starts there. Low-sec: no police. Null-sec: players make the law and alliances hold the territory.</p></div>
+    </div>
+    <div class="grid g-4">
+      <div class="card"><h3>Largest alliances <em>· players seen fighting, 2024 – 26</em></h3><svg id="allies" viewBox="0 0 420 150" role="img" aria-label="Players per alliance"></svg>
+        <p class="note">Other: The Initiative, Dracarys, Brave, TEST, Northern Coalition and Pandemic Legion, the other alliances in the three battles.</p></div>
+      <div class="card est"><h3>Costliest battles ever <em>· ships lost, in dollars, by side</em></h3><svg id="battles" viewBox="0 0 420 150" role="img" aria-label="The three costliest battles, dollars lost by side"></svg>
+        <p class="note">Cyan: Goonswarm's side, in all three. M2-XFE and B-R5RB from CCP's reports, split by Titans lost per side; Atioth from our killmails, hulls at the PLEX price.</p></div>
+      <div class="card"><h3>Who plays today <em>· 118,000 characters active in August 2026</em></h3><svg id="age" viewBox="0 0 420 70" role="img" aria-label="Active characters by age of the character"></svg><div class="tiles" id="tilesAge"></div>
+        <p class="note">Omega = flew a ship free accounts cannot fly that month. Characters, not people.</p></div>
+      <div class="card"><h3>How real money enters the game</h3><div class="tiles" id="tilesPlex"></div>
+        <p class="note">$20 buys a month of Omega. $25 buys 500 PLEX, an item worth that same month, which players sell to each other for ISK. Every dollar figure in this story is ISK at that month's PLEX price.</p></div>
+    </div>
+    <p class="handoff"><b>Next</b>Why aren't new players staying?</p>
+  </section>
+
+  <!-- ACT 2 · the loss and the first day -->
+  <section class="dash" id="story-1" data-act="1" hidden>
+    <span class="kicker">02 · Newcomers arrive alone, and leave</span>
+    <p class="headline">Of 100 newcomers, 99 are gone within a year. Most leave after one day, alone.</p>
+    <div class="grid g-3">
+      <div class="card"><h3>100 sign up <em>· of 100 who sign up</em></h3><svg id="dots" viewBox="0 0 300 300" role="img" aria-label="100 dots: 87 never seen fighting or trading with another player, 12 seen and then gone within the year, 1 still playing a year later"></svg>
+        <div class="legend" id="dotsLegend"></div>
+        <p class="note">New characters, Jan 2024 – Aug 2026: 13 in 100 are ever seen fighting or trading with another player; 8.2% of those are still playing a year later. CCP's own figure (2019): 9 in 10 new players quit in their first week.</p></div>
+      <div class="card"><h3>Their first month <em>· of 100 we can see</em></h3><svg id="waffle" viewBox="0 0 300 300" role="img" aria-label="Waffle chart of 100 newcomers by what their first month looked like"></svg>
+        <div class="legend" id="waffleLegend"></div>
+        <p class="note">The 13 we can see, scaled to 100. Most appear on a single day, and for most of them the only trace is being killed by another player.</p></div>
+      <div class="card"><h3>Seen on more days, seen again later <em>· of 100 we can see</em></h3><svg id="stairs" viewBox="0 0 420 300" role="img" aria-label="Share seen again at month 3 by days seen in the first month"></svg>
+        <p class="note">62% are seen on a single day; 9.5% of them are seen again 3 months later, against 45% of those seen on 8+ days.</p></div>
+    </div>
+    <div class="grid g-map">
+      <div class="card"><h3>Where the one-day newcomers die <em>· killed by another player</em></h3><canvas class="map" id="deathMap" width="1100" height="858" role="img" aria-label="Map of where casual newcomers were killed by other players"></canvas>
+        <p class="note">Safe at home: 0.15% die in a starter system (white rings). They die after heading out alone; about 1 in 6 in just five systems. The official tutorial and career missions are solo, against the computer.</p></div>
+      <div class="tiles" id="tiles1"></div>
+    </div>
+    <p class="handoff"><b>Next</b>The few who return: what did they have that the others didn't?</p>
+  </section>
+
+  <!-- ACT 3 · who stays -->
+  <section class="dash" id="story-2" data-act="2" hidden>
+    <span class="kicker">03 · The ones who stay found a group</span>
+    <p class="headline">Newcomers in a group come back twice as often.</p>
+    <div class="tiles four" id="tiles2"></div>
+    <div class="grid g-21">
+      <div class="card"><h3>One-day newcomers seen again at month 3 <em>· alone vs together</em></h3><svg id="dumbbell" viewBox="0 0 640 230" role="img" aria-label="Dumbbell chart, alone versus in a group, three pairs"></svg>
+        <div class="legend"><span><i style="background:var(--c-alone)"></i>Alone</span><span><i style="background:var(--c-group)"></i>In a group or with a win</span></div></div>
+      <div class="card"><h3>Is it just that keen players join groups? <em>· all newcomers we can see</em></h3><svg id="robust" viewBox="0 0 420 230" role="img" aria-label="Retention by corporation membership within each activity band"></svg>
+        <p class="note">Even among players equally active in their first month, those in a corporation come back more often. A link, not proof.</p></div>
+    </div>
+    <div class="card"><h3>When the group falls, its newcomers leave: Pandemic Horde</h3><svg id="horde" viewBox="0 0 1300 330" role="img" aria-label="Pandemic Horde's systems and its newcomers' retention by month, against other alliances"></svg>
+      <div class="legend"><span><i style="background:var(--c-player)"></i>Pandemic Horde newcomers</span><span><i style="background:var(--c-alone)"></i>Other alliances' newcomers</span></div></div>
+    <p class="handoff"><b>Next</b>Keeping a newcomer means grouping them. What does buying one cost, and what does keeping one pay?</p>
+  </section>
+
+  <!-- ACT 4 · money as stakes -->
+  <section class="dash" id="story-3" data-act="3" hidden>
+    <span class="kicker">04 · Buying newcomers costs more every year; keeping them pays</span>
+    <p class="headline">A signup now costs $16. Only grouped newcomers pay back their cost.</p>
+    <div class="tiles four est" id="tiles3"></div>
+    <div class="grid g-3">
+      <div class="card est"><h3>What buying a newcomer costs <em>· CCP, by year</em></h3><div id="costTab"></div>
+        <p class="note">Marketing from CCP's audited accounts (all of CCP, not only new EVE players). Signups are characters created; engaged means seen fighting or trading.</p></div>
+      <div class="card est"><h3>Revenue in year one vs the marketing it took <em>· per engaged newcomer, 2025</em></h3><svg id="money" viewBox="0 0 600 300" role="img" aria-label="Revenue in year one: 102 dollars for the average newcomer, 511 dollars for a player who stays the year, against the 117 dollars of marketing it took to bring each in"></svg>
+        <p class="note">$43 per active player a month × months active (the average newcomer is active 2.4 months; a player who stays, 12). Upper bounds: all revenue is put on visible players.</p></div>
+      <div class="card est"><h3>Who pays back their cost <em>· first-year value ÷ $117</em></h3><svg id="payback" viewBox="0 0 420 300" role="img" aria-label="First-year value as a share of acquisition cost by newcomer group"></svg>
+        <p class="note">Same money, split by what the newcomer did in their first month. Starter-corporation rows are one-day newcomers; the others are all newcomers we can see.</p></div>
+    </div>
+    <p class="handoff"><b>Next</b>If grouping doubles return and pays back the spend, how much is it worth, and how would we know it works?</p>
+  </section>
+
+  <!-- ACT 5 · recommendation -->
+  <section class="dash" id="story-4" data-act="4" hidden>
+    <span class="kicker">05 · Recommendation</span>
+    <p class="headline">Put newcomers in a group in week one. Then test it.</p>
+    <div class="tiles three" id="tiles4"></div>
+    <div class="grid g-2">
+      <div class="card est"><h3>What if more newcomers found a group?</h3>
+        <div class="seg" id="scenario"></div>
+        <div class="controls"><input id="share" type="range" min="0" max="0.5" step="0.05" value="0.1" aria-label="Share of newcomers moved into a group"><output id="shareOut"></output></div>
+        <div><span class="whatif-num" id="wiNum"></span><div class="note" id="wiNote"></div></div>
+      </div>
+      <div class="card"><h3>What to do</h3>
+        <ul class="plain">
+          <li>End the tutorial in the corporation finder, not in solo missions: route newcomers from the starter corporation into a mid-sized player corporation.</li>
+          <li>Give them a first fight they can win, with a group.</li>
+          <li>Spend on keeping as well as buying: a newcomer in a group pays back their cost in year one; one alone covers about 60%.</li>
+          <li><b style="color:var(--white)">A/B test:</b> half of new players end the tutorial in the corporation finder, half in today's solo missions; measure month-3 return and first-year revenue.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card"><h3>Caveats</h3>
+      <ul class="plain small">
+        <li><b>We see 13% of new characters in detail:</b> those who fight or trade. Signups, players online and revenue cover everyone.</li>
+        <li><b>"One-day" means seen on one day,</b> not played on one day. Some play quietly and only appear when killed. Activity is killmails and contracts, not logins.</li>
+        <li><b>A link, not proof.</b> Keen players may join groups more often; the equal-activity check and the Horde case reduce but don't remove this.</li>
+        <li><b>Money figures are estimates and upper bounds:</b> all revenue is put on visible players, and marketing covers all of CCP. The comparison between groups is the point.</li>
+        <li><b>Characters, not people.</b> One account can have up to three characters, and a player can have several accounts.</li>
+      </ul>
+    </div>
+  </section>
+
+  <p class="foot">Prototype of the Tableau story. Data: CCP via EVE Ref, CCP audited accounts, Pearl Abyss, SteamCharts; history: Groen, <em>Empires of Eve</em>. Map reference: Verite Rendition (verite.space).</p>
+</div>
+<div class="tip" id="tip" hidden></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script>
+const C = { group: '#00a3c9', alone: '#5b6b7a', player: '#d25030', npc: '#8b5dce', money: '#b08505', other: '#3a4652', line: '#1f3344', fg: '#d7e2ec', muted: '#8195a8', white: '#ffffff', accent: '#4fd1ff' };
+const TOP10 = ['#00a3c9', '#8b5dce', '#d25030', '#e3b53b', '#4cc47a', '#e879b6', '#b8d94a', '#7c9cff', '#2fc4b2', '#a8b4c0'];
+// one colour per alliance, by rank: the ten largest fixed, the rest spread around the hue circle (golden angle) so neighbours differ
+const allyColor = k => k < 10 ? TOP10[k] : d3.hsl((k * 137.508) % 360, 0.5, k % 2 ? 0.62 : 0.5).formatHex();
+const fmt = d3.format(','), pct = d3.format('.1%'), pct0 = d3.format('.0%'), money = d3.format('$,.0f'), moneyM = v => '$' + (v / 1e6).toFixed(1) + 'M';
+const tip = document.getElementById('tip');
+function showTip(e, html) { tip.innerHTML = html; tip.hidden = false; const x = Math.min(e.clientX + 14, innerWidth - 300); tip.style.left = x + 'px'; tip.style.top = (e.clientY + 14) + 'px'; }
+function hideTip() { tip.hidden = true; }
+function tiles(id, rows) { d3.select(id).selectAll('div').data(rows).join('div').attr('class', 'tile').html(d => `<b>${d[0]}</b><span>${d[1]}</span>`); }
+function gridAxis(a, w) { a.select('.domain').remove(); a.selectAll('line').attr('stroke', C.line).attr('stroke-opacity', .5); }
+// horizontal bars: rows {label, v, c, text, tip} or stacked rows {label, v, segs: [{v, c}], text}
+function hbars(sel, rows, W, H, labelW) {
+  const svg = d3.select(sel), rh = H / rows.length, bh = Math.min(26, rh * .6), x = d3.scaleLinear().domain([0, d3.max(rows, r => r.v)]).range([0, W - labelW - 86]);
+  const g = svg.selectAll('g').data(rows).join('g').attr('transform', (r, i) => `translate(0,${i * rh + (rh - bh) / 2})`);
+  g.append('text').attr('class', 'lbl').attr('x', labelW - 8).attr('y', bh / 2 + 4).attr('text-anchor', 'end').text(r => r.label);
+  g.each(function (r) { let x0 = labelW; d3.select(this).selectAll('rect').data(r.segs || [{ v: r.v, c: r.c }]).join('rect').attr('x', s => { const v = x0; x0 += x(s.v); return v; }).attr('y', 0).attr('height', bh).attr('width', s => x(s.v)).attr('fill', s => s.c); });
+  g.append('text').attr('class', 'val').attr('x', r => labelW + x(r.v) + 8).attr('y', bh / 2 + 4).text(r => r.text);
+  g.on('mousemove', (e, r) => r.tip && showTip(e, r.tip)).on('mouseleave', hideTip);
+}
+const drawn = {};
+
+fetch('data.json').then(r => r.json()).then(D => {
+  const months = Object.keys(D.sov).sort();
+  const acts = [...document.querySelectorAll('section.dash')];
+  const tabs = [...document.querySelectorAll('nav.story button')];
+  const builders = [act1, act2, act3, act4, act5], last = builders.length - 1;
+  function show(i) {
+    acts.forEach((s, j) => s.hidden = j !== i);
+    tabs.forEach((t, j) => t.setAttribute('aria-selected', j === i));
+    if (!drawn[i]) { builders[i](); drawn[i] = true; }
+    try { history.replaceState(null, '', '#act' + (i + 1)); } catch (e) {}
+  }
+  tabs.forEach((t, i) => t.addEventListener('click', () => show(i)));
+  addEventListener('keydown', e => {
+    if (e.target.tagName === 'INPUT') return;
+    const cur = tabs.findIndex(t => t.getAttribute('aria-selected') === 'true');
+    if (e.key === 'ArrowRight') show(Math.min(last, cur + 1));
+    if (e.key === 'ArrowLeft') show(Math.max(0, cur - 1));
+  });
+  const ue25 = D.ue.find(d => d.year === 2025), ue24 = D.ue.find(d => d.year === 2024);
+  const avgValue = D.value.find(d => d.segment === 'All new players');
+  const kpi = Object.fromEntries(D.kpi.map(r => [r.kpi, r.value]));
+  const casual = (dim, val) => D.casual.find(r => r.dimension === dim && r.value === val);
+  const start = /^#act([1-5])$/.exec(location.hash);
+  show(start ? +start[1] - 1 : 0);
+
+
+  /* ---------- shared map drawing ---------- */
+  function mapScale(canvas) {
+    const pad = 20, w = canvas.width, h = canvas.height;
+    const xs = D.systems.map(s => s[0]), ys = D.systems.map(s => s[1]);
+    const [x0, x1] = d3.extent(xs), [y0, y1] = d3.extent(ys);
+    const k = Math.min((w - 2 * pad) / (x1 - x0), (h - 2 * pad) / (y1 - y0));
+    const ox = (w - (x1 - x0) * k) / 2, oy = (h - (y1 - y0) * k) / 2;
+    return i => [ox + (D.systems[i][0] - x0) * k, h - (oy + (D.systems[i][1] - y0) * k)];
+  }
+  function drawLinks(ctx, P) {
+    ctx.strokeStyle = 'rgba(79,209,255,0.10)'; ctx.lineWidth = 0.6; ctx.beginPath();
+    for (const [a, b] of D.links) { const p = P(a), q = P(b); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); }
+    ctx.stroke();
+  }
+
+  /* ---------- ACT 1: a universe built by groups ---------- */
+  function act1() {
+    // 1. players online by year
+    { const W = 900, H = 250, m = { l: 44, r: 12, t: 30, b: 26 }, svg = d3.select('#history');
+      const hist = D.history.filter(r => r.series === 'players_online');
+      const years = d3.rollups(hist, v => ({ v: d3.mean(v, d => d.value), n: v.length }), r => +r.month.slice(0, 4)).map(([y, o]) => ({ y, ...o })).sort((a, b) => a.y - b.y);
+      const x = d3.scaleBand().domain(years.map(d => d.y)).range([m.l, W - m.r]).padding(.2), y = d3.scaleLinear().domain([0, 36000]).range([H - m.b, m.t]);
+      svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickFormat(d3.format('~s')).tickSize(-(W - m.l - m.r))).call(gridAxis);
+      svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickSize(0).tickFormat(d => d % 4 === 2 ? d : '')).call(a => a.select('.domain').attr('stroke', C.line));
+      const peak = years.reduce((a, d) => d.v > a.v ? d : a, years[0]), lastY = years[years.length - 1];
+      svg.selectAll('rect').data(years).join('rect').attr('x', d => x(d.y)).attr('width', x.bandwidth()).attr('y', d => y(d.v)).attr('height', d => y(0) - y(d.v))
+        .attr('fill', d => d.y >= 2024 ? C.accent : C.group).attr('fill-opacity', d => d.y >= 2024 || d === peak ? 1 : .5)
+        .on('mousemove', (e, d) => showTip(e, `<b>${d.y}</b><br>${fmt(Math.round(d.v))} players online on average${d.n < 12 ? ' (' + d.n + ' months)' : ''}`)).on('mouseleave', hideTip);
+      svg.append('text').attr('class', 'val').attr('x', x(peak.y) + x.bandwidth() / 2).attr('y', y(peak.v) - 8).attr('text-anchor', 'middle').text('peak · ' + fmt(Math.round(peak.v)));
+      svg.append('text').attr('class', 'lbl').attr('x', x(lastY.y) + x.bandwidth()).attr('y', y(lastY.v) - 8).attr('text-anchor', 'end').attr('fill', C.accent).text("this story's data · " + fmt(Math.round(lastY.v))); }
+
+    // 2. the zones: map coloured by security band, and the count of systems in each
+    const ZC = ['#4fd1ff', '#e3b53b', '#d25030', '#2a3540'];
+    { const cv = document.getElementById('zoneMap'), ctx = cv.getContext('2d'), P = mapScale(cv); drawLinks(ctx, P);
+      D.systems.forEach((s, i) => { const p = P(i), b = D.bands[i]; ctx.fillStyle = ZC[b]; ctx.beginPath(); ctx.arc(p[0], p[1], b < 3 ? 2.6 : 1.6, 0, 6.283); ctx.fill(); });
+      hbars('#zones', D.zones.map((z, i) => ({ label: z.zone, v: z.systems, c: ZC[i], text: fmt(z.systems) + ' systems' })), 420, 100, 80); }
+
+    // 3. alliances and the costliest battles (Goonswarm's side in cyan in all three)
+    { const short = { 'Goonswarm Federation': 'Goonswarm', 'Fraternity.': 'Fraternity', 'Pandemic Horde': 'Pandemic Horde', 'Other alliances in these battles': 'Other' };
+      hbars('#allies', D.alliancePlayers.map((r, i) => ({ label: short[r.alliance_name] || r.alliance_name, v: r.players, c: r.kind === 'other' ? '#4a5866' : TOP10[i], text: fmt(r.players) })), 420, 150, 110);
+      const SIDE = { 'M2-XFE': C.player, 'B-R5RB': C.muted, 'Atioth': C.npc };
+      hbars('#battles', D.famous.slice().sort((a, b) => b.usd_estimate - a.usd_estimate).map(r => ({ label: `${r.battle} · ${r.date.slice(0, 4)}`, v: r.usd_estimate,
+        segs: [{ v: r.usd_estimate * r.side_a_share, c: TOP10[0] }, { v: r.usd_estimate * (1 - r.side_a_share), c: SIDE[r.battle] }], text: '$' + Math.round(r.usd_estimate / 1000) + 'K',
+        tip: `<b>${r.battle}</b> · ${r.date}<br>${r.side_a} vs ${r.side_b}<br>${fmt(r.players)} pilots · ${(r.isk_lost / 1e12).toFixed(1)}T ISK ≈ ${money(r.usd_estimate)}<br><i>Split: ${r.split_basis}</i>` })), 420, 150, 110); }
+
+    // 4. who plays today: one bar by age of the character, then veterans vs newcomers
+    { const AC = ['#006b85', '#0088a8', '#33b8d6', '#8195a8'], svg = d3.select('#age'), W = 420; let x0 = 0;
+      D.age.forEach((r, i) => { const w = r.share * W; svg.append('rect').attr('x', x0).attr('y', 0).attr('width', w - 1).attr('height', 40).attr('fill', AC[i])
+          .on('mousemove', e => showTip(e, `<b>${r.age}</b><br>${fmt(r.characters)} characters · ${pct0(r.share)}<br>${pct0(r.omega_share)} flew Omega in August`)).on('mouseleave', hideTip);
+        svg.append('text').attr('x', x0 + 2).attr('y', 58).style('font-size', '10px').text(({ '10+ years': '10+ yrs', '3 - 10 years': '3–10', '1 - 3 years': '1–3', 'Under a year': '< 1 yr' })[r.age] + ' · ' + pct0(r.share)); x0 += w; });
+      const grp = k => { const rows = D.age.filter(r => r.kind === k), n = d3.sum(rows, r => r.characters); return { share: d3.sum(rows, r => r.share), omega: d3.sum(rows, r => r.characters * r.omega_share) / n }; };
+      const vet = grp('Veteran'), nw = grp('Newcomer');
+      tiles('#tilesAge', [[pct0(vet.share) + ' veterans', 'a year or more in the game · ' + pct0(vet.omega) + ' flew Omega in August'], [pct0(nw.share) + ' under a year', 'in their first year · ' + pct0(nw.omega) + ' flew Omega']]); }
+
+    // 5. of 100 who sign up: a funnel of dots on the story's base (signup_dots, kpi_tiles)
+    { const svg = d3.select('#funnel'), FC = ['#5b7f93', '#a8bccb', C.accent], ys = [6, 128, 176];
+      const seen = D.dots.filter(d => d.kind !== 'Never seen fighting or trading with another player').length, kept = D.dots.filter(d => d.kind === 'Still playing a year later').length;
+      const steps = [[100, fmt(kpi['New characters created (Jan 2024 - Aug 2026)']), 'characters created'], [seen, fmt(kpi['New players who engaged (killmail or contract)']), pct0(kpi['Share of new characters who engage']) + ' ever seen fighting or trading'], [kept, kept + ' in 100', 'still playing a year later (' + d3.format('.1%')(kpi['Still active after 12 months (all new players)']) + ' of those seen)']];
+      steps.forEach(([n, big, small], i) => {
+        svg.selectAll('circle.f' + i).data(d3.range(n)).join('circle').attr('class', 'f' + i).attr('cx', k => 9 + (k % 20) * 20).attr('cy', k => ys[i] + 9 + Math.floor(k / 20) * 20).attr('r', 7.5).attr('fill', FC[i]);
+        svg.append('text').attr('class', 'big').attr('x', 420).attr('y', ys[i] + 24).style('font-size', '28px').text(big);
+        svg.append('text').attr('class', 'lbl').attr('x', 560).attr('y', ys[i] + 24).text(small); });
+      svg.append('text').attr('class', 'big').attr('x', 760).attr('y', 246).attr('text-anchor', 'end').attr('fill', C.accent).style('font-size', '22px').text('Only one in a hundred is still playing a year later'); }
+
+    // 6. money: the exchange rate
+    { const pr = D.plexRate;
+      tiles('#tilesPlex', [['$1 ≈ ' + Math.round(pr.isk_per_usd / 1e6) + 'M ISK', 'one PLEX sells for ' + fmt(pr.isk_per_plex) + ' ISK in game (2024 – 26 average) and CCP sells 500 for $24.99'],
+        ['$20 or ' + (500 * pr.isk_per_plex / 1e9).toFixed(1) + 'B ISK', 'a month of Omega, the paid tier: every ship, full training speed. Free players get basic hulls at half speed']]); }
+  }
+
+  /* ---------- ACT 2: newcomers arrive alone, and leave ---------- */
+  function act2() {
+    // 100 signups as dots, on our own base: never engaged, engaged then gone, still playing
+    const engage = kpi['Share of new characters who engage'];
+    const seen = Math.round(engage * 100), kept = Math.round(D.paradox.year1 * 100);
+    const kind = [['Never seen fighting or trading with another player', 100 - seen, '#26323d'], ['Seen, then gone within the year', seen - kept, C.alone], ['Still playing a year later', kept, C.accent]];
+    const dots = d3.range(100).map(i => ({ i, k: i < 100 - seen ? 0 : i < 100 - kept ? 1 : 2 }));
+    const g = d3.select('#dots'), cs = 30, r = 11;
+    g.selectAll('circle').data(dots).join('circle').attr('cx', d => cs / 2 + (d.i % 10) * cs).attr('cy', d => cs / 2 + Math.floor(d.i / 10) * cs).attr('r', r).attr('fill', d => kind[d.k][2])
+      .on('mousemove', (e, d) => showTip(e, `<b>${kind[d.k][0]}</b><br>${kind[d.k][1]} of 100`)).on('mouseleave', hideTip);
+    d3.select('#dotsLegend').selectAll('span').data(kind).join('span').html(d => `<i style="background:${d[2]}"></i>${d[1]} ${d[0].toLowerCase()}`);
+
+    // waffle: the 13 we can see, scaled to 100, by what their first month looked like
+    const cat = { 'Seen once: killed by another player': C.player, 'Seen once: killed by the computer': C.npc, 'Seen once: other (a kill or a trade)': C.other, 'Seen on 2+ days': C.group };
+    const svg = d3.select('#waffle'), ws = 28;
+    svg.selectAll('rect').data(D.waffle).join('rect').attr('x', d => (d.x - 1) * (ws + 2)).attr('y', d => (d.y - 1) * (ws + 2)).attr('width', ws).attr('height', ws).attr('rx', 3)
+      .attr('fill', d => cat[d.category]).on('mousemove', (e, d) => showTip(e, `<b>${d.category}</b>`)).on('mouseleave', hideTip);
+    const counts = d3.rollup(D.waffle, v => v.length, d => d.category);
+    d3.select('#waffleLegend').selectAll('span').data(Object.keys(cat)).join('span').html(d => `<i style="background:${cat[d]}"></i>${counts.get(d)} ${d.replace('Seen once: ', 'seen once, ').toLowerCase()}`);
+
+    // staircase: days seen in the first month vs seen again at month 3
+    const s = d3.select('#stairs'), W = 420, H = 300, m = { l: 40, r: 14, t: 16, b: 34 };
+    const x = d3.scaleBand().domain(D.days.map(d => d.days_seen_first_month)).range([m.l, W - m.r]).padding(.25);
+    const y = d3.scaleLinear().domain([0, .5]).range([H - m.b, m.t]);
+    s.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5, '%').tickSize(-(W - m.l - m.r))).call(gridAxis);
+    s.selectAll('rect').data(D.days).join('rect').attr('x', d => x(d.days_seen_first_month)).attr('width', x.bandwidth()).attr('y', d => y(d.retention_month_3)).attr('height', d => y(0) - y(d.retention_month_3)).attr('rx', 3)
+      .attr('fill', d => d.days_seen_first_month === 1 ? C.alone : C.group)
+      .on('mousemove', (e, d) => showTip(e, `<b>Seen on ${d.days_seen_first_month}${d.days_seen_first_month === 8 ? '+' : ''} day(s)</b><br>${pct(d.share)} of newcomers<br>${pct(d.retention_month_3)} seen again at month 3`)).on('mouseleave', hideTip);
+    s.selectAll('text.v').data(D.days.filter(d => [1, 8].includes(d.days_seen_first_month))).join('text').attr('class', 'val').attr('x', d => x(d.days_seen_first_month) + x.bandwidth() / 2).attr('y', d => y(d.retention_month_3) - 6).attr('text-anchor', 'middle').text(d => pct(d.retention_month_3));
+    s.selectAll('text.d').data(D.days).join('text').attr('x', d => x(d.days_seen_first_month) + x.bandwidth() / 2).attr('y', H - 16).attr('text-anchor', 'middle').text(d => d.days_seen_first_month === 8 ? '8+' : d.days_seen_first_month);
+    s.append('text').attr('x', W / 2).attr('y', H - 1).attr('text-anchor', 'middle').text('days seen in the first month');
+
+    // tiles: the loss, then what the one day looked like
+    const starter = casual('Killed by a player in a starter system', 'Yes'), week = casual('Killed in their first week', 'Yes'), npcCorp = casual('Their corporation', 'NPC starter corp');
+    tiles('#tiles1', [
+      ['1 in 100', 'signups are still playing a year later (Jan 2024 – Aug 2026)'],
+      [pct0(D.days[0].share), 'of the newcomers we can see appear on a single day in their first month'],
+      [starter ? d3.format('.2%')(starter.share) : '0.15%', `of one-day newcomers killed by a player died in a starter system${week ? '; ' + pct0(week.share) + ' died within a week of creating their character' : ''}`],
+      [npcCorp ? pct0(npcCorp.share) : '37%', 'of one-day newcomers were still in the starter corporation: no group had taken them in']]);
+
+    // death map
+    const cv = document.getElementById('deathMap'), ctx = cv.getContext('2d'), P = mapScale(cv);
+    drawLinks(ctx, P);
+    ctx.fillStyle = '#1a2530'; D.systems.forEach((sy, i) => { const p = P(i); ctx.fillRect(p[0] - .8, p[1] - .8, 1.6, 1.6); });
+    const max = d3.max(D.deaths, d => d[1]), rr = d3.scaleSqrt().domain([0, max]).range([0, 30]);
+    const col = d3.scaleSequentialLog([1, max], d3.interpolateRgb('#0a4d63', '#7fd6f0'));
+    [...D.deaths].sort((a, b) => a[1] - b[1]).forEach(([i, n]) => { const p = P(i); ctx.globalAlpha = .85; ctx.fillStyle = col(n); ctx.beginPath(); ctx.arc(p[0], p[1], Math.max(1.2, rr(n)), 0, 6.283); ctx.fill(); });
+    ctx.globalAlpha = 1; ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 1.2;
+    D.starter.forEach(i => { const p = P(i); ctx.beginPath(); ctx.arc(p[0], p[1], 8, 0, 6.283); ctx.stroke(); });
+    ctx.font = '600 22px Barlow, sans-serif'; ctx.fillStyle = '#ffffff';
+    Object.entries(D.hot).forEach(([i, name], k) => { const p = P(+i); const off = [[1, 0], [1, -14], [-1, 20], [1, 16], [-1, -8]][k]; ctx.textAlign = off[0] > 0 ? 'left' : 'right'; ctx.fillText(name, p[0] + off[0] * (rr(D.deaths.find(d => d[0] === +i)[1]) + 6), p[1] + 7 + off[1]); }); ctx.textAlign = 'left';
+  }
+
+  /* ---------- ACT 3: the ones who stay found a group ---------- */
+  function act3() {
+    const ratios = D.pairs.map(p => p.together_retention_month_3 / p.alone_retention_month_3);
+    const bands = ['1 day', '2-3 days', '4+ days'];
+    const bandRatio = bands.map(b => D.robust.find(d => d.first_month_active_days === b && d.corp === 'In a corp').retention_month_3_any_activity / D.robust.find(d => d.first_month_active_days === b && d.corp === 'No corp').retention_month_3_any_activity);
+    const hordeRows = D.horde.map(d => ({ ...d, m: new Date(d.month) }));
+    const nov = hordeRows.find(r => r.month === '2025-11-01'), gone = hordeRows.find(r => r.m > nov.m && r.horde_systems === 0) || hordeRows[hordeRows.length - 1];
+    tiles('#tiles2', [
+      ['2×', `as many one-day newcomers come back at month 3 in a player corporation, in player-held space or after a win (${d3.min(ratios).toFixed(1)}–${d3.max(ratios).toFixed(1)}× across the three pairs)`],
+      [d3.min(bandRatio).toFixed(1) + '–' + d3.max(bandRatio).toFixed(1) + '×', 'even among newcomers equally active in their first month: being in a corporation still helps'],
+      [fmt(nov.horde_systems) + ' → ' + gone.horde_systems, `systems held by Pandemic Horde, ${d3.timeFormat('%b %Y')(nov.m)} to ${d3.timeFormat('%b %Y')(gone.m)}: the group that took in the most newcomers lost its space`],
+      [pct0(nov.horde_retention_month_3) + ' vs ' + pct0(nov.other_alliances_retention_month_3), 'of newcomers who joined Horde in November 2025 were still playing at month 3, against other alliances\' newcomers']]);
+
+    const s = d3.select('#dumbbell'), W = 640, m = { l: 150, r: 30 };
+    const x = d3.scaleLinear().domain([0, .2]).range([m.l, W - m.r]);
+    s.append('g').attr('transform', 'translate(0,210)').call(d3.axisBottom(x).ticks(4, '%').tickSize(-195)).call(gridAxis);
+    D.pairs.forEach((p, i) => {
+      const y = 40 + i * 60;
+      s.append('text').attr('class', 'lbl').attr('x', 0).attr('y', y + 4).text(p.pair);
+      s.append('line').attr('x1', x(p.alone_retention_month_3)).attr('x2', x(p.together_retention_month_3)).attr('y1', y).attr('y2', y).attr('stroke', C.line).attr('stroke-width', 4);
+      [[p.alone_retention_month_3, C.alone, p.alone], [p.together_retention_month_3, C.group, p.together]].forEach(([v, c, t]) => {
+        s.append('circle').attr('cx', x(v)).attr('cy', y).attr('r', 8).attr('fill', c).attr('stroke', '#0d141c').attr('stroke-width', 2)
+          .on('mousemove', e => showTip(e, `<b>${t}</b><br>${pct(v)} seen again at month 3`)).on('mouseleave', hideTip);
+        s.append('text').attr('class', 'val').attr('x', x(v)).attr('y', y - 14).attr('text-anchor', 'middle').text(pct(v));
+        s.append('text').attr('x', x(v)).attr('y', y + 24).attr('text-anchor', 'middle').text(t.replace('Mid-sized player corporation (201-1,000)', 'Mid-sized corp (201–1,000)'));
+      });
+    });
+
+    const r = d3.select('#robust'), W2 = 420, H2 = 230, m2 = { l: 30, r: 10, t: 20, b: 40 };
+    const x0 = d3.scaleBand().domain(bands).range([m2.l, W2 - m2.r]).padding(.3), x1 = d3.scaleBand().domain(['No corp', 'In a corp']).range([0, x0.bandwidth()]).padding(.12);
+    const y = d3.scaleLinear().domain([0, .4]).range([H2 - m2.b, m2.t]);
+    r.append('g').attr('transform', `translate(${m2.l},0)`).call(d3.axisLeft(y).ticks(4, '%').tickSize(-(W2 - m2.l - m2.r))).call(gridAxis);
+    r.selectAll('rect').data(D.robust).join('rect').attr('x', d => x0(d.first_month_active_days) + x1(d.corp)).attr('width', x1.bandwidth()).attr('y', d => y(d.retention_month_3_any_activity)).attr('height', d => y(0) - y(d.retention_month_3_any_activity)).attr('rx', 3)
+      .attr('fill', d => d.corp === 'In a corp' ? C.group : C.alone)
+      .on('mousemove', (e, d) => showTip(e, `<b>${d.corp}, active ${d.first_month_active_days}</b><br>${pct(d.retention_month_3_any_activity)} active at month 3<br>${fmt(d.players)} players`)).on('mouseleave', hideTip);
+    r.selectAll('text.b').data(bands).join('text').attr('x', d => x0(d) + x0.bandwidth() / 2).attr('y', H2 - 22).attr('text-anchor', 'middle').text(d => d);
+    r.append('text').attr('x', (W2 + m2.l) / 2).attr('y', H2 - 4).attr('text-anchor', 'middle').text('days active in the first month');
+
+    const h = d3.select('#horde'), W3 = 1300, m3 = { l: 50, r: 150 };
+    const x3 = d3.scaleTime().domain(d3.extent(hordeRows, d => d.m)).range([m3.l, W3 - m3.r]);
+    const yA = d3.scaleLinear().domain([0, 450]).range([120, 20]);
+    h.append('text').attr('x', m3.l).attr('y', 12).text('SYSTEMS HORDE HOLDS');
+    h.append('path').datum(hordeRows).attr('fill', C.player).attr('fill-opacity', .35).attr('stroke', C.player).attr('stroke-width', 1.5).attr('d', d3.area().x(d => x3(d.m)).y0(yA(0)).y1(d => yA(d.horde_systems)));
+    h.append('g').attr('transform', `translate(${m3.l},0)`).call(d3.axisLeft(yA).ticks(3).tickSize(-(W3 - m3.l - m3.r))).call(gridAxis);
+    const yB = d3.scaleLinear().domain([0, .35]).range([300, 170]);
+    h.append('text').attr('x', m3.l).attr('y', 160).text('NEWCOMERS STILL PLAYING AT MONTH 3');
+    h.append('g').attr('transform', `translate(${m3.l},0)`).call(d3.axisLeft(yB).ticks(4, '%').tickSize(-(W3 - m3.l - m3.r))).call(gridAxis);
+    h.append('g').attr('transform', 'translate(0,300)').call(d3.axisBottom(x3).ticks(d3.timeMonth.every(3)).tickFormat(d3.timeFormat('%b %y')).tickSize(0)).call(a => a.select('.domain').attr('stroke', C.line));
+    [['other_alliances_retention_month_3', C.alone, 'Other alliances'], ['horde_retention_month_3', C.player, 'Pandemic Horde']].forEach(([k, c, n]) => {
+      const d = hordeRows.filter(rw => rw[k] != null);
+      h.append('path').datum(d).attr('fill', 'none').attr('stroke', c).attr('stroke-width', 2).attr('d', d3.line().x(rw => x3(rw.m)).y(rw => yB(rw[k])));
+      h.selectAll(null).data(d).join('circle').attr('cx', rw => x3(rw.m)).attr('cy', rw => yB(rw[k])).attr('r', 3.5).attr('fill', c)
+        .on('mousemove', (e, rw) => showTip(e, `<b>${n}, joined ${d3.timeFormat('%b %Y')(rw.m)}</b><br>${pct(rw[k])} still playing at month 3${k.startsWith('horde') ? '<br>' + fmt(rw.horde_newcomers) + ' newcomers' : ''}`)).on('mouseleave', hideTip);
+      const lastR = d[d.length - 1]; h.append('text').attr('class', 'lbl').attr('x', x3(lastR.m) + 8).attr('y', yB(lastR[k]) + 4).text(n);
+    });
+    h.append('line').attr('x1', x3(nov.m)).attr('x2', x3(nov.m)).attr('y1', 20).attr('y2', 300).attr('stroke', C.accent).attr('stroke-dasharray', '3 3');
+    h.append('text').attr('class', 'val').attr('x', x3(nov.m) - 10).attr('y', yB(nov.horde_retention_month_3) + 4).attr('text-anchor', 'end').text(`Joined Nov 2025: ${pct0(nov.horde_retention_month_3)} vs ${pct0(nov.other_alliances_retention_month_3)}`);
+    h.append('text').attr('class', 'lbl').attr('x', x3(nov.m) + 8).attr('y', 40).text('Horde loses its space');
+  }
+
+  /* ---------- ACT 4: buying costs more every year; keeping pays ---------- */
+  function act4() {
+    const year = ue25.arpu_month * 12, lost = year - avgValue.ltv_first_year;
+    tiles('#tiles3', [
+      [d3.format('$,.2f')(ue25.cac_per_signup), `of marketing per signup in 2025, up from ${d3.format('$,.2f')(ue24.cac_per_signup)} in 2024 (CCP's accounts ÷ characters created)`],
+      [money(ue25.cac_per_engaged_newcomer), 'per newcomer who engages: 2025 marketing ÷ newcomers seen fighting or trading'],
+      [money(lost), 'of first-year revenue not earned for each newcomer who leaves instead of staying the year'],
+      [moneyM(lost * ue25.engaged) + ' a year', `not earned from 2025's ${d3.format('.3~s')(ue25.engaged).replace('k', ',000')} engaged newcomers: what they would have paid had all stayed the year, less what they did (a ceiling; EVE's revenue was ${moneyM(ue25.arr)})`]]);
+
+    // cost by year: every row on its own labelled scale, no two-axis chart
+    const measures = [...new Set(D.cost.map(d => d.measure))];
+    const f = (mName, v) => /USD/.test(mName) ? (v < 1000 ? d3.format('$,.2f')(v) : moneyM(v)) : fmt(v);
+    const rows = measures.map(mName => { const r24 = D.cost.find(d => d.measure === mName && d.year === 2024), r25 = D.cost.find(d => d.measure === mName && d.year === 2025); return { mName, v24: r24.value, v25: r25.value, ch: r25.change_vs_prior }; });
+    const t = d3.select('#costTab').append('table').attr('class', 'cost');
+    t.append('thead').append('tr').selectAll('th').data(['', '2024', '2025', 'change']).join('th').text(d => d);
+    const tr = t.append('tbody').selectAll('tr').data(rows).join('tr').attr('class', d => /Cost per/.test(d.mName) ? 'key' : null);
+    tr.append('td').text(d => d.mName.replace(' (USD)', '').replace(' (characters created)', ''));
+    tr.append('td').text(d => f(d.mName, d.v24));
+    tr.append('td').attr('class', 'now').text(d => f(d.mName, d.v25));
+    tr.append('td').attr('class', d => d.ch > 0 ? 'up' : 'down').text(d => (d.ch > 0 ? '+' : '') + pct0(d.ch));
+
+    // revenue in year one against the marketing it took, one dollar scale
+    const s = d3.select('#money'), W = 600, ml = 190, mr = 80, x = d3.scaleLinear().domain([0, 560]).range([ml, W - mr]);
+    s.append('g').attr('transform', 'translate(0,236)').call(d3.axisBottom(x).tickValues([0, 100, 200, 300, 400, 500]).tickFormat(d => '$' + d).tickSize(-200)).call(gridAxis);
+    [['The average newcomer', avgValue.ltv_first_year, `${avgValue.active_months_first_year.toFixed(1)} active months`], ['A player who stays the year', year, '12 months']].forEach(([n, v, tt], i) => {
+      const y = 56 + i * 90, win = v >= ue25.cac_per_engaged_newcomer;
+      s.append('text').attr('class', 'lbl').attr('x', ml - 12).attr('y', y + 20).attr('text-anchor', 'end').text(n);
+      s.append('text').attr('x', ml - 12).attr('y', y + 36).attr('text-anchor', 'end').text(tt);
+      s.append('rect').attr('x', ml).attr('y', y).attr('width', x(v) - ml).attr('height', 44).attr('rx', 3).attr('fill', win ? C.group : C.alone)
+        .on('mousemove', e => showTip(e, `<b>${n}: ${money(v)} in year one</b><br>${tt} × $${ue25.arpu_month.toFixed(0)} a month<br>${win ? 'pays back' : 'does not pay back'} the ${money(ue25.cac_per_engaged_newcomer)} of marketing<br>estimate`)).on('mouseleave', hideTip);
+      const lx = win ? x(v) + 10 : Math.max(x(v), x(ue25.cac_per_engaged_newcomer)) + 12;
+      s.append('text').attr('class', 'big').attr('font-size', 24).attr('x', lx).attr('y', y + 30).text(money(v));
+    });
+    s.append('line').attr('x1', x(ue25.cac_per_engaged_newcomer)).attr('x2', x(ue25.cac_per_engaged_newcomer)).attr('y1', 30).attr('y2', 236).attr('stroke', C.money).attr('stroke-width', 2).attr('stroke-dasharray', '4 3');
+    s.append('text').attr('class', 'lbl').attr('x', x(ue25.cac_per_engaged_newcomer) + 6).attr('y', 24).attr('fill', C.money).text(`${money(ue25.cac_per_engaged_newcomer)} of marketing to bring one in`);
+    s.append('text').attr('x', ml).attr('y', 270).text('revenue in year one');
+
+    // payback by newcomer group: first-year value as a share of the cost to acquire
+    const v = D.value.filter(d => ['Casual, starter corporation', 'Neither', 'All new players', 'Casual, mid-sized corporation (51-1,000)', 'Joined a corp and got a kill'].includes(d.segment)).sort((a, b) => a.ltv_to_cac - b.ltv_to_cac);
+    const names = { 'Casual, starter corporation': 'One-day, starter corp', 'Neither': 'No corp, no kill', 'All new players': 'Average newcomer', 'Casual, mid-sized corporation (51-1,000)': 'One-day, mid-sized corp', 'Joined a corp and got a kill': 'Corp and a kill' };
+    const p = d3.select('#payback'), W4 = 420, m = { l: 150, r: 50 };
+    const xp = d3.scaleLinear().domain([0, 1.3]).range([m.l, W4 - m.r]);
+    v.forEach((d, i) => {
+      const y = 20 + i * 42;
+      p.append('text').attr('class', 'lbl').attr('x', 0).attr('y', y + 15).text(names[d.segment]);
+      p.append('rect').attr('x', m.l).attr('y', y).attr('width', xp(d.ltv_to_cac) - m.l).attr('height', 22).attr('rx', 3).attr('fill', d.ltv_to_cac >= 1 ? C.group : C.alone).attr('stroke', d.ltv_to_cac >= 1 ? C.group : C.alone).attr('stroke-dasharray', '4 2').attr('fill-opacity', .8)
+        .on('mousemove', e => showTip(e, `<b>${names[d.segment]}</b><br>${d.active_months_first_year} active months in year one<br>first-year value ${money(d.ltv_first_year)} vs cost ${money(d.cac_per_engaged_newcomer)}<br>estimate`)).on('mouseleave', hideTip);
+      p.append('text').attr('class', 'val').attr('x', W4 - 4).attr('y', y + 15).attr('text-anchor', 'end').text(d.ltv_to_cac.toFixed(1) + '×');
+    });
+    p.append('line').attr('x1', xp(1)).attr('x2', xp(1)).attr('y1', 10).attr('y2', 230).attr('stroke', C.white).attr('stroke-dasharray', '3 3');
+    p.append('text').attr('class', 'lbl').attr('x', xp(1)).attr('y', 248).attr('text-anchor', 'middle').text('1.0× = pays back its cost');
+  }
+
+  /* ---------- ACT 5: group them in week one, then test it ---------- */
+  function act5() {
+    const w0 = D.whatif[0], gain = w0.value_in_group - w0.value_alone;
+    const before = D.sale.find(d => /Before/.test(d.period)), after = D.sale.find(d => /After/.test(d.period));
+    const sTiles = [
+      [fmt(w0.newcomers_per_year), 'engaged newcomers a year play alone: no corporation, no win in their first month (2025)'],
+      ['+' + money(gain), 'more first-year revenue from each of them if they had found a group and a win instead (estimate, 2025 ARPU)']];
+    if (before && after) sTiles.push([(after.signups_per_month > before.signups_per_month ? '+' : '') + pct0(after.signups_per_month / before.signups_per_month - 1) + ' signups', `a month since the sale of CCP to its management (May 2026), while active players moved ${pct0(after.active_characters_per_month / before.active_characters_per_month - 1)}: more people are trying EVE; will the new owners get them through week one?`]);
+    tiles('#tiles4', sTiles);
+
+    const names = ['Newcomers who play alone → a group with a win', 'One-day newcomers in the starter corp → a mid-sized corp'];
+    d3.select('#scenario').selectAll('label').data(D.whatif).join('label').html((d, i) => `<input type="radio" name="sc" value="${i}" ${i ? '' : 'checked'}> ${names[i]}`);
+    const share = document.getElementById('share');
+    function upd() {
+      const i = +document.querySelector('input[name=sc]:checked').value, d = D.whatif[i], sh = +share.value;
+      const moved = Math.round(sh * d.newcomers_per_year), extra = moved * (d.value_in_group - d.value_alone);
+      document.getElementById('shareOut').textContent = pct0(sh) + ' moved';
+      document.getElementById('wiNum').textContent = '+' + moneyM(extra);
+      document.getElementById('wiNote').textContent = `${fmt(moved)} newcomers a year × ${money(d.value_in_group - d.value_alone)} more first-year value each = ${pct(extra / d.arr)} of 2025 revenue (${moneyM(d.arr)}). First year only; a test would measure it for real.`;
+    }
+    share.addEventListener('input', upd); document.getElementById('scenario').addEventListener('change', upd); upd();
+  }
+});
+</script>
+</body>
+</html>

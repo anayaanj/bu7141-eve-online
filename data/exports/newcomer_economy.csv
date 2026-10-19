@@ -1,0 +1,11 @@
+measure,sort,band,newcomers,share,still_playing
+ISK traded,1,None,197070,0.9141,0.0815
+ISK traded,2,Under 10M,8709,0.0404,0.0681
+ISK traded,3,10M - 100M,5182,0.0240,0.0990
+ISK traded,4,100M - 1B,3030,0.0141,0.1300
+ISK traded,5,1B+,1598,0.0074,0.1270
+Ships lost (hull value),1,None,24579,0.1140,0.0978
+Ships lost (hull value),2,Under 1M,86450,0.4010,0.0509
+Ships lost (hull value),3,1M - 10M,46235,0.2145,0.0696
+Ships lost (hull value),4,10M - 100M,35884,0.1664,0.1174
+Ships lost (hull value),5,100M+,22441,0.1041,0.1570

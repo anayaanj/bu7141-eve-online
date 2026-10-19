@@ -1,0 +1,4 @@
+battle,date,side_a,side_b,players,isk_lost,usd_estimate,side_a_share,split_basis,source
+M2-XFE,2020-12-30,Goonswarm and the Imperium,"PAPI: Pandemic Horde, TEST, Brave and allies",6739,29111604784863,378012,0.504,"Titans lost per side (123 vs 121)","CCP, The Massacre at M2-XFE (Jan 2021); Guinness World Records; GamePressure for the per-side Titan count"
+B-R5RB,2014-01-27,Goonswarm and the CFC with the Russian coalition,N3 and Pandemic Legion,7548,11000000000000,300000,0.213,"Titans lost per side (16 vs 59)","CCP, The Bloodbath of B-R5RB (Jan 2014); Groen, Empires of Eve Vol. 2"
+Atioth,2026-04-06,Goonswarm and allies,Fraternity and allies,12150,6567714981664,69710,0.821,"Ship hull values lost per side, from our killmails (Goonswarm side $57,237 of $69,710)","EVE Ref killmails; dollars at the April 2026 PLEX price"
