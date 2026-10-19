@@ -11,5 +11,9 @@ COPY (
   UNION ALL SELECT 'Solar systems on the map', count(*), '' FROM solar_system WHERE map_x IS NOT NULL
   UNION ALL SELECT 'Years online', extract(year FROM age(date '2026-08-31', date '2003-05-06')), 'since 6 May 2003'
   UNION ALL SELECT 'Subscribers at the peak', value, period FROM benchmark_metric WHERE game = 'EVE Online' AND metric = 'peak_subscribers'
+  UNION ALL SELECT 'Veterans among active players (Aug 2026)', round(avg((character_id < (SELECT min(first_character_id) FROM character_signup_month))::int), 2), 'characters created before 2024' FROM character_month_activity WHERE month = date '2026-08-01'
   UNION ALL SELECT 'Subscription and in-game revenue 2025 (USD)', amount, 'CCP audited accounts' FROM financial_metric WHERE metric = 'subscription_and_ingame_revenue' AND period_start = '2025-01-01'
+  UNION ALL SELECT 'Value destroyed per month (USD, estimate)', round(avg(d.isk / x.plex * 24.99 / 500)), 'ships destroyed, ISK at that month''s PLEX price (PLEX 500 pack)'
+    FROM (SELECT date_trunc('month', date)::date AS m, sum(value) AS isk FROM economy_daily WHERE metric LIKE 'destroyed_value:%' AND date >= '2024-01-01' GROUP BY 1) d
+    JOIN (SELECT date_trunc('month', date)::date AS m, sum(average_price * volume) / sum(volume) AS plex FROM market_history_daily WHERE type_id = 44992 GROUP BY 1) x USING (m)
 ) TO STDOUT WITH (FORMAT csv, HEADER);
