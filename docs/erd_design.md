@@ -1,6 +1,6 @@
 # ERD design: normalization and derived data
 
-How we got from the raw files to the ERD in `docs/erd.dbml`, using the method and terms of Connolly, Begg & Holowczak, *Business Database Systems* (Pearson, 2008):
+How we got from the raw files to the ERD in `docs/erd_story.dbml`, using the method and terms of Connolly, Begg & Holowczak, *Business Database Systems* (Pearson, 2008):
 
 - **Chapter 8, Normalization:** 1NF, 2NF and 3NF (Sections 8.3–8.5).
 - **Section 6.3.3 and Step 1.3, Derived attributes:** shown in the model with a `/` prefix.
@@ -9,7 +9,7 @@ How we got from the raw files to the ERD in `docs/erd.dbml`, using the method an
 
 We designed top-down (an ER model first) and then used normalization to check the tables, as the book recommends (Chapter 8 preview). The examples below come from our own raw data (section numbers refer to `docs/raw_inventory.md`).
 
-**Scope.** The ERD shows the 22 tables behind the deck and the Tableau story: the 20 that the exports in `db/exports` read, plus `region` and `constellation`, which complete the location hierarchy. `db/schema.sql` loads 13 more tables (wars, sovereignty campaigns, prices, exchange rates, the economic report, interest signals, Steam reviews, forums, contract items, item categories and a calendar) that no chart uses; they are left out of the diagram.
+**Scope.** The ERD shows the 22 tables behind the deck and the Tableau story: the 20 that the exports in `db/exports` read, plus `region` and `constellation`, which complete the location hierarchy. The full model in `docs/erd.dbml` (which generates `db/schema.sql`) has 13 more tables (wars, sovereignty campaigns, prices, exchange rates, the economic report, interest signals, Steam reviews, forums, contract items, item categories and a calendar) that no chart uses; they are left out of the diagram.
 
 ## 1. First normal form (1NF)
 
@@ -62,7 +62,7 @@ The remaining composite-key tables (`character_month_activity`, `sovereignty_dai
 
 > **Derived attribute:** an attribute whose value is derivable from the value of a related attribute or set of attributes, not necessarily in the same entity (Section 6.3.3). All derived attributes are shown in the model, prefixed with `/` (Step 1.3).
 
-In `docs/erd.dbml` every derived column's note starts with **`/derived:`** followed by its rule. The three fully derived tables (`character_month_activity`, `players_online_daily`, `battle`) also have a grey header in the diagram. The markers carry into the database as column comments (`db/schema.sql`).
+In `docs/erd_story.dbml` every derived column's note starts with **`/derived:`** followed by its rule. The three fully derived tables (`character_month_activity`, `players_online_daily`, `battle`) also have a grey header in the diagram. The markers carry into the database as column comments (`db/schema.sql`).
 
 ### Stored or calculated? (Step 3.2)
 
