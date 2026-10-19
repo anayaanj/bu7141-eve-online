@@ -1,14 +1,14 @@
 # Keeps the ERD, the database schema and the dbdiagram diagram in sync.
-# Pull requests: validate docs/erd.dbml, check db/schema.sql matches it and loads into PostgreSQL.
-# Merges to main: also push the ERD to the diagram.
+# Pull requests: validate the diagram (docs/erd_story.dbml), check db/schema.sql matches docs/erd.dbml and loads into PostgreSQL.
+# Merges to main: also push docs/erd_story.dbml to the diagram.
 name: ERD
 
 on:
   pull_request:
-    paths: [docs/erd.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
+    paths: [docs/erd.dbml, docs/erd_story.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
   push:
     branches: [main]
-    paths: [docs/erd.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
+    paths: [docs/erd.dbml, docs/erd_story.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
   workflow_dispatch:
 
 concurrency:

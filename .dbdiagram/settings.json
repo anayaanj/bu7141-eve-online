@@ -1,6 +1,6 @@
 {
   "dbml": {
-    "entry": "docs/erd.dbml"
+    "entry": "docs/erd_story.dbml"
   },
   "diagram": {
     "id": "6abf9f99abcc87fb7ad472c6",

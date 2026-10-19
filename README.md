@@ -11,7 +11,8 @@ scripts/download.py       downloads every source into data/raw/ and logs it
 data/raw/sources.csv      log of every downloaded file: URL, date, size, sha256
 data/raw/financials/      CCP and Pearl Abyss reports (committed: hard to re-fetch)
 data/raw/<everything else> not in git (6.4 GB): re-create with the script
-docs/erd.dbml             the ERD (source of truth for the diagram and the database)
+docs/erd.dbml             the full ERD (source of truth for the database)
+docs/erd_story.dbml       the shared diagram: the 22 tables behind the deck and Tableau
 docs/erd_design.md        how the ERD was normalized (1NF-3NF) and which fields are derived
 db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/gen_schema.sh
 compose.yaml              local PostgreSQL in Docker
@@ -57,10 +58,10 @@ gh pr create --fill                            # or open the PR on github.com
 ## ERD
 
 - **View (read-only):** https://dbdiagram.io/d/6abf9f99abcc87fb7ad472c6
-- **Source of truth:** `docs/erd.dbml`. The diagram is updated **only** from `main`: when a pull request that changes the ERD is merged, GitHub Actions pushes it to dbdiagram (`.github/workflows/erd.yml`).
+- **Source of truth:** `docs/erd.dbml` defines all 35 tables and generates `db/schema.sql`. The shared diagram shows `docs/erd_story.dbml`, the 22 tables behind the deck and Tableau. The diagram is updated **only** from `main`: when a pull request that changes the ERD is merged, GitHub Actions pushes `docs/erd_story.dbml` to dbdiagram (`.github/workflows/erd.yml`).
 
 To change the ERD:
-1. Edit `docs/erd.dbml` on a branch. To preview, paste it into a new diagram on dbdiagram.io (not the shared one).
+1. Edit `docs/erd.dbml` on a branch, and the same table in `docs/erd_story.dbml` if it is one of the 22. To preview, paste it into a new diagram on dbdiagram.io (not the shared one).
 2. Regenerate the database schema: `./scripts/gen_schema.sh` (needs Node.js). Commit `docs/erd.dbml` and `db/schema.sql` together.
 3. Open a pull request. The ERD check validates the DBML, checks `db/schema.sql` matches it, and loads it into a test PostgreSQL.
 4. Once it's approved and merged, the shared diagram updates automatically.
