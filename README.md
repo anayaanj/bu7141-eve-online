@@ -13,6 +13,7 @@ data/raw/financials/      CCP and Pearl Abyss reports (committed: hard to re-fet
 data/raw/<everything else> not in git (6.4 GB): re-create with the script
 docs/erd.dbml             the full ERD (source of truth for the database)
 docs/erd_story.dbml       the shared diagram: the 22 tables behind the deck and Tableau
+docs/erd_story.dbdiagram  table positions for that diagram (pushed with it)
 docs/erd_design.md        how the ERD was normalized (1NF-3NF) and which fields are derived
 db/schema.sql             PostgreSQL tables, generated from the ERD by scripts/gen_schema.sh
 compose.yaml              local PostgreSQL in Docker

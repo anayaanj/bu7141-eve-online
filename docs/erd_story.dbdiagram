@@ -1,0 +1,148 @@
+{
+  "version": "3.0.0",
+  "darkMode": false,
+  "gridEnabling": false,
+  "currentViewName": null,
+  "defaultView": {
+    "detailLevel": "All",
+    "relationshipMode": "All",
+    "tablePositions": [
+      {
+        "name": "character_signup_month",
+        "schemaName": "public",
+        "x": 0,
+        "y": 0
+      },
+      {
+        "name": "player_character",
+        "schemaName": "public",
+        "x": 0,
+        "y": 224
+      },
+      {
+        "name": "corporation",
+        "schemaName": "public",
+        "x": 0,
+        "y": 778
+      },
+      {
+        "name": "alliance",
+        "schemaName": "public",
+        "x": 0,
+        "y": 1134
+      },
+      {
+        "name": "killmail_participant",
+        "schemaName": "public",
+        "x": 480,
+        "y": 0
+      },
+      {
+        "name": "character_month_activity",
+        "schemaName": "public",
+        "x": 480,
+        "y": 488
+      },
+      {
+        "name": "players_online_daily",
+        "schemaName": "public",
+        "x": 480,
+        "y": 910
+      },
+      {
+        "name": "contract",
+        "schemaName": "public",
+        "x": 900,
+        "y": 0
+      },
+      {
+        "name": "killmail",
+        "schemaName": "public",
+        "x": 900,
+        "y": 620
+      },
+      {
+        "name": "item_group",
+        "schemaName": "public",
+        "x": 1420,
+        "y": 0
+      },
+      {
+        "name": "item_type",
+        "schemaName": "public",
+        "x": 1420,
+        "y": 224
+      },
+      {
+        "name": "region",
+        "schemaName": "public",
+        "x": 1420,
+        "y": 514
+      },
+      {
+        "name": "constellation",
+        "schemaName": "public",
+        "x": 1420,
+        "y": 705
+      },
+      {
+        "name": "solar_system",
+        "schemaName": "public",
+        "x": 1420,
+        "y": 929
+      },
+      {
+        "name": "stargate_link",
+        "schemaName": "public",
+        "x": 1420,
+        "y": 1318
+      },
+      {
+        "name": "market_history_daily",
+        "schemaName": "public",
+        "x": 1900,
+        "y": 0
+      },
+      {
+        "name": "financial_metric",
+        "schemaName": "public",
+        "x": 1900,
+        "y": 422
+      },
+      {
+        "name": "benchmark_metric",
+        "schemaName": "public",
+        "x": 1900,
+        "y": 877
+      },
+      {
+        "name": "source_document",
+        "schemaName": "public",
+        "x": 1900,
+        "y": 1233
+      },
+      {
+        "name": "sovereignty_daily",
+        "schemaName": "public",
+        "x": 480,
+        "y": 1636
+      },
+      {
+        "name": "battle",
+        "schemaName": "public",
+        "x": 900,
+        "y": 1636
+      },
+      {
+        "name": "game_event",
+        "schemaName": "public",
+        "x": 1900,
+        "y": 1636
+      }
+    ],
+    "tableGroupCollapseStates": [],
+    "stickyNoteLayouts": [],
+    "referencePaths": []
+  },
+  "views": {}
+}

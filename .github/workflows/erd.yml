@@ -5,10 +5,10 @@ name: ERD
 
 on:
   pull_request:
-    paths: [docs/erd.dbml, docs/erd_story.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
+    paths: [docs/erd.dbml, docs/erd_story.dbml, docs/erd_story.dbdiagram, db/**, scripts/gen_schema.sh, .dbdiagram/**]
   push:
     branches: [main]
-    paths: [docs/erd.dbml, docs/erd_story.dbml, db/**, scripts/gen_schema.sh, .dbdiagram/**]
+    paths: [docs/erd.dbml, docs/erd_story.dbml, docs/erd_story.dbdiagram, db/**, scripts/gen_schema.sh, .dbdiagram/**]
   workflow_dispatch:
 
 concurrency:
