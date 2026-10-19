@@ -7,6 +7,129 @@
     </color-palette>
   </preferences>
   <datasources>
+    <datasource caption="acquisition_cost_by_year" inline='true' name='federated.acquisition_cost_by_year' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="acquisition_cost_by_year" name='hyper.acquisition_cost_by_year'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/acquisition_cost_by_year.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.acquisition_cost_by_year' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>year</remote-name>
+          <local-name>[year]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>measure</remote-name>
+          <local-name>[measure]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>value</remote-name>
+          <local-name>[value]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>change_vs_prior</remote-name>
+          <local-name>[change_vs_prior]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="active_by_character_age" inline='true' name='federated.active_by_character_age' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="active_by_character_age" name='hyper.active_by_character_age'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/active_by_character_age.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.active_by_character_age' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>age</remote-name>
+          <local-name>[age]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>sort</remote-name>
+          <local-name>[sort]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>kind</remote-name>
+          <local-name>[kind]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>characters</remote-name>
+          <local-name>[characters]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share</remote-name>
+          <local-name>[share]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>omega_share</remote-name>
+          <local-name>[omega_share]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="alliance_players" inline='true' name='federated.alliance_players' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="alliance_players" name='hyper.alliance_players'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/alliance_players.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.alliance_players' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>alliance_name</remote-name>
+          <local-name>[alliance_name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>players</remote-name>
+          <local-name>[players]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>rank</remote-name>
+          <local-name>[rank]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>kind</remote-name>
+          <local-name>[kind]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
     <datasource caption="casual_deaths_by_system" inline='true' name='federated.casual_deaths_by_system' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -23,16 +146,16 @@
           <local-type>integer</local-type>
         </metadata-record>
         <metadata-record class='column'>
-          <remote-name>security_band</remote-name>
-          <local-name>[security_band]</local-name>
+          <remote-name>solar_system_name</remote-name>
+          <local-name>[solar_system_name]</local-name>
           <parent-name>[Extract]</parent-name>
           <local-type>string</local-type>
         </metadata-record>
         <metadata-record class='column'>
-          <remote-name>is_starter_system</remote-name>
-          <local-name>[is_starter_system]</local-name>
+          <remote-name>security_band</remote-name>
+          <local-name>[security_band]</local-name>
           <parent-name>[Extract]</parent-name>
-          <local-type>boolean</local-type>
+          <local-type>string</local-type>
         </metadata-record>
         <metadata-record class='column'>
           <remote-name>casual_newcomers_killed</remote-name>
@@ -352,7 +475,7 @@
           <remote-name>value</remote-name>
           <local-name>[value]</local-name>
           <parent-name>[Extract]</parent-name>
-          <local-type>integer</local-type>
+          <local-type>real</local-type>
         </metadata-record>
         <metadata-record class='column'>
           <remote-name>detail</remote-name>
@@ -390,6 +513,159 @@
           <local-name>[title]</local-name>
           <parent-name>[Extract]</parent-name>
           <local-type>string</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="famous_battles" inline='true' name='federated.famous_battles' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="famous_battles" name='hyper.famous_battles'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/famous_battles.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.famous_battles' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>battle</remote-name>
+          <local-name>[battle]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>date</remote-name>
+          <local-name>[date]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>date</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>side_a</remote-name>
+          <local-name>[side_a]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>side_b</remote-name>
+          <local-name>[side_b]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>players</remote-name>
+          <local-name>[players]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>isk_lost</remote-name>
+          <local-name>[isk_lost]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>usd_estimate</remote-name>
+          <local-name>[usd_estimate]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>side_a_share</remote-name>
+          <local-name>[side_a_share]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>split_basis</remote-name>
+          <local-name>[split_basis]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>source</remote-name>
+          <local-name>[source]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="first_loss_area" inline='true' name='federated.first_loss_area' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="first_loss_area" name='hyper.first_loss_area'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/first_loss_area.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.first_loss_area' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>security_band</remote-name>
+          <local-name>[security_band]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>players</remote-name>
+          <local-name>[players]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share</remote-name>
+          <local-name>[share]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share_one_gate_from_highsec</remote-name>
+          <local-name>[share_one_gate_from_highsec]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="first_loss_hull" inline='true' name='federated.first_loss_hull' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="first_loss_hull" name='hyper.first_loss_hull'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/first_loss_hull.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.first_loss_hull' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>hull</remote-name>
+          <local-name>[hull]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>kind</remote-name>
+          <local-name>[kind]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>players</remote-name>
+          <local-name>[players]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share</remote-name>
+          <local-name>[share]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>retention_month_3</remote-name>
+          <local-name>[retention_month_3]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
         </metadata-record>
         </metadata-records>
       </connection>
@@ -487,6 +763,61 @@
       </connection>
       <aliases enabled='yes' />
     </datasource>
+    <datasource caption="great_wars" inline='true' name='federated.great_wars' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="great_wars" name='hyper.great_wars'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/great_wars.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.great_wars' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>date</remote-name>
+          <local-name>[date]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>date</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>date_precision</remote-name>
+          <local-name>[date_precision]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>event</remote-name>
+          <local-name>[event]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>sides</remote-name>
+          <local-name>[sides]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>what_happened</remote-name>
+          <local-name>[what_happened]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>scale</remote-name>
+          <local-name>[scale]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>source</remote-name>
+          <local-name>[source]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
     <datasource caption="horde_collapse" inline='true' name='federated.horde_collapse' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -567,6 +898,73 @@
       </connection>
       <aliases enabled='yes' />
     </datasource>
+    <datasource caption="hotspot_killers" inline='true' name='federated.hotspot_killers' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="hotspot_killers" name='hyper.hotspot_killers'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/hotspot_killers.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.hotspot_killers' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>place</remote-name>
+          <local-name>[place]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>newcomers_killed</remote-name>
+          <local-name>[newcomers_killed]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share_solo</remote-name>
+          <local-name>[share_solo]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share_six_or_more</remote-name>
+          <local-name>[share_six_or_more]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share_veteran_final_blow</remote-name>
+          <local-name>[share_veteran_final_blow]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>median_killer_age_years</remote-name>
+          <local-name>[median_killer_age_years]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>killers</remote-name>
+          <local-name>[killers]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>share_top20</remote-name>
+          <local-name>[share_top20]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>most_by_one</remote-name>
+          <local-name>[most_by_one]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
     <datasource caption="isk_monthly" inline='true' name='federated.isk_monthly' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -604,6 +1002,43 @@
       </connection>
       <aliases enabled='yes' />
     </datasource>
+    <datasource caption="join_timing" inline='true' name='federated.join_timing' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="join_timing" name='hyper.join_timing'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/join_timing.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.join_timing' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>joined_a_player_corp</remote-name>
+          <local-name>[joined_a_player_corp]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>sort</remote-name>
+          <local-name>[sort]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>players</remote-name>
+          <local-name>[players]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>active_month_6</remote-name>
+          <local-name>[active_month_6]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
     <datasource caption="kpi_tiles" inline='true' name='federated.kpi_tiles' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -624,6 +1059,79 @@
           <local-name>[value]</local-name>
           <parent-name>[Extract]</parent-name>
           <local-type>real</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="largest_battles" inline='true' name='federated.largest_battles' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="largest_battles" name='hyper.largest_battles'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/largest_battles.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.largest_battles' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>battle_date</remote-name>
+          <local-name>[battle_date]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>date</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>solar_system_name</remote-name>
+          <local-name>[solar_system_name]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>security_band</remote-name>
+          <local-name>[security_band]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>map_x</remote-name>
+          <local-name>[map_x]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>map_y</remote-name>
+          <local-name>[map_y]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>pilots</remote-name>
+          <local-name>[pilots]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>peak_hour_pilots</remote-name>
+          <local-name>[peak_hour_pilots]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>ships_destroyed</remote-name>
+          <local-name>[ships_destroyed]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>isk_destroyed</remote-name>
+          <local-name>[isk_destroyed]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>usd_estimate</remote-name>
+          <local-name>[usd_estimate]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
         </metadata-record>
         </metadata-records>
       </connection>
@@ -1370,6 +1878,43 @@
       </connection>
       <aliases enabled='yes' />
     </datasource>
+    <datasource caption="signup_dots" inline='true' name='federated.signup_dots' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="signup_dots" name='hyper.signup_dots'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/signup_dots.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.signup_dots' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>cell</remote-name>
+          <local-name>[cell]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>x</remote-name>
+          <local-name>[x]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>y</remote-name>
+          <local-name>[y]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>kind</remote-name>
+          <local-name>[kind]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
     <datasource caption="sovereignty_alliances_monthly" inline='true' name='federated.sovereignty_alliances_monthly' version='18.1'>
       <connection class='federated'>
         <named-connections>
@@ -1445,6 +1990,55 @@
           <local-name>[rank]</local-name>
           <parent-name>[Extract]</parent-name>
           <local-type>integer</local-type>
+        </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+    </datasource>
+    <datasource caption="survivors_month_12" inline='true' name='federated.survivors_month_12' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption="survivors_month_12" name='hyper.survivors_month_12'>
+            <connection authentication='auth-none' author-locale='en_US' class='hyper' dbname='extracts/survivors_month_12.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' username='tableau_internal_user' />
+          </named-connection>
+        </named-connections>
+        <relation connection='hyper.survivors_month_12' name='Extract' table='[Extract].[Extract]' type='table' />
+        <metadata-records>
+        <metadata-record class='column'>
+          <remote-name>base</remote-name>
+          <local-name>[base]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>string</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>players</remote-name>
+          <local-name>[players]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>integer</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>in_player_corp</remote-name>
+          <local-name>[in_player_corp]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>in_alliance</remote-name>
+          <local-name>[in_alliance]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>flew_omega</remote-name>
+          <local-name>[flew_omega]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
+        </metadata-record>
+        <metadata-record class='column'>
+          <remote-name>got_kill</remote-name>
+          <local-name>[got_kill]</local-name>
+          <parent-name>[Extract]</parent-name>
+          <local-type>real</local-type>
         </metadata-record>
         </metadata-records>
       </connection>
