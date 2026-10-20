@@ -9,7 +9,7 @@ How we got from the raw files to the ERD in `docs/erd_story.dbml`, using the met
 
 We designed top-down (an ER model first) and then used normalization to check the tables, as the book recommends (Chapter 8 preview). The examples below come from our own raw data (section numbers refer to `docs/raw_inventory.md`).
 
-**Scope.** The ERD shows the 22 tables behind the deck and the Tableau story: the 20 that the exports in `db/exports` read, plus `region` and `constellation`, which complete the location hierarchy. The full model in `docs/erd.dbml` (which generates `db/schema.sql`) has 13 more tables (wars, sovereignty campaigns, prices, exchange rates, the economic report, interest signals, Steam reviews, forums, contract items, item categories and a calendar) that no chart uses; they are left out of the diagram.
+**Scope.** The ERD shows the 15 tables behind the deck and the Tableau story: the ones the story's exports in `db/exports` read, directly or through `db/analysis.sql`. The full model in `docs/erd.dbml` (which generates `db/schema.sql`) has 20 more tables that no chart in the story uses (regions and constellations, item types and groups, sovereignty, the event timeline, market prices, wars, exchange rates, the economic report, interest signals, Steam reviews, forums, contract items and a calendar). The normalization steps below are worked on the full model, so some of their examples use those tables.
 
 ## 1. First normal form (1NF)
 
