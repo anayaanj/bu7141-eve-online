@@ -1,0 +1,17 @@
+step_sort,step,k,newcomers,active,retention
+1,Alone,1,74514,17373,0.2332
+1,Alone,3,74514,7052,0.0946
+1,Alone,6,74514,4650,0.0624
+1,Alone,12,74514,3973,0.0533
+2,In a corp,1,55643,13328,0.2395
+2,In a corp,3,55643,6180,0.1111
+2,In a corp,6,55643,4230,0.0760
+2,In a corp,12,55643,3385,0.0608
+3,In an alliance,1,67882,25187,0.3710
+3,In an alliance,3,67882,12867,0.1895
+3,In an alliance,6,67882,9512,0.1401
+3,In an alliance,12,67882,7815,0.1151
+4,In a fleet battle,1,17550,7927,0.4517
+4,In a fleet battle,3,17550,4513,0.2572
+4,In a fleet battle,6,17550,3299,0.1880
+4,In a fleet battle,12,17550,2584,0.1472
