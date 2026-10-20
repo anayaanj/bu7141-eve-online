@@ -306,3 +306,20 @@ SELECT segment, count(*) AS players, round(avg(active_months), 2) AS active_mont
        (SELECT cac_per_engaged_newcomer FROM ue) AS cac_per_engaged_newcomer,
        round(avg(active_months) * (SELECT arpu_month FROM ue) / (SELECT cac_per_engaged_newcomer FROM ue), 2) AS ltv_to_cac
 FROM months GROUP BY segment;
+
+-- The four steps used across acts 2 and 3: the highest each new player reached in their first month.
+-- Alliance = seen in a killmail under an alliance that month (so traders cannot show one). Fleet battle = 50+ pilots.
+CREATE TABLE analysis.new_player_step AS
+WITH al AS (
+  SELECT DISTINCT p.character_id
+  FROM analysis.new_player n
+  JOIN killmail_participant p ON p.character_id = n.character_id AND p.alliance_id IS NOT NULL
+  JOIN killmail k ON k.killmail_id = p.killmail_id
+   AND k.kill_date >= n.first_month AND k.kill_date < n.first_month + interval '1 month')
+SELECT n.character_id, n.first_month,
+       CASE WHEN n.first_month_battle <> 'none' THEN 4 WHEN al.character_id IS NOT NULL THEN 3 WHEN n.joined_corp THEN 2 ELSE 1 END AS step_sort,
+       CASE WHEN n.first_month_battle <> 'none' THEN 'In a fleet battle' WHEN al.character_id IS NOT NULL THEN 'In an alliance'
+            WHEN n.joined_corp THEN 'In a corp' ELSE 'Alone' END AS step
+FROM analysis.new_player n LEFT JOIN al USING (character_id);
+
+ALTER TABLE analysis.new_player_step ADD PRIMARY KEY (character_id);
